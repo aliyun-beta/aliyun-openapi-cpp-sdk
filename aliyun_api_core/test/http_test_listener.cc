@@ -291,7 +291,7 @@ std::string HttpTestListener::GetRequestHeader(std::string field) {
   }
 }
 void HttpTestListener::SetResponseStatus(int status) {
-
+  this->response_status_code_ = status;
 }
 void HttpTestListener::AddResponseHeader(std::string field, std::string value) {
   this->map_response_header_[field] = value;

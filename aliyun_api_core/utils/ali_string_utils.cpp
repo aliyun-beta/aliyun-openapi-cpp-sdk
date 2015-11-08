@@ -12,16 +12,19 @@ std::string get_format_string(const char * format, ...) {
   va_list ap;
   va_start(ap, format);
   int len = vsnprintf(buf, cur_buf_len, format, ap);
+  va_end(ap);
   while(len >= cur_buf_len) {
     cur_buf_len *= 2;
     if(backup_buf) {
       free(backup_buf);
     }
 
-    backup_buf = (char*)calloc(1, cur_buf_len * 2);
-    len = vsnprintf(buf, sizeof(buf), format, ap);
+    backup_buf = (char*)calloc(1, cur_buf_len);
+    va_start(ap, format);
+    len = vsnprintf(backup_buf, cur_buf_len, format, ap);
+    va_end(ap);
   }
-  va_end(ap);
+  
 
   if(backup_buf) {
     res =backup_buf;
@@ -39,16 +42,19 @@ void append_format_string(std::string& data, const char* format, ...) {
   va_list ap;
   va_start(ap, format);
   int len = vsnprintf(buf, cur_buf_len, format, ap);
+  va_end(ap);
   while(len >= cur_buf_len) {
     cur_buf_len *= 2;
     if(backup_buf) {
       free(backup_buf);
     }
 
-    backup_buf = (char*)calloc(1, cur_buf_len * 2);
-    len = vsnprintf(buf, sizeof(buf), format, ap);
+    backup_buf = (char*)calloc(1, cur_buf_len);
+    va_start(ap, format);
+    len = vsnprintf(backup_buf, cur_buf_len, format, ap);
+    va_end(ap);
   }
-  va_end(ap);
+  
 
   if(backup_buf) {
     data.append(backup_buf);
@@ -82,17 +88,4 @@ void strsplit(const std::string& str, std::vector<std::string>& ret, std::string
       tmp.clear();
     }
   }
-}
-
-std::string str_replace(const std::string& input, std::string to_replace, std::string replaced) {
-  std::string str;
-   while(true)   {   
-        std::string::size_type   pos(0);   
-        if((pos=str.find(to_replace)) != std::string::npos) {
-          str.replace(pos,to_replace.length(),replaced);
-        } else {
-          break;   
-        } 
-    }   
-    return str;
 }

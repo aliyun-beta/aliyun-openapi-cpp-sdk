@@ -226,9 +226,34 @@ int get_region_host_test() {
     return 0;
   } else {
     return -1;
-  }
-  
+  }  
 }
+
+int get_format_string_test() {
+  char big_data[10240] = {};
+  memset(big_data, 'a', sizeof(big_data) - 1);
+  std::string res = get_format_string("bbb%sccc", big_data);
+  std::string test_target = std::string("bbb") +  big_data + "ccc";
+  if(res == test_target) {
+    return 0;
+  } else {
+    return -1;
+  }
+}
+
+int append_format_string_test() {
+  std::string string_append = "ccc";
+  char big_data[10240] = {};
+  memset(big_data, 'a', sizeof(big_data) - 1);
+  append_format_string(string_append, "bbb%sccc%d", big_data, 123);
+  std::string test_target = std::string("cccbbb") +  big_data + "ccc123";
+  if(string_append == test_target) {
+    return 0;
+  } else {
+    return -1;
+  }
+}
+
 int main() {
   if(urlencode_test() == 0) {
     printf("urlencode_test pass\n");
@@ -265,6 +290,19 @@ int main() {
     return -1;
   }
 
+  if(get_format_string_test() == 0) {
+    printf("get_format_string_test pass\n");
+  } else {
+    printf("get_format_string_test failed\n");
+    return -1;
+  }
+
+  if(append_format_string_test() == 0) {
+    printf("append_format_string_test pass\n");
+  } else {
+    printf("append_format_string_test failed\n");
+    return -1;
+  }
 
 }
 
