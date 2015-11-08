@@ -104,7 +104,8 @@ INCLUDES = \
 
 CXXFLAGS = \
 	$(INCLUDES) \
-	-g
+	-g \
+	-fPIC
 	
 CFLAGS = -fPIC -g $(INCLUDES)
 
