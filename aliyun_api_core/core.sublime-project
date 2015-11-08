@@ -1,0 +1,28 @@
+{
+  "folders":
+  [
+    {
+      "path": "."
+    }
+  ],
+  "settings":
+  {
+    "sublimeclang_options":
+    [
+      "-Wno-format-security",
+      "-D_POSIX_SPIN_LOCKS",
+      "-D_POSIX_READER_WRITER_LOCKS",
+      "-D_POSIX_THREADS",
+      "-U_WIN32",
+      "-U_MSC_VER",
+      "-D__linux__",
+      "-D_HAVE_STDC",
+      "-ID:/cygwin64/usr/include/",
+      "-IF:/android_include/",
+      "-ID:/cygwin64/lib/gcc/i686-pc-cygwin/4.9.2/include/",
+      "-ID:/cygwin64/lib/gcc/i686-pc-cygwin/4.9.2/include/c++",
+      "-ID:/cygwin64/lib/gcc/i686-pc-cygwin/4.9.2/include/c++/i686-pc-cygwin/",
+      "-I${project_path}/**"
+    ]
+  }
+}

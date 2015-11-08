@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>http;third_party/mbedtls-2.1.2/include/;third_party/http_parser/;third_party/jsoncpp/src/lib_json/;third_party/jsoncpp/include/;utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>http;third_party/mbedtls-2.1.2/include/;third_party/http_parser/;third_party/jsoncpp/src/lib_json/;third_party/jsoncpp/include/;utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AliyunApiCore.cpp" />
+    <ClCompile Include="http\AliHttpRequest.cpp" />
+    <ClCompile Include="http\AliTcpConnection.cpp" />
+    <ClCompile Include="http\AliTlsConnection.cpp" />
+    <ClCompile Include="third_party\http_parser\http_parser.c" />
+    <ClCompile Include="third_party\jsoncpp\src\lib_json\json_reader.cpp" />
+    <ClCompile Include="third_party\jsoncpp\src\lib_json\json_value.cpp" />
+    <ClCompile Include="third_party\jsoncpp\src\lib_json\json_writer.cpp" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\aes.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\aesni.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\arc4.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\asn1parse.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\asn1write.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\base64.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\bignum.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\blowfish.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\camellia.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ccm.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\certs.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\cipher.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\cipher_wrap.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ctr_drbg.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\debug.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\des.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\dhm.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ecdh.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ecdsa.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ecp.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ecp_curves.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\entropy.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\entropy_poll.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\error.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\gcm.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\havege.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\hmac_drbg.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\md.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\md2.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\md4.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\md5.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\md_wrap.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\memory_buffer_alloc.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\net.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\oid.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\padlock.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\pem.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\pk.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\pkcs11.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\pkcs12.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\pkcs5.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\pkparse.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\pkwrite.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\pk_wrap.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\platform.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ripemd160.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\rsa.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\sha1.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\sha256.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\sha512.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ssl_cache.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ssl_ciphersuites.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ssl_cli.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ssl_cookie.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ssl_srv.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ssl_ticket.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\ssl_tls.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\threading.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\timing.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\version.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\version_features.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\x509.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\x509write_crt.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\x509write_csr.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\x509_create.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\x509_crl.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\x509_crt.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\x509_csr.c" />
+    <ClCompile Include="third_party\mbedtls-2.1.2\library\xtea.c" />
+    <ClCompile Include="utils\base64.c" />
+    <ClCompile Include="utils\encode_utils.cpp" />
+    <ClCompile Include="utils\hmac_sha1.cpp" />
+    <ClCompile Include="utils\string_utils.cpp" />
+    <ClCompile Include="utils\urlencode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AliRequestCommon.h" />
+    <ClInclude Include="AliyunApiCore.h" />
+    <ClInclude Include="http\AliConnection.hpp" />
+    <ClInclude Include="http\AliHttpRequest.hpp" />
+    <ClInclude Include="http\AliTcpConnection.hpp" />
+    <ClInclude Include="http\AliTlsConnection.hpp" />
+    <ClInclude Include="third_party\http_parser\http_parser.h" />
+    <ClInclude Include="third_party\jsoncpp\include\json\assertions.h" />
+    <ClInclude Include="third_party\jsoncpp\include\json\autolink.h" />
+    <ClInclude Include="third_party\jsoncpp\include\json\config.h" />
+    <ClInclude Include="third_party\jsoncpp\include\json\features.h" />
+    <ClInclude Include="third_party\jsoncpp\include\json\forwards.h" />
+    <ClInclude Include="third_party\jsoncpp\include\json\json.h" />
+    <ClInclude Include="third_party\jsoncpp\include\json\reader.h" />
+    <ClInclude Include="third_party\jsoncpp\include\json\value.h" />
+    <ClInclude Include="third_party\jsoncpp\include\json\writer.h" />
+    <ClInclude Include="third_party\jsoncpp\src\lib_json\json_batchallocator.h" />
+    <ClInclude Include="third_party\jsoncpp\src\lib_json\json_tool.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\configs\config-ccm-psk-tls1_2.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\configs\config-mini-tls1_1.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\configs\config-picocoin.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\configs\config-suite-b.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\doxygen\input\doc_encdec.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\doxygen\input\doc_hashing.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\doxygen\input\doc_mainpage.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\doxygen\input\doc_rng.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\doxygen\input\doc_ssltls.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\doxygen\input\doc_tcpip.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\doxygen\input\doc_x509.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\aes.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\aesni.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\arc4.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\asn1.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\asn1write.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\base64.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\bignum.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\blowfish.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\bn_mul.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\camellia.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ccm.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\certs.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\check_config.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\cipher.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\cipher_internal.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\compat-1.3.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\config.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ctr_drbg.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\debug.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\des.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\dhm.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ecdh.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ecdsa.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ecp.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\entropy.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\entropy_poll.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\error.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\gcm.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\havege.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\hmac_drbg.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\md.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\md2.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\md4.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\md5.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\md_internal.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\memory_buffer_alloc.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\net.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\oid.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\padlock.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\pem.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\pk.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\pkcs11.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\pkcs12.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\pkcs5.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\pk_internal.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\platform.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ripemd160.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\rsa.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\sha1.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\sha256.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\sha512.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ssl.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ssl_cache.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ssl_ciphersuites.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ssl_cookie.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ssl_internal.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\ssl_ticket.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\threading.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\timing.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\version.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\x509.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\x509_crl.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\x509_crt.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\x509_csr.h" />
+    <ClInclude Include="third_party\mbedtls-2.1.2\include\mbedtls\xtea.h" />
+    <ClInclude Include="utils\base64.h" />
+    <ClInclude Include="utils\encode_utils.h" />
+    <ClInclude Include="utils\hmac_sha1.h" />
+    <ClInclude Include="utils\string_utils.h" />
+    <ClInclude Include="utils\sys_network.h" />
+    <ClInclude Include="utils\urlencode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="third_party\jsoncpp\src\lib_json\json_internalarray.inl" />
+    <None Include="third_party\jsoncpp\src\lib_json\json_internalmap.inl" />
+    <None Include="third_party\jsoncpp\src\lib_json\json_valueiterator.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
