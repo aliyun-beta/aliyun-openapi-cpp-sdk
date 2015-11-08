@@ -8,7 +8,7 @@ INCLUDES= \
 	-Isrc/lib_json \
 	-Iinclude
 
-CXXFLAGS = $(INCLUDES)
+CXXFLAGS = -fPIC $(INCLUDES)
 
 $(TARGET):$(DEPS)
 	$(AR) rcs $(TARGET) $(DEPS)

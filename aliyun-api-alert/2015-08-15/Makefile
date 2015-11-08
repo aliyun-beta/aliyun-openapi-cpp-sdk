@@ -41,12 +41,12 @@ INCLUDES= \
   -I../../aliyun_api_core/utils/ \
   -I../../aliyun_api_core/third_party/jsoncpp/include/
 
-CXXFLAGS = $(INCLUDES)
+CXXFLAGS = -fPIC $(INCLUDES)
 
 SHARED_LIBS = ../../aliyun_api_core/libaliyun_core.a
 
 $(TARGET): $(DEPS) $(SHARED_LIBS)
-	g++ --shared -o $(TARGET) $(DEPS) $(SHARED_LIBS)
+	g++ --shared -fPIC -o $(TARGET) $(DEPS) $(SHARED_LIBS)
 
 ../../aliyun_api_core/libaliyun_core.a:
 	make -C ../../aliyun_api_core/ libaliyun_core.a
