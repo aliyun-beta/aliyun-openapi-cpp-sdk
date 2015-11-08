@@ -2,8 +2,8 @@
 #include "ali_api_core.h"
 #include "ali_string_utils.h"
 #include "ali_ots.h"
-#include "Json/Value.h"
-#include "Json/Reader.h"
+#include "json/value.h"
+#include "json/reader.h"
 using namespace aliyun;
 namespace {
 
