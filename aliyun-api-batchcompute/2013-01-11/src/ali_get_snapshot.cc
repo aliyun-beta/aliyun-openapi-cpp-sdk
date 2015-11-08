@@ -2,8 +2,8 @@
 #include "ali_api_core.h"
 #include "ali_string_utils.h"
 #include "ali_batch_compute.h"
-#include "json/value.h"
-#include "json/reader.h"
+#include "Json/Value.h"
+#include "Json/Reader.h"
 using namespace aliyun;
 namespace {
 
@@ -53,17 +53,17 @@ int BatchCompute::GetSnapshot(const GetSnapshotRequestType& req,
      ret = -1;
      goto out;
   }
+  status_code = req_rpc->WaitResponseHeaderComplete();
+  req_rpc->ReadResponseBody(str_response);
+  if(status_code > 0 && !str_response.empty()){
+    parse_success = reader.parse(str_response, val);
+  }
   if(!parse_success) {
     if(error_info) {
       error_info->code = "parse response failed";
     }
     ret = -1;
     goto out;
-  }
-  status_code = req_rpc->WaitResponseHeaderComplete();
-  req_rpc->ReadResponseBody(str_response);
-  if(status_code > 0 && !str_response.empty()){
-    parse_success = reader.parse(str_response, val);
   }
   if(status_code!= 200 && error_info) {
     error_info->request_id = val.isMember("RequestId") ? val["RequestId"].asString(): "";
