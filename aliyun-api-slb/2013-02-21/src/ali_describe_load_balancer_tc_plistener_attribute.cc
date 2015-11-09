@@ -110,7 +110,7 @@ int Slb::DescribeLoadBalancerTCPListenerAttribute(const DescribeLoadBalancerTCPL
     ret = -1;
     goto out;
   }
-  if(status_code!= 200 && error_info && parse_success) {
+  if(status_code!= 200 && error_info) {
     error_info->request_id = val.isMember("RequestId") ? val["RequestId"].asString(): "";
     error_info->code = val.isMember("Code") ? val["Code"].asString(): "";
     error_info->host_id = val.isMember("HostId") ? val["HostId"].asString(): "";
