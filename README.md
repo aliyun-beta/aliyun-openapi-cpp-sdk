@@ -23,7 +23,7 @@ For example we need to use ecs project, and call describe regions function, just
     using namespace aliyun;
     int main() {
       DescribeRegionsRequestType req;
-      DescribeRegionsRequestType resp;
+      DescribeRegionsResponseType resp;
       Ecs* ecs = Ess::CreateEcsClient("cn_shenzhen", "yourappid", "yoursecret");
       if(!ecs) {  // if endpoint not found, the instance cannot be created
         return -1;
@@ -32,6 +32,6 @@ For example we need to use ecs project, and call describe regions function, just
       // deal with the result
       ....
 
-    delete ecs;
-    return 0;
+      delete ecs;
+      return 0;
     }
