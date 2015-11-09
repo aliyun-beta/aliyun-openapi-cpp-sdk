@@ -32,6 +32,6 @@ For example we need to use ecs project, and call describe regions function, just
       // deal with the result
       ....
 
-    delete ecs;
-    return 0;
+      delete ecs;
+      return 0;
     }
