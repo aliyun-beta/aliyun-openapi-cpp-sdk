@@ -28,7 +28,6 @@ AliRoaRequest::AliRoaRequest(std::string version,
 
 int AliRoaRequest::CommitRequest() {
   std::string gmt_time = getHttpGmtTime();
-  std::map<std::string, std::string> map_query;
 
   std::string compose_url = this->method_ + "\n";
   if(map_request_headers_.find("Accept") != map_request_headers_.end()) {
@@ -42,8 +41,7 @@ int AliRoaRequest::CommitRequest() {
   if(map_request_headers_.find("Content-Type") != map_request_headers_.end()) {
     compose_url.append(map_request_headers_["Content-Type"]);
   }
-  bool is_first_query = true;
-  
+
   compose_url.append("\n");
   compose_url.append(gmt_time);
   compose_url.append("\n");
