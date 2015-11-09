@@ -1,4 +1,5 @@
-TARGET = aliyun_api_ons.so
+DYNAMIC_TARGET = libaliyun_api_ons.so
+STATIC_TARGET = libaliyun_api_ons.a
 DEPS = \
   src/ali_ons.o \
   src/ali_ons_cloud_get_appkey_list.o \
@@ -59,12 +60,17 @@ CXXFLAGS = -fPIC $(INCLUDES)
 
 SHARED_LIBS = ../../aliyun_api_core/libaliyun_core.a
 
-$(TARGET): $(DEPS) $(SHARED_LIBS)
-	g++ --shared -fPIC -o $(TARGET) $(DEPS) $(SHARED_LIBS)
+.PHONY:all
+all: $(DYNAMIC_TARGET) $(STATIC_TARGET)
 
+$(DYNAMIC_TARGET): $(DEPS) $(SHARED_LIBS)
+	g++ -fPIC --shared -o $(DYNAMIC_TARGET) $(DEPS) $(SHARED_LIBS)
+
+$(STATIC_TARGET): $(DEPS)
+	$(AR) rcs $(STATIC_TARGET) $(DEPS)
 ../../aliyun_api_core/libaliyun_core.a:
 	make -C ../../aliyun_api_core/ libaliyun_core.a
 
 clean:
-	rm -f $(DEPS) $(SHARED_LIBS)
+	rm -f $(DYNAMIC_TARGET) $(STATIC_TARGET) $(DEPS) $(SHARED_LIBS)
 	make -C ../../aliyun_api_core/ clean
