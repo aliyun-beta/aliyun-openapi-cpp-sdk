@@ -4,7 +4,7 @@
 #include "ali_string_utils.h"
 #include "ali_urlencode.h"
 #include "http_parser.h"
-
+#include "ali_log.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -125,7 +125,7 @@ int AliHttpRequest::CommitRequest() {
   }
   req.append("\r\n");
 
-  printf("request=\n%s", req.c_str());
+  ALI_LOG("request=\n%s", req.c_str());
 
   if(this->is_tls) {
     connection_ = new AliTlsConnection(this->host_, atoi(this->port_.c_str()));
@@ -278,11 +278,8 @@ std::string AliHttpRequest::GetPath(bool with_query) {
 int AliHttpRequest::ReadResponseBody(std::string& body) {
   char read_buf[4096] = {};
   int last_Read = 0;
-  printf("ReadResponseBody\n");
   while(!this->is_response_complete && parser_->http_errno == 0) {
-    printf("http_parser_execute_\n");
     last_Read = this->connection_->Read(read_buf, sizeof(read_buf));
-    printf("read %d\n", last_Read);
     if(last_Read <= 0) {
       goto out;
     }
@@ -291,7 +288,7 @@ int AliHttpRequest::ReadResponseBody(std::string& body) {
   
 out:
   body = this->resposne_body_;
-  printf("read result:\n%s\n", body.c_str());
+  ALI_LOG("read result:\n%s", body.c_str());
   this->resposne_body_.clear();
   return body.size();
 }
@@ -299,7 +296,7 @@ out:
 void RequestHandleParserEvent(AliHttpRequest* req, int type, char* buf, int len) {
   switch(type) {
     case PARSER_EVENT_STATUS: {
-      printf("status = %d\n",  req->parser_->status_code);
+      ALI_LOG("status = %d",  req->parser_->status_code);
       req->response_status_code_ = req->parser_->status_code;
       break;
     }

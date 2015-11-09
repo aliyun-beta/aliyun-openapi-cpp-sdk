@@ -50,7 +50,6 @@ int http_post_query_test() {
   req->setRequestMethod("POST");
   req->CommitRequest();
   status_code = req->WaitResponseHeaderComplete();
-  fprintf(stderr, "status_code=%d", status_code);
   req->ReadResponseBody(response_body);
   delete req;
   listener->WaitComplete();
@@ -88,7 +87,6 @@ int http_get_test() {
   req->AddRequestHeader("User-Agent", "AliHttpRequest");
   req->CommitRequest();
   status_code = req->WaitResponseHeaderComplete();
-  fprintf(stderr, "status_code=%d", status_code);
   req->ReadResponseBody(response_body);
   delete req;
   listener->WaitComplete();
@@ -148,8 +146,6 @@ int rpc_request_test() {
   delete req;
   
   if(sign != sign_compute) {
-    printf("signed=%s\n", sign.c_str());
-    printf("sign_compute=%s\n", sign_compute.c_str());
     ret = -1;
     goto out;
   }

@@ -2,6 +2,7 @@
 #include "ali_string_utils.h"
 #include "ali_encode_utils.h"
 #include "ali_urlencode.h"
+#include "ali_log.h"
 #include <stdio.h>
 #include <string.h>
 std::string getHttpGmtTime() {
@@ -51,7 +52,7 @@ int AliRoaRequest::CommitRequest() {
   compose_url.append("x-acs-version:" + version_ + "\n");
   compose_url.append(this->GetPath());
 
-  printf("compose_url=%s\n", compose_url.c_str());
+  ALI_LOG("compose_url=%s\n", compose_url.c_str());
 
   std::string sign = encode_compute_hmac_sha1(this->secret_, (char *)compose_url.c_str(), compose_url.size());
 

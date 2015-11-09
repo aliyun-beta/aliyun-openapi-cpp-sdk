@@ -13,7 +13,8 @@ DEPS = \
 	http/ali_tcp_connection.o \
 	utils/ali_string_utils.o \
 	utils/ali_encode_utils.o \
-	utils/ali_urlencode.o
+	utils/ali_urlencode.o \
+	utils/ali_log.o
 
 MBEDTLS_DEPS = \
 	third_party/mbedtls-2.1.2/library/aes.o	\

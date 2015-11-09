@@ -2,6 +2,7 @@
 #include "ali_string_utils.h"
 #include "ali_encode_utils.h"
 #include "ali_urlencode.h"
+#include "ali_log.h"
 #include <stdio.h>
 static std::string get_utc_string() {
   time_t now;
@@ -47,7 +48,7 @@ std::string AliRpcRequest::GetSignUrl() {
     }
   }
   mapWithPublicArgs["Format"] = "JSON";
-  mapWithPublicArgs["Version"] = this->version_;  //"2014-05-26";
+  mapWithPublicArgs["Version"] = this->version_;
   mapWithPublicArgs["AccessKeyId"] = this->appid_;
   mapWithPublicArgs["SignatureMethod"] = "HMAC-SHA1";
   mapWithPublicArgs["TimeStamp"] = utc_time_;
@@ -63,7 +64,7 @@ std::string AliRpcRequest::GetSignUrl() {
   }
 
   encoded = this->method_ + "&" + urlencode("/") + "&" + urlencode(encoded);
-  printf("sign str=%s\n", encoded.c_str());
+  ALI_LOG("sign str=%s\n", encoded.c_str());
   return encoded;
 }
 

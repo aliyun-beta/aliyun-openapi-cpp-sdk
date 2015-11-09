@@ -192,7 +192,6 @@ static http_parser_settings htp_hooks = {
 };
 
  void * ResponseHandleRun(void* args) {
-  printf("ResponseHandleRun\n");
   HttpTestListener* client = (HttpTestListener*)args;
   char buf[4096] = {};
   HttpTestListener* handler = (HttpTestListener*)args;
@@ -200,26 +199,21 @@ static http_parser_settings htp_hooks = {
   socklen_t len_client = sizeof(sockaddr_in);  
   sockaddr_in addr_client = {};
   fd_client = accept(handler->fd_, (sockaddr*)&addr_client, &len_client);
-  printf("accept\n");
   http_parser_init_(handler->parser_, HTTP_REQUEST);
   handler->parser_->data = client;
   for(;;) {
     int len = recv(fd_client, buf, sizeof(buf), 0);
     if(len <= 0) {
-      printf("recv:%d\n", len);
       break;
     }
-    printf("recv:%d\n", len);
     http_parser_execute_(client->parser_, &htp_hooks, buf, len);
 
     if(handler->parser_->http_errno != 0 || handler->is_request_complete_) {
-      printf("handler->http_errno\n");
       break;
     }
   }
-  printf("handler->is_request_complete_\n");
-  if(handler->is_request_complete_) {
 
+  if(handler->is_request_complete_) {
     char write_buf[4096];
     snprintf(write_buf, sizeof(write_buf), "HTTP/1.1 %s\r\n", get_status_string(handler->response_status_code_, 0));
     write(fd_client, write_buf, strlen(write_buf));
@@ -231,7 +225,6 @@ static http_parser_settings htp_hooks = {
     write(fd_client, "\r\n", 2);
 
     if(client->response_body_.size() > 0) {
-      printf("writting response body\n");
       write(fd_client, client->response_body_.c_str(), client->response_body_.size());
     }
 

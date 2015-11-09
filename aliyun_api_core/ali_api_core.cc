@@ -31,7 +31,6 @@ static std::string getHttpGmtTime() {
   char szBuf[128]={0};
   strftime(szBuf , 127 , "%a, %d %b %Y %H:%M:%S" , gmtime(&t));
   strcat(szBuf, " GMT");
-  //printf(szBuf);
   return szBuf;
 }
 
