@@ -20,18 +20,41 @@ We will commit the sln file latter.But it's easily to compile just include the c
 For example we need to use ecs project, and call describe regions function, just code like below  
 
     #include "ali_ecs.h"
+    #include <stdio.h>
     using namespace aliyun;
-    int main() {
-      DescribeRegionsRequestType req;
-      DescribeRegionsResponseType resp;
-      Ecs* ecs = Ess::CreateEcsClient("cn_shenzhen", "yourappid", "yoursecret");
-      if(!ecs) {  // if endpoint not found, the instance cannot be created
-        return -1;
-      }
-      int status_code = ecs->DescribeRegions(req, &resp, NULL);
-      // deal with the result
-      ....
 
-      delete ecs;
-      return 0;
+    void show_regions() {
+
+      EcsDescribeRegionsRequestType req;
+      EcsDescribeRegionsResponseType resp;
+      EcsErrorInfo error_info;
+
+      int status_code = 0;
+
+      Ecs* ecs = Ecs::CreateEcsClient("cn_shenzhen", "myappid", "mysecret");
+      printf(">>>>>>> show regions start >>>>>>>>>>>>\n");
+      if(!ecs) {
+        printf("error endpoint not found");
+        goto out;
+      }
+
+      status_code = ecs->DescribeRegions(req, &resp, &error_info);
+
+      if(status_code != 200) {
+        printf("status code=%d\n", status_code);
+        printf("code = %s\n", error_info.code.c_str());
+        printf("message = %s\n", error_info.message.c_str());
+        goto out;
+      }
+      printf("status code=%d\n", status_code);
+      for(int i = 0; i < resp.regions.size(); i++) {
+        printf("=========\n");
+        printf("region_id:%s\n", resp.regions[i].region_id.c_str());
+        printf("local_name:%s\n", resp.regions[i].local_name.c_str());
+      }
+    out:
+      if(ecs) {
+        delete ecs;
+      }
+      printf(">>>>>>> show regions end >>>>>>>>>>>>\n");
     }

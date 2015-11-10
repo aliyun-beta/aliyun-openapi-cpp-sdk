@@ -10,7 +10,7 @@ void show_regions() {
 
   int status_code = 0;
 
-  Ecs* ecs = Ecs::CreateEcsClient("cn_shenzhen", "28a2mKSKCQbYGdO1", "65TwcFtOvDpjWqQ9oNLbXPiYk6OUHG");
+  Ecs* ecs = Ecs::CreateEcsClient("cn_shenzhen", "myappid", "mysecret");
   printf(">>>>>>> show regions start >>>>>>>>>>>>\n");
   if(!ecs) {
     printf("error endpoint not found");
