@@ -1,12 +1,12 @@
 #ifndef ALI_CRMH
 #define ALI_CRMH
 #include <string>
-#include "ali_add_label_types.h"
-#include "ali_check_label_types.h"
-#include "ali_delete_label_types.h"
-#include "ali_query_customer_label_types.h"
+#include "ali_crm_add_label_types.h"
+#include "ali_crm_check_label_types.h"
+#include "ali_crm_delete_label_types.h"
+#include "ali_crm_query_customer_label_types.h"
 namespace aliyun {
-struct AliCrmErrorInfo {
+struct CrmErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -22,21 +22,21 @@ private:
   version_("2015-04-08"),
   host_(host) {}
 public:
-  int AddLabel(const AddLabelRequestType& req,
-          AddLabelResponseType* resp,
-          AliCrmErrorInfo* error_info);
+  int AddLabel(const CrmAddLabelRequestType& req,
+          CrmAddLabelResponseType* resp,
+          CrmErrorInfo* error_info);
 
-  int CheckLabel(const CheckLabelRequestType& req,
-          CheckLabelResponseType* resp,
-          AliCrmErrorInfo* error_info);
+  int CheckLabel(const CrmCheckLabelRequestType& req,
+          CrmCheckLabelResponseType* resp,
+          CrmErrorInfo* error_info);
 
-  int DeleteLabel(const DeleteLabelRequestType& req,
-          DeleteLabelResponseType* resp,
-          AliCrmErrorInfo* error_info);
+  int DeleteLabel(const CrmDeleteLabelRequestType& req,
+          CrmDeleteLabelResponseType* resp,
+          CrmErrorInfo* error_info);
 
-  int QueryCustomerLabel(const QueryCustomerLabelRequestType& req,
-          QueryCustomerLabelResponseType* resp,
-          AliCrmErrorInfo* error_info);
+  int QueryCustomerLabel(const CrmQueryCustomerLabelRequestType& req,
+          CrmQueryCustomerLabelResponseType* resp,
+          CrmErrorInfo* error_info);
 
 private:
   const std::string appid_;

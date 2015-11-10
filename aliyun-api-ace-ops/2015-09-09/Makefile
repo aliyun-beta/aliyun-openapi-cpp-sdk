@@ -2,8 +2,8 @@ DYNAMIC_TARGET = libaliyun_api_aceops.so
 STATIC_TARGET = libaliyun_api_aceops.a
 DEPS = \
   src/ali_aceops.o \
-  src/ali_query.o \
-  src/ali_report.o \
+  src/ali_aceops_query.o \
+  src/ali_aceops_report.o \
 
 INCLUDES= \
   -Iinclude/ \

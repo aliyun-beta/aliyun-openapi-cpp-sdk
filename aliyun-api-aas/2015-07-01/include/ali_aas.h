@@ -1,14 +1,14 @@
 #ifndef ALI_AASH
 #define ALI_AASH
 #include <string>
-#include "ali_create_access_key_for_account_types.h"
-#include "ali_create_aliyun_account_types.h"
-#include "ali_delete_access_key_for_account_types.h"
-#include "ali_get_basic_info_for_account_types.h"
-#include "ali_list_access_keys_for_account_types.h"
-#include "ali_update_access_key_status_for_account_types.h"
+#include "ali_aas_create_access_key_for_account_types.h"
+#include "ali_aas_create_aliyun_account_types.h"
+#include "ali_aas_delete_access_key_for_account_types.h"
+#include "ali_aas_get_basic_info_for_account_types.h"
+#include "ali_aas_list_access_keys_for_account_types.h"
+#include "ali_aas_update_access_key_status_for_account_types.h"
 namespace aliyun {
-struct AliAasErrorInfo {
+struct AasErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -24,29 +24,29 @@ private:
   version_("2015-07-01"),
   host_(host) {}
 public:
-  int CreateAccessKeyForAccount(const CreateAccessKeyForAccountRequestType& req,
-          CreateAccessKeyForAccountResponseType* resp,
-          AliAasErrorInfo* error_info);
+  int CreateAccessKeyForAccount(const AasCreateAccessKeyForAccountRequestType& req,
+          AasCreateAccessKeyForAccountResponseType* resp,
+          AasErrorInfo* error_info);
 
-  int CreateAliyunAccount(const CreateAliyunAccountRequestType& req,
-          CreateAliyunAccountResponseType* resp,
-          AliAasErrorInfo* error_info);
+  int CreateAliyunAccount(const AasCreateAliyunAccountRequestType& req,
+          AasCreateAliyunAccountResponseType* resp,
+          AasErrorInfo* error_info);
 
-  int DeleteAccessKeyForAccount(const DeleteAccessKeyForAccountRequestType& req,
-          DeleteAccessKeyForAccountResponseType* resp,
-          AliAasErrorInfo* error_info);
+  int DeleteAccessKeyForAccount(const AasDeleteAccessKeyForAccountRequestType& req,
+          AasDeleteAccessKeyForAccountResponseType* resp,
+          AasErrorInfo* error_info);
 
-  int GetBasicInfoForAccount(const GetBasicInfoForAccountRequestType& req,
-          GetBasicInfoForAccountResponseType* resp,
-          AliAasErrorInfo* error_info);
+  int GetBasicInfoForAccount(const AasGetBasicInfoForAccountRequestType& req,
+          AasGetBasicInfoForAccountResponseType* resp,
+          AasErrorInfo* error_info);
 
-  int ListAccessKeysForAccount(const ListAccessKeysForAccountRequestType& req,
-          ListAccessKeysForAccountResponseType* resp,
-          AliAasErrorInfo* error_info);
+  int ListAccessKeysForAccount(const AasListAccessKeysForAccountRequestType& req,
+          AasListAccessKeysForAccountResponseType* resp,
+          AasErrorInfo* error_info);
 
-  int UpdateAccessKeyStatusForAccount(const UpdateAccessKeyStatusForAccountRequestType& req,
-          UpdateAccessKeyStatusForAccountResponseType* resp,
-          AliAasErrorInfo* error_info);
+  int UpdateAccessKeyStatusForAccount(const AasUpdateAccessKeyStatusForAccountRequestType& req,
+          AasUpdateAccessKeyStatusForAccountResponseType* resp,
+          AasErrorInfo* error_info);
 
 private:
   const std::string appid_;

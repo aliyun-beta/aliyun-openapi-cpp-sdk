@@ -1,10 +1,10 @@
 #ifndef ALI_OMSH
 #define ALI_OMSH
 #include <string>
-#include "ali_get_product_define_types.h"
-#include "ali_get_user_data_types.h"
+#include "ali_oms_get_product_define_types.h"
+#include "ali_oms_get_user_data_types.h"
 namespace aliyun {
-struct AliOmsErrorInfo {
+struct OmsErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -20,13 +20,13 @@ private:
   version_("2015-02-12"),
   host_(host) {}
 public:
-  int GetProductDefine(const GetProductDefineRequestType& req,
-          GetProductDefineResponseType* resp,
-          AliOmsErrorInfo* error_info);
+  int GetProductDefine(const OmsGetProductDefineRequestType& req,
+          OmsGetProductDefineResponseType* resp,
+          OmsErrorInfo* error_info);
 
-  int GetUserData(const GetUserDataRequestType& req,
-          GetUserDataResponseType* resp,
-          AliOmsErrorInfo* error_info);
+  int GetUserData(const OmsGetUserDataRequestType& req,
+          OmsGetUserDataResponseType* resp,
+          OmsErrorInfo* error_info);
 
 private:
   const std::string appid_;

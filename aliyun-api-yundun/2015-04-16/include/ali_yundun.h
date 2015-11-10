@@ -1,37 +1,37 @@
 #ifndef ALI_YUNDUNH
 #define ALI_YUNDUNH
 #include <string>
-#include "ali_add_cname_waf_types.h"
-#include "ali_bruteforce_log_types.h"
-#include "ali_close_cc_protect_types.h"
-#include "ali_close_port_scan_types.h"
-#include "ali_close_vul_scan_types.h"
-#include "ali_config_ddos_types.h"
-#include "ali_confirm_login_types.h"
-#include "ali_ddos_flow_graph_types.h"
-#include "ali_ddos_log_types.h"
-#include "ali_delete_back_door_file_types.h"
-#include "ali_delete_cname_waf_types.h"
-#include "ali_detect_vul_by_id_types.h"
-#include "ali_detect_vul_by_ip_types.h"
-#include "ali_get_ddos_config_options_types.h"
-#include "ali_list_instance_infos_types.h"
-#include "ali_loginevent_log_types.h"
-#include "ali_open_cc_protect_types.h"
-#include "ali_open_port_scan_types.h"
-#include "ali_open_vul_scan_types.h"
-#include "ali_query_ddos_config_types.h"
-#include "ali_secure_check_types.h"
-#include "ali_service_status_types.h"
-#include "ali_set_ddos_auto_types.h"
-#include "ali_set_ddos_qps_types.h"
-#include "ali_summary_types.h"
-#include "ali_vul_scan_log_types.h"
-#include "ali_waf_info_types.h"
-#include "ali_waf_log_types.h"
-#include "ali_webshell_log_types.h"
+#include "ali_yundun_add_cname_waf_types.h"
+#include "ali_yundun_bruteforce_log_types.h"
+#include "ali_yundun_close_cc_protect_types.h"
+#include "ali_yundun_close_port_scan_types.h"
+#include "ali_yundun_close_vul_scan_types.h"
+#include "ali_yundun_config_ddos_types.h"
+#include "ali_yundun_confirm_login_types.h"
+#include "ali_yundun_ddos_flow_graph_types.h"
+#include "ali_yundun_ddos_log_types.h"
+#include "ali_yundun_delete_back_door_file_types.h"
+#include "ali_yundun_delete_cname_waf_types.h"
+#include "ali_yundun_detect_vul_by_id_types.h"
+#include "ali_yundun_detect_vul_by_ip_types.h"
+#include "ali_yundun_get_ddos_config_options_types.h"
+#include "ali_yundun_list_instance_infos_types.h"
+#include "ali_yundun_loginevent_log_types.h"
+#include "ali_yundun_open_cc_protect_types.h"
+#include "ali_yundun_open_port_scan_types.h"
+#include "ali_yundun_open_vul_scan_types.h"
+#include "ali_yundun_query_ddos_config_types.h"
+#include "ali_yundun_secure_check_types.h"
+#include "ali_yundun_service_status_types.h"
+#include "ali_yundun_set_ddos_auto_types.h"
+#include "ali_yundun_set_ddos_qps_types.h"
+#include "ali_yundun_summary_types.h"
+#include "ali_yundun_vul_scan_log_types.h"
+#include "ali_yundun_waf_info_types.h"
+#include "ali_yundun_waf_log_types.h"
+#include "ali_yundun_webshell_log_types.h"
 namespace aliyun {
-struct AliYundunErrorInfo {
+struct YundunErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -47,121 +47,121 @@ private:
   version_("2015-04-16"),
   host_(host) {}
 public:
-  int AddCNameWaf(const AddCNameWafRequestType& req,
-          AddCNameWafResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int AddCNameWaf(const YundunAddCNameWafRequestType& req,
+          YundunAddCNameWafResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int BruteforceLog(const BruteforceLogRequestType& req,
-          BruteforceLogResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int BruteforceLog(const YundunBruteforceLogRequestType& req,
+          YundunBruteforceLogResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int CloseCCProtect(const CloseCCProtectRequestType& req,
-          CloseCCProtectResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int CloseCCProtect(const YundunCloseCCProtectRequestType& req,
+          YundunCloseCCProtectResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int ClosePortScan(const ClosePortScanRequestType& req,
-          ClosePortScanResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int ClosePortScan(const YundunClosePortScanRequestType& req,
+          YundunClosePortScanResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int CloseVulScan(const CloseVulScanRequestType& req,
-          CloseVulScanResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int CloseVulScan(const YundunCloseVulScanRequestType& req,
+          YundunCloseVulScanResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int ConfigDdos(const ConfigDdosRequestType& req,
-          ConfigDdosResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int ConfigDdos(const YundunConfigDdosRequestType& req,
+          YundunConfigDdosResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int ConfirmLogin(const ConfirmLoginRequestType& req,
-          ConfirmLoginResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int ConfirmLogin(const YundunConfirmLoginRequestType& req,
+          YundunConfirmLoginResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int DdosFlowGraph(const DdosFlowGraphRequestType& req,
-          DdosFlowGraphResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int DdosFlowGraph(const YundunDdosFlowGraphRequestType& req,
+          YundunDdosFlowGraphResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int DdosLog(const DdosLogRequestType& req,
-          DdosLogResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int DdosLog(const YundunDdosLogRequestType& req,
+          YundunDdosLogResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int DeleteBackDoorFile(const DeleteBackDoorFileRequestType& req,
-          DeleteBackDoorFileResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int DeleteBackDoorFile(const YundunDeleteBackDoorFileRequestType& req,
+          YundunDeleteBackDoorFileResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int DeleteCNameWaf(const DeleteCNameWafRequestType& req,
-          DeleteCNameWafResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int DeleteCNameWaf(const YundunDeleteCNameWafRequestType& req,
+          YundunDeleteCNameWafResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int DetectVulById(const DetectVulByIdRequestType& req,
-          DetectVulByIdResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int DetectVulById(const YundunDetectVulByIdRequestType& req,
+          YundunDetectVulByIdResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int DetectVulByIp(const DetectVulByIpRequestType& req,
-          DetectVulByIpResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int DetectVulByIp(const YundunDetectVulByIpRequestType& req,
+          YundunDetectVulByIpResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int GetDdosConfigOptions(const GetDdosConfigOptionsRequestType& req,
-          GetDdosConfigOptionsResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int GetDdosConfigOptions(const YundunGetDdosConfigOptionsRequestType& req,
+          YundunGetDdosConfigOptionsResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int ListInstanceInfos(const ListInstanceInfosRequestType& req,
-          ListInstanceInfosResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int ListInstanceInfos(const YundunListInstanceInfosRequestType& req,
+          YundunListInstanceInfosResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int LogineventLog(const LogineventLogRequestType& req,
-          LogineventLogResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int LogineventLog(const YundunLogineventLogRequestType& req,
+          YundunLogineventLogResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int OpenCCProtect(const OpenCCProtectRequestType& req,
-          OpenCCProtectResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int OpenCCProtect(const YundunOpenCCProtectRequestType& req,
+          YundunOpenCCProtectResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int OpenPortScan(const OpenPortScanRequestType& req,
-          OpenPortScanResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int OpenPortScan(const YundunOpenPortScanRequestType& req,
+          YundunOpenPortScanResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int OpenVulScan(const OpenVulScanRequestType& req,
-          OpenVulScanResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int OpenVulScan(const YundunOpenVulScanRequestType& req,
+          YundunOpenVulScanResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int QueryDdosConfig(const QueryDdosConfigRequestType& req,
-          QueryDdosConfigResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int QueryDdosConfig(const YundunQueryDdosConfigRequestType& req,
+          YundunQueryDdosConfigResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int SecureCheck(const SecureCheckRequestType& req,
-          SecureCheckResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int SecureCheck(const YundunSecureCheckRequestType& req,
+          YundunSecureCheckResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int ServiceStatus(const ServiceStatusRequestType& req,
-          ServiceStatusResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int ServiceStatus(const YundunServiceStatusRequestType& req,
+          YundunServiceStatusResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int SetDdosAuto(const SetDdosAutoRequestType& req,
-          SetDdosAutoResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int SetDdosAuto(const YundunSetDdosAutoRequestType& req,
+          YundunSetDdosAutoResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int SetDdosQps(const SetDdosQpsRequestType& req,
-          SetDdosQpsResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int SetDdosQps(const YundunSetDdosQpsRequestType& req,
+          YundunSetDdosQpsResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int Summary(const SummaryRequestType& req,
-          SummaryResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int Summary(const YundunSummaryRequestType& req,
+          YundunSummaryResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int VulScanLog(const VulScanLogRequestType& req,
-          VulScanLogResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int VulScanLog(const YundunVulScanLogRequestType& req,
+          YundunVulScanLogResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int WafInfo(const WafInfoRequestType& req,
-          WafInfoResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int WafInfo(const YundunWafInfoRequestType& req,
+          YundunWafInfoResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int WafLog(const WafLogRequestType& req,
-          WafLogResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int WafLog(const YundunWafLogRequestType& req,
+          YundunWafLogResponseType* resp,
+          YundunErrorInfo* error_info);
 
-  int WebshellLog(const WebshellLogRequestType& req,
-          WebshellLogResponseType* resp,
-          AliYundunErrorInfo* error_info);
+  int WebshellLog(const YundunWebshellLogRequestType& req,
+          YundunWebshellLogResponseType* resp,
+          YundunErrorInfo* error_info);
 
 private:
   const std::string appid_;

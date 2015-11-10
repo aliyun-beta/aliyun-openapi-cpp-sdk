@@ -1,13 +1,13 @@
 #ifndef ALI_RISKH
 #define ALI_RISKH
 #include <string>
-#include "ali_find_risk_types.h"
-#include "ali_query_name_list_types.h"
-#include "ali_send_verify_code_types.h"
-#include "ali_validate_verify_code_types.h"
-#include "ali_write_ussc_types.h"
+#include "ali_risk_find_risk_types.h"
+#include "ali_risk_query_name_list_types.h"
+#include "ali_risk_send_verify_code_types.h"
+#include "ali_risk_validate_verify_code_types.h"
+#include "ali_risk_write_ussc_types.h"
 namespace aliyun {
-struct AliRiskErrorInfo {
+struct RiskErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -23,25 +23,25 @@ private:
   version_("2015-08-04"),
   host_(host) {}
 public:
-  int FindRisk(const FindRiskRequestType& req,
-          FindRiskResponseType* resp,
-          AliRiskErrorInfo* error_info);
+  int FindRisk(const RiskFindRiskRequestType& req,
+          RiskFindRiskResponseType* resp,
+          RiskErrorInfo* error_info);
 
-  int QueryNameList(const QueryNameListRequestType& req,
-          QueryNameListResponseType* resp,
-          AliRiskErrorInfo* error_info);
+  int QueryNameList(const RiskQueryNameListRequestType& req,
+          RiskQueryNameListResponseType* resp,
+          RiskErrorInfo* error_info);
 
-  int SendVerifyCode(const SendVerifyCodeRequestType& req,
-          SendVerifyCodeResponseType* resp,
-          AliRiskErrorInfo* error_info);
+  int SendVerifyCode(const RiskSendVerifyCodeRequestType& req,
+          RiskSendVerifyCodeResponseType* resp,
+          RiskErrorInfo* error_info);
 
-  int ValidateVerifyCode(const ValidateVerifyCodeRequestType& req,
-          ValidateVerifyCodeResponseType* resp,
-          AliRiskErrorInfo* error_info);
+  int ValidateVerifyCode(const RiskValidateVerifyCodeRequestType& req,
+          RiskValidateVerifyCodeResponseType* resp,
+          RiskErrorInfo* error_info);
 
-  int WriteUssc(const WriteUsscRequestType& req,
-          WriteUsscResponseType* resp,
-          AliRiskErrorInfo* error_info);
+  int WriteUssc(const RiskWriteUsscRequestType& req,
+          RiskWriteUsscResponseType* resp,
+          RiskErrorInfo* error_info);
 
 private:
   const std::string appid_;

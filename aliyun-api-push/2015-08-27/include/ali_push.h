@@ -1,11 +1,11 @@
 #ifndef ALI_PUSHH
 #define ALI_PUSHH
 #include <string>
-#include "ali_batch_get_devices_info_types.h"
-#include "ali_push_byte_message_types.h"
-#include "ali_revert_rpc_types.h"
+#include "ali_push_batch_get_devices_info_types.h"
+#include "ali_push_push_byte_message_types.h"
+#include "ali_push_revert_rpc_types.h"
 namespace aliyun {
-struct AliPushErrorInfo {
+struct PushErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -21,17 +21,17 @@ private:
   version_("2015-08-27"),
   host_(host) {}
 public:
-  int BatchGetDevicesInfo(const BatchGetDevicesInfoRequestType& req,
-          BatchGetDevicesInfoResponseType* resp,
-          AliPushErrorInfo* error_info);
+  int BatchGetDevicesInfo(const PushBatchGetDevicesInfoRequestType& req,
+          PushBatchGetDevicesInfoResponseType* resp,
+          PushErrorInfo* error_info);
 
-  int PushByteMessage(const PushByteMessageRequestType& req,
-          PushByteMessageResponseType* resp,
-          AliPushErrorInfo* error_info);
+  int PushByteMessage(const PushPushByteMessageRequestType& req,
+          PushPushByteMessageResponseType* resp,
+          PushErrorInfo* error_info);
 
-  int RevertRpc(const RevertRpcRequestType& req,
-          RevertRpcResponseType* resp,
-          AliPushErrorInfo* error_info);
+  int RevertRpc(const PushRevertRpcRequestType& req,
+          PushRevertRpcResponseType* resp,
+          PushErrorInfo* error_info);
 
 private:
   const std::string appid_;

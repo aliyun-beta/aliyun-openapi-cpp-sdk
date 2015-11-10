@@ -1,14 +1,14 @@
 DYNAMIC_TARGET = libaliyun_api_batch_compute.so
 STATIC_TARGET = libaliyun_api_batch_compute.a
 DEPS = \
-  src/ali_batch_compute.o \
-  src/ali_post_job.o \
-  src/ali_get_job.o \
-  src/ali_get_job_description.o \
-  src/ali_get_tasks.o \
-  src/ali_list_images.o \
-  src/ali_list_jobs.o \
-  src/ali_list_snapshots.o \
+  src/ali_batchcompute.o \
+  src/ali_batchcompute_post_job.o \
+  src/ali_batchcompute_get_job.o \
+  src/ali_batchcompute_get_job_description.o \
+  src/ali_batchcompute_get_tasks.o \
+  src/ali_batchcompute_list_images.o \
+  src/ali_batchcompute_list_jobs.o \
+  src/ali_batchcompute_list_snapshots.o \
 
 INCLUDES= \
   -Iinclude/ \

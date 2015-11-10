@@ -2,12 +2,12 @@ DYNAMIC_TARGET = libaliyun_api_aas.so
 STATIC_TARGET = libaliyun_api_aas.a
 DEPS = \
   src/ali_aas.o \
-  src/ali_create_access_key_for_account.o \
-  src/ali_create_aliyun_account.o \
-  src/ali_delete_access_key_for_account.o \
-  src/ali_get_basic_info_for_account.o \
-  src/ali_list_access_keys_for_account.o \
-  src/ali_update_access_key_status_for_account.o \
+  src/ali_aas_create_access_key_for_account.o \
+  src/ali_aas_create_aliyun_account.o \
+  src/ali_aas_delete_access_key_for_account.o \
+  src/ali_aas_get_basic_info_for_account.o \
+  src/ali_aas_list_access_keys_for_account.o \
+  src/ali_aas_update_access_key_status_for_account.o \
 
 INCLUDES= \
   -Iinclude/ \

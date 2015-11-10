@@ -2,14 +2,14 @@ DYNAMIC_TARGET = libaliyun_api_ram.so
 STATIC_TARGET = libaliyun_api_ram.a
 DEPS = \
   src/ali_ram.o \
-  src/ali_add_user.o \
-  src/ali_delete_user_policy.o \
-  src/ali_get_user.o \
-  src/ali_get_user_policy.o \
-  src/ali_list_user_policies.o \
-  src/ali_list_users.o \
-  src/ali_put_user_policy.o \
-  src/ali_remove_user.o \
+  src/ali_ram_add_user.o \
+  src/ali_ram_delete_user_policy.o \
+  src/ali_ram_get_user.o \
+  src/ali_ram_get_user_policy.o \
+  src/ali_ram_list_user_policies.o \
+  src/ali_ram_list_users.o \
+  src/ali_ram_put_user_policy.o \
+  src/ali_ram_remove_user.o \
 
 INCLUDES= \
   -Iinclude/ \

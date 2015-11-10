@@ -1,29 +1,29 @@
 #ifndef ALI_DRDSH
 #define ALI_DRDSH
 #include <string>
-#include "ali_alter_table_types.h"
-#include "ali_cancel_dd_ltask_types.h"
-#include "ali_create_drds_db_types.h"
-#include "ali_create_drds_instance_types.h"
-#include "ali_create_index_types.h"
-#include "ali_create_table_types.h"
-#include "ali_delete_drds_db_types.h"
-#include "ali_describe_create_drds_instance_status_types.h"
-#include "ali_describe_dd_ltask_types.h"
-#include "ali_describe_drds_db_types.h"
-#include "ali_describe_drds_db_ip_white_list_types.h"
-#include "ali_describe_drds_dbs_types.h"
-#include "ali_describe_drds_instance_types.h"
-#include "ali_describe_drds_instances_types.h"
-#include "ali_drop_indexes_types.h"
-#include "ali_drop_tables_types.h"
-#include "ali_list_un_complete_tasks_types.h"
-#include "ali_modify_drds_db_passwd_types.h"
-#include "ali_modify_drds_instance_description_types.h"
-#include "ali_modify_drds_ip_white_list_types.h"
-#include "ali_remove_drds_instance_types.h"
+#include "ali_drds_alter_table_types.h"
+#include "ali_drds_cancel_dd_ltask_types.h"
+#include "ali_drds_create_drds_db_types.h"
+#include "ali_drds_create_drds_instance_types.h"
+#include "ali_drds_create_index_types.h"
+#include "ali_drds_create_table_types.h"
+#include "ali_drds_delete_drds_db_types.h"
+#include "ali_drds_describe_create_drds_instance_status_types.h"
+#include "ali_drds_describe_dd_ltask_types.h"
+#include "ali_drds_describe_drds_db_types.h"
+#include "ali_drds_describe_drds_db_ip_white_list_types.h"
+#include "ali_drds_describe_drds_dbs_types.h"
+#include "ali_drds_describe_drds_instance_types.h"
+#include "ali_drds_describe_drds_instances_types.h"
+#include "ali_drds_drop_indexes_types.h"
+#include "ali_drds_drop_tables_types.h"
+#include "ali_drds_list_un_complete_tasks_types.h"
+#include "ali_drds_modify_drds_db_passwd_types.h"
+#include "ali_drds_modify_drds_instance_description_types.h"
+#include "ali_drds_modify_drds_ip_white_list_types.h"
+#include "ali_drds_remove_drds_instance_types.h"
 namespace aliyun {
-struct AliDrdsErrorInfo {
+struct DrdsErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -39,89 +39,89 @@ private:
   version_("2015-04-13"),
   host_(host) {}
 public:
-  int AlterTable(const AlterTableRequestType& req,
-          AlterTableResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int AlterTable(const DrdsAlterTableRequestType& req,
+          DrdsAlterTableResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int CancelDDLTask(const CancelDDLTaskRequestType& req,
-          CancelDDLTaskResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int CancelDDLTask(const DrdsCancelDDLTaskRequestType& req,
+          DrdsCancelDDLTaskResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int CreateDrdsDB(const CreateDrdsDBRequestType& req,
-          CreateDrdsDBResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int CreateDrdsDB(const DrdsCreateDrdsDBRequestType& req,
+          DrdsCreateDrdsDBResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int CreateDrdsInstance(const CreateDrdsInstanceRequestType& req,
-          CreateDrdsInstanceResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int CreateDrdsInstance(const DrdsCreateDrdsInstanceRequestType& req,
+          DrdsCreateDrdsInstanceResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int CreateIndex(const CreateIndexRequestType& req,
-          CreateIndexResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int CreateIndex(const DrdsCreateIndexRequestType& req,
+          DrdsCreateIndexResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int CreateTable(const CreateTableRequestType& req,
-          CreateTableResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int CreateTable(const DrdsCreateTableRequestType& req,
+          DrdsCreateTableResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int DeleteDrdsDB(const DeleteDrdsDBRequestType& req,
-          DeleteDrdsDBResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int DeleteDrdsDB(const DrdsDeleteDrdsDBRequestType& req,
+          DrdsDeleteDrdsDBResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int DescribeCreateDrdsInstanceStatus(const DescribeCreateDrdsInstanceStatusRequestType& req,
-          DescribeCreateDrdsInstanceStatusResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int DescribeCreateDrdsInstanceStatus(const DrdsDescribeCreateDrdsInstanceStatusRequestType& req,
+          DrdsDescribeCreateDrdsInstanceStatusResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int DescribeDDLTask(const DescribeDDLTaskRequestType& req,
-          DescribeDDLTaskResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int DescribeDDLTask(const DrdsDescribeDDLTaskRequestType& req,
+          DrdsDescribeDDLTaskResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int DescribeDrdsDB(const DescribeDrdsDBRequestType& req,
-          DescribeDrdsDBResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int DescribeDrdsDB(const DrdsDescribeDrdsDBRequestType& req,
+          DrdsDescribeDrdsDBResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int DescribeDrdsDBIpWhiteList(const DescribeDrdsDBIpWhiteListRequestType& req,
-          DescribeDrdsDBIpWhiteListResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int DescribeDrdsDBIpWhiteList(const DrdsDescribeDrdsDBIpWhiteListRequestType& req,
+          DrdsDescribeDrdsDBIpWhiteListResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int DescribeDrdsDBs(const DescribeDrdsDBsRequestType& req,
-          DescribeDrdsDBsResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int DescribeDrdsDBs(const DrdsDescribeDrdsDBsRequestType& req,
+          DrdsDescribeDrdsDBsResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int DescribeDrdsInstance(const DescribeDrdsInstanceRequestType& req,
-          DescribeDrdsInstanceResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int DescribeDrdsInstance(const DrdsDescribeDrdsInstanceRequestType& req,
+          DrdsDescribeDrdsInstanceResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int DescribeDrdsInstances(const DescribeDrdsInstancesRequestType& req,
-          DescribeDrdsInstancesResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int DescribeDrdsInstances(const DrdsDescribeDrdsInstancesRequestType& req,
+          DrdsDescribeDrdsInstancesResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int DropIndexes(const DropIndexesRequestType& req,
-          DropIndexesResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int DropIndexes(const DrdsDropIndexesRequestType& req,
+          DrdsDropIndexesResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int DropTables(const DropTablesRequestType& req,
-          DropTablesResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int DropTables(const DrdsDropTablesRequestType& req,
+          DrdsDropTablesResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int ListUnCompleteTasks(const ListUnCompleteTasksRequestType& req,
-          ListUnCompleteTasksResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int ListUnCompleteTasks(const DrdsListUnCompleteTasksRequestType& req,
+          DrdsListUnCompleteTasksResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int ModifyDrdsDBPasswd(const ModifyDrdsDBPasswdRequestType& req,
-          ModifyDrdsDBPasswdResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int ModifyDrdsDBPasswd(const DrdsModifyDrdsDBPasswdRequestType& req,
+          DrdsModifyDrdsDBPasswdResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int ModifyDrdsInstanceDescription(const ModifyDrdsInstanceDescriptionRequestType& req,
-          ModifyDrdsInstanceDescriptionResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int ModifyDrdsInstanceDescription(const DrdsModifyDrdsInstanceDescriptionRequestType& req,
+          DrdsModifyDrdsInstanceDescriptionResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int ModifyDrdsIpWhiteList(const ModifyDrdsIpWhiteListRequestType& req,
-          ModifyDrdsIpWhiteListResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int ModifyDrdsIpWhiteList(const DrdsModifyDrdsIpWhiteListRequestType& req,
+          DrdsModifyDrdsIpWhiteListResponseType* resp,
+          DrdsErrorInfo* error_info);
 
-  int RemoveDrdsInstance(const RemoveDrdsInstanceRequestType& req,
-          RemoveDrdsInstanceResponseType* resp,
-          AliDrdsErrorInfo* error_info);
+  int RemoveDrdsInstance(const DrdsRemoveDrdsInstanceRequestType& req,
+          DrdsRemoveDrdsInstanceResponseType* resp,
+          DrdsErrorInfo* error_info);
 
 private:
   const std::string appid_;

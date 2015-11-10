@@ -2,7 +2,7 @@ DYNAMIC_TARGET = libaliyun_api_dts.so
 STATIC_TARGET = libaliyun_api_dts.a
 DEPS = \
   src/ali_dts.o \
-  src/ali_drc_guid_route_api.o \
+  src/ali_dts_drc_guid_route_api.o \
 
 INCLUDES= \
   -Iinclude/ \

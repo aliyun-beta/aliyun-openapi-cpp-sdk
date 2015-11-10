@@ -1,10 +1,10 @@
 #ifndef ALI_ACEH
 #define ALI_ACEH
 #include <string>
-#include "ali_describe_app_logs_types.h"
-#include "ali_get_monitor_data_types.h"
+#include "ali_ace_describe_app_logs_types.h"
+#include "ali_ace_get_monitor_data_types.h"
 namespace aliyun {
-struct AliAceErrorInfo {
+struct AceErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -20,13 +20,13 @@ private:
   version_("2015-07-13"),
   host_(host) {}
 public:
-  int DescribeAppLogs(const DescribeAppLogsRequestType& req,
-          DescribeAppLogsResponseType* resp,
-          AliAceErrorInfo* error_info);
+  int DescribeAppLogs(const AceDescribeAppLogsRequestType& req,
+          AceDescribeAppLogsResponseType* resp,
+          AceErrorInfo* error_info);
 
-  int GetMonitorData(const GetMonitorDataRequestType& req,
-          GetMonitorDataResponseType* resp,
-          AliAceErrorInfo* error_info);
+  int GetMonitorData(const AceGetMonitorDataRequestType& req,
+          AceGetMonitorDataResponseType* resp,
+          AceErrorInfo* error_info);
 
 private:
   const std::string appid_;

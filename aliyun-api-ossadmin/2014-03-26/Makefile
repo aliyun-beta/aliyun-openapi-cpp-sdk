@@ -1,9 +1,9 @@
 DYNAMIC_TARGET = libaliyun_api_oss_admin.so
 STATIC_TARGET = libaliyun_api_oss_admin.a
 DEPS = \
-  src/ali_oss_admin.o \
-  src/ali_restart_oss.o \
-  src/ali_stop_oss.o \
+  src/ali_ossadmin.o \
+  src/ali_ossadmin_restart_oss.o \
+  src/ali_ossadmin_stop_oss.o \
 
 INCLUDES= \
   -Iinclude/ \

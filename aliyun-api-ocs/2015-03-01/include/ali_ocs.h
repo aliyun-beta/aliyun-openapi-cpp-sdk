@@ -1,29 +1,29 @@
 #ifndef ALI_OCSH
 #define ALI_OCSH
 #include <string>
-#include "ali_activate_instance_types.h"
-#include "ali_add_authentic_ip_types.h"
-#include "ali_create_instance_types.h"
-#include "ali_data_operate_types.h"
-#include "ali_deactivate_instance_types.h"
-#include "ali_delete_instance_types.h"
-#include "ali_describe_authentic_ip_types.h"
-#include "ali_describe_history_monitor_values_types.h"
-#include "ali_describe_instances_types.h"
-#include "ali_describe_monitor_items_types.h"
-#include "ali_describe_monitor_values_types.h"
-#include "ali_describe_regions_types.h"
-#include "ali_describe_security_ips_types.h"
-#include "ali_describe_zones_types.h"
-#include "ali_flush_instance_types.h"
-#include "ali_modify_instance_attribute_types.h"
-#include "ali_modify_instance_capacity_types.h"
-#include "ali_modify_security_ips_types.h"
-#include "ali_remove_authentic_ip_types.h"
-#include "ali_replace_authentic_ip_types.h"
-#include "ali_verify_password_types.h"
+#include "ali_ocs_activate_instance_types.h"
+#include "ali_ocs_add_authentic_ip_types.h"
+#include "ali_ocs_create_instance_types.h"
+#include "ali_ocs_data_operate_types.h"
+#include "ali_ocs_deactivate_instance_types.h"
+#include "ali_ocs_delete_instance_types.h"
+#include "ali_ocs_describe_authentic_ip_types.h"
+#include "ali_ocs_describe_history_monitor_values_types.h"
+#include "ali_ocs_describe_instances_types.h"
+#include "ali_ocs_describe_monitor_items_types.h"
+#include "ali_ocs_describe_monitor_values_types.h"
+#include "ali_ocs_describe_regions_types.h"
+#include "ali_ocs_describe_security_ips_types.h"
+#include "ali_ocs_describe_zones_types.h"
+#include "ali_ocs_flush_instance_types.h"
+#include "ali_ocs_modify_instance_attribute_types.h"
+#include "ali_ocs_modify_instance_capacity_types.h"
+#include "ali_ocs_modify_security_ips_types.h"
+#include "ali_ocs_remove_authentic_ip_types.h"
+#include "ali_ocs_replace_authentic_ip_types.h"
+#include "ali_ocs_verify_password_types.h"
 namespace aliyun {
-struct AliOcsErrorInfo {
+struct OcsErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -39,89 +39,89 @@ private:
   version_("2015-03-01"),
   host_(host) {}
 public:
-  int ActivateInstance(const ActivateInstanceRequestType& req,
-          ActivateInstanceResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int ActivateInstance(const OcsActivateInstanceRequestType& req,
+          OcsActivateInstanceResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int AddAuthenticIP(const AddAuthenticIPRequestType& req,
-          AddAuthenticIPResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int AddAuthenticIP(const OcsAddAuthenticIPRequestType& req,
+          OcsAddAuthenticIPResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int CreateInstance(const CreateInstanceRequestType& req,
-          CreateInstanceResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int CreateInstance(const OcsCreateInstanceRequestType& req,
+          OcsCreateInstanceResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DataOperate(const DataOperateRequestType& req,
-          DataOperateResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DataOperate(const OcsDataOperateRequestType& req,
+          OcsDataOperateResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DeactivateInstance(const DeactivateInstanceRequestType& req,
-          DeactivateInstanceResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DeactivateInstance(const OcsDeactivateInstanceRequestType& req,
+          OcsDeactivateInstanceResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DeleteInstance(const DeleteInstanceRequestType& req,
-          DeleteInstanceResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DeleteInstance(const OcsDeleteInstanceRequestType& req,
+          OcsDeleteInstanceResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DescribeAuthenticIP(const DescribeAuthenticIPRequestType& req,
-          DescribeAuthenticIPResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DescribeAuthenticIP(const OcsDescribeAuthenticIPRequestType& req,
+          OcsDescribeAuthenticIPResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DescribeHistoryMonitorValues(const DescribeHistoryMonitorValuesRequestType& req,
-          DescribeHistoryMonitorValuesResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DescribeHistoryMonitorValues(const OcsDescribeHistoryMonitorValuesRequestType& req,
+          OcsDescribeHistoryMonitorValuesResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DescribeInstances(const DescribeInstancesRequestType& req,
-          DescribeInstancesResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DescribeInstances(const OcsDescribeInstancesRequestType& req,
+          OcsDescribeInstancesResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DescribeMonitorItems(const DescribeMonitorItemsRequestType& req,
-          DescribeMonitorItemsResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DescribeMonitorItems(const OcsDescribeMonitorItemsRequestType& req,
+          OcsDescribeMonitorItemsResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DescribeMonitorValues(const DescribeMonitorValuesRequestType& req,
-          DescribeMonitorValuesResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DescribeMonitorValues(const OcsDescribeMonitorValuesRequestType& req,
+          OcsDescribeMonitorValuesResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DescribeRegions(const DescribeRegionsRequestType& req,
-          DescribeRegionsResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DescribeRegions(const OcsDescribeRegionsRequestType& req,
+          OcsDescribeRegionsResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DescribeSecurityIps(const DescribeSecurityIpsRequestType& req,
-          DescribeSecurityIpsResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DescribeSecurityIps(const OcsDescribeSecurityIpsRequestType& req,
+          OcsDescribeSecurityIpsResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int DescribeZones(const DescribeZonesRequestType& req,
-          DescribeZonesResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int DescribeZones(const OcsDescribeZonesRequestType& req,
+          OcsDescribeZonesResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int FlushInstance(const FlushInstanceRequestType& req,
-          FlushInstanceResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int FlushInstance(const OcsFlushInstanceRequestType& req,
+          OcsFlushInstanceResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int ModifyInstanceAttribute(const ModifyInstanceAttributeRequestType& req,
-          ModifyInstanceAttributeResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int ModifyInstanceAttribute(const OcsModifyInstanceAttributeRequestType& req,
+          OcsModifyInstanceAttributeResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int ModifyInstanceCapacity(const ModifyInstanceCapacityRequestType& req,
-          ModifyInstanceCapacityResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int ModifyInstanceCapacity(const OcsModifyInstanceCapacityRequestType& req,
+          OcsModifyInstanceCapacityResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int ModifySecurityIps(const ModifySecurityIpsRequestType& req,
-          ModifySecurityIpsResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int ModifySecurityIps(const OcsModifySecurityIpsRequestType& req,
+          OcsModifySecurityIpsResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int RemoveAuthenticIP(const RemoveAuthenticIPRequestType& req,
-          RemoveAuthenticIPResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int RemoveAuthenticIP(const OcsRemoveAuthenticIPRequestType& req,
+          OcsRemoveAuthenticIPResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int ReplaceAuthenticIP(const ReplaceAuthenticIPRequestType& req,
-          ReplaceAuthenticIPResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int ReplaceAuthenticIP(const OcsReplaceAuthenticIPRequestType& req,
+          OcsReplaceAuthenticIPResponseType* resp,
+          OcsErrorInfo* error_info);
 
-  int VerifyPassword(const VerifyPasswordRequestType& req,
-          VerifyPasswordResponseType* resp,
-          AliOcsErrorInfo* error_info);
+  int VerifyPassword(const OcsVerifyPasswordRequestType& req,
+          OcsVerifyPasswordResponseType* resp,
+          OcsErrorInfo* error_info);
 
 private:
   const std::string appid_;

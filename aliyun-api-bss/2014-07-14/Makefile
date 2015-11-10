@@ -2,10 +2,10 @@ DYNAMIC_TARGET = libaliyun_api_bss.so
 STATIC_TARGET = libaliyun_api_bss.a
 DEPS = \
   src/ali_bss.o \
-  src/ali_describe_cash_detail.o \
-  src/ali_describe_coupon_detail.o \
-  src/ali_describe_coupon_list.o \
-  src/ali_set_resource_business_status.o \
+  src/ali_bss_describe_cash_detail.o \
+  src/ali_bss_describe_coupon_detail.o \
+  src/ali_bss_describe_coupon_list.o \
+  src/ali_bss_set_resource_business_status.o \
 
 INCLUDES= \
   -Iinclude/ \

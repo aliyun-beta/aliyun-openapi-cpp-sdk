@@ -4,13 +4,13 @@ using namespace aliyun;
 
 void show_regions() {
 
-  DescribeRegionsRequestType req;
-  DescribeRegionsResponseType resp;
-  AliEcsErrorInfo error_info;
+  EcsDescribeRegionsRequestType req;
+  EcsDescribeRegionsResponseType resp;
+  EcsErrorInfo error_info;
 
   int status_code = 0;
 
-  Ecs* ecs = Ecs::CreateEcsClient("cn_shenzhen", "yourappid", "yoursecret");
+  Ecs* ecs = Ecs::CreateEcsClient("cn_shenzhen", "28a2mKSKCQbYGdO1", "65TwcFtOvDpjWqQ9oNLbXPiYk6OUHG");
   printf(">>>>>>> show regions start >>>>>>>>>>>>\n");
   if(!ecs) {
     printf("error endpoint not found");

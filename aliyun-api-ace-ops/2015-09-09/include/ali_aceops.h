@@ -1,10 +1,10 @@
 #ifndef ALI_ACEOPSH
 #define ALI_ACEOPSH
 #include <string>
-#include "aliquery_types.h"
-#include "alireport_types.h"
+#include "ali_aceops_query_types.h"
+#include "ali_aceops_report_types.h"
 namespace aliyun {
-struct AliAceopsErrorInfo {
+struct AceopsErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -20,13 +20,13 @@ private:
   version_("2015-09-09"),
   host_(host) {}
 public:
-  int query(const queryRequestType& req,
-          queryResponseType* resp,
-          AliAceopsErrorInfo* error_info);
+  int query(const AceopsqueryRequestType& req,
+          AceopsqueryResponseType* resp,
+          AceopsErrorInfo* error_info);
 
-  int report(const reportRequestType& req,
-          reportResponseType* resp,
-          AliAceopsErrorInfo* error_info);
+  int report(const AceopsreportRequestType& req,
+          AceopsreportResponseType* resp,
+          AceopsErrorInfo* error_info);
 
 private:
   const std::string appid_;

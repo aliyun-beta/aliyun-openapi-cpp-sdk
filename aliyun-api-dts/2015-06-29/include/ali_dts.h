@@ -1,9 +1,9 @@
 #ifndef ALI_DTSH
 #define ALI_DTSH
 #include <string>
-#include "alidrc_guid_route_api_types.h"
+#include "ali_dts_drc_guid_route_api_types.h"
 namespace aliyun {
-struct AliDtsErrorInfo {
+struct DtsErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -19,9 +19,9 @@ private:
   version_("2015-06-29"),
   host_(host) {}
 public:
-  int drcGuidRouteApi(const drcGuidRouteApiRequestType& req,
-          drcGuidRouteApiResponseType* resp,
-          AliDtsErrorInfo* error_info);
+  int drcGuidRouteApi(const DtsdrcGuidRouteApiRequestType& req,
+          DtsdrcGuidRouteApiResponseType* resp,
+          DtsErrorInfo* error_info);
 
 private:
   const std::string appid_;

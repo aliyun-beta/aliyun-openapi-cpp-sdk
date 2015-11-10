@@ -2,9 +2,9 @@ DYNAMIC_TARGET = libaliyun_api_push.so
 STATIC_TARGET = libaliyun_api_push.a
 DEPS = \
   src/ali_push.o \
-  src/ali_batch_get_devices_info.o \
-  src/ali_push_byte_message.o \
-  src/ali_revert_rpc.o \
+  src/ali_push_batch_get_devices_info.o \
+  src/ali_push_push_byte_message.o \
+  src/ali_push_revert_rpc.o \
 
 INCLUDES= \
   -Iinclude/ \

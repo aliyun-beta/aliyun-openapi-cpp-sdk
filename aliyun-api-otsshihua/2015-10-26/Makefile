@@ -1,11 +1,11 @@
 DYNAMIC_TARGET = libaliyun_api_ots_shihua.so
 STATIC_TARGET = libaliyun_api_ots_shihua.a
 DEPS = \
-  src/ali_ots_shihua.o \
-  src/ali_delete_instance.o \
-  src/ali_get_instance.o \
-  src/ali_insert_instance.o \
-  src/ali_list_instance.o \
+  src/ali_otsshihua.o \
+  src/ali_otsshihua_delete_instance.o \
+  src/ali_otsshihua_get_instance.o \
+  src/ali_otsshihua_insert_instance.o \
+  src/ali_otsshihua_list_instance.o \
 
 INCLUDES= \
   -Iinclude/ \

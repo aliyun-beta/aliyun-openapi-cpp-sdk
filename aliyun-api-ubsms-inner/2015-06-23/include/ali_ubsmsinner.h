@@ -1,13 +1,13 @@
 #ifndef ALI_UBSMSINNERH
 #define ALI_UBSMSINNERH
 #include <string>
-#include "ali_describe_business_status_types.h"
-#include "ali_describe_user_business_status_types.h"
-#include "ali_notify_user_business_command_types.h"
-#include "ali_set_user_business_statuses_types.h"
-#include "ali_set_user_security_status_types.h"
+#include "ali_ubsmsinner_describe_business_status_types.h"
+#include "ali_ubsmsinner_describe_user_business_status_types.h"
+#include "ali_ubsmsinner_notify_user_business_command_types.h"
+#include "ali_ubsmsinner_set_user_business_statuses_types.h"
+#include "ali_ubsmsinner_set_user_security_status_types.h"
 namespace aliyun {
-struct AliUbsmsinnerErrorInfo {
+struct UbsmsinnerErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -23,25 +23,25 @@ private:
   version_("2015-06-23"),
   host_(host) {}
 public:
-  int DescribeBusinessStatus(const DescribeBusinessStatusRequestType& req,
-          DescribeBusinessStatusResponseType* resp,
-          AliUbsmsinnerErrorInfo* error_info);
+  int DescribeBusinessStatus(const UbsmsinnerDescribeBusinessStatusRequestType& req,
+          UbsmsinnerDescribeBusinessStatusResponseType* resp,
+          UbsmsinnerErrorInfo* error_info);
 
-  int DescribeUserBusinessStatus(const DescribeUserBusinessStatusRequestType& req,
-          DescribeUserBusinessStatusResponseType* resp,
-          AliUbsmsinnerErrorInfo* error_info);
+  int DescribeUserBusinessStatus(const UbsmsinnerDescribeUserBusinessStatusRequestType& req,
+          UbsmsinnerDescribeUserBusinessStatusResponseType* resp,
+          UbsmsinnerErrorInfo* error_info);
 
-  int NotifyUserBusinessCommand(const NotifyUserBusinessCommandRequestType& req,
-          NotifyUserBusinessCommandResponseType* resp,
-          AliUbsmsinnerErrorInfo* error_info);
+  int NotifyUserBusinessCommand(const UbsmsinnerNotifyUserBusinessCommandRequestType& req,
+          UbsmsinnerNotifyUserBusinessCommandResponseType* resp,
+          UbsmsinnerErrorInfo* error_info);
 
-  int SetUserBusinessStatuses(const SetUserBusinessStatusesRequestType& req,
-          SetUserBusinessStatusesResponseType* resp,
-          AliUbsmsinnerErrorInfo* error_info);
+  int SetUserBusinessStatuses(const UbsmsinnerSetUserBusinessStatusesRequestType& req,
+          UbsmsinnerSetUserBusinessStatusesResponseType* resp,
+          UbsmsinnerErrorInfo* error_info);
 
-  int SetUserSecurityStatus(const SetUserSecurityStatusRequestType& req,
-          SetUserSecurityStatusResponseType* resp,
-          AliUbsmsinnerErrorInfo* error_info);
+  int SetUserSecurityStatus(const UbsmsinnerSetUserSecurityStatusRequestType& req,
+          UbsmsinnerSetUserSecurityStatusResponseType* resp,
+          UbsmsinnerErrorInfo* error_info);
 
 private:
   const std::string appid_;

@@ -2,11 +2,11 @@ DYNAMIC_TARGET = libaliyun_api_risk.so
 STATIC_TARGET = libaliyun_api_risk.a
 DEPS = \
   src/ali_risk.o \
-  src/ali_find_risk.o \
-  src/ali_query_name_list.o \
-  src/ali_send_verify_code.o \
-  src/ali_validate_verify_code.o \
-  src/ali_write_ussc.o \
+  src/ali_risk_find_risk.o \
+  src/ali_risk_query_name_list.o \
+  src/ali_risk_send_verify_code.o \
+  src/ali_risk_validate_verify_code.o \
+  src/ali_risk_write_ussc.o \
 
 INCLUDES= \
   -Iinclude/ \

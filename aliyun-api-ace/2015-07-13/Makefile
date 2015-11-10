@@ -2,8 +2,8 @@ DYNAMIC_TARGET = libaliyun_api_ace.so
 STATIC_TARGET = libaliyun_api_ace.a
 DEPS = \
   src/ali_ace.o \
-  src/ali_describe_app_logs.o \
-  src/ali_get_monitor_data.o \
+  src/ali_ace_describe_app_logs.o \
+  src/ali_ace_get_monitor_data.o \
 
 INCLUDES= \
   -Iinclude/ \

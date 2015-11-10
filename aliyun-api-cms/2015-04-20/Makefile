@@ -2,7 +2,7 @@ DYNAMIC_TARGET = libaliyun_api_cms.so
 STATIC_TARGET = libaliyun_api_cms.a
 DEPS = \
   src/ali_cms.o \
-  src/ali_describe_metric_datum.o \
+  src/ali_cms_describe_metric_datum.o \
 
 INCLUDES= \
   -Iinclude/ \

@@ -1,12 +1,12 @@
 DYNAMIC_TARGET = libaliyun_api_oss_admin.so
 STATIC_TARGET = libaliyun_api_oss_admin.a
 DEPS = \
-  src/ali_oss_admin.o \
-  src/ali_create_oss_instance.o \
-  src/ali_get_bucket_policy.o \
-  src/ali_put_bucket_limit.o \
-  src/ali_put_bucket_policy.o \
-  src/ali_put_bucket_status.o \
+  src/ali_ossadmin.o \
+  src/ali_ossadmin_create_oss_instance.o \
+  src/ali_ossadmin_get_bucket_policy.o \
+  src/ali_ossadmin_put_bucket_limit.o \
+  src/ali_ossadmin_put_bucket_policy.o \
+  src/ali_ossadmin_put_bucket_status.o \
 
 INCLUDES= \
   -Iinclude/ \

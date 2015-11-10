@@ -2,10 +2,10 @@ DYNAMIC_TARGET = libaliyun_api_crm.so
 STATIC_TARGET = libaliyun_api_crm.a
 DEPS = \
   src/ali_crm.o \
-  src/ali_add_label.o \
-  src/ali_check_label.o \
-  src/ali_delete_label.o \
-  src/ali_query_customer_label.o \
+  src/ali_crm_add_label.o \
+  src/ali_crm_check_label.o \
+  src/ali_crm_delete_label.o \
+  src/ali_crm_query_customer_label.o \
 
 INCLUDES= \
   -Iinclude/ \

@@ -1,16 +1,16 @@
 DYNAMIC_TARGET = libaliyun_api_ots_finance.so
 STATIC_TARGET = libaliyun_api_ots_finance.a
 DEPS = \
-  src/ali_ots_finance.o \
-  src/ali_delete_instance.o \
-  src/ali_delete_user.o \
-  src/ali_get_instance.o \
-  src/ali_get_user.o \
-  src/ali_insert_instance.o \
-  src/ali_insert_user.o \
-  src/ali_list_instance.o \
-  src/ali_update_instance.o \
-  src/ali_update_user.o \
+  src/ali_otsfinance.o \
+  src/ali_otsfinance_delete_instance.o \
+  src/ali_otsfinance_delete_user.o \
+  src/ali_otsfinance_get_instance.o \
+  src/ali_otsfinance_get_user.o \
+  src/ali_otsfinance_insert_instance.o \
+  src/ali_otsfinance_insert_user.o \
+  src/ali_otsfinance_list_instance.o \
+  src/ali_otsfinance_update_instance.o \
+  src/ali_otsfinance_update_user.o \
 
 INCLUDES= \
   -Iinclude/ \

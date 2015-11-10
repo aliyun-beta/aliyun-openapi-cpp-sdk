@@ -1,17 +1,17 @@
 #ifndef ALI_OTSH
 #define ALI_OTSH
 #include <string>
-#include "ali_delete_instance_types.h"
-#include "ali_delete_user_types.h"
-#include "ali_get_instance_types.h"
-#include "ali_get_user_types.h"
-#include "ali_insert_instance_types.h"
-#include "ali_insert_user_types.h"
-#include "ali_list_instance_types.h"
-#include "ali_update_instance_types.h"
-#include "ali_update_user_types.h"
+#include "ali_ots_delete_instance_types.h"
+#include "ali_ots_delete_user_types.h"
+#include "ali_ots_get_instance_types.h"
+#include "ali_ots_get_user_types.h"
+#include "ali_ots_insert_instance_types.h"
+#include "ali_ots_insert_user_types.h"
+#include "ali_ots_list_instance_types.h"
+#include "ali_ots_update_instance_types.h"
+#include "ali_ots_update_user_types.h"
 namespace aliyun {
-struct AliOtsErrorInfo {
+struct OtsErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -27,41 +27,41 @@ private:
   version_("2013-09-12"),
   host_(host) {}
 public:
-  int DeleteInstance(const DeleteInstanceRequestType& req,
-          DeleteInstanceResponseType* resp,
-          AliOtsErrorInfo* error_info);
+  int DeleteInstance(const OtsDeleteInstanceRequestType& req,
+          OtsDeleteInstanceResponseType* resp,
+          OtsErrorInfo* error_info);
 
-  int DeleteUser(const DeleteUserRequestType& req,
-          DeleteUserResponseType* resp,
-          AliOtsErrorInfo* error_info);
+  int DeleteUser(const OtsDeleteUserRequestType& req,
+          OtsDeleteUserResponseType* resp,
+          OtsErrorInfo* error_info);
 
-  int GetInstance(const GetInstanceRequestType& req,
-          GetInstanceResponseType* resp,
-          AliOtsErrorInfo* error_info);
+  int GetInstance(const OtsGetInstanceRequestType& req,
+          OtsGetInstanceResponseType* resp,
+          OtsErrorInfo* error_info);
 
-  int GetUser(const GetUserRequestType& req,
-          GetUserResponseType* resp,
-          AliOtsErrorInfo* error_info);
+  int GetUser(const OtsGetUserRequestType& req,
+          OtsGetUserResponseType* resp,
+          OtsErrorInfo* error_info);
 
-  int InsertInstance(const InsertInstanceRequestType& req,
-          InsertInstanceResponseType* resp,
-          AliOtsErrorInfo* error_info);
+  int InsertInstance(const OtsInsertInstanceRequestType& req,
+          OtsInsertInstanceResponseType* resp,
+          OtsErrorInfo* error_info);
 
-  int InsertUser(const InsertUserRequestType& req,
-          InsertUserResponseType* resp,
-          AliOtsErrorInfo* error_info);
+  int InsertUser(const OtsInsertUserRequestType& req,
+          OtsInsertUserResponseType* resp,
+          OtsErrorInfo* error_info);
 
-  int ListInstance(const ListInstanceRequestType& req,
-          ListInstanceResponseType* resp,
-          AliOtsErrorInfo* error_info);
+  int ListInstance(const OtsListInstanceRequestType& req,
+          OtsListInstanceResponseType* resp,
+          OtsErrorInfo* error_info);
 
-  int UpdateInstance(const UpdateInstanceRequestType& req,
-          UpdateInstanceResponseType* resp,
-          AliOtsErrorInfo* error_info);
+  int UpdateInstance(const OtsUpdateInstanceRequestType& req,
+          OtsUpdateInstanceResponseType* resp,
+          OtsErrorInfo* error_info);
 
-  int UpdateUser(const UpdateUserRequestType& req,
-          UpdateUserResponseType* resp,
-          AliOtsErrorInfo* error_info);
+  int UpdateUser(const OtsUpdateUserRequestType& req,
+          OtsUpdateUserResponseType* resp,
+          OtsErrorInfo* error_info);
 
 private:
   const std::string appid_;

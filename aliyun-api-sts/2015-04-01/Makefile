@@ -2,8 +2,8 @@ DYNAMIC_TARGET = libaliyun_api_sts.so
 STATIC_TARGET = libaliyun_api_sts.a
 DEPS = \
   src/ali_sts.o \
-  src/ali_assume_role.o \
-  src/ali_assume_role_with_service_identity.o \
+  src/ali_sts_assume_role.o \
+  src/ali_sts_assume_role_with_service_identity.o \
 
 INCLUDES= \
   -Iinclude/ \

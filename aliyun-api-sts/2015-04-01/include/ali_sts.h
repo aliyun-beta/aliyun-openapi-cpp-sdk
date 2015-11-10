@@ -1,10 +1,10 @@
 #ifndef ALI_STSH
 #define ALI_STSH
 #include <string>
-#include "ali_assume_role_types.h"
-#include "ali_assume_role_with_service_identity_types.h"
+#include "ali_sts_assume_role_types.h"
+#include "ali_sts_assume_role_with_service_identity_types.h"
 namespace aliyun {
-struct AliStsErrorInfo {
+struct StsErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -20,13 +20,13 @@ private:
   version_("2015-04-01"),
   host_(host) {}
 public:
-  int AssumeRole(const AssumeRoleRequestType& req,
-          AssumeRoleResponseType* resp,
-          AliStsErrorInfo* error_info);
+  int AssumeRole(const StsAssumeRoleRequestType& req,
+          StsAssumeRoleResponseType* resp,
+          StsErrorInfo* error_info);
 
-  int AssumeRoleWithServiceIdentity(const AssumeRoleWithServiceIdentityRequestType& req,
-          AssumeRoleWithServiceIdentityResponseType* resp,
-          AliStsErrorInfo* error_info);
+  int AssumeRoleWithServiceIdentity(const StsAssumeRoleWithServiceIdentityRequestType& req,
+          StsAssumeRoleWithServiceIdentityResponseType* resp,
+          StsErrorInfo* error_info);
 
 private:
   const std::string appid_;

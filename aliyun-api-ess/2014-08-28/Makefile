@@ -2,29 +2,29 @@ DYNAMIC_TARGET = libaliyun_api_ess.so
 STATIC_TARGET = libaliyun_api_ess.a
 DEPS = \
   src/ali_ess.o \
-  src/ali_attach_instances.o \
-  src/ali_create_scaling_configuration.o \
-  src/ali_create_scaling_group.o \
-  src/ali_create_scaling_rule.o \
-  src/ali_create_scheduled_task.o \
-  src/ali_delete_scaling_configuration.o \
-  src/ali_delete_scaling_group.o \
-  src/ali_delete_scaling_rule.o \
-  src/ali_delete_scheduled_task.o \
-  src/ali_describe_scaling_activities.o \
-  src/ali_describe_scaling_configurations.o \
-  src/ali_describe_scaling_groups.o \
-  src/ali_describe_scaling_instances.o \
-  src/ali_describe_scaling_rules.o \
-  src/ali_describe_scheduled_tasks.o \
-  src/ali_detach_instances.o \
-  src/ali_disable_scaling_group.o \
-  src/ali_enable_scaling_group.o \
-  src/ali_execute_scaling_rule.o \
-  src/ali_modify_scaling_group.o \
-  src/ali_modify_scaling_rule.o \
-  src/ali_modify_scheduled_task.o \
-  src/ali_remove_instances.o \
+  src/ali_ess_attach_instances.o \
+  src/ali_ess_create_scaling_configuration.o \
+  src/ali_ess_create_scaling_group.o \
+  src/ali_ess_create_scaling_rule.o \
+  src/ali_ess_create_scheduled_task.o \
+  src/ali_ess_delete_scaling_configuration.o \
+  src/ali_ess_delete_scaling_group.o \
+  src/ali_ess_delete_scaling_rule.o \
+  src/ali_ess_delete_scheduled_task.o \
+  src/ali_ess_describe_scaling_activities.o \
+  src/ali_ess_describe_scaling_configurations.o \
+  src/ali_ess_describe_scaling_groups.o \
+  src/ali_ess_describe_scaling_instances.o \
+  src/ali_ess_describe_scaling_rules.o \
+  src/ali_ess_describe_scheduled_tasks.o \
+  src/ali_ess_detach_instances.o \
+  src/ali_ess_disable_scaling_group.o \
+  src/ali_ess_enable_scaling_group.o \
+  src/ali_ess_execute_scaling_rule.o \
+  src/ali_ess_modify_scaling_group.o \
+  src/ali_ess_modify_scaling_rule.o \
+  src/ali_ess_modify_scheduled_task.o \
+  src/ali_ess_remove_instances.o \
 
 INCLUDES= \
   -Iinclude/ \

@@ -1,16 +1,16 @@
 #ifndef ALI_RAMH
 #define ALI_RAMH
 #include <string>
-#include "ali_add_user_types.h"
-#include "ali_delete_user_policy_types.h"
-#include "ali_get_user_types.h"
-#include "ali_get_user_policy_types.h"
-#include "ali_list_user_policies_types.h"
-#include "ali_list_users_types.h"
-#include "ali_put_user_policy_types.h"
-#include "ali_remove_user_types.h"
+#include "ali_ram_add_user_types.h"
+#include "ali_ram_delete_user_policy_types.h"
+#include "ali_ram_get_user_types.h"
+#include "ali_ram_get_user_policy_types.h"
+#include "ali_ram_list_user_policies_types.h"
+#include "ali_ram_list_users_types.h"
+#include "ali_ram_put_user_policy_types.h"
+#include "ali_ram_remove_user_types.h"
 namespace aliyun {
-struct AliRamErrorInfo {
+struct RamErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -26,37 +26,37 @@ private:
   version_("2014-02-14"),
   host_(host) {}
 public:
-  int AddUser(const AddUserRequestType& req,
-          AddUserResponseType* resp,
-          AliRamErrorInfo* error_info);
+  int AddUser(const RamAddUserRequestType& req,
+          RamAddUserResponseType* resp,
+          RamErrorInfo* error_info);
 
-  int DeleteUserPolicy(const DeleteUserPolicyRequestType& req,
-          DeleteUserPolicyResponseType* resp,
-          AliRamErrorInfo* error_info);
+  int DeleteUserPolicy(const RamDeleteUserPolicyRequestType& req,
+          RamDeleteUserPolicyResponseType* resp,
+          RamErrorInfo* error_info);
 
-  int GetUser(const GetUserRequestType& req,
-          GetUserResponseType* resp,
-          AliRamErrorInfo* error_info);
+  int GetUser(const RamGetUserRequestType& req,
+          RamGetUserResponseType* resp,
+          RamErrorInfo* error_info);
 
-  int GetUserPolicy(const GetUserPolicyRequestType& req,
-          GetUserPolicyResponseType* resp,
-          AliRamErrorInfo* error_info);
+  int GetUserPolicy(const RamGetUserPolicyRequestType& req,
+          RamGetUserPolicyResponseType* resp,
+          RamErrorInfo* error_info);
 
-  int ListUserPolicies(const ListUserPoliciesRequestType& req,
-          ListUserPoliciesResponseType* resp,
-          AliRamErrorInfo* error_info);
+  int ListUserPolicies(const RamListUserPoliciesRequestType& req,
+          RamListUserPoliciesResponseType* resp,
+          RamErrorInfo* error_info);
 
-  int ListUsers(const ListUsersRequestType& req,
-          ListUsersResponseType* resp,
-          AliRamErrorInfo* error_info);
+  int ListUsers(const RamListUsersRequestType& req,
+          RamListUsersResponseType* resp,
+          RamErrorInfo* error_info);
 
-  int PutUserPolicy(const PutUserPolicyRequestType& req,
-          PutUserPolicyResponseType* resp,
-          AliRamErrorInfo* error_info);
+  int PutUserPolicy(const RamPutUserPolicyRequestType& req,
+          RamPutUserPolicyResponseType* resp,
+          RamErrorInfo* error_info);
 
-  int RemoveUser(const RemoveUserRequestType& req,
-          RemoveUserResponseType* resp,
-          AliRamErrorInfo* error_info);
+  int RemoveUser(const RamRemoveUserRequestType& req,
+          RamRemoveUserResponseType* resp,
+          RamErrorInfo* error_info);
 
 private:
   const std::string appid_;

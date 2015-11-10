@@ -2,10 +2,10 @@ DYNAMIC_TARGET = libaliyun_api_ubsms.so
 STATIC_TARGET = libaliyun_api_ubsms.a
 DEPS = \
   src/ali_ubsms.o \
-  src/ali_describe_business_status.o \
-  src/ali_notify_user_business_command.o \
-  src/ali_set_user_business_status.o \
-  src/ali_set_user_business_statuses.o \
+  src/ali_ubsms_describe_business_status.o \
+  src/ali_ubsms_notify_user_business_command.o \
+  src/ali_ubsms_set_user_business_status.o \
+  src/ali_ubsms_set_user_business_statuses.o \
 
 INCLUDES= \
   -Iinclude/ \

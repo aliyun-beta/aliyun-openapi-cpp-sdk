@@ -2,8 +2,8 @@ DYNAMIC_TARGET = libaliyun_api_oms.so
 STATIC_TARGET = libaliyun_api_oms.a
 DEPS = \
   src/ali_oms.o \
-  src/ali_get_product_define.o \
-  src/ali_get_user_data.o \
+  src/ali_oms_get_product_define.o \
+  src/ali_oms_get_user_data.o \
 
 INCLUDES= \
   -Iinclude/ \

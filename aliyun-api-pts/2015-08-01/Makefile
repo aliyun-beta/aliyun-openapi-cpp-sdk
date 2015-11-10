@@ -1,18 +1,18 @@
-DYNAMIC_TARGET = libaliyun_api_pts.so
-STATIC_TARGET = libaliyun_api_pts.a
+DYNAMIC_TARGET = libaliyun_api_pt_s.so
+STATIC_TARGET = libaliyun_api_pt_s.a
 DEPS = \
   src/ali_pts.o \
-  src/ali_create_transaction.o \
-  src/ali_get_key_secret.o \
-  src/ali_get_script.o \
-  src/ali_get_tasks.o \
-  src/ali_report_log_sample.o \
-  src/ali_report_test_sample.o \
-  src/ali_report_vuser.o \
-  src/ali_send_wang_wang.o \
-  src/ali_set_scenario_status.o \
-  src/ali_set_task_status.o \
-  src/ali_stop_task.o \
+  src/ali_pts_create_transaction.o \
+  src/ali_pts_get_key_secret.o \
+  src/ali_pts_get_script.o \
+  src/ali_pts_get_tasks.o \
+  src/ali_pts_report_log_sample.o \
+  src/ali_pts_report_test_sample.o \
+  src/ali_pts_report_vuser.o \
+  src/ali_pts_send_wang_wang.o \
+  src/ali_pts_set_scenario_status.o \
+  src/ali_pts_set_task_status.o \
+  src/ali_pts_stop_task.o \
 
 INCLUDES= \
   -Iinclude/ \

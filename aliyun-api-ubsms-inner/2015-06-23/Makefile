@@ -2,11 +2,11 @@ DYNAMIC_TARGET = libaliyun_api_ubsmsinner.so
 STATIC_TARGET = libaliyun_api_ubsmsinner.a
 DEPS = \
   src/ali_ubsmsinner.o \
-  src/ali_describe_business_status.o \
-  src/ali_describe_user_business_status.o \
-  src/ali_notify_user_business_command.o \
-  src/ali_set_user_business_statuses.o \
-  src/ali_set_user_security_status.o \
+  src/ali_ubsmsinner_describe_business_status.o \
+  src/ali_ubsmsinner_describe_user_business_status.o \
+  src/ali_ubsmsinner_notify_user_business_command.o \
+  src/ali_ubsmsinner_set_user_business_statuses.o \
+  src/ali_ubsmsinner_set_user_security_status.o \
 
 INCLUDES= \
   -Iinclude/ \

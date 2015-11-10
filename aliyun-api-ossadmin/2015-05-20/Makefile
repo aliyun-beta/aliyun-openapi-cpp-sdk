@@ -1,16 +1,16 @@
 DYNAMIC_TARGET = libaliyun_api_oss_admin.so
 STATIC_TARGET = libaliyun_api_oss_admin.a
 DEPS = \
-  src/ali_oss_admin.o \
-  src/ali_bind_bucket_vip.o \
-  src/ali_create_img_vpc.o \
-  src/ali_create_oss_vpc.o \
-  src/ali_delete_img_vpc.o \
-  src/ali_delete_oss_vpc.o \
-  src/ali_get_bucket_vips.o \
-  src/ali_get_img_vpc_info.o \
-  src/ali_get_oss_vpc_info.o \
-  src/ali_un_bind_bucket_vip.o \
+  src/ali_ossadmin.o \
+  src/ali_ossadmin_bind_bucket_vip.o \
+  src/ali_ossadmin_create_img_vpc.o \
+  src/ali_ossadmin_create_oss_vpc.o \
+  src/ali_ossadmin_delete_img_vpc.o \
+  src/ali_ossadmin_delete_oss_vpc.o \
+  src/ali_ossadmin_get_bucket_vips.o \
+  src/ali_ossadmin_get_img_vpc_info.o \
+  src/ali_ossadmin_get_oss_vpc_info.o \
+  src/ali_ossadmin_un_bind_bucket_vip.o \
 
 INCLUDES= \
   -Iinclude/ \

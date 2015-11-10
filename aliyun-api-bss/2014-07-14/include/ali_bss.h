@@ -1,12 +1,12 @@
 #ifndef ALI_BSSH
 #define ALI_BSSH
 #include <string>
-#include "ali_describe_cash_detail_types.h"
-#include "ali_describe_coupon_detail_types.h"
-#include "ali_describe_coupon_list_types.h"
-#include "ali_set_resource_business_status_types.h"
+#include "ali_bss_describe_cash_detail_types.h"
+#include "ali_bss_describe_coupon_detail_types.h"
+#include "ali_bss_describe_coupon_list_types.h"
+#include "ali_bss_set_resource_business_status_types.h"
 namespace aliyun {
-struct AliBssErrorInfo {
+struct BssErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -22,21 +22,21 @@ private:
   version_("2014-07-14"),
   host_(host) {}
 public:
-  int DescribeCashDetail(const DescribeCashDetailRequestType& req,
-          DescribeCashDetailResponseType* resp,
-          AliBssErrorInfo* error_info);
+  int DescribeCashDetail(const BssDescribeCashDetailRequestType& req,
+          BssDescribeCashDetailResponseType* resp,
+          BssErrorInfo* error_info);
 
-  int DescribeCouponDetail(const DescribeCouponDetailRequestType& req,
-          DescribeCouponDetailResponseType* resp,
-          AliBssErrorInfo* error_info);
+  int DescribeCouponDetail(const BssDescribeCouponDetailRequestType& req,
+          BssDescribeCouponDetailResponseType* resp,
+          BssErrorInfo* error_info);
 
-  int DescribeCouponList(const DescribeCouponListRequestType& req,
-          DescribeCouponListResponseType* resp,
-          AliBssErrorInfo* error_info);
+  int DescribeCouponList(const BssDescribeCouponListRequestType& req,
+          BssDescribeCouponListResponseType* resp,
+          BssErrorInfo* error_info);
 
-  int SetResourceBusinessStatus(const SetResourceBusinessStatusRequestType& req,
-          SetResourceBusinessStatusResponseType* resp,
-          AliBssErrorInfo* error_info);
+  int SetResourceBusinessStatus(const BssSetResourceBusinessStatusRequestType& req,
+          BssSetResourceBusinessStatusResponseType* resp,
+          BssErrorInfo* error_info);
 
 private:
   const std::string appid_;

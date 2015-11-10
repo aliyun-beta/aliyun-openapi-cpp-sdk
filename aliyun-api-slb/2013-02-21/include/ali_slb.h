@@ -1,27 +1,27 @@
 #ifndef ALI_SLBH
 #define ALI_SLBH
 #include <string>
-#include "ali_add_backend_servers_types.h"
-#include "ali_create_load_balancer_types.h"
-#include "ali_create_load_balancer_ht_tp_listener_types.h"
-#include "ali_create_load_balancer_tc_plistener_types.h"
-#include "ali_delete_load_balancer_types.h"
-#include "ali_delete_load_balancer_listener_types.h"
-#include "ali_describe_backend_servers_types.h"
-#include "ali_describe_load_balancer_attribute_types.h"
-#include "ali_describe_load_balancer_ht_tp_listener_attribute_types.h"
-#include "ali_describe_load_balancers_types.h"
-#include "ali_describe_load_balancer_tc_plistener_attribute_types.h"
-#include "ali_describe_regions_types.h"
-#include "ali_remove_backend_servers_types.h"
-#include "ali_set_load_balancer_ht_tp_listener_attribute_types.h"
-#include "ali_set_load_balancer_listener_status_types.h"
-#include "ali_set_load_balancer_name_types.h"
-#include "ali_set_load_balancer_status_types.h"
-#include "ali_set_load_balancer_tc_plistener_attribute_types.h"
-#include "ali_set_load_banancer_listener_status_types.h"
+#include "ali_slb_add_backend_servers_types.h"
+#include "ali_slb_create_load_balancer_types.h"
+#include "ali_slb_create_load_balancer_ht_tp_listener_types.h"
+#include "ali_slb_create_load_balancer_tc_plistener_types.h"
+#include "ali_slb_delete_load_balancer_types.h"
+#include "ali_slb_delete_load_balancer_listener_types.h"
+#include "ali_slb_describe_backend_servers_types.h"
+#include "ali_slb_describe_load_balancer_attribute_types.h"
+#include "ali_slb_describe_load_balancer_ht_tp_listener_attribute_types.h"
+#include "ali_slb_describe_load_balancers_types.h"
+#include "ali_slb_describe_load_balancer_tc_plistener_attribute_types.h"
+#include "ali_slb_describe_regions_types.h"
+#include "ali_slb_remove_backend_servers_types.h"
+#include "ali_slb_set_load_balancer_ht_tp_listener_attribute_types.h"
+#include "ali_slb_set_load_balancer_listener_status_types.h"
+#include "ali_slb_set_load_balancer_name_types.h"
+#include "ali_slb_set_load_balancer_status_types.h"
+#include "ali_slb_set_load_balancer_tc_plistener_attribute_types.h"
+#include "ali_slb_set_load_banancer_listener_status_types.h"
 namespace aliyun {
-struct AliSlbErrorInfo {
+struct SlbErrorInfo {
   std::string request_id;
   std::string code;
   std::string message;
@@ -37,81 +37,81 @@ private:
   version_("2013-02-21"),
   host_(host) {}
 public:
-  int AddBackendServers(const AddBackendServersRequestType& req,
-          AddBackendServersResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int AddBackendServers(const SlbAddBackendServersRequestType& req,
+          SlbAddBackendServersResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int CreateLoadBalancer(const CreateLoadBalancerRequestType& req,
-          CreateLoadBalancerResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int CreateLoadBalancer(const SlbCreateLoadBalancerRequestType& req,
+          SlbCreateLoadBalancerResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int CreateLoadBalancerHTTPListener(const CreateLoadBalancerHTTPListenerRequestType& req,
-          CreateLoadBalancerHTTPListenerResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int CreateLoadBalancerHTTPListener(const SlbCreateLoadBalancerHTTPListenerRequestType& req,
+          SlbCreateLoadBalancerHTTPListenerResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int CreateLoadBalancerTCPListener(const CreateLoadBalancerTCPListenerRequestType& req,
-          CreateLoadBalancerTCPListenerResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int CreateLoadBalancerTCPListener(const SlbCreateLoadBalancerTCPListenerRequestType& req,
+          SlbCreateLoadBalancerTCPListenerResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int DeleteLoadBalancer(const DeleteLoadBalancerRequestType& req,
-          DeleteLoadBalancerResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int DeleteLoadBalancer(const SlbDeleteLoadBalancerRequestType& req,
+          SlbDeleteLoadBalancerResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int DeleteLoadBalancerListener(const DeleteLoadBalancerListenerRequestType& req,
-          DeleteLoadBalancerListenerResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int DeleteLoadBalancerListener(const SlbDeleteLoadBalancerListenerRequestType& req,
+          SlbDeleteLoadBalancerListenerResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int DescribeBackendServers(const DescribeBackendServersRequestType& req,
-          DescribeBackendServersResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int DescribeBackendServers(const SlbDescribeBackendServersRequestType& req,
+          SlbDescribeBackendServersResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int DescribeLoadBalancerAttribute(const DescribeLoadBalancerAttributeRequestType& req,
-          DescribeLoadBalancerAttributeResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int DescribeLoadBalancerAttribute(const SlbDescribeLoadBalancerAttributeRequestType& req,
+          SlbDescribeLoadBalancerAttributeResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int DescribeLoadBalancerHTTPListenerAttribute(const DescribeLoadBalancerHTTPListenerAttributeRequestType& req,
-          DescribeLoadBalancerHTTPListenerAttributeResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int DescribeLoadBalancerHTTPListenerAttribute(const SlbDescribeLoadBalancerHTTPListenerAttributeRequestType& req,
+          SlbDescribeLoadBalancerHTTPListenerAttributeResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int DescribeLoadBalancers(const DescribeLoadBalancersRequestType& req,
-          DescribeLoadBalancersResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int DescribeLoadBalancers(const SlbDescribeLoadBalancersRequestType& req,
+          SlbDescribeLoadBalancersResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int DescribeLoadBalancerTCPListenerAttribute(const DescribeLoadBalancerTCPListenerAttributeRequestType& req,
-          DescribeLoadBalancerTCPListenerAttributeResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int DescribeLoadBalancerTCPListenerAttribute(const SlbDescribeLoadBalancerTCPListenerAttributeRequestType& req,
+          SlbDescribeLoadBalancerTCPListenerAttributeResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int DescribeRegions(const DescribeRegionsRequestType& req,
-          DescribeRegionsResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int DescribeRegions(const SlbDescribeRegionsRequestType& req,
+          SlbDescribeRegionsResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int RemoveBackendServers(const RemoveBackendServersRequestType& req,
-          RemoveBackendServersResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int RemoveBackendServers(const SlbRemoveBackendServersRequestType& req,
+          SlbRemoveBackendServersResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int SetLoadBalancerHTTPListenerAttribute(const SetLoadBalancerHTTPListenerAttributeRequestType& req,
-          SetLoadBalancerHTTPListenerAttributeResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int SetLoadBalancerHTTPListenerAttribute(const SlbSetLoadBalancerHTTPListenerAttributeRequestType& req,
+          SlbSetLoadBalancerHTTPListenerAttributeResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int SetLoadBalancerListenerStatus(const SetLoadBalancerListenerStatusRequestType& req,
-          SetLoadBalancerListenerStatusResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int SetLoadBalancerListenerStatus(const SlbSetLoadBalancerListenerStatusRequestType& req,
+          SlbSetLoadBalancerListenerStatusResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int SetLoadBalancerName(const SetLoadBalancerNameRequestType& req,
-          SetLoadBalancerNameResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int SetLoadBalancerName(const SlbSetLoadBalancerNameRequestType& req,
+          SlbSetLoadBalancerNameResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int SetLoadBalancerStatus(const SetLoadBalancerStatusRequestType& req,
-          SetLoadBalancerStatusResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int SetLoadBalancerStatus(const SlbSetLoadBalancerStatusRequestType& req,
+          SlbSetLoadBalancerStatusResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int SetLoadBalancerTCPListenerAttribute(const SetLoadBalancerTCPListenerAttributeRequestType& req,
-          SetLoadBalancerTCPListenerAttributeResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int SetLoadBalancerTCPListenerAttribute(const SlbSetLoadBalancerTCPListenerAttributeRequestType& req,
+          SlbSetLoadBalancerTCPListenerAttributeResponseType* resp,
+          SlbErrorInfo* error_info);
 
-  int SetLoadBanancerListenerStatus(const SetLoadBanancerListenerStatusRequestType& req,
-          SetLoadBanancerListenerStatusResponseType* resp,
-          AliSlbErrorInfo* error_info);
+  int SetLoadBanancerListenerStatus(const SlbSetLoadBanancerListenerStatusRequestType& req,
+          SlbSetLoadBanancerListenerStatusResponseType* resp,
+          SlbErrorInfo* error_info);
 
 private:
   const std::string appid_;
