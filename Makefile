@@ -44,6 +44,7 @@ all:
 	make -C aliyun-api-ubsms-inner/2015-06-23
 	make -C aliyun-api-yundun/2015-02-27
 	make -C aliyun-api-yundun/2015-04-16
+	make -C example
 
 .PHONY:clean
 clean:
@@ -91,4 +92,4 @@ clean:
 	make -C aliyun-api-ubsms-inner/2015-06-23 clean
 	make -C aliyun-api-yundun/2015-02-27 clean
 	make -C aliyun-api-yundun/2015-04-16 clean
-
+	make -C example clean
