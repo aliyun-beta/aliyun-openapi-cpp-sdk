@@ -112,9 +112,15 @@ AliHttpRequest& AliHttpRequest::setRequestMethod(std::string method) {
 int AliHttpRequest::CommitRequest() {
   bool with_query = true;
   
+
   if(this->method_ == "POST") {
     with_query = false;
-    this->map_request_headers_["Content-Length"] = get_format_string("%d", this->query_.size());
+
+    // if query is not empty, add content-length and content-type.
+    if(this->query_.size() > 0) {
+      this->map_request_headers_["Content-Length"] = get_format_string("%d", this->query_.size());
+      this->map_request_headers_["Content-Type"] = "application/x-www-form-urlencoded";
+    }
   }
   std::string path = GetPath(with_query); 
 
@@ -141,6 +147,7 @@ int AliHttpRequest::CommitRequest() {
     return -1;
   }
   if(this->method_ == "POST" && this->query_.size() > 0) {
+    ALI_LOG("post str:%s", this->query_.c_str());
      if(connection_->Send((char*)this->query_.c_str(), this->query_.size()) <= 0) {
       return -1;
     }
@@ -205,7 +212,7 @@ AliHttpRequest& AliHttpRequest::AddRequestQuery(std::string field, std::string v
   if(!this->query_.empty()) {
     query_.append("&");
   }
-  append_format_string(query_, "%s=%s", urlencode(field).c_str(),  urlencode(value).c_str());
+  append_format_string(query_, "%s=%s", urlencode(field).c_str(),  urlencode(value).c_str());  
   return *this;
 }
 
