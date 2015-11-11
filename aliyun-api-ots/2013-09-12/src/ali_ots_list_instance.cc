@@ -50,8 +50,7 @@ void Json2Type(const Json::Value& value, OtsListInstanceResponseType* item) {
 }
 }
 
-int Ots::ListInstance(const OtsListInstanceRequestType& req,
-                      OtsListInstanceResponseType* response,
+int Ots::ListInstance(OtsListInstanceResponseType* response,
                        OtsErrorInfo* error_info) {
   std::string str_response;
   int status_code;

@@ -32,8 +32,7 @@ void Json2Type(const Json::Value& value, OtsFinanceDeleteUserResponseType* item)
 }
 }
 
-int OtsFinance::DeleteUser(const OtsFinanceDeleteUserRequestType& req,
-                      OtsFinanceDeleteUserResponseType* response,
+int OtsFinance::DeleteUser(OtsFinanceDeleteUserResponseType* response,
                        OtsFinanceErrorInfo* error_info) {
   std::string str_response;
   int status_code;

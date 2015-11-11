@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct RamClearAccountAliasRequestType {
-};
 struct RamClearAccountAliasResponseType {
 };
 } // end namespace

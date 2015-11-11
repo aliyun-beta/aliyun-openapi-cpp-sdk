@@ -28,44 +28,34 @@ private:
   version_("2015-02-27"),
   host_(host) {}
 public:
-  int AllMalwareNum(const YundunAllMalwareNumRequestType& req,
-          YundunAllMalwareNumResponseType* resp,
+  int AllMalwareNum(YundunAllMalwareNumResponseType* resp,
           YundunErrorInfo* error_info);
 
-  int CurrentDdosAttackNum(const YundunCurrentDdosAttackNumRequestType& req,
-          YundunCurrentDdosAttackNumResponseType* resp,
+  int CurrentDdosAttackNum(YundunCurrentDdosAttackNumResponseType* resp,
           YundunErrorInfo* error_info);
 
-  int TodayAegisOnlineRate(const YundunTodayAegisOnlineRateRequestType& req,
-          YundunTodayAegisOnlineRateResponseType* resp,
+  int TodayAegisOnlineRate(YundunTodayAegisOnlineRateResponseType* resp,
           YundunErrorInfo* error_info);
 
-  int TodayAllkbps(const YundunTodayAllkbpsRequestType& req,
-          YundunTodayAllkbpsResponseType* resp,
+  int TodayAllkbps(YundunTodayAllkbpsResponseType* resp,
           YundunErrorInfo* error_info);
 
-  int TodayAllpps(const YundunTodayAllppsRequestType& req,
-          YundunTodayAllppsResponseType* resp,
+  int TodayAllpps(YundunTodayAllppsResponseType* resp,
           YundunErrorInfo* error_info);
 
-  int TodayBackdoor(const YundunTodayBackdoorRequestType& req,
-          YundunTodayBackdoorResponseType* resp,
+  int TodayBackdoor(YundunTodayBackdoorResponseType* resp,
           YundunErrorInfo* error_info);
 
-  int TodayCrackIntercept(const YundunTodayCrackInterceptRequestType& req,
-          YundunTodayCrackInterceptResponseType* resp,
+  int TodayCrackIntercept(YundunTodayCrackInterceptResponseType* resp,
           YundunErrorInfo* error_info);
 
-  int TodayMalwareNum(const YundunTodayMalwareNumRequestType& req,
-          YundunTodayMalwareNumResponseType* resp,
+  int TodayMalwareNum(YundunTodayMalwareNumResponseType* resp,
           YundunErrorInfo* error_info);
 
-  int TodayqpsByRegion(const YundunTodayqpsByRegionRequestType& req,
-          YundunTodayqpsByRegionResponseType* resp,
+  int TodayqpsByRegion(YundunTodayqpsByRegionResponseType* resp,
           YundunErrorInfo* error_info);
 
-  int WebAttackNum(const YundunWebAttackNumRequestType& req,
-          YundunWebAttackNumResponseType* resp,
+  int WebAttackNum(YundunWebAttackNumResponseType* resp,
           YundunErrorInfo* error_info);
 
 private:

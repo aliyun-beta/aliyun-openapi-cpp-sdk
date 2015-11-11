@@ -47,8 +47,7 @@ void Json2Type(const Json::Value& value, RamGetSecurityPreferenceResponseType* i
 }
 }
 
-int Ram::GetSecurityPreference(const RamGetSecurityPreferenceRequestType& req,
-                      RamGetSecurityPreferenceResponseType* response,
+int Ram::GetSecurityPreference(RamGetSecurityPreferenceResponseType* response,
                        RamErrorInfo* error_info) {
   std::string str_response;
   int status_code;

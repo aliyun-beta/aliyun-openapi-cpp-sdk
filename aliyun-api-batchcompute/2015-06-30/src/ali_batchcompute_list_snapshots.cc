@@ -32,20 +32,20 @@ void Json2Type(const Json::Value& value, BatchComputeListSnapshotsResponseType* 
 }
 }
 
-int BatchCompute::ListSnapshots(const BatchComputeListSnapshotsRequestType& req,
-                      BatchComputeListSnapshotsResponseType* response,
+int BatchCompute::ListSnapshots(BatchComputeListSnapshotsResponseType* response,
                       BatchComputeErrorInfo* error_info) {
   std::string str_response;
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  Json::Value val;
+  Json::Reader reader;
   std::string url = "https://" + host_ + get_format_string("/snapshots");
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
                          secret_,
                          url);
-  Json::Value val;
-  Json::Reader reader;
+  req_rpc->setRequestMethod("GET");
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {
        error_info->code = "connect to host failed";

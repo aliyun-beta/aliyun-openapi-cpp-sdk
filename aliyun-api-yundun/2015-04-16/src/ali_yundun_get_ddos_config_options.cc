@@ -65,8 +65,7 @@ void Json2Type(const Json::Value& value, YundunGetDdosConfigOptionsResponseType*
 }
 }
 
-int Yundun::GetDdosConfigOptions(const YundunGetDdosConfigOptionsRequestType& req,
-                      YundunGetDdosConfigOptionsResponseType* response,
+int Yundun::GetDdosConfigOptions(YundunGetDdosConfigOptionsResponseType* response,
                        YundunErrorInfo* error_info) {
   std::string str_response;
   int status_code;

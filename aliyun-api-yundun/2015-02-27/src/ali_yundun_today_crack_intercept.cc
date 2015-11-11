@@ -35,8 +35,7 @@ void Json2Type(const Json::Value& value, YundunTodayCrackInterceptResponseType* 
 }
 }
 
-int Yundun::TodayCrackIntercept(const YundunTodayCrackInterceptRequestType& req,
-                      YundunTodayCrackInterceptResponseType* response,
+int Yundun::TodayCrackIntercept(YundunTodayCrackInterceptResponseType* response,
                        YundunErrorInfo* error_info) {
   std::string str_response;
   int status_code;

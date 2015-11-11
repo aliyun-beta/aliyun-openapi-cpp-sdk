@@ -38,8 +38,7 @@ void Json2Type(const Json::Value& value, PTSGetKeySecretResponseType* item) {
 }
 }
 
-int PTS::GetKeySecret(const PTSGetKeySecretRequestType& req,
-                      PTSGetKeySecretResponseType* response,
+int PTS::GetKeySecret(PTSGetKeySecretResponseType* response,
                        PTSErrorInfo* error_info) {
   std::string str_response;
   int status_code;

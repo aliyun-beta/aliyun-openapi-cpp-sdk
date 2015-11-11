@@ -44,8 +44,7 @@ void Json2Type(const Json::Value& value, RamListUsersResponseType* item) {
 }
 }
 
-int Ram::ListUsers(const RamListUsersRequestType& req,
-                      RamListUsersResponseType* response,
+int Ram::ListUsers(RamListUsersResponseType* response,
                        RamErrorInfo* error_info) {
   std::string str_response;
   int status_code;

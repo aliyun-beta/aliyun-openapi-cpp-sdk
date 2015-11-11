@@ -32,20 +32,20 @@ void Json2Type(const Json::Value& value, BatchComputePostJobResponseType* item) 
 }
 }
 
-int BatchCompute::PostJob(const BatchComputePostJobRequestType& req,
-                      BatchComputePostJobResponseType* response,
+int BatchCompute::PostJob(BatchComputePostJobResponseType* response,
                       BatchComputeErrorInfo* error_info) {
   std::string str_response;
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  Json::Value val;
+  Json::Reader reader;
   std::string url = "https://" + host_ + get_format_string("/jobs");
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
                          secret_,
                          url);
-  Json::Value val;
-  Json::Reader reader;
+  req_rpc->setRequestMethod("POST");
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {
        error_info->code = "connect to host failed";

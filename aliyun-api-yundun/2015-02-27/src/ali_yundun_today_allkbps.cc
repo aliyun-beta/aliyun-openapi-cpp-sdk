@@ -35,8 +35,7 @@ void Json2Type(const Json::Value& value, YundunTodayAllkbpsResponseType* item) {
 }
 }
 
-int Yundun::TodayAllkbps(const YundunTodayAllkbpsRequestType& req,
-                      YundunTodayAllkbpsResponseType* response,
+int Yundun::TodayAllkbps(YundunTodayAllkbpsResponseType* response,
                        YundunErrorInfo* error_info) {
   std::string str_response;
   int status_code;

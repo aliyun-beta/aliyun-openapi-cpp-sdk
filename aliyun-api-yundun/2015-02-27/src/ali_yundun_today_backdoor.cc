@@ -35,8 +35,7 @@ void Json2Type(const Json::Value& value, YundunTodayBackdoorResponseType* item) 
 }
 }
 
-int Yundun::TodayBackdoor(const YundunTodayBackdoorRequestType& req,
-                      YundunTodayBackdoorResponseType* response,
+int Yundun::TodayBackdoor(YundunTodayBackdoorResponseType* response,
                        YundunErrorInfo* error_info) {
   std::string str_response;
   int status_code;

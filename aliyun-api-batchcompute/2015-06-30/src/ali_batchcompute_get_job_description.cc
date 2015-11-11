@@ -39,13 +39,14 @@ int BatchCompute::GetJobDescription(const BatchComputeGetJobDescriptionRequestTy
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  Json::Value val;
+  Json::Reader reader;
   std::string url = "https://" + host_ + get_format_string("/jobs/%s/description", req.resource_name.c_str());
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
                          secret_,
                          url);
-  Json::Value val;
-  Json::Reader reader;
+  req_rpc->setRequestMethod("GET");
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {
        error_info->code = "connect to host failed";

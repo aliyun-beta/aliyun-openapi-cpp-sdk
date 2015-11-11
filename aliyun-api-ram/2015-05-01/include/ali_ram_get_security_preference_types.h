@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct RamGetSecurityPreferenceRequestType {
-};
 struct RamGetSecurityPreferenceLoginProfilePreferenceType {
   bool enable_save_mf_aticket;
 };

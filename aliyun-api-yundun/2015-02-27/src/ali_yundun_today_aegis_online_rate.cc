@@ -35,8 +35,7 @@ void Json2Type(const Json::Value& value, YundunTodayAegisOnlineRateResponseType*
 }
 }
 
-int Yundun::TodayAegisOnlineRate(const YundunTodayAegisOnlineRateRequestType& req,
-                      YundunTodayAegisOnlineRateResponseType* response,
+int Yundun::TodayAegisOnlineRate(YundunTodayAegisOnlineRateResponseType* response,
                        YundunErrorInfo* error_info) {
   std::string str_response;
   int status_code;

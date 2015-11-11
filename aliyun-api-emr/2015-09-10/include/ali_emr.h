@@ -94,8 +94,7 @@ public:
           EmrListClustersResponseType* resp,
           EmrErrorInfo* error_info);
 
-  int ListConfigType(const EmrListConfigTypeRequestType& req,
-          EmrListConfigTypeResponseType* resp,
+  int ListConfigType(EmrListConfigTypeResponseType* resp,
           EmrErrorInfo* error_info);
 
   int ListExecutePlanExecuteRecordNodes(const EmrListExecutePlanExecuteRecordNodesRequestType& req,
@@ -122,8 +121,7 @@ public:
           EmrListJobsResponseType* resp,
           EmrErrorInfo* error_info);
 
-  int ListRegions(const EmrListRegionsRequestType& req,
-          EmrListRegionsResponseType* resp,
+  int ListRegions(EmrListRegionsResponseType* resp,
           EmrErrorInfo* error_info);
 
   int ModifyClusterName(const EmrModifyClusterNameRequestType& req,

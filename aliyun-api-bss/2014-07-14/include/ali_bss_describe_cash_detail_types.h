@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct BssDescribeCashDetailRequestType {
-};
 struct BssDescribeCashDetailResponseType {
   std::string balance_amount;
   std::string amount_owed;

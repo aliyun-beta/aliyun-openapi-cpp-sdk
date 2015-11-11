@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct OtsShihuaListInstanceRequestType {
-};
 struct OtsShihuaListInstanceInstanceInfoType {
   std::string instance_name;
   std::string timestamp;

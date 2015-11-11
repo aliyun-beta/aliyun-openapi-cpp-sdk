@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct YundunGetDdosConfigOptionsRequestType {
-};
 struct YundunGetDdosConfigOptionsRequestThresholdOptionType {
   long bps;
   long pps;

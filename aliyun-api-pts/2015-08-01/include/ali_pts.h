@@ -1,5 +1,5 @@
-#ifndef ali_ptsH
-#define ali_ptsH
+#ifndef ALI_PT_SH
+#define ALI_PT_SH
 #include <string>
 #include "ali_pts_create_transaction_types.h"
 #include "ali_pts_get_key_secret_types.h"
@@ -33,8 +33,7 @@ public:
           PTSCreateTransactionResponseType* resp,
           PTSErrorInfo* error_info);
 
-  int GetKeySecret(const PTSGetKeySecretRequestType& req,
-          PTSGetKeySecretResponseType* resp,
+  int GetKeySecret(PTSGetKeySecretResponseType* resp,
           PTSErrorInfo* error_info);
 
   int GetScript(const PTSGetScriptRequestType& req,

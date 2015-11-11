@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct RamGetAccountAliasRequestType {
-};
 struct RamGetAccountAliasResponseType {
   std::string account_alias;
 };

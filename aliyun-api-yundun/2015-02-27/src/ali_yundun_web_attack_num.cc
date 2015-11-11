@@ -35,8 +35,7 @@ void Json2Type(const Json::Value& value, YundunWebAttackNumResponseType* item) {
 }
 }
 
-int Yundun::WebAttackNum(const YundunWebAttackNumRequestType& req,
-                      YundunWebAttackNumResponseType* response,
+int Yundun::WebAttackNum(YundunWebAttackNumResponseType* response,
                        YundunErrorInfo* error_info) {
   std::string str_response;
   int status_code;

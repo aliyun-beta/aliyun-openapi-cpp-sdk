@@ -1,5 +1,5 @@
-#ifndef ali_otsfinanceH
-#define ali_otsfinanceH
+#ifndef ALI_OTS_FINANCEH
+#define ALI_OTS_FINANCEH
 #include <string>
 #include "ali_otsfinance_delete_instance_types.h"
 #include "ali_otsfinance_delete_user_types.h"
@@ -31,16 +31,14 @@ public:
           OtsFinanceDeleteInstanceResponseType* resp,
           OtsFinanceErrorInfo* error_info);
 
-  int DeleteUser(const OtsFinanceDeleteUserRequestType& req,
-          OtsFinanceDeleteUserResponseType* resp,
+  int DeleteUser(OtsFinanceDeleteUserResponseType* resp,
           OtsFinanceErrorInfo* error_info);
 
   int GetInstance(const OtsFinanceGetInstanceRequestType& req,
           OtsFinanceGetInstanceResponseType* resp,
           OtsFinanceErrorInfo* error_info);
 
-  int GetUser(const OtsFinanceGetUserRequestType& req,
-          OtsFinanceGetUserResponseType* resp,
+  int GetUser(OtsFinanceGetUserResponseType* resp,
           OtsFinanceErrorInfo* error_info);
 
   int InsertInstance(const OtsFinanceInsertInstanceRequestType& req,
@@ -51,8 +49,7 @@ public:
           OtsFinanceInsertUserResponseType* resp,
           OtsFinanceErrorInfo* error_info);
 
-  int ListInstance(const OtsFinanceListInstanceRequestType& req,
-          OtsFinanceListInstanceResponseType* resp,
+  int ListInstance(OtsFinanceListInstanceResponseType* resp,
           OtsFinanceErrorInfo* error_info);
 
   int UpdateInstance(const OtsFinanceUpdateInstanceRequestType& req,

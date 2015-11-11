@@ -99,8 +99,7 @@ public:
           YundunDetectVulByIpResponseType* resp,
           YundunErrorInfo* error_info);
 
-  int GetDdosConfigOptions(const YundunGetDdosConfigOptionsRequestType& req,
-          YundunGetDdosConfigOptionsResponseType* resp,
+  int GetDdosConfigOptions(YundunGetDdosConfigOptionsResponseType* resp,
           YundunErrorInfo* error_info);
 
   int ListInstanceInfos(const YundunListInstanceInfosRequestType& req,

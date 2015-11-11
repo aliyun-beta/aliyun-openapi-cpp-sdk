@@ -47,8 +47,7 @@ void Json2Type(const Json::Value& value, EmrListRegionsResponseType* item) {
 }
 }
 
-int Emr::ListRegions(const EmrListRegionsRequestType& req,
-                      EmrListRegionsResponseType* response,
+int Emr::ListRegions(EmrListRegionsResponseType* response,
                        EmrErrorInfo* error_info) {
   std::string str_response;
   int status_code;

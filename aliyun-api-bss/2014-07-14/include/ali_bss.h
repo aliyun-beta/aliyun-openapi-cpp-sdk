@@ -22,8 +22,7 @@ private:
   version_("2014-07-14"),
   host_(host) {}
 public:
-  int DescribeCashDetail(const BssDescribeCashDetailRequestType& req,
-          BssDescribeCashDetailResponseType* resp,
+  int DescribeCashDetail(BssDescribeCashDetailResponseType* resp,
           BssErrorInfo* error_info);
 
   int DescribeCouponDetail(const BssDescribeCouponDetailRequestType& req,

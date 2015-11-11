@@ -59,8 +59,7 @@ void Json2Type(const Json::Value& value, BssDescribeCashDetailResponseType* item
 }
 }
 
-int Bss::DescribeCashDetail(const BssDescribeCashDetailRequestType& req,
-                      BssDescribeCashDetailResponseType* response,
+int Bss::DescribeCashDetail(BssDescribeCashDetailResponseType* response,
                        BssErrorInfo* error_info) {
   std::string str_response;
   int status_code;

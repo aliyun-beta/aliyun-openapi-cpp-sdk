@@ -11,6 +11,17 @@
 #include "ali_alert_create_level_channel_types.h"
 #include "ali_alert_create_log_hub_metric_types.h"
 #include "ali_alert_create_project_types.h"
+#include "ali_alert_delete_alert_types.h"
+#include "ali_alert_delete_contact_types.h"
+#include "ali_alert_delete_contact_group_types.h"
+#include "ali_alert_delete_db_metric_types.h"
+#include "ali_alert_delete_db_source_types.h"
+#include "ali_alert_delete_dimensions_types.h"
+#include "ali_alert_delete_level_channel_types.h"
+#include "ali_alert_delete_log_hub_metric_types.h"
+#include "ali_alert_delete_project_types.h"
+#include "ali_alert_disable_alert_types.h"
+#include "ali_alert_enable_alert_types.h"
 #include "ali_alert_get_alert_types.h"
 #include "ali_alert_get_contact_types.h"
 #include "ali_alert_get_contact_group_types.h"
@@ -33,6 +44,15 @@
 #include "ali_alert_list_notify_history_types.h"
 #include "ali_alert_list_project_types.h"
 #include "ali_alert_remove_project_owner_types.h"
+#include "ali_alert_update_alert_types.h"
+#include "ali_alert_update_contact_types.h"
+#include "ali_alert_update_contact_group_types.h"
+#include "ali_alert_update_db_metric_types.h"
+#include "ali_alert_update_db_source_types.h"
+#include "ali_alert_update_dimensions_types.h"
+#include "ali_alert_update_level_channel_types.h"
+#include "ali_alert_update_log_hub_metric_types.h"
+#include "ali_alert_update_project_types.h"
 namespace aliyun {
 struct AlertErrorInfo {
   std::string request_id;
@@ -88,6 +108,50 @@ public:
 
   int CreateProject(const AlertCreateProjectRequestType& req,
           AlertCreateProjectResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int DeleteAlert(const AlertDeleteAlertRequestType& req,
+          AlertDeleteAlertResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int DeleteContact(const AlertDeleteContactRequestType& req,
+          AlertDeleteContactResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int DeleteContactGroup(const AlertDeleteContactGroupRequestType& req,
+          AlertDeleteContactGroupResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int DeleteDBMetric(const AlertDeleteDBMetricRequestType& req,
+          AlertDeleteDBMetricResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int DeleteDBSource(const AlertDeleteDBSourceRequestType& req,
+          AlertDeleteDBSourceResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int DeleteDimensions(const AlertDeleteDimensionsRequestType& req,
+          AlertDeleteDimensionsResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int DeleteLevelChannel(const AlertDeleteLevelChannelRequestType& req,
+          AlertDeleteLevelChannelResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int DeleteLogHubMetric(const AlertDeleteLogHubMetricRequestType& req,
+          AlertDeleteLogHubMetricResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int DeleteProject(const AlertDeleteProjectRequestType& req,
+          AlertDeleteProjectResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int DisableAlert(const AlertDisableAlertRequestType& req,
+          AlertDisableAlertResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int EnableAlert(const AlertEnableAlertRequestType& req,
+          AlertEnableAlertResponseType* resp,
           AlertErrorInfo* error_info);
 
   int GetAlert(const AlertGetAlertRequestType& req,
@@ -176,6 +240,42 @@ public:
 
   int RemoveProjectOwner(const AlertRemoveProjectOwnerRequestType& req,
           AlertRemoveProjectOwnerResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int UpdateAlert(const AlertUpdateAlertRequestType& req,
+          AlertUpdateAlertResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int UpdateContact(const AlertUpdateContactRequestType& req,
+          AlertUpdateContactResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int UpdateContactGroup(const AlertUpdateContactGroupRequestType& req,
+          AlertUpdateContactGroupResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int UpdateDBMetric(const AlertUpdateDBMetricRequestType& req,
+          AlertUpdateDBMetricResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int UpdateDBSource(const AlertUpdateDBSourceRequestType& req,
+          AlertUpdateDBSourceResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int UpdateDimensions(const AlertUpdateDimensionsRequestType& req,
+          AlertUpdateDimensionsResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int UpdateLevelChannel(const AlertUpdateLevelChannelRequestType& req,
+          AlertUpdateLevelChannelResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int UpdateLogHubMetric(const AlertUpdateLogHubMetricRequestType& req,
+          AlertUpdateLogHubMetricResponseType* resp,
+          AlertErrorInfo* error_info);
+
+  int UpdateProject(const AlertUpdateProjectRequestType& req,
+          AlertUpdateProjectResponseType* resp,
           AlertErrorInfo* error_info);
 
 private:

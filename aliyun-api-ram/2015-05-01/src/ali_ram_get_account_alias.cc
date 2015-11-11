@@ -35,8 +35,7 @@ void Json2Type(const Json::Value& value, RamGetAccountAliasResponseType* item) {
 }
 }
 
-int Ram::GetAccountAlias(const RamGetAccountAliasRequestType& req,
-                      RamGetAccountAliasResponseType* response,
+int Ram::GetAccountAlias(RamGetAccountAliasResponseType* response,
                        RamErrorInfo* error_info) {
   std::string str_response;
   int status_code;

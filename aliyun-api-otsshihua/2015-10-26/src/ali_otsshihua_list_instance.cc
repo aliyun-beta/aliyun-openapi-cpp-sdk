@@ -44,8 +44,7 @@ void Json2Type(const Json::Value& value, OtsShihuaListInstanceResponseType* item
 }
 }
 
-int OtsShihua::ListInstance(const OtsShihuaListInstanceRequestType& req,
-                      OtsShihuaListInstanceResponseType* response,
+int OtsShihua::ListInstance(OtsShihuaListInstanceResponseType* response,
                        OtsShihuaErrorInfo* error_info) {
   std::string str_response;
   int status_code;

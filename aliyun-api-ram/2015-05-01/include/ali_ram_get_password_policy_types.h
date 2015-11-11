@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct RamGetPasswordPolicyRequestType {
-};
 struct RamGetPasswordPolicyPasswordPolicyType {
   int minimum_password_length;
   bool require_lowercase_characters;

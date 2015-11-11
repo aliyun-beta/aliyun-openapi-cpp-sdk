@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct RamListVirtualMFADevicesRequestType {
-};
 struct RamListVirtualMFADevicesUserType {
   std::string user_id;
   std::string user_name;

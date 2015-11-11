@@ -1,5 +1,5 @@
-#ifndef ali_ossadminH
-#define ali_ossadminH
+#ifndef ALI_OSS_ADMINH
+#define ALI_OSS_ADMINH
 #include <string>
 #include "ali_ossadmin_restart_oss_types.h"
 #include "ali_ossadmin_stop_oss_types.h"

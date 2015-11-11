@@ -47,8 +47,7 @@ void Json2Type(const Json::Value& value, YundunTodayqpsByRegionResponseType* ite
 }
 }
 
-int Yundun::TodayqpsByRegion(const YundunTodayqpsByRegionRequestType& req,
-                      YundunTodayqpsByRegionResponseType* response,
+int Yundun::TodayqpsByRegion(YundunTodayqpsByRegionResponseType* response,
                        YundunErrorInfo* error_info) {
   std::string str_response;
   int status_code;

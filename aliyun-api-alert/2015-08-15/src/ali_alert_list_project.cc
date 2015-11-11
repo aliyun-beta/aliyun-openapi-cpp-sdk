@@ -57,13 +57,14 @@ int Alert::ListProject(const AlertListProjectRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  Json::Value val;
+  Json::Reader reader;
   std::string url = "http://" + host_ + get_format_string("/projects");
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
                          secret_,
                          url);
-  Json::Value val;
-  Json::Reader reader;
+  req_rpc->setRequestMethod("GET");
   if(!req.project_owner.empty()) {
     req_rpc->AddRequestQuery("ProjectOwner", req.project_owner);
   }

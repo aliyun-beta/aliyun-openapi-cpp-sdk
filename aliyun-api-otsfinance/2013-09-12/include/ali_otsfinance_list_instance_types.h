@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct OtsFinanceListInstanceRequestType {
-};
 struct OtsFinanceListInstanceInstanceInfoType {
   std::string instance_name;
   std::string instance_id;

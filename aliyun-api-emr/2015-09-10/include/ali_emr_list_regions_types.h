@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct EmrListRegionsRequestType {
-};
 struct EmrListRegionsRegionTypeType {
   std::string name;
   std::string id;

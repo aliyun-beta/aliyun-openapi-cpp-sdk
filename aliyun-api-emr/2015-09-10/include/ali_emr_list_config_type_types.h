@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct EmrListConfigTypeRequestType {
-};
 struct EmrListConfigTypeSecurityGroupTypeType {
   std::string name;
   std::string state;

@@ -1,0 +1,18 @@
+#ifndef ALI_ALERT_ENABLE_ALERT_TYPESH
+#define ALI_ALERT_ENABLE_ALERT_TYPESH
+#include <stdio.h>
+#include <string>
+#include <vector>
+namespace aliyun {
+struct AlertEnableAlertRequestType {
+  std::string project_name;
+  std::string alert_name;
+};
+struct AlertEnableAlertResponseType {
+  std::string code;
+  std::string message;
+  std::string success;
+  std::string trace_id;
+};
+} // end namespace
+#endif

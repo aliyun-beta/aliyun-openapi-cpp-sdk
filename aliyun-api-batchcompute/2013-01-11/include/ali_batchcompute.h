@@ -1,6 +1,9 @@
-#ifndef ali_batchcomputeH
-#define ali_batchcomputeH
+#ifndef ALI_BATCH_COMPUTEH
+#define ALI_BATCH_COMPUTEH
 #include <string>
+#include "ali_batchcompute_delete_image_types.h"
+#include "ali_batchcompute_delete_job_types.h"
+#include "ali_batchcompute_delete_snapshot_types.h"
 #include "ali_batchcompute_get_image_types.h"
 #include "ali_batchcompute_get_job_types.h"
 #include "ali_batchcompute_get_job_description_types.h"
@@ -10,6 +13,10 @@
 #include "ali_batchcompute_list_jobs_types.h"
 #include "ali_batchcompute_list_snapshots_types.h"
 #include "ali_batchcompute_post_job_types.h"
+#include "ali_batchcompute_put_job_types.h"
+#include "ali_batchcompute_release_job_types.h"
+#include "ali_batchcompute_start_job_types.h"
+#include "ali_batchcompute_stop_job_types.h"
 namespace aliyun {
 struct BatchComputeErrorInfo {
   std::string request_id;
@@ -27,7 +34,18 @@ private:
   version_("2013-01-11"),
   host_(host) {}
 public:
-  
+  int DeleteImage(const BatchComputeDeleteImageRequestType& req,
+          BatchComputeDeleteImageResponseType* resp,
+          BatchComputeErrorInfo* error_info);
+
+  int DeleteJob(const BatchComputeDeleteJobRequestType& req,
+          BatchComputeDeleteJobResponseType* resp,
+          BatchComputeErrorInfo* error_info);
+
+  int DeleteSnapshot(const BatchComputeDeleteSnapshotRequestType& req,
+          BatchComputeDeleteSnapshotResponseType* resp,
+          BatchComputeErrorInfo* error_info);
+
   int GetImage(const BatchComputeGetImageRequestType& req,
           BatchComputeGetImageResponseType* resp,
           BatchComputeErrorInfo* error_info);
@@ -48,20 +66,32 @@ public:
           BatchComputeGetTasksResponseType* resp,
           BatchComputeErrorInfo* error_info);
 
-  int ListImages(const BatchComputeListImagesRequestType& req,
-          BatchComputeListImagesResponseType* resp,
+  int ListImages(BatchComputeListImagesResponseType* resp,
           BatchComputeErrorInfo* error_info);
 
-  int ListJobs(const BatchComputeListJobsRequestType& req,
-          BatchComputeListJobsResponseType* resp,
+  int ListJobs(BatchComputeListJobsResponseType* resp,
           BatchComputeErrorInfo* error_info);
 
-  int ListSnapshots(const BatchComputeListSnapshotsRequestType& req,
-          BatchComputeListSnapshotsResponseType* resp,
+  int ListSnapshots(BatchComputeListSnapshotsResponseType* resp,
           BatchComputeErrorInfo* error_info);
 
-  int PostJob(const BatchComputePostJobRequestType& req,
-          BatchComputePostJobResponseType* resp,
+  int PostJob(BatchComputePostJobResponseType* resp,
+          BatchComputeErrorInfo* error_info);
+
+  int PutJob(const BatchComputePutJobRequestType& req,
+          BatchComputePutJobResponseType* resp,
+          BatchComputeErrorInfo* error_info);
+
+  int ReleaseJob(const BatchComputeReleaseJobRequestType& req,
+          BatchComputeReleaseJobResponseType* resp,
+          BatchComputeErrorInfo* error_info);
+
+  int StartJob(const BatchComputeStartJobRequestType& req,
+          BatchComputeStartJobResponseType* resp,
+          BatchComputeErrorInfo* error_info);
+
+  int StopJob(const BatchComputeStopJobRequestType& req,
+          BatchComputeStopJobResponseType* resp,
           BatchComputeErrorInfo* error_info);
 
 private:

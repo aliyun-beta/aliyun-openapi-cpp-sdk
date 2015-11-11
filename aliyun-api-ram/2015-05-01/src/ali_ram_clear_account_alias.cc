@@ -32,8 +32,7 @@ void Json2Type(const Json::Value& value, RamClearAccountAliasResponseType* item)
 }
 }
 
-int Ram::ClearAccountAlias(const RamClearAccountAliasRequestType& req,
-                      RamClearAccountAliasResponseType* response,
+int Ram::ClearAccountAlias(RamClearAccountAliasResponseType* response,
                        RamErrorInfo* error_info) {
   std::string str_response;
   int status_code;

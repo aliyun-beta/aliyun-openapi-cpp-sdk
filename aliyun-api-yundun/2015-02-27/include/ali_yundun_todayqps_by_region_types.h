@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct YundunTodayqpsByRegionRequestType {
-};
 struct YundunTodayqpsByRegionRegionType {
   std::string region_id;
   long region_number;

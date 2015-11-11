@@ -50,8 +50,7 @@ void Json2Type(const Json::Value& value, OtsFinanceListInstanceResponseType* ite
 }
 }
 
-int OtsFinance::ListInstance(const OtsFinanceListInstanceRequestType& req,
-                      OtsFinanceListInstanceResponseType* response,
+int OtsFinance::ListInstance(OtsFinanceListInstanceResponseType* response,
                        OtsFinanceErrorInfo* error_info) {
   std::string str_response;
   int status_code;

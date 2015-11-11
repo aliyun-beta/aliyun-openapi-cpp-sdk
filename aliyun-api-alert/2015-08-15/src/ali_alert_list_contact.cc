@@ -57,13 +57,14 @@ int Alert::ListContact(const AlertListContactRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  Json::Value val;
+  Json::Reader reader;
   std::string url = "http://" + host_ + get_format_string("/projects/%s/contacts", req.project_name.c_str());
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
                          secret_,
                          url);
-  Json::Value val;
-  Json::Reader reader;
+  req_rpc->setRequestMethod("GET");
   if(!req.contact_name.empty()) {
     req_rpc->AddRequestQuery("ContactName", req.contact_name);
   }

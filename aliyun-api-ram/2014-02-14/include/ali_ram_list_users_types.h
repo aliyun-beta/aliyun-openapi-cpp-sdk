@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct RamListUsersRequestType {
-};
 struct RamListUsersUserType {
   std::string user_name;
   std::string comments;

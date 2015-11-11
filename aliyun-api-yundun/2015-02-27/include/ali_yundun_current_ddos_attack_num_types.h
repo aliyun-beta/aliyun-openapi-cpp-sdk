@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct YundunCurrentDdosAttackNumRequestType {
-};
 struct YundunCurrentDdosAttackNumResponseType {
   long current_ddos_attack_num;
 };

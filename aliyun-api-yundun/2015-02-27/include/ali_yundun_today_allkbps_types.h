@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct YundunTodayAllkbpsRequestType {
-};
 struct YundunTodayAllkbpsResponseType {
   long kbps;
 };

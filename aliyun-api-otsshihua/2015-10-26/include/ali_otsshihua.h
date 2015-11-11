@@ -1,5 +1,5 @@
-#ifndef ali_otsshihuaH
-#define ali_otsshihuaH
+#ifndef ALI_OTS_SHIHUAH
+#define ALI_OTS_SHIHUAH
 #include <string>
 #include "ali_otsshihua_delete_instance_types.h"
 #include "ali_otsshihua_get_instance_types.h"
@@ -34,8 +34,7 @@ public:
           OtsShihuaInsertInstanceResponseType* resp,
           OtsShihuaErrorInfo* error_info);
 
-  int ListInstance(const OtsShihuaListInstanceRequestType& req,
-          OtsShihuaListInstanceResponseType* resp,
+  int ListInstance(OtsShihuaListInstanceResponseType* resp,
           OtsShihuaErrorInfo* error_info);
 
 private:

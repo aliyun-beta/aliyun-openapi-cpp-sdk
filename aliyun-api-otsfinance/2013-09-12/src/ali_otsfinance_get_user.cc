@@ -56,8 +56,7 @@ void Json2Type(const Json::Value& value, OtsFinanceGetUserResponseType* item) {
 }
 }
 
-int OtsFinance::GetUser(const OtsFinanceGetUserRequestType& req,
-                      OtsFinanceGetUserResponseType* response,
+int OtsFinance::GetUser(OtsFinanceGetUserResponseType* response,
                        OtsFinanceErrorInfo* error_info) {
   std::string str_response;
   int status_code;

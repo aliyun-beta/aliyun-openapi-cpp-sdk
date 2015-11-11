@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct YundunTodayCrackInterceptRequestType {
-};
 struct YundunTodayCrackInterceptResponseType {
   long intercept_num;
 };

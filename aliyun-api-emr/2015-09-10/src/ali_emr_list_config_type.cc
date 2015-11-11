@@ -122,8 +122,7 @@ void Json2Type(const Json::Value& value, EmrListConfigTypeResponseType* item) {
 }
 }
 
-int Emr::ListConfigType(const EmrListConfigTypeRequestType& req,
-                      EmrListConfigTypeResponseType* response,
+int Emr::ListConfigType(EmrListConfigTypeResponseType* response,
                        EmrErrorInfo* error_info) {
   std::string str_response;
   int status_code;

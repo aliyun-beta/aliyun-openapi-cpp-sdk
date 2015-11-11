@@ -56,8 +56,7 @@ void Json2Type(const Json::Value& value, OtsGetUserResponseType* item) {
 }
 }
 
-int Ots::GetUser(const OtsGetUserRequestType& req,
-                      OtsGetUserResponseType* response,
+int Ots::GetUser(OtsGetUserResponseType* response,
                        OtsErrorInfo* error_info) {
   std::string str_response;
   int status_code;

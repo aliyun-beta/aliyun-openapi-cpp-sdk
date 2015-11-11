@@ -59,8 +59,7 @@ void Json2Type(const Json::Value& value, RamListVirtualMFADevicesResponseType* i
 }
 }
 
-int Ram::ListVirtualMFADevices(const RamListVirtualMFADevicesRequestType& req,
-                      RamListVirtualMFADevicesResponseType* response,
+int Ram::ListVirtualMFADevices(RamListVirtualMFADevicesResponseType* response,
                        RamErrorInfo* error_info) {
   std::string str_response;
   int status_code;

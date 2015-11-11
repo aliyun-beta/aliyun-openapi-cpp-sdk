@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct PTSGetKeySecretRequestType {
-};
 struct PTSGetKeySecretResponseType {
   std::string key;
   std::string secret;

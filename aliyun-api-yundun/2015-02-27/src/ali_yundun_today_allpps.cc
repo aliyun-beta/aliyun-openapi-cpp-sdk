@@ -35,8 +35,7 @@ void Json2Type(const Json::Value& value, YundunTodayAllppsResponseType* item) {
 }
 }
 
-int Yundun::TodayAllpps(const YundunTodayAllppsRequestType& req,
-                      YundunTodayAllppsResponseType* response,
+int Yundun::TodayAllpps(YundunTodayAllppsResponseType* response,
                        YundunErrorInfo* error_info) {
   std::string str_response;
   int status_code;

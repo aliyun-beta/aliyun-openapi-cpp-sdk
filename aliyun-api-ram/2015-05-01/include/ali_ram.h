@@ -105,8 +105,7 @@ public:
           RamBindMFADeviceResponseType* resp,
           RamErrorInfo* error_info);
 
-  int ClearAccountAlias(const RamClearAccountAliasRequestType& req,
-          RamClearAccountAliasResponseType* resp,
+  int ClearAccountAlias(RamClearAccountAliasResponseType* resp,
           RamErrorInfo* error_info);
 
   int CreateAccessKey(const RamCreateAccessKeyRequestType& req,
@@ -189,12 +188,10 @@ public:
           RamDetachPolicyFromUserResponseType* resp,
           RamErrorInfo* error_info);
 
-  int GetAccountAlias(const RamGetAccountAliasRequestType& req,
-          RamGetAccountAliasResponseType* resp,
+  int GetAccountAlias(RamGetAccountAliasResponseType* resp,
           RamErrorInfo* error_info);
 
-  int GetAccountSummary(const RamGetAccountSummaryRequestType& req,
-          RamGetAccountSummaryResponseType* resp,
+  int GetAccountSummary(RamGetAccountSummaryResponseType* resp,
           RamErrorInfo* error_info);
 
   int GetGroup(const RamGetGroupRequestType& req,
@@ -205,8 +202,7 @@ public:
           RamGetLoginProfileResponseType* resp,
           RamErrorInfo* error_info);
 
-  int GetPasswordPolicy(const RamGetPasswordPolicyRequestType& req,
-          RamGetPasswordPolicyResponseType* resp,
+  int GetPasswordPolicy(RamGetPasswordPolicyResponseType* resp,
           RamErrorInfo* error_info);
 
   int GetPolicy(const RamGetPolicyRequestType& req,
@@ -221,8 +217,7 @@ public:
           RamGetRoleResponseType* resp,
           RamErrorInfo* error_info);
 
-  int GetSecurityPreference(const RamGetSecurityPreferenceRequestType& req,
-          RamGetSecurityPreferenceResponseType* resp,
+  int GetSecurityPreference(RamGetSecurityPreferenceResponseType* resp,
           RamErrorInfo* error_info);
 
   int GetServiceStatus(const RamGetServiceStatusRequestType& req,
@@ -285,8 +280,7 @@ public:
           RamListUsersForGroupResponseType* resp,
           RamErrorInfo* error_info);
 
-  int ListVirtualMFADevices(const RamListVirtualMFADevicesRequestType& req,
-          RamListVirtualMFADevicesResponseType* resp,
+  int ListVirtualMFADevices(RamListVirtualMFADevicesResponseType* resp,
           RamErrorInfo* error_info);
 
   int RemoveUserFromGroup(const RamRemoveUserFromGroupRequestType& req,

@@ -1,5 +1,5 @@
-#ifndef ali_rdsregionH
-#define ali_rdsregionH
+#ifndef ALI_RDS_REGIONH
+#define ALI_RDS_REGIONH
 #include <string>
 #include "ali_rdsregion_add_tags_to_resource_types.h"
 #include "ali_rdsregion_allocate_instance_private_connection_types.h"

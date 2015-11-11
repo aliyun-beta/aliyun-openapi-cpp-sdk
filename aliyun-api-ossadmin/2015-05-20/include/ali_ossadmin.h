@@ -1,5 +1,5 @@
-#ifndef ali_ossadminH
-#define ali_ossadminH
+#ifndef ALI_OSS_ADMINH
+#define ALI_OSS_ADMINH
 #include <string>
 #include "ali_ossadmin_bind_bucket_vip_types.h"
 #include "ali_ossadmin_create_img_vpc_types.h"

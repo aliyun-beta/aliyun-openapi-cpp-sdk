@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct RamGetAccountSummaryRequestType {
-};
 struct RamGetAccountSummarySummaryMapType {
   int users_quota;
   int users;

@@ -12,6 +12,17 @@ DEPS = \
   src/ali_alert_create_level_channel.o \
   src/ali_alert_create_log_hub_metric.o \
   src/ali_alert_create_project.o \
+  src/ali_alert_delete_alert.o \
+  src/ali_alert_delete_contact.o \
+  src/ali_alert_delete_contact_group.o \
+  src/ali_alert_delete_db_metric.o \
+  src/ali_alert_delete_db_source.o \
+  src/ali_alert_delete_dimensions.o \
+  src/ali_alert_delete_level_channel.o \
+  src/ali_alert_delete_log_hub_metric.o \
+  src/ali_alert_delete_project.o \
+  src/ali_alert_disable_alert.o \
+  src/ali_alert_enable_alert.o \
   src/ali_alert_get_alert.o \
   src/ali_alert_get_contact.o \
   src/ali_alert_get_contact_group.o \
@@ -34,6 +45,15 @@ DEPS = \
   src/ali_alert_list_notify_history.o \
   src/ali_alert_list_project.o \
   src/ali_alert_remove_project_owner.o \
+  src/ali_alert_update_alert.o \
+  src/ali_alert_update_contact.o \
+  src/ali_alert_update_contact_group.o \
+  src/ali_alert_update_db_metric.o \
+  src/ali_alert_update_db_source.o \
+  src/ali_alert_update_dimensions.o \
+  src/ali_alert_update_level_channel.o \
+  src/ali_alert_update_log_hub_metric.o \
+  src/ali_alert_update_project.o \
 
 INCLUDES= \
   -Iinclude/ \

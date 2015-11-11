@@ -53,8 +53,7 @@ void Json2Type(const Json::Value& value, RamGetPasswordPolicyResponseType* item)
 }
 }
 
-int Ram::GetPasswordPolicy(const RamGetPasswordPolicyRequestType& req,
-                      RamGetPasswordPolicyResponseType* response,
+int Ram::GetPasswordPolicy(RamGetPasswordPolicyResponseType* response,
                        RamErrorInfo* error_info) {
   std::string str_response;
   int status_code;

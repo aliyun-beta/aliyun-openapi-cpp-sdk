@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 namespace aliyun {
-struct BatchComputeListJobsRequestType {
-};
 struct BatchComputeListJobsResponseType {
 };
 } // end namespace

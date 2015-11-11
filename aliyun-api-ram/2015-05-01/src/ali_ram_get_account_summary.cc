@@ -92,8 +92,7 @@ void Json2Type(const Json::Value& value, RamGetAccountSummaryResponseType* item)
 }
 }
 
-int Ram::GetAccountSummary(const RamGetAccountSummaryRequestType& req,
-                      RamGetAccountSummaryResponseType* response,
+int Ram::GetAccountSummary(RamGetAccountSummaryResponseType* response,
                        RamErrorInfo* error_info) {
   std::string str_response;
   int status_code;

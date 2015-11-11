@@ -46,8 +46,7 @@ public:
           RamListUserPoliciesResponseType* resp,
           RamErrorInfo* error_info);
 
-  int ListUsers(const RamListUsersRequestType& req,
-          RamListUsersResponseType* resp,
+  int ListUsers(RamListUsersResponseType* resp,
           RamErrorInfo* error_info);
 
   int PutUserPolicy(const RamPutUserPolicyRequestType& req,

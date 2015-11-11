@@ -54,13 +54,14 @@ int Alert::CreateLogHubMetric(const AlertCreateLogHubMetricRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  Json::Value val;
+  Json::Reader reader;
   std::string url = "http://" + host_ + get_format_string("/projects/%s/logHubMetrics", req.project_name.c_str());
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
                          secret_,
                          url);
-  Json::Value val;
-  Json::Reader reader;
+  req_rpc->setRequestMethod("POST");
   if(req_rpc->CommitRequestWithBody(req.metric) != 0) {
      if(error_info) {
        error_info->code = "connect to host failed";

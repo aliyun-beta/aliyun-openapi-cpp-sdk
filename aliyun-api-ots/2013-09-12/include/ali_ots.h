@@ -31,16 +31,14 @@ public:
           OtsDeleteInstanceResponseType* resp,
           OtsErrorInfo* error_info);
 
-  int DeleteUser(const OtsDeleteUserRequestType& req,
-          OtsDeleteUserResponseType* resp,
+  int DeleteUser(OtsDeleteUserResponseType* resp,
           OtsErrorInfo* error_info);
 
   int GetInstance(const OtsGetInstanceRequestType& req,
           OtsGetInstanceResponseType* resp,
           OtsErrorInfo* error_info);
 
-  int GetUser(const OtsGetUserRequestType& req,
-          OtsGetUserResponseType* resp,
+  int GetUser(OtsGetUserResponseType* resp,
           OtsErrorInfo* error_info);
 
   int InsertInstance(const OtsInsertInstanceRequestType& req,
@@ -51,8 +49,7 @@ public:
           OtsInsertUserResponseType* resp,
           OtsErrorInfo* error_info);
 
-  int ListInstance(const OtsListInstanceRequestType& req,
-          OtsListInstanceResponseType* resp,
+  int ListInstance(OtsListInstanceResponseType* resp,
           OtsErrorInfo* error_info);
 
   int UpdateInstance(const OtsUpdateInstanceRequestType& req,
