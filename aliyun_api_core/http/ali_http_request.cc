@@ -110,17 +110,16 @@ AliHttpRequest& AliHttpRequest::setRequestMethod(std::string method) {
 }
 
 int AliHttpRequest::CommitRequest() {
-  bool with_query = true;
-  
+  bool with_query = true;  
 
-  if(this->method_ == "POST") {
+  // if content-length is not setted, we assume no body
+  // put the query into body,and add Content-Type header
+  if(this->method_ == "POST" 
+     && this->map_request_headers_.find("Content-Length") != this->map_request_headers_.end()
+     && this->query_.size() > 0) {
     with_query = false;
-
-    // if query is not empty, add content-length and content-type.
-    if(this->query_.size() > 0) {
-      this->map_request_headers_["Content-Length"] = get_format_string("%d", this->query_.size());
-      this->map_request_headers_["Content-Type"] = "application/x-www-form-urlencoded";
-    }
+    this->map_request_headers_["Content-Length"] = get_format_string("%d", this->query_.size());
+    this->map_request_headers_["Content-Type"] = "application/x-www-form-urlencoded";
   }
   std::string path = GetPath(with_query); 
 
@@ -147,7 +146,6 @@ int AliHttpRequest::CommitRequest() {
     return -1;
   }
   if(this->method_ == "POST" && this->query_.size() > 0) {
-    ALI_LOG("post str:%s", this->query_.c_str());
      if(connection_->Send((char*)this->query_.c_str(), this->query_.size()) <= 0) {
       return -1;
     }
@@ -212,7 +210,7 @@ AliHttpRequest& AliHttpRequest::AddRequestQuery(std::string field, std::string v
   if(!this->query_.empty()) {
     query_.append("&");
   }
-  append_format_string(query_, "%s=%s", urlencode(field).c_str(),  urlencode(value).c_str());  
+  append_format_string(query_, "%s=%s", urlencode(field).c_str(),  urlencode(value).c_str());
   return *this;
 }
 
@@ -224,11 +222,8 @@ int AliHttpRequest::CommitRequestWithBody(const std::string& body) {
   // todo:check body size
   int ret = 0;
   bool do_write = false;
-  if(this->method_ == "POST" || this->method_ == "PUT") {
-    do_write = true;
-  }
 
-  if(do_write) {
+  if(this->method_ == "POST") {
     this->AddRequestHeader("Content-Length", get_format_string("%d", body.size()));
   }
   

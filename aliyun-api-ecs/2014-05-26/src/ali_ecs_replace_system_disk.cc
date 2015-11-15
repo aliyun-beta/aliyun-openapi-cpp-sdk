@@ -42,10 +42,11 @@ int Ecs::ReplaceSystemDisk(const EcsReplaceSystemDiskRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   AliRpcRequest* req_rpc = new AliRpcRequest(version_,
                          appid_,
                          secret_,
-                         "https://" + host_);
+                         secheme + "://" + host_);
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","ReplaceSystemDisk");
@@ -72,6 +73,9 @@ int Ecs::ReplaceSystemDisk(const EcsReplaceSystemDiskRequestType& req,
   }
   if(!req.use_additional_service.empty()) {
     req_rpc->AddRequestQuery("UseAdditionalService", req.use_additional_service);
+  }
+  if(!this->region_id_.empty()) {
+    req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

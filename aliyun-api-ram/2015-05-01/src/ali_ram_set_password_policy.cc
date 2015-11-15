@@ -60,10 +60,11 @@ int Ram::SetPasswordPolicy(const RamSetPasswordPolicyRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   AliRpcRequest* req_rpc = new AliRpcRequest(version_,
                          appid_,
                          secret_,
-                         "https://" + host_);
+                         secheme + "://" + host_);
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","SetPasswordPolicy");
@@ -81,6 +82,9 @@ int Ram::SetPasswordPolicy(const RamSetPasswordPolicyRequestType& req,
   }
   if(!req.require_symbols.empty()) {
     req_rpc->AddRequestQuery("RequireSymbols", req.require_symbols);
+  }
+  if(!this->region_id_.empty()) {
+    req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

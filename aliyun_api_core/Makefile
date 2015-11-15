@@ -107,6 +107,7 @@ CXXFLAGS = \
 	$(INCLUDES) \
 	-g \
 	-fPIC
+#	-DDEBUG
 	
 CFLAGS = -fPIC -g $(INCLUDES)
 

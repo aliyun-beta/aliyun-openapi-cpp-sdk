@@ -105,10 +105,11 @@ int Ocs::DescribeInstances(const OcsDescribeInstancesRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   AliRpcRequest* req_rpc = new AliRpcRequest(version_,
                          appid_,
                          secret_,
-                         "https://" + host_);
+                         secheme + "://" + host_);
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","DescribeInstances");
@@ -147,6 +148,9 @@ int Ocs::DescribeInstances(const OcsDescribeInstancesRequestType& req,
   }
   if(!req.private_ip_addresses.empty()) {
     req_rpc->AddRequestQuery("PrivateIpAddresses", req.private_ip_addresses);
+  }
+  if(!this->region_id_.empty()) {
+    req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

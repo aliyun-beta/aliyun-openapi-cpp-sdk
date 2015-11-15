@@ -39,10 +39,11 @@ int Ecs::DeleteHaVip(const EcsDeleteHaVipRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   AliRpcRequest* req_rpc = new AliRpcRequest(version_,
                          appid_,
                          secret_,
-                         "https://" + host_);
+                         secheme + "://" + host_);
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","DeleteHaVip");
@@ -63,6 +64,9 @@ int Ecs::DeleteHaVip(const EcsDeleteHaVipRequestType& req,
   }
   if(!req.ha_vip_id.empty()) {
     req_rpc->AddRequestQuery("HaVipId", req.ha_vip_id);
+  }
+  if(!this->region_id_.empty()) {
+    req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

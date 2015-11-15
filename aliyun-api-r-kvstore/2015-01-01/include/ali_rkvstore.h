@@ -40,8 +40,15 @@ private:
   appid_(appid),
   secret_(secret),
   version_("2015-01-01"),
+  use_tls_(true),
+  support_tls_(true),
   host_(host) {}
 public:
+  void SetUseTls(bool use_tls = true) {  if(support_tls_) use_tls_ = use_tls;  }
+  bool GetUseTls() {  return use_tls_;  }
+  bool GetSupportTls() {  return support_tls_;  }
+  void SetRegionId(std::string region_id) {  this->region_id_ = region_id; }
+  std::string GetRegionId() {  return this->region_id_;  }
   int ActivateInstance(const RkvstoreActivateInstanceRequestType& req,
           RkvstoreActivateInstanceResponseType* resp,
           RkvstoreErrorInfo* error_info);
@@ -143,6 +150,9 @@ private:
   const std::string secret_;
   const std::string version_;
   const std::string host_;
+  const bool support_tls_;
+  bool use_tls_;
+  std::string region_id_;
 };  //end class
 } // end namespace
 #endif

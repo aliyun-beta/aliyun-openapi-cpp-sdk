@@ -28,8 +28,13 @@ private:
   appid_(appid),
   secret_(secret),
   version_("2015-06-30"),
+  use_tls_(true),
+  support_tls_(true),
   host_(host) {}
 public:
+  void SetUseTls(bool use_tls = true) {  if(support_tls_) use_tls_ = use_tls;  }
+  bool GetUseTls() {  return use_tls_;  }
+  bool GetSupportTls() {  return support_tls_;  }
   int DeleteJob(const BatchComputeDeleteJobRequestType& req,
           BatchComputeDeleteJobResponseType* resp,
           BatchComputeErrorInfo* error_info);
@@ -79,6 +84,8 @@ private:
   const std::string secret_;
   const std::string version_;
   const std::string host_;
+  const bool support_tls_;
+  bool use_tls_;
 };  //end class
 } // end namespace
 #endif

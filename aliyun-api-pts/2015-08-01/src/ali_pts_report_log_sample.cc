@@ -39,10 +39,11 @@ int PTS::ReportLogSample(const PTSReportLogSampleRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   AliRpcRequest* req_rpc = new AliRpcRequest(version_,
                          appid_,
                          secret_,
-                         "https://" + host_);
+                         secheme + "://" + host_);
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","ReportLogSample");
@@ -54,6 +55,9 @@ int PTS::ReportLogSample(const PTSReportLogSampleRequestType& req,
   }
   if(!req.log_sample.empty()) {
     req_rpc->AddRequestQuery("LogSample", req.log_sample);
+  }
+  if(!this->region_id_.empty()) {
+    req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

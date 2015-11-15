@@ -39,10 +39,11 @@ int Slb::DescribeLocations(const SlbDescribeLocationsRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   AliRpcRequest* req_rpc = new AliRpcRequest(version_,
                          appid_,
                          secret_,
-                         "https://" + host_);
+                         secheme + "://" + host_);
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","DescribeLocations");
@@ -63,6 +64,9 @@ int Slb::DescribeLocations(const SlbDescribeLocationsRequestType& req,
   }
   if(!req.namespace_uid.empty()) {
     req_rpc->AddRequestQuery("NamespaceUid", req.namespace_uid);
+  }
+  if(!this->region_id_.empty()) {
+    req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

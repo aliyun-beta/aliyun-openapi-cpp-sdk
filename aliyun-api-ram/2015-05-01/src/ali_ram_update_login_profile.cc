@@ -39,10 +39,11 @@ int Ram::UpdateLoginProfile(const RamUpdateLoginProfileRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   AliRpcRequest* req_rpc = new AliRpcRequest(version_,
                          appid_,
                          secret_,
-                         "https://" + host_);
+                         secheme + "://" + host_);
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","UpdateLoginProfile");
@@ -57,6 +58,9 @@ int Ram::UpdateLoginProfile(const RamUpdateLoginProfileRequestType& req,
   }
   if(!req.mf_abind_required.empty()) {
     req_rpc->AddRequestQuery("MFABindRequired", req.mf_abind_required);
+  }
+  if(!this->region_id_.empty()) {
+    req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

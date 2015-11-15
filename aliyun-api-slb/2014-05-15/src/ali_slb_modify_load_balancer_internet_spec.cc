@@ -39,10 +39,11 @@ int Slb::ModifyLoadBalancerInternetSpec(const SlbModifyLoadBalancerInternetSpecR
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   AliRpcRequest* req_rpc = new AliRpcRequest(version_,
                          appid_,
                          secret_,
-                         "https://" + host_);
+                         secheme + "://" + host_);
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","ModifyLoadBalancerInternetSpec");
@@ -78,6 +79,9 @@ int Slb::ModifyLoadBalancerInternetSpec(const SlbModifyLoadBalancerInternetSpecR
   }
   if(!req.security_status.empty()) {
     req_rpc->AddRequestQuery("SecurityStatus", req.security_status);
+  }
+  if(!this->region_id_.empty()) {
+    req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

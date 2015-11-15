@@ -183,10 +183,11 @@ int Ecs::DescribeInstances(const EcsDescribeInstancesRequestType& req,
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   AliRpcRequest* req_rpc = new AliRpcRequest(version_,
                          appid_,
                          secret_,
-                         "https://" + host_);
+                         secheme + "://" + host_);
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","DescribeInstances");
@@ -312,6 +313,9 @@ int Ecs::DescribeInstances(const EcsDescribeInstancesRequestType& req,
   }
   if(!req.tag5_value.empty()) {
     req_rpc->AddRequestQuery("Tag.5.Value", req.tag5_value);
+  }
+  if(!this->region_id_.empty()) {
+    req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

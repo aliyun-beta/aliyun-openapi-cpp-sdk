@@ -32,8 +32,13 @@ private:
   appid_(appid),
   secret_(secret),
   version_("2013-01-11"),
+  use_tls_(true),
+  support_tls_(true),
   host_(host) {}
 public:
+  void SetUseTls(bool use_tls = true) {  if(support_tls_) use_tls_ = use_tls;  }
+  bool GetUseTls() {  return use_tls_;  }
+  bool GetSupportTls() {  return support_tls_;  }
   int DeleteImage(const BatchComputeDeleteImageRequestType& req,
           BatchComputeDeleteImageResponseType* resp,
           BatchComputeErrorInfo* error_info);
@@ -99,6 +104,8 @@ private:
   const std::string secret_;
   const std::string version_;
   const std::string host_;
+  const bool support_tls_;
+  bool use_tls_;
 };  //end class
 } // end namespace
 #endif

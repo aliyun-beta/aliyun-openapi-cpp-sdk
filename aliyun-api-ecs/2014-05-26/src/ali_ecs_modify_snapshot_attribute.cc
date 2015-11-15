@@ -39,10 +39,11 @@ int Ecs::ModifySnapshotAttribute(const EcsModifySnapshotAttributeRequestType& re
   int status_code;
   int ret = 0;
   bool parse_success = false;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   AliRpcRequest* req_rpc = new AliRpcRequest(version_,
                          appid_,
                          secret_,
-                         "https://" + host_);
+                         secheme + "://" + host_);
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","ModifySnapshotAttribute");
@@ -66,6 +67,9 @@ int Ecs::ModifySnapshotAttribute(const EcsModifySnapshotAttributeRequestType& re
   }
   if(!req.description.empty()) {
     req_rpc->AddRequestQuery("Description", req.description);
+  }
+  if(!this->region_id_.empty()) {
+    req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

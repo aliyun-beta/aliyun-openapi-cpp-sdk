@@ -59,6 +59,7 @@ int Alert::ListDBSource(const AlertListDBSourceRequestType& req,
   bool parse_success = false;
   Json::Value val;
   Json::Reader reader;
+  std::string secheme = this->use_tls_ ? "https" : "http";
   std::string url = "http://" + host_ + get_format_string("/projects/%s/sources", req.project_name.c_str());
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
