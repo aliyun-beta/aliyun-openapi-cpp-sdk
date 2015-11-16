@@ -115,7 +115,7 @@ int AliHttpRequest::CommitRequest() {
   // if content-length is not setted, we assume no body
   // put the query into body,and add Content-Type header
   if(this->method_ == "POST" 
-     && this->map_request_headers_.find("Content-Length") != this->map_request_headers_.end()
+     && this->map_request_headers_.find("Content-Length") == this->map_request_headers_.end()
      && this->query_.size() > 0) {
     with_query = false;
     this->map_request_headers_["Content-Length"] = get_format_string("%d", this->query_.size());

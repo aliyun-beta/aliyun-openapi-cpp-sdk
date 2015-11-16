@@ -74,6 +74,19 @@ out:
   return ret;
 }
 
+int https_get_test() {
+  int ret = 0;
+  int status_code;
+  std::string response_body;
+  AliHttpRequest* req = new AliHttpRequest("https://www.baidu.com");
+  req->AddRequestHeader("User-Agent", "AliHttpRequest");
+  req->CommitRequest();
+  response_body = req->WaitResponseHeaderComplete();
+  req->ReadResponseBody(response_body);
+  printf("read:%s\n", response_body.c_str());
+  return 0;
+}
+
 int http_get_test() {
   int ret = 0;
   int status_code;
@@ -300,5 +313,6 @@ int main() {
     return -1;
   }
 
+  https_get_test();
 }
 
