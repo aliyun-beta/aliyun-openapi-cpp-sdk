@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 2.8)
 PROJECT(aliyun_open_api)
 if(NOT WIN32)
 ADD_DEFINITIONS(-fPIC)
