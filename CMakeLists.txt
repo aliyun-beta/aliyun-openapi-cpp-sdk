@@ -1,5 +1,8 @@
 PROJECT(aliyun_open_api)
+if(NOT WIN32)
 ADD_DEFINITIONS(-fPIC)
+set(CMAKE_SHARED_LINKER_FLAGS -fPIC)
+endif(NOT WIN32)
 ########### core ################
 aux_source_directory(aliyun_api_core/ ALIYUN_API_CORE_SRC)
 aux_source_directory(aliyun_api_core/utils/ ALIYUN_API_CORE_UTILS_SRC)
