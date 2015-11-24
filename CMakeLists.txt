@@ -761,10 +761,28 @@ SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16
 SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16 PROPERTIES OUTPUT_NAME "aliyun-api-yundun_2015_04_16")
 SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
+
+#### build ####
+
+## CMakeFiles ##
+# static
+aux_source_directory(build/CMakeFiles/src/ BUILD_CMakeFiles_SRC)
+ADD_LIBRARY(build_CMakeFiles SHARED ${BUILD_CMakeFiles_SRC})
+  target_include_directories(build_CMakeFiles PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
+  build/CMakeFiles/include/
+)
+target_link_libraries(build_CMakeFiles aliyun_api_core)
+SET_TARGET_PROPERTIES(build_CMakeFiles
+            PROPERTIES LINKER_LANGUAGE CXX)
+SET_TARGET_PROPERTIES(build_CMakeFiles PROPERTIES OUTPUT_NAME "build_CMakeFiles")
+SET_TARGET_PROPERTIES(build_CMakeFiles PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+
+
 #### example ####
 add_executable(aliyun_ecs_example example/ecs_example.cc)
 target_include_directories(aliyun_ecs_example PUBLIC 
-  aliyun-api-ecs/2014-05-26/)
+  aliyun-api-ecs/2014-05-26/include/)
 target_link_libraries(aliyun_ecs_example
   aliyun-api-ecs_2014_05_26_STATIC
   aliyun_api_core
