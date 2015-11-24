@@ -10,7 +10,7 @@ enum {
 #ifdef DEBUG
 #define ALI_LOG ali_log_write
 #else
-#define ALI_LOG(msg...)
+#define ALI_LOG(msg, ...)
 #endif // DEBUG
 void ali_log_write(const char *fmt, ...)
 #if defined(__GNUC__)

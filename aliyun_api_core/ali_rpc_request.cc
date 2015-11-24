@@ -4,6 +4,7 @@
 #include "ali_urlencode.h"
 #include "ali_log.h"
 #include <stdio.h>
+#include <time.h>
 static std::string get_utc_string() {
   time_t now;
   struct tm *timenow;

@@ -5,6 +5,7 @@
 #include "ali_log.h"
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 std::string getHttpGmtTime() {
   time_t t = time(NULL);
   char szBuf[128]={0};

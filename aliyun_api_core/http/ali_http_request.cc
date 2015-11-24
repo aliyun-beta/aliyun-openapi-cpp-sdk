@@ -243,7 +243,7 @@ int AliHttpRequest::WaitResponseHeaderComplete() {
   parser_->data = this;
 
   do{
-    bzero(Read_buf, sizeof(Read_buf));
+    memset(Read_buf, 0, sizeof(Read_buf));
     last_Read = this->connection_->Read(Read_buf, sizeof(Read_buf));
     if(last_Read < 0) {
       break;
