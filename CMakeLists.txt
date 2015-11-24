@@ -1,9 +1,7 @@
-cmake_minimum_required(VERSION 2.8)
 PROJECT(aliyun_open_api)
 if(NOT WIN32)
-ADD_DEFINITIONS(-fPIC)
-set(CMAKE_SHARED_LINKER_FLAGS -fPIC)
 endif(NOT WIN32)
+ADD_DEFINITIONS(-fPIC)
 ########### core ################
 aux_source_directory(aliyun_api_core/ ALIYUN_API_CORE_SRC)
 aux_source_directory(aliyun_api_core/utils/ ALIYUN_API_CORE_UTILS_SRC)
@@ -33,38 +31,26 @@ SET_TARGET_PROPERTIES(aliyun_api_core
 PROPERTIES LINKER_LANGUAGE CXX)
 SET_TARGET_PROPERTIES(aliyun_api_core PROPERTIES OUTPUT_NAME "aliyun_api_core")
 SET_TARGET_PROPERTIES(aliyun_api_core PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET(ALIYUN_API_CORE_INCLUDES
+    aliyun_api_core/
+    aliyun_api_core/http/
+    aliyun_api_core/utils/
+    aliyun_api_core/third_party/jsoncpp/include/)
 #### aliyun-api-aas ####
 
 ## 2015-07-01 ##
 # static
 aux_source_directory(aliyun-api-aas/2015-07-01/src/ ALIYUN-API-AAS_2015_07_01_SRC)
-ADD_LIBRARY(aliyun-api-aas_2015_07_01_STATIC STATIC ${ALIYUN-API-AAS_2015_07_01_SRC})
-  target_include_directories(aliyun-api-aas_2015_07_01_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-aas_2015_07_01 SHARED ${ALIYUN-API-AAS_2015_07_01_SRC})
+  target_include_directories(aliyun-api-aas_2015_07_01 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-aas/2015-07-01/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-aas_2015_07_01_STATIC
+target_link_libraries(aliyun-api-aas_2015_07_01 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-aas_2015_07_01
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-aas_2015_07_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-aas_2015_07_01")
-SET_TARGET_PROPERTIES(aliyun-api-aas_2015_07_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-aas_2015_07_01_SHARED SHARED ${ALIYUN-API-AAS_2015_07_01_SRC})
-  target_include_directories(aliyun-api-aas_2015_07_01_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-aas/2015-07-01/include/
-)
-target_link_libraries(aliyun-api-aas_2015_07_01_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-aas_2015_07_01_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-aas_2015_07_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-aas_2015_07_01")
-SET_TARGET_PROPERTIES(aliyun-api-aas_2015_07_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-aas_2015_07_01 PROPERTIES OUTPUT_NAME "aliyun-api-aas_2015_07_01")
+SET_TARGET_PROPERTIES(aliyun-api-aas_2015_07_01 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ace ####
@@ -72,33 +58,16 @@ SET_TARGET_PROPERTIES(aliyun-api-aas_2015_07_01_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-07-13 ##
 # static
 aux_source_directory(aliyun-api-ace/2015-07-13/src/ ALIYUN-API-ACE_2015_07_13_SRC)
-ADD_LIBRARY(aliyun-api-ace_2015_07_13_STATIC STATIC ${ALIYUN-API-ACE_2015_07_13_SRC})
-  target_include_directories(aliyun-api-ace_2015_07_13_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ace_2015_07_13 SHARED ${ALIYUN-API-ACE_2015_07_13_SRC})
+  target_include_directories(aliyun-api-ace_2015_07_13 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ace/2015-07-13/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ace_2015_07_13_STATIC
+target_link_libraries(aliyun-api-ace_2015_07_13 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ace_2015_07_13
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ace_2015_07_13_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ace_2015_07_13")
-SET_TARGET_PROPERTIES(aliyun-api-ace_2015_07_13_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ace_2015_07_13_SHARED SHARED ${ALIYUN-API-ACE_2015_07_13_SRC})
-  target_include_directories(aliyun-api-ace_2015_07_13_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ace/2015-07-13/include/
-)
-target_link_libraries(aliyun-api-ace_2015_07_13_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ace_2015_07_13_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ace_2015_07_13_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ace_2015_07_13")
-SET_TARGET_PROPERTIES(aliyun-api-ace_2015_07_13_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ace_2015_07_13 PROPERTIES OUTPUT_NAME "aliyun-api-ace_2015_07_13")
+SET_TARGET_PROPERTIES(aliyun-api-ace_2015_07_13 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ace-ops ####
@@ -106,33 +75,16 @@ SET_TARGET_PROPERTIES(aliyun-api-ace_2015_07_13_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-09-09 ##
 # static
 aux_source_directory(aliyun-api-ace-ops/2015-09-09/src/ ALIYUN-API-ACE-OPS_2015_09_09_SRC)
-ADD_LIBRARY(aliyun-api-ace-ops_2015_09_09_STATIC STATIC ${ALIYUN-API-ACE-OPS_2015_09_09_SRC})
-  target_include_directories(aliyun-api-ace-ops_2015_09_09_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ace-ops_2015_09_09 SHARED ${ALIYUN-API-ACE-OPS_2015_09_09_SRC})
+  target_include_directories(aliyun-api-ace-ops_2015_09_09 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ace-ops/2015-09-09/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ace-ops_2015_09_09_STATIC
+target_link_libraries(aliyun-api-ace-ops_2015_09_09 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ace-ops_2015_09_09
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ace-ops_2015_09_09_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ace-ops_2015_09_09")
-SET_TARGET_PROPERTIES(aliyun-api-ace-ops_2015_09_09_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ace-ops_2015_09_09_SHARED SHARED ${ALIYUN-API-ACE-OPS_2015_09_09_SRC})
-  target_include_directories(aliyun-api-ace-ops_2015_09_09_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ace-ops/2015-09-09/include/
-)
-target_link_libraries(aliyun-api-ace-ops_2015_09_09_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ace-ops_2015_09_09_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ace-ops_2015_09_09_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ace-ops_2015_09_09")
-SET_TARGET_PROPERTIES(aliyun-api-ace-ops_2015_09_09_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ace-ops_2015_09_09 PROPERTIES OUTPUT_NAME "aliyun-api-ace-ops_2015_09_09")
+SET_TARGET_PROPERTIES(aliyun-api-ace-ops_2015_09_09 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-alert ####
@@ -140,33 +92,16 @@ SET_TARGET_PROPERTIES(aliyun-api-ace-ops_2015_09_09_STATIC PROPERTIES CLEAN_DIRE
 ## 2015-08-15 ##
 # static
 aux_source_directory(aliyun-api-alert/2015-08-15/src/ ALIYUN-API-ALERT_2015_08_15_SRC)
-ADD_LIBRARY(aliyun-api-alert_2015_08_15_STATIC STATIC ${ALIYUN-API-ALERT_2015_08_15_SRC})
-  target_include_directories(aliyun-api-alert_2015_08_15_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-alert_2015_08_15 SHARED ${ALIYUN-API-ALERT_2015_08_15_SRC})
+  target_include_directories(aliyun-api-alert_2015_08_15 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-alert/2015-08-15/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-alert_2015_08_15_STATIC
+target_link_libraries(aliyun-api-alert_2015_08_15 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-alert_2015_08_15
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-alert_2015_08_15_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-alert_2015_08_15")
-SET_TARGET_PROPERTIES(aliyun-api-alert_2015_08_15_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-alert_2015_08_15_SHARED SHARED ${ALIYUN-API-ALERT_2015_08_15_SRC})
-  target_include_directories(aliyun-api-alert_2015_08_15_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-alert/2015-08-15/include/
-)
-target_link_libraries(aliyun-api-alert_2015_08_15_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-alert_2015_08_15_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-alert_2015_08_15_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-alert_2015_08_15")
-SET_TARGET_PROPERTIES(aliyun-api-alert_2015_08_15_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-alert_2015_08_15 PROPERTIES OUTPUT_NAME "aliyun-api-alert_2015_08_15")
+SET_TARGET_PROPERTIES(aliyun-api-alert_2015_08_15 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-batchcompute ####
@@ -174,65 +109,31 @@ SET_TARGET_PROPERTIES(aliyun-api-alert_2015_08_15_STATIC PROPERTIES CLEAN_DIRECT
 ## 2013-01-11 ##
 # static
 aux_source_directory(aliyun-api-batchcompute/2013-01-11/src/ ALIYUN-API-BATCHCOMPUTE_2013_01_11_SRC)
-ADD_LIBRARY(aliyun-api-batchcompute_2013_01_11_STATIC STATIC ${ALIYUN-API-BATCHCOMPUTE_2013_01_11_SRC})
-  target_include_directories(aliyun-api-batchcompute_2013_01_11_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-batchcompute_2013_01_11 SHARED ${ALIYUN-API-BATCHCOMPUTE_2013_01_11_SRC})
+  target_include_directories(aliyun-api-batchcompute_2013_01_11 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-batchcompute/2013-01-11/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2013_01_11_STATIC
+target_link_libraries(aliyun-api-batchcompute_2013_01_11 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2013_01_11
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2013_01_11_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-batchcompute_2013_01_11")
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2013_01_11_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-batchcompute_2013_01_11_SHARED SHARED ${ALIYUN-API-BATCHCOMPUTE_2013_01_11_SRC})
-  target_include_directories(aliyun-api-batchcompute_2013_01_11_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-batchcompute/2013-01-11/include/
-)
-target_link_libraries(aliyun-api-batchcompute_2013_01_11_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2013_01_11_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2013_01_11_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-batchcompute_2013_01_11")
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2013_01_11_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2013_01_11 PROPERTIES OUTPUT_NAME "aliyun-api-batchcompute_2013_01_11")
+SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2013_01_11 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2015-06-30 ##
 # static
 aux_source_directory(aliyun-api-batchcompute/2015-06-30/src/ ALIYUN-API-BATCHCOMPUTE_2015_06_30_SRC)
-ADD_LIBRARY(aliyun-api-batchcompute_2015_06_30_STATIC STATIC ${ALIYUN-API-BATCHCOMPUTE_2015_06_30_SRC})
-  target_include_directories(aliyun-api-batchcompute_2015_06_30_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-batchcompute_2015_06_30 SHARED ${ALIYUN-API-BATCHCOMPUTE_2015_06_30_SRC})
+  target_include_directories(aliyun-api-batchcompute_2015_06_30 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-batchcompute/2015-06-30/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2015_06_30_STATIC
+target_link_libraries(aliyun-api-batchcompute_2015_06_30 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2015_06_30
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2015_06_30_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-batchcompute_2015_06_30")
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2015_06_30_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-batchcompute_2015_06_30_SHARED SHARED ${ALIYUN-API-BATCHCOMPUTE_2015_06_30_SRC})
-  target_include_directories(aliyun-api-batchcompute_2015_06_30_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-batchcompute/2015-06-30/include/
-)
-target_link_libraries(aliyun-api-batchcompute_2015_06_30_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2015_06_30_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2015_06_30_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-batchcompute_2015_06_30")
-SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2015_06_30_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2015_06_30 PROPERTIES OUTPUT_NAME "aliyun-api-batchcompute_2015_06_30")
+SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2015_06_30 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-bss ####
@@ -240,33 +141,16 @@ SET_TARGET_PROPERTIES(aliyun-api-batchcompute_2015_06_30_STATIC PROPERTIES CLEAN
 ## 2014-07-14 ##
 # static
 aux_source_directory(aliyun-api-bss/2014-07-14/src/ ALIYUN-API-BSS_2014_07_14_SRC)
-ADD_LIBRARY(aliyun-api-bss_2014_07_14_STATIC STATIC ${ALIYUN-API-BSS_2014_07_14_SRC})
-  target_include_directories(aliyun-api-bss_2014_07_14_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-bss_2014_07_14 SHARED ${ALIYUN-API-BSS_2014_07_14_SRC})
+  target_include_directories(aliyun-api-bss_2014_07_14 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-bss/2014-07-14/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-bss_2014_07_14_STATIC
+target_link_libraries(aliyun-api-bss_2014_07_14 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-bss_2014_07_14
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-bss_2014_07_14_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-bss_2014_07_14")
-SET_TARGET_PROPERTIES(aliyun-api-bss_2014_07_14_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-bss_2014_07_14_SHARED SHARED ${ALIYUN-API-BSS_2014_07_14_SRC})
-  target_include_directories(aliyun-api-bss_2014_07_14_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-bss/2014-07-14/include/
-)
-target_link_libraries(aliyun-api-bss_2014_07_14_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-bss_2014_07_14_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-bss_2014_07_14_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-bss_2014_07_14")
-SET_TARGET_PROPERTIES(aliyun-api-bss_2014_07_14_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-bss_2014_07_14 PROPERTIES OUTPUT_NAME "aliyun-api-bss_2014_07_14")
+SET_TARGET_PROPERTIES(aliyun-api-bss_2014_07_14 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-cdn ####
@@ -274,33 +158,16 @@ SET_TARGET_PROPERTIES(aliyun-api-bss_2014_07_14_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2014-11-11 ##
 # static
 aux_source_directory(aliyun-api-cdn/2014-11-11/src/ ALIYUN-API-CDN_2014_11_11_SRC)
-ADD_LIBRARY(aliyun-api-cdn_2014_11_11_STATIC STATIC ${ALIYUN-API-CDN_2014_11_11_SRC})
-  target_include_directories(aliyun-api-cdn_2014_11_11_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-cdn_2014_11_11 SHARED ${ALIYUN-API-CDN_2014_11_11_SRC})
+  target_include_directories(aliyun-api-cdn_2014_11_11 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-cdn/2014-11-11/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-cdn_2014_11_11_STATIC
+target_link_libraries(aliyun-api-cdn_2014_11_11 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-cdn_2014_11_11
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-cdn_2014_11_11_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-cdn_2014_11_11")
-SET_TARGET_PROPERTIES(aliyun-api-cdn_2014_11_11_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-cdn_2014_11_11_SHARED SHARED ${ALIYUN-API-CDN_2014_11_11_SRC})
-  target_include_directories(aliyun-api-cdn_2014_11_11_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-cdn/2014-11-11/include/
-)
-target_link_libraries(aliyun-api-cdn_2014_11_11_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-cdn_2014_11_11_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-cdn_2014_11_11_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-cdn_2014_11_11")
-SET_TARGET_PROPERTIES(aliyun-api-cdn_2014_11_11_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-cdn_2014_11_11 PROPERTIES OUTPUT_NAME "aliyun-api-cdn_2014_11_11")
+SET_TARGET_PROPERTIES(aliyun-api-cdn_2014_11_11 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-cms ####
@@ -308,129 +175,61 @@ SET_TARGET_PROPERTIES(aliyun-api-cdn_2014_11_11_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-04-20 ##
 # static
 aux_source_directory(aliyun-api-cms/2015-04-20/src/ ALIYUN-API-CMS_2015_04_20_SRC)
-ADD_LIBRARY(aliyun-api-cms_2015_04_20_STATIC STATIC ${ALIYUN-API-CMS_2015_04_20_SRC})
-  target_include_directories(aliyun-api-cms_2015_04_20_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-cms_2015_04_20 SHARED ${ALIYUN-API-CMS_2015_04_20_SRC})
+  target_include_directories(aliyun-api-cms_2015_04_20 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-cms/2015-04-20/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_04_20_STATIC
+target_link_libraries(aliyun-api-cms_2015_04_20 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_04_20
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_04_20_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_04_20")
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_04_20_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-cms_2015_04_20_SHARED SHARED ${ALIYUN-API-CMS_2015_04_20_SRC})
-  target_include_directories(aliyun-api-cms_2015_04_20_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-cms/2015-04-20/include/
-)
-target_link_libraries(aliyun-api-cms_2015_04_20_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_04_20_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_04_20_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_04_20")
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_04_20_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_04_20 PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_04_20")
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_04_20 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2015-07-29 ##
 # static
 aux_source_directory(aliyun-api-cms/2015-07-29/src/ ALIYUN-API-CMS_2015_07_29_SRC)
-ADD_LIBRARY(aliyun-api-cms_2015_07_29_STATIC STATIC ${ALIYUN-API-CMS_2015_07_29_SRC})
-  target_include_directories(aliyun-api-cms_2015_07_29_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-cms_2015_07_29 SHARED ${ALIYUN-API-CMS_2015_07_29_SRC})
+  target_include_directories(aliyun-api-cms_2015_07_29 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-cms/2015-07-29/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_07_29_STATIC
+target_link_libraries(aliyun-api-cms_2015_07_29 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_07_29
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_07_29_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_07_29")
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_07_29_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-cms_2015_07_29_SHARED SHARED ${ALIYUN-API-CMS_2015_07_29_SRC})
-  target_include_directories(aliyun-api-cms_2015_07_29_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-cms/2015-07-29/include/
-)
-target_link_libraries(aliyun-api-cms_2015_07_29_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_07_29_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_07_29_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_07_29")
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_07_29_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_07_29 PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_07_29")
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_07_29 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2015-08-01 ##
 # static
 aux_source_directory(aliyun-api-cms/2015-08-01/src/ ALIYUN-API-CMS_2015_08_01_SRC)
-ADD_LIBRARY(aliyun-api-cms_2015_08_01_STATIC STATIC ${ALIYUN-API-CMS_2015_08_01_SRC})
-  target_include_directories(aliyun-api-cms_2015_08_01_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-cms_2015_08_01 SHARED ${ALIYUN-API-CMS_2015_08_01_SRC})
+  target_include_directories(aliyun-api-cms_2015_08_01 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-cms/2015-08-01/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_08_01_STATIC
+target_link_libraries(aliyun-api-cms_2015_08_01 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_08_01
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_08_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_08_01")
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_08_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-cms_2015_08_01_SHARED SHARED ${ALIYUN-API-CMS_2015_08_01_SRC})
-  target_include_directories(aliyun-api-cms_2015_08_01_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-cms/2015-08-01/include/
-)
-target_link_libraries(aliyun-api-cms_2015_08_01_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_08_01_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_08_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_08_01")
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_08_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_08_01 PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_08_01")
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_08_01 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2015-10-20 ##
 # static
 aux_source_directory(aliyun-api-cms/2015-10-20/src/ ALIYUN-API-CMS_2015_10_20_SRC)
-ADD_LIBRARY(aliyun-api-cms_2015_10_20_STATIC STATIC ${ALIYUN-API-CMS_2015_10_20_SRC})
-  target_include_directories(aliyun-api-cms_2015_10_20_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-cms_2015_10_20 SHARED ${ALIYUN-API-CMS_2015_10_20_SRC})
+  target_include_directories(aliyun-api-cms_2015_10_20 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-cms/2015-10-20/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_10_20_STATIC
+target_link_libraries(aliyun-api-cms_2015_10_20 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_10_20
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_10_20_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_10_20")
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_10_20_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-cms_2015_10_20_SHARED SHARED ${ALIYUN-API-CMS_2015_10_20_SRC})
-  target_include_directories(aliyun-api-cms_2015_10_20_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-cms/2015-10-20/include/
-)
-target_link_libraries(aliyun-api-cms_2015_10_20_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_10_20_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_10_20_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_10_20")
-SET_TARGET_PROPERTIES(aliyun-api-cms_2015_10_20_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_10_20 PROPERTIES OUTPUT_NAME "aliyun-api-cms_2015_10_20")
+SET_TARGET_PROPERTIES(aliyun-api-cms_2015_10_20 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-crm ####
@@ -438,33 +237,16 @@ SET_TARGET_PROPERTIES(aliyun-api-cms_2015_10_20_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-04-08 ##
 # static
 aux_source_directory(aliyun-api-crm/2015-04-08/src/ ALIYUN-API-CRM_2015_04_08_SRC)
-ADD_LIBRARY(aliyun-api-crm_2015_04_08_STATIC STATIC ${ALIYUN-API-CRM_2015_04_08_SRC})
-  target_include_directories(aliyun-api-crm_2015_04_08_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-crm_2015_04_08 SHARED ${ALIYUN-API-CRM_2015_04_08_SRC})
+  target_include_directories(aliyun-api-crm_2015_04_08 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-crm/2015-04-08/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-crm_2015_04_08_STATIC
+target_link_libraries(aliyun-api-crm_2015_04_08 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-crm_2015_04_08
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-crm_2015_04_08_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-crm_2015_04_08")
-SET_TARGET_PROPERTIES(aliyun-api-crm_2015_04_08_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-crm_2015_04_08_SHARED SHARED ${ALIYUN-API-CRM_2015_04_08_SRC})
-  target_include_directories(aliyun-api-crm_2015_04_08_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-crm/2015-04-08/include/
-)
-target_link_libraries(aliyun-api-crm_2015_04_08_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-crm_2015_04_08_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-crm_2015_04_08_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-crm_2015_04_08")
-SET_TARGET_PROPERTIES(aliyun-api-crm_2015_04_08_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-crm_2015_04_08 PROPERTIES OUTPUT_NAME "aliyun-api-crm_2015_04_08")
+SET_TARGET_PROPERTIES(aliyun-api-crm_2015_04_08 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-drds ####
@@ -472,33 +254,16 @@ SET_TARGET_PROPERTIES(aliyun-api-crm_2015_04_08_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-04-13 ##
 # static
 aux_source_directory(aliyun-api-drds/2015-04-13/src/ ALIYUN-API-DRDS_2015_04_13_SRC)
-ADD_LIBRARY(aliyun-api-drds_2015_04_13_STATIC STATIC ${ALIYUN-API-DRDS_2015_04_13_SRC})
-  target_include_directories(aliyun-api-drds_2015_04_13_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-drds_2015_04_13 SHARED ${ALIYUN-API-DRDS_2015_04_13_SRC})
+  target_include_directories(aliyun-api-drds_2015_04_13 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-drds/2015-04-13/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-drds_2015_04_13_STATIC
+target_link_libraries(aliyun-api-drds_2015_04_13 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-drds_2015_04_13
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-drds_2015_04_13_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-drds_2015_04_13")
-SET_TARGET_PROPERTIES(aliyun-api-drds_2015_04_13_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-drds_2015_04_13_SHARED SHARED ${ALIYUN-API-DRDS_2015_04_13_SRC})
-  target_include_directories(aliyun-api-drds_2015_04_13_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-drds/2015-04-13/include/
-)
-target_link_libraries(aliyun-api-drds_2015_04_13_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-drds_2015_04_13_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-drds_2015_04_13_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-drds_2015_04_13")
-SET_TARGET_PROPERTIES(aliyun-api-drds_2015_04_13_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-drds_2015_04_13 PROPERTIES OUTPUT_NAME "aliyun-api-drds_2015_04_13")
+SET_TARGET_PROPERTIES(aliyun-api-drds_2015_04_13 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-dts ####
@@ -506,33 +271,16 @@ SET_TARGET_PROPERTIES(aliyun-api-drds_2015_04_13_STATIC PROPERTIES CLEAN_DIRECT_
 ## 2015-06-29 ##
 # static
 aux_source_directory(aliyun-api-dts/2015-06-29/src/ ALIYUN-API-DTS_2015_06_29_SRC)
-ADD_LIBRARY(aliyun-api-dts_2015_06_29_STATIC STATIC ${ALIYUN-API-DTS_2015_06_29_SRC})
-  target_include_directories(aliyun-api-dts_2015_06_29_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-dts_2015_06_29 SHARED ${ALIYUN-API-DTS_2015_06_29_SRC})
+  target_include_directories(aliyun-api-dts_2015_06_29 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-dts/2015-06-29/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-dts_2015_06_29_STATIC
+target_link_libraries(aliyun-api-dts_2015_06_29 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-dts_2015_06_29
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-dts_2015_06_29_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-dts_2015_06_29")
-SET_TARGET_PROPERTIES(aliyun-api-dts_2015_06_29_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-dts_2015_06_29_SHARED SHARED ${ALIYUN-API-DTS_2015_06_29_SRC})
-  target_include_directories(aliyun-api-dts_2015_06_29_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-dts/2015-06-29/include/
-)
-target_link_libraries(aliyun-api-dts_2015_06_29_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-dts_2015_06_29_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-dts_2015_06_29_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-dts_2015_06_29")
-SET_TARGET_PROPERTIES(aliyun-api-dts_2015_06_29_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-dts_2015_06_29 PROPERTIES OUTPUT_NAME "aliyun-api-dts_2015_06_29")
+SET_TARGET_PROPERTIES(aliyun-api-dts_2015_06_29 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ecs ####
@@ -540,33 +288,16 @@ SET_TARGET_PROPERTIES(aliyun-api-dts_2015_06_29_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2014-05-26 ##
 # static
 aux_source_directory(aliyun-api-ecs/2014-05-26/src/ ALIYUN-API-ECS_2014_05_26_SRC)
-ADD_LIBRARY(aliyun-api-ecs_2014_05_26_STATIC STATIC ${ALIYUN-API-ECS_2014_05_26_SRC})
-  target_include_directories(aliyun-api-ecs_2014_05_26_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ecs_2014_05_26 SHARED ${ALIYUN-API-ECS_2014_05_26_SRC})
+  target_include_directories(aliyun-api-ecs_2014_05_26 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ecs/2014-05-26/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ecs_2014_05_26_STATIC
+target_link_libraries(aliyun-api-ecs_2014_05_26 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ecs_2014_05_26
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ecs_2014_05_26_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ecs_2014_05_26")
-SET_TARGET_PROPERTIES(aliyun-api-ecs_2014_05_26_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ecs_2014_05_26_SHARED SHARED ${ALIYUN-API-ECS_2014_05_26_SRC})
-  target_include_directories(aliyun-api-ecs_2014_05_26_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ecs/2014-05-26/include/
-)
-target_link_libraries(aliyun-api-ecs_2014_05_26_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ecs_2014_05_26_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ecs_2014_05_26_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ecs_2014_05_26")
-SET_TARGET_PROPERTIES(aliyun-api-ecs_2014_05_26_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ecs_2014_05_26 PROPERTIES OUTPUT_NAME "aliyun-api-ecs_2014_05_26")
+SET_TARGET_PROPERTIES(aliyun-api-ecs_2014_05_26 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-emr ####
@@ -574,33 +305,16 @@ SET_TARGET_PROPERTIES(aliyun-api-ecs_2014_05_26_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-09-10 ##
 # static
 aux_source_directory(aliyun-api-emr/2015-09-10/src/ ALIYUN-API-EMR_2015_09_10_SRC)
-ADD_LIBRARY(aliyun-api-emr_2015_09_10_STATIC STATIC ${ALIYUN-API-EMR_2015_09_10_SRC})
-  target_include_directories(aliyun-api-emr_2015_09_10_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-emr_2015_09_10 SHARED ${ALIYUN-API-EMR_2015_09_10_SRC})
+  target_include_directories(aliyun-api-emr_2015_09_10 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-emr/2015-09-10/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-emr_2015_09_10_STATIC
+target_link_libraries(aliyun-api-emr_2015_09_10 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-emr_2015_09_10
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-emr_2015_09_10_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-emr_2015_09_10")
-SET_TARGET_PROPERTIES(aliyun-api-emr_2015_09_10_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-emr_2015_09_10_SHARED SHARED ${ALIYUN-API-EMR_2015_09_10_SRC})
-  target_include_directories(aliyun-api-emr_2015_09_10_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-emr/2015-09-10/include/
-)
-target_link_libraries(aliyun-api-emr_2015_09_10_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-emr_2015_09_10_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-emr_2015_09_10_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-emr_2015_09_10")
-SET_TARGET_PROPERTIES(aliyun-api-emr_2015_09_10_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-emr_2015_09_10 PROPERTIES OUTPUT_NAME "aliyun-api-emr_2015_09_10")
+SET_TARGET_PROPERTIES(aliyun-api-emr_2015_09_10 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ess ####
@@ -608,33 +322,16 @@ SET_TARGET_PROPERTIES(aliyun-api-emr_2015_09_10_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2014-08-28 ##
 # static
 aux_source_directory(aliyun-api-ess/2014-08-28/src/ ALIYUN-API-ESS_2014_08_28_SRC)
-ADD_LIBRARY(aliyun-api-ess_2014_08_28_STATIC STATIC ${ALIYUN-API-ESS_2014_08_28_SRC})
-  target_include_directories(aliyun-api-ess_2014_08_28_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ess_2014_08_28 SHARED ${ALIYUN-API-ESS_2014_08_28_SRC})
+  target_include_directories(aliyun-api-ess_2014_08_28 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ess/2014-08-28/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ess_2014_08_28_STATIC
+target_link_libraries(aliyun-api-ess_2014_08_28 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ess_2014_08_28
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ess_2014_08_28_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ess_2014_08_28")
-SET_TARGET_PROPERTIES(aliyun-api-ess_2014_08_28_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ess_2014_08_28_SHARED SHARED ${ALIYUN-API-ESS_2014_08_28_SRC})
-  target_include_directories(aliyun-api-ess_2014_08_28_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ess/2014-08-28/include/
-)
-target_link_libraries(aliyun-api-ess_2014_08_28_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ess_2014_08_28_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ess_2014_08_28_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ess_2014_08_28")
-SET_TARGET_PROPERTIES(aliyun-api-ess_2014_08_28_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ess_2014_08_28 PROPERTIES OUTPUT_NAME "aliyun-api-ess_2014_08_28")
+SET_TARGET_PROPERTIES(aliyun-api-ess_2014_08_28 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ocs ####
@@ -642,33 +339,16 @@ SET_TARGET_PROPERTIES(aliyun-api-ess_2014_08_28_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-03-01 ##
 # static
 aux_source_directory(aliyun-api-ocs/2015-03-01/src/ ALIYUN-API-OCS_2015_03_01_SRC)
-ADD_LIBRARY(aliyun-api-ocs_2015_03_01_STATIC STATIC ${ALIYUN-API-OCS_2015_03_01_SRC})
-  target_include_directories(aliyun-api-ocs_2015_03_01_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ocs_2015_03_01 SHARED ${ALIYUN-API-OCS_2015_03_01_SRC})
+  target_include_directories(aliyun-api-ocs_2015_03_01 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ocs/2015-03-01/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ocs_2015_03_01_STATIC
+target_link_libraries(aliyun-api-ocs_2015_03_01 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ocs_2015_03_01
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ocs_2015_03_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ocs_2015_03_01")
-SET_TARGET_PROPERTIES(aliyun-api-ocs_2015_03_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ocs_2015_03_01_SHARED SHARED ${ALIYUN-API-OCS_2015_03_01_SRC})
-  target_include_directories(aliyun-api-ocs_2015_03_01_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ocs/2015-03-01/include/
-)
-target_link_libraries(aliyun-api-ocs_2015_03_01_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ocs_2015_03_01_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ocs_2015_03_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ocs_2015_03_01")
-SET_TARGET_PROPERTIES(aliyun-api-ocs_2015_03_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ocs_2015_03_01 PROPERTIES OUTPUT_NAME "aliyun-api-ocs_2015_03_01")
+SET_TARGET_PROPERTIES(aliyun-api-ocs_2015_03_01 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-oms ####
@@ -676,33 +356,16 @@ SET_TARGET_PROPERTIES(aliyun-api-ocs_2015_03_01_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-02-12 ##
 # static
 aux_source_directory(aliyun-api-oms/2015-02-12/src/ ALIYUN-API-OMS_2015_02_12_SRC)
-ADD_LIBRARY(aliyun-api-oms_2015_02_12_STATIC STATIC ${ALIYUN-API-OMS_2015_02_12_SRC})
-  target_include_directories(aliyun-api-oms_2015_02_12_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-oms_2015_02_12 SHARED ${ALIYUN-API-OMS_2015_02_12_SRC})
+  target_include_directories(aliyun-api-oms_2015_02_12 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-oms/2015-02-12/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-oms_2015_02_12_STATIC
+target_link_libraries(aliyun-api-oms_2015_02_12 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-oms_2015_02_12
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-oms_2015_02_12_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-oms_2015_02_12")
-SET_TARGET_PROPERTIES(aliyun-api-oms_2015_02_12_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-oms_2015_02_12_SHARED SHARED ${ALIYUN-API-OMS_2015_02_12_SRC})
-  target_include_directories(aliyun-api-oms_2015_02_12_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-oms/2015-02-12/include/
-)
-target_link_libraries(aliyun-api-oms_2015_02_12_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-oms_2015_02_12_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-oms_2015_02_12_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-oms_2015_02_12")
-SET_TARGET_PROPERTIES(aliyun-api-oms_2015_02_12_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-oms_2015_02_12 PROPERTIES OUTPUT_NAME "aliyun-api-oms_2015_02_12")
+SET_TARGET_PROPERTIES(aliyun-api-oms_2015_02_12 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ons ####
@@ -710,33 +373,16 @@ SET_TARGET_PROPERTIES(aliyun-api-oms_2015_02_12_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-10-20 ##
 # static
 aux_source_directory(aliyun-api-ons/2015-10-20/src/ ALIYUN-API-ONS_2015_10_20_SRC)
-ADD_LIBRARY(aliyun-api-ons_2015_10_20_STATIC STATIC ${ALIYUN-API-ONS_2015_10_20_SRC})
-  target_include_directories(aliyun-api-ons_2015_10_20_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ons_2015_10_20 SHARED ${ALIYUN-API-ONS_2015_10_20_SRC})
+  target_include_directories(aliyun-api-ons_2015_10_20 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ons/2015-10-20/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ons_2015_10_20_STATIC
+target_link_libraries(aliyun-api-ons_2015_10_20 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ons_2015_10_20
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ons_2015_10_20_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ons_2015_10_20")
-SET_TARGET_PROPERTIES(aliyun-api-ons_2015_10_20_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ons_2015_10_20_SHARED SHARED ${ALIYUN-API-ONS_2015_10_20_SRC})
-  target_include_directories(aliyun-api-ons_2015_10_20_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ons/2015-10-20/include/
-)
-target_link_libraries(aliyun-api-ons_2015_10_20_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ons_2015_10_20_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ons_2015_10_20_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ons_2015_10_20")
-SET_TARGET_PROPERTIES(aliyun-api-ons_2015_10_20_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ons_2015_10_20 PROPERTIES OUTPUT_NAME "aliyun-api-ons_2015_10_20")
+SET_TARGET_PROPERTIES(aliyun-api-ons_2015_10_20 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ossadmin ####
@@ -744,129 +390,61 @@ SET_TARGET_PROPERTIES(aliyun-api-ons_2015_10_20_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2013-07-12 ##
 # static
 aux_source_directory(aliyun-api-ossadmin/2013-07-12/src/ ALIYUN-API-OSSADMIN_2013_07_12_SRC)
-ADD_LIBRARY(aliyun-api-ossadmin_2013_07_12_STATIC STATIC ${ALIYUN-API-OSSADMIN_2013_07_12_SRC})
-  target_include_directories(aliyun-api-ossadmin_2013_07_12_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ossadmin_2013_07_12 SHARED ${ALIYUN-API-OSSADMIN_2013_07_12_SRC})
+  target_include_directories(aliyun-api-ossadmin_2013_07_12 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ossadmin/2013-07-12/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2013_07_12_STATIC
+target_link_libraries(aliyun-api-ossadmin_2013_07_12 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2013_07_12
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2013_07_12_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2013_07_12")
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2013_07_12_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ossadmin_2013_07_12_SHARED SHARED ${ALIYUN-API-OSSADMIN_2013_07_12_SRC})
-  target_include_directories(aliyun-api-ossadmin_2013_07_12_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ossadmin/2013-07-12/include/
-)
-target_link_libraries(aliyun-api-ossadmin_2013_07_12_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2013_07_12_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2013_07_12_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2013_07_12")
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2013_07_12_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2013_07_12 PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2013_07_12")
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2013_07_12 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2014-03-26 ##
 # static
 aux_source_directory(aliyun-api-ossadmin/2014-03-26/src/ ALIYUN-API-OSSADMIN_2014_03_26_SRC)
-ADD_LIBRARY(aliyun-api-ossadmin_2014_03_26_STATIC STATIC ${ALIYUN-API-OSSADMIN_2014_03_26_SRC})
-  target_include_directories(aliyun-api-ossadmin_2014_03_26_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ossadmin_2014_03_26 SHARED ${ALIYUN-API-OSSADMIN_2014_03_26_SRC})
+  target_include_directories(aliyun-api-ossadmin_2014_03_26 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ossadmin/2014-03-26/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2014_03_26_STATIC
+target_link_libraries(aliyun-api-ossadmin_2014_03_26 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2014_03_26
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2014_03_26_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2014_03_26")
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2014_03_26_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ossadmin_2014_03_26_SHARED SHARED ${ALIYUN-API-OSSADMIN_2014_03_26_SRC})
-  target_include_directories(aliyun-api-ossadmin_2014_03_26_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ossadmin/2014-03-26/include/
-)
-target_link_libraries(aliyun-api-ossadmin_2014_03_26_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2014_03_26_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2014_03_26_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2014_03_26")
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2014_03_26_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2014_03_26 PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2014_03_26")
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2014_03_26 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2015-03-02 ##
 # static
 aux_source_directory(aliyun-api-ossadmin/2015-03-02/src/ ALIYUN-API-OSSADMIN_2015_03_02_SRC)
-ADD_LIBRARY(aliyun-api-ossadmin_2015_03_02_STATIC STATIC ${ALIYUN-API-OSSADMIN_2015_03_02_SRC})
-  target_include_directories(aliyun-api-ossadmin_2015_03_02_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ossadmin_2015_03_02 SHARED ${ALIYUN-API-OSSADMIN_2015_03_02_SRC})
+  target_include_directories(aliyun-api-ossadmin_2015_03_02 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ossadmin/2015-03-02/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_03_02_STATIC
+target_link_libraries(aliyun-api-ossadmin_2015_03_02 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_03_02
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_03_02_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2015_03_02")
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_03_02_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ossadmin_2015_03_02_SHARED SHARED ${ALIYUN-API-OSSADMIN_2015_03_02_SRC})
-  target_include_directories(aliyun-api-ossadmin_2015_03_02_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ossadmin/2015-03-02/include/
-)
-target_link_libraries(aliyun-api-ossadmin_2015_03_02_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_03_02_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_03_02_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2015_03_02")
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_03_02_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_03_02 PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2015_03_02")
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_03_02 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2015-05-20 ##
 # static
 aux_source_directory(aliyun-api-ossadmin/2015-05-20/src/ ALIYUN-API-OSSADMIN_2015_05_20_SRC)
-ADD_LIBRARY(aliyun-api-ossadmin_2015_05_20_STATIC STATIC ${ALIYUN-API-OSSADMIN_2015_05_20_SRC})
-  target_include_directories(aliyun-api-ossadmin_2015_05_20_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ossadmin_2015_05_20 SHARED ${ALIYUN-API-OSSADMIN_2015_05_20_SRC})
+  target_include_directories(aliyun-api-ossadmin_2015_05_20 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ossadmin/2015-05-20/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_05_20_STATIC
+target_link_libraries(aliyun-api-ossadmin_2015_05_20 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_05_20
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_05_20_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2015_05_20")
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_05_20_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ossadmin_2015_05_20_SHARED SHARED ${ALIYUN-API-OSSADMIN_2015_05_20_SRC})
-  target_include_directories(aliyun-api-ossadmin_2015_05_20_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ossadmin/2015-05-20/include/
-)
-target_link_libraries(aliyun-api-ossadmin_2015_05_20_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_05_20_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_05_20_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2015_05_20")
-SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_05_20_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_05_20 PROPERTIES OUTPUT_NAME "aliyun-api-ossadmin_2015_05_20")
+SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_05_20 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ots ####
@@ -874,33 +452,16 @@ SET_TARGET_PROPERTIES(aliyun-api-ossadmin_2015_05_20_STATIC PROPERTIES CLEAN_DIR
 ## 2013-09-12 ##
 # static
 aux_source_directory(aliyun-api-ots/2013-09-12/src/ ALIYUN-API-OTS_2013_09_12_SRC)
-ADD_LIBRARY(aliyun-api-ots_2013_09_12_STATIC STATIC ${ALIYUN-API-OTS_2013_09_12_SRC})
-  target_include_directories(aliyun-api-ots_2013_09_12_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ots_2013_09_12 SHARED ${ALIYUN-API-OTS_2013_09_12_SRC})
+  target_include_directories(aliyun-api-ots_2013_09_12 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ots/2013-09-12/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ots_2013_09_12_STATIC
+target_link_libraries(aliyun-api-ots_2013_09_12 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ots_2013_09_12
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ots_2013_09_12_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ots_2013_09_12")
-SET_TARGET_PROPERTIES(aliyun-api-ots_2013_09_12_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ots_2013_09_12_SHARED SHARED ${ALIYUN-API-OTS_2013_09_12_SRC})
-  target_include_directories(aliyun-api-ots_2013_09_12_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ots/2013-09-12/include/
-)
-target_link_libraries(aliyun-api-ots_2013_09_12_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ots_2013_09_12_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ots_2013_09_12_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ots_2013_09_12")
-SET_TARGET_PROPERTIES(aliyun-api-ots_2013_09_12_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ots_2013_09_12 PROPERTIES OUTPUT_NAME "aliyun-api-ots_2013_09_12")
+SET_TARGET_PROPERTIES(aliyun-api-ots_2013_09_12 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-otsfinance ####
@@ -908,33 +469,16 @@ SET_TARGET_PROPERTIES(aliyun-api-ots_2013_09_12_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2013-09-12 ##
 # static
 aux_source_directory(aliyun-api-otsfinance/2013-09-12/src/ ALIYUN-API-OTSFINANCE_2013_09_12_SRC)
-ADD_LIBRARY(aliyun-api-otsfinance_2013_09_12_STATIC STATIC ${ALIYUN-API-OTSFINANCE_2013_09_12_SRC})
-  target_include_directories(aliyun-api-otsfinance_2013_09_12_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-otsfinance_2013_09_12 SHARED ${ALIYUN-API-OTSFINANCE_2013_09_12_SRC})
+  target_include_directories(aliyun-api-otsfinance_2013_09_12 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-otsfinance/2013-09-12/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-otsfinance_2013_09_12_STATIC
+target_link_libraries(aliyun-api-otsfinance_2013_09_12 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-otsfinance_2013_09_12
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-otsfinance_2013_09_12_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-otsfinance_2013_09_12")
-SET_TARGET_PROPERTIES(aliyun-api-otsfinance_2013_09_12_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-otsfinance_2013_09_12_SHARED SHARED ${ALIYUN-API-OTSFINANCE_2013_09_12_SRC})
-  target_include_directories(aliyun-api-otsfinance_2013_09_12_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-otsfinance/2013-09-12/include/
-)
-target_link_libraries(aliyun-api-otsfinance_2013_09_12_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-otsfinance_2013_09_12_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-otsfinance_2013_09_12_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-otsfinance_2013_09_12")
-SET_TARGET_PROPERTIES(aliyun-api-otsfinance_2013_09_12_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-otsfinance_2013_09_12 PROPERTIES OUTPUT_NAME "aliyun-api-otsfinance_2013_09_12")
+SET_TARGET_PROPERTIES(aliyun-api-otsfinance_2013_09_12 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-otsshihua ####
@@ -942,33 +486,16 @@ SET_TARGET_PROPERTIES(aliyun-api-otsfinance_2013_09_12_STATIC PROPERTIES CLEAN_D
 ## 2015-10-26 ##
 # static
 aux_source_directory(aliyun-api-otsshihua/2015-10-26/src/ ALIYUN-API-OTSSHIHUA_2015_10_26_SRC)
-ADD_LIBRARY(aliyun-api-otsshihua_2015_10_26_STATIC STATIC ${ALIYUN-API-OTSSHIHUA_2015_10_26_SRC})
-  target_include_directories(aliyun-api-otsshihua_2015_10_26_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-otsshihua_2015_10_26 SHARED ${ALIYUN-API-OTSSHIHUA_2015_10_26_SRC})
+  target_include_directories(aliyun-api-otsshihua_2015_10_26 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-otsshihua/2015-10-26/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-otsshihua_2015_10_26_STATIC
+target_link_libraries(aliyun-api-otsshihua_2015_10_26 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-otsshihua_2015_10_26
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-otsshihua_2015_10_26_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-otsshihua_2015_10_26")
-SET_TARGET_PROPERTIES(aliyun-api-otsshihua_2015_10_26_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-otsshihua_2015_10_26_SHARED SHARED ${ALIYUN-API-OTSSHIHUA_2015_10_26_SRC})
-  target_include_directories(aliyun-api-otsshihua_2015_10_26_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-otsshihua/2015-10-26/include/
-)
-target_link_libraries(aliyun-api-otsshihua_2015_10_26_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-otsshihua_2015_10_26_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-otsshihua_2015_10_26_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-otsshihua_2015_10_26")
-SET_TARGET_PROPERTIES(aliyun-api-otsshihua_2015_10_26_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-otsshihua_2015_10_26 PROPERTIES OUTPUT_NAME "aliyun-api-otsshihua_2015_10_26")
+SET_TARGET_PROPERTIES(aliyun-api-otsshihua_2015_10_26 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-pts ####
@@ -976,33 +503,16 @@ SET_TARGET_PROPERTIES(aliyun-api-otsshihua_2015_10_26_STATIC PROPERTIES CLEAN_DI
 ## 2015-08-01 ##
 # static
 aux_source_directory(aliyun-api-pts/2015-08-01/src/ ALIYUN-API-PTS_2015_08_01_SRC)
-ADD_LIBRARY(aliyun-api-pts_2015_08_01_STATIC STATIC ${ALIYUN-API-PTS_2015_08_01_SRC})
-  target_include_directories(aliyun-api-pts_2015_08_01_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-pts_2015_08_01 SHARED ${ALIYUN-API-PTS_2015_08_01_SRC})
+  target_include_directories(aliyun-api-pts_2015_08_01 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-pts/2015-08-01/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-pts_2015_08_01_STATIC
+target_link_libraries(aliyun-api-pts_2015_08_01 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-pts_2015_08_01
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-pts_2015_08_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-pts_2015_08_01")
-SET_TARGET_PROPERTIES(aliyun-api-pts_2015_08_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-pts_2015_08_01_SHARED SHARED ${ALIYUN-API-PTS_2015_08_01_SRC})
-  target_include_directories(aliyun-api-pts_2015_08_01_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-pts/2015-08-01/include/
-)
-target_link_libraries(aliyun-api-pts_2015_08_01_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-pts_2015_08_01_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-pts_2015_08_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-pts_2015_08_01")
-SET_TARGET_PROPERTIES(aliyun-api-pts_2015_08_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-pts_2015_08_01 PROPERTIES OUTPUT_NAME "aliyun-api-pts_2015_08_01")
+SET_TARGET_PROPERTIES(aliyun-api-pts_2015_08_01 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-push ####
@@ -1010,33 +520,16 @@ SET_TARGET_PROPERTIES(aliyun-api-pts_2015_08_01_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-08-27 ##
 # static
 aux_source_directory(aliyun-api-push/2015-08-27/src/ ALIYUN-API-PUSH_2015_08_27_SRC)
-ADD_LIBRARY(aliyun-api-push_2015_08_27_STATIC STATIC ${ALIYUN-API-PUSH_2015_08_27_SRC})
-  target_include_directories(aliyun-api-push_2015_08_27_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-push_2015_08_27 SHARED ${ALIYUN-API-PUSH_2015_08_27_SRC})
+  target_include_directories(aliyun-api-push_2015_08_27 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-push/2015-08-27/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-push_2015_08_27_STATIC
+target_link_libraries(aliyun-api-push_2015_08_27 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-push_2015_08_27
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-push_2015_08_27_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-push_2015_08_27")
-SET_TARGET_PROPERTIES(aliyun-api-push_2015_08_27_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-push_2015_08_27_SHARED SHARED ${ALIYUN-API-PUSH_2015_08_27_SRC})
-  target_include_directories(aliyun-api-push_2015_08_27_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-push/2015-08-27/include/
-)
-target_link_libraries(aliyun-api-push_2015_08_27_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-push_2015_08_27_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-push_2015_08_27_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-push_2015_08_27")
-SET_TARGET_PROPERTIES(aliyun-api-push_2015_08_27_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-push_2015_08_27 PROPERTIES OUTPUT_NAME "aliyun-api-push_2015_08_27")
+SET_TARGET_PROPERTIES(aliyun-api-push_2015_08_27 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-r-kvstore ####
@@ -1044,33 +537,16 @@ SET_TARGET_PROPERTIES(aliyun-api-push_2015_08_27_STATIC PROPERTIES CLEAN_DIRECT_
 ## 2015-01-01 ##
 # static
 aux_source_directory(aliyun-api-r-kvstore/2015-01-01/src/ ALIYUN-API-R-KVSTORE_2015_01_01_SRC)
-ADD_LIBRARY(aliyun-api-r-kvstore_2015_01_01_STATIC STATIC ${ALIYUN-API-R-KVSTORE_2015_01_01_SRC})
-  target_include_directories(aliyun-api-r-kvstore_2015_01_01_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-r-kvstore_2015_01_01 SHARED ${ALIYUN-API-R-KVSTORE_2015_01_01_SRC})
+  target_include_directories(aliyun-api-r-kvstore_2015_01_01 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-r-kvstore/2015-01-01/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-r-kvstore_2015_01_01_STATIC
+target_link_libraries(aliyun-api-r-kvstore_2015_01_01 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-r-kvstore_2015_01_01
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-r-kvstore_2015_01_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-r-kvstore_2015_01_01")
-SET_TARGET_PROPERTIES(aliyun-api-r-kvstore_2015_01_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-r-kvstore_2015_01_01_SHARED SHARED ${ALIYUN-API-R-KVSTORE_2015_01_01_SRC})
-  target_include_directories(aliyun-api-r-kvstore_2015_01_01_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-r-kvstore/2015-01-01/include/
-)
-target_link_libraries(aliyun-api-r-kvstore_2015_01_01_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-r-kvstore_2015_01_01_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-r-kvstore_2015_01_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-r-kvstore_2015_01_01")
-SET_TARGET_PROPERTIES(aliyun-api-r-kvstore_2015_01_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-r-kvstore_2015_01_01 PROPERTIES OUTPUT_NAME "aliyun-api-r-kvstore_2015_01_01")
+SET_TARGET_PROPERTIES(aliyun-api-r-kvstore_2015_01_01 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ram ####
@@ -1078,65 +554,31 @@ SET_TARGET_PROPERTIES(aliyun-api-r-kvstore_2015_01_01_STATIC PROPERTIES CLEAN_DI
 ## 2014-02-14 ##
 # static
 aux_source_directory(aliyun-api-ram/2014-02-14/src/ ALIYUN-API-RAM_2014_02_14_SRC)
-ADD_LIBRARY(aliyun-api-ram_2014_02_14_STATIC STATIC ${ALIYUN-API-RAM_2014_02_14_SRC})
-  target_include_directories(aliyun-api-ram_2014_02_14_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ram_2014_02_14 SHARED ${ALIYUN-API-RAM_2014_02_14_SRC})
+  target_include_directories(aliyun-api-ram_2014_02_14 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ram/2014-02-14/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ram_2014_02_14_STATIC
+target_link_libraries(aliyun-api-ram_2014_02_14 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ram_2014_02_14
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ram_2014_02_14_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ram_2014_02_14")
-SET_TARGET_PROPERTIES(aliyun-api-ram_2014_02_14_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ram_2014_02_14_SHARED SHARED ${ALIYUN-API-RAM_2014_02_14_SRC})
-  target_include_directories(aliyun-api-ram_2014_02_14_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ram/2014-02-14/include/
-)
-target_link_libraries(aliyun-api-ram_2014_02_14_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ram_2014_02_14_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ram_2014_02_14_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ram_2014_02_14")
-SET_TARGET_PROPERTIES(aliyun-api-ram_2014_02_14_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ram_2014_02_14 PROPERTIES OUTPUT_NAME "aliyun-api-ram_2014_02_14")
+SET_TARGET_PROPERTIES(aliyun-api-ram_2014_02_14 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2015-05-01 ##
 # static
 aux_source_directory(aliyun-api-ram/2015-05-01/src/ ALIYUN-API-RAM_2015_05_01_SRC)
-ADD_LIBRARY(aliyun-api-ram_2015_05_01_STATIC STATIC ${ALIYUN-API-RAM_2015_05_01_SRC})
-  target_include_directories(aliyun-api-ram_2015_05_01_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ram_2015_05_01 SHARED ${ALIYUN-API-RAM_2015_05_01_SRC})
+  target_include_directories(aliyun-api-ram_2015_05_01 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ram/2015-05-01/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ram_2015_05_01_STATIC
+target_link_libraries(aliyun-api-ram_2015_05_01 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ram_2015_05_01
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ram_2015_05_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ram_2015_05_01")
-SET_TARGET_PROPERTIES(aliyun-api-ram_2015_05_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ram_2015_05_01_SHARED SHARED ${ALIYUN-API-RAM_2015_05_01_SRC})
-  target_include_directories(aliyun-api-ram_2015_05_01_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ram/2015-05-01/include/
-)
-target_link_libraries(aliyun-api-ram_2015_05_01_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ram_2015_05_01_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ram_2015_05_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ram_2015_05_01")
-SET_TARGET_PROPERTIES(aliyun-api-ram_2015_05_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ram_2015_05_01 PROPERTIES OUTPUT_NAME "aliyun-api-ram_2015_05_01")
+SET_TARGET_PROPERTIES(aliyun-api-ram_2015_05_01 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-rds ####
@@ -1144,33 +586,16 @@ SET_TARGET_PROPERTIES(aliyun-api-ram_2015_05_01_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2014-08-15 ##
 # static
 aux_source_directory(aliyun-api-rds/2014-08-15/src/ ALIYUN-API-RDS_2014_08_15_SRC)
-ADD_LIBRARY(aliyun-api-rds_2014_08_15_STATIC STATIC ${ALIYUN-API-RDS_2014_08_15_SRC})
-  target_include_directories(aliyun-api-rds_2014_08_15_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-rds_2014_08_15 SHARED ${ALIYUN-API-RDS_2014_08_15_SRC})
+  target_include_directories(aliyun-api-rds_2014_08_15 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-rds/2014-08-15/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-rds_2014_08_15_STATIC
+target_link_libraries(aliyun-api-rds_2014_08_15 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-rds_2014_08_15
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-rds_2014_08_15_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-rds_2014_08_15")
-SET_TARGET_PROPERTIES(aliyun-api-rds_2014_08_15_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-rds_2014_08_15_SHARED SHARED ${ALIYUN-API-RDS_2014_08_15_SRC})
-  target_include_directories(aliyun-api-rds_2014_08_15_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-rds/2014-08-15/include/
-)
-target_link_libraries(aliyun-api-rds_2014_08_15_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-rds_2014_08_15_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-rds_2014_08_15_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-rds_2014_08_15")
-SET_TARGET_PROPERTIES(aliyun-api-rds_2014_08_15_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-rds_2014_08_15 PROPERTIES OUTPUT_NAME "aliyun-api-rds_2014_08_15")
+SET_TARGET_PROPERTIES(aliyun-api-rds_2014_08_15 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-rds_region ####
@@ -1178,33 +603,16 @@ SET_TARGET_PROPERTIES(aliyun-api-rds_2014_08_15_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2014-08-15 ##
 # static
 aux_source_directory(aliyun-api-rds_region/2014-08-15/src/ ALIYUN-API-RDS_REGION_2014_08_15_SRC)
-ADD_LIBRARY(aliyun-api-rds_region_2014_08_15_STATIC STATIC ${ALIYUN-API-RDS_REGION_2014_08_15_SRC})
-  target_include_directories(aliyun-api-rds_region_2014_08_15_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-rds_region_2014_08_15 SHARED ${ALIYUN-API-RDS_REGION_2014_08_15_SRC})
+  target_include_directories(aliyun-api-rds_region_2014_08_15 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-rds_region/2014-08-15/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-rds_region_2014_08_15_STATIC
+target_link_libraries(aliyun-api-rds_region_2014_08_15 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-rds_region_2014_08_15
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-rds_region_2014_08_15_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-rds_region_2014_08_15")
-SET_TARGET_PROPERTIES(aliyun-api-rds_region_2014_08_15_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-rds_region_2014_08_15_SHARED SHARED ${ALIYUN-API-RDS_REGION_2014_08_15_SRC})
-  target_include_directories(aliyun-api-rds_region_2014_08_15_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-rds_region/2014-08-15/include/
-)
-target_link_libraries(aliyun-api-rds_region_2014_08_15_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-rds_region_2014_08_15_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-rds_region_2014_08_15_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-rds_region_2014_08_15")
-SET_TARGET_PROPERTIES(aliyun-api-rds_region_2014_08_15_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-rds_region_2014_08_15 PROPERTIES OUTPUT_NAME "aliyun-api-rds_region_2014_08_15")
+SET_TARGET_PROPERTIES(aliyun-api-rds_region_2014_08_15 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-risk ####
@@ -1212,65 +620,31 @@ SET_TARGET_PROPERTIES(aliyun-api-rds_region_2014_08_15_STATIC PROPERTIES CLEAN_D
 ## 2015-03-23 ##
 # static
 aux_source_directory(aliyun-api-risk/2015-03-23/src/ ALIYUN-API-RISK_2015_03_23_SRC)
-ADD_LIBRARY(aliyun-api-risk_2015_03_23_STATIC STATIC ${ALIYUN-API-RISK_2015_03_23_SRC})
-  target_include_directories(aliyun-api-risk_2015_03_23_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-risk_2015_03_23 SHARED ${ALIYUN-API-RISK_2015_03_23_SRC})
+  target_include_directories(aliyun-api-risk_2015_03_23 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-risk/2015-03-23/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_03_23_STATIC
+target_link_libraries(aliyun-api-risk_2015_03_23 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-risk_2015_03_23
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_03_23_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-risk_2015_03_23")
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_03_23_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-risk_2015_03_23_SHARED SHARED ${ALIYUN-API-RISK_2015_03_23_SRC})
-  target_include_directories(aliyun-api-risk_2015_03_23_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-risk/2015-03-23/include/
-)
-target_link_libraries(aliyun-api-risk_2015_03_23_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_03_23_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_03_23_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-risk_2015_03_23")
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_03_23_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-risk_2015_03_23 PROPERTIES OUTPUT_NAME "aliyun-api-risk_2015_03_23")
+SET_TARGET_PROPERTIES(aliyun-api-risk_2015_03_23 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2015-08-04 ##
 # static
 aux_source_directory(aliyun-api-risk/2015-08-04/src/ ALIYUN-API-RISK_2015_08_04_SRC)
-ADD_LIBRARY(aliyun-api-risk_2015_08_04_STATIC STATIC ${ALIYUN-API-RISK_2015_08_04_SRC})
-  target_include_directories(aliyun-api-risk_2015_08_04_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-risk_2015_08_04 SHARED ${ALIYUN-API-RISK_2015_08_04_SRC})
+  target_include_directories(aliyun-api-risk_2015_08_04 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-risk/2015-08-04/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_08_04_STATIC
+target_link_libraries(aliyun-api-risk_2015_08_04 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-risk_2015_08_04
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_08_04_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-risk_2015_08_04")
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_08_04_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-risk_2015_08_04_SHARED SHARED ${ALIYUN-API-RISK_2015_08_04_SRC})
-  target_include_directories(aliyun-api-risk_2015_08_04_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-risk/2015-08-04/include/
-)
-target_link_libraries(aliyun-api-risk_2015_08_04_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_08_04_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_08_04_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-risk_2015_08_04")
-SET_TARGET_PROPERTIES(aliyun-api-risk_2015_08_04_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-risk_2015_08_04 PROPERTIES OUTPUT_NAME "aliyun-api-risk_2015_08_04")
+SET_TARGET_PROPERTIES(aliyun-api-risk_2015_08_04 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-slb ####
@@ -1278,65 +652,31 @@ SET_TARGET_PROPERTIES(aliyun-api-risk_2015_08_04_STATIC PROPERTIES CLEAN_DIRECT_
 ## 2013-02-21 ##
 # static
 aux_source_directory(aliyun-api-slb/2013-02-21/src/ ALIYUN-API-SLB_2013_02_21_SRC)
-ADD_LIBRARY(aliyun-api-slb_2013_02_21_STATIC STATIC ${ALIYUN-API-SLB_2013_02_21_SRC})
-  target_include_directories(aliyun-api-slb_2013_02_21_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-slb_2013_02_21 SHARED ${ALIYUN-API-SLB_2013_02_21_SRC})
+  target_include_directories(aliyun-api-slb_2013_02_21 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-slb/2013-02-21/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-slb_2013_02_21_STATIC
+target_link_libraries(aliyun-api-slb_2013_02_21 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-slb_2013_02_21
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-slb_2013_02_21_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-slb_2013_02_21")
-SET_TARGET_PROPERTIES(aliyun-api-slb_2013_02_21_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-slb_2013_02_21_SHARED SHARED ${ALIYUN-API-SLB_2013_02_21_SRC})
-  target_include_directories(aliyun-api-slb_2013_02_21_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-slb/2013-02-21/include/
-)
-target_link_libraries(aliyun-api-slb_2013_02_21_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-slb_2013_02_21_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-slb_2013_02_21_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-slb_2013_02_21")
-SET_TARGET_PROPERTIES(aliyun-api-slb_2013_02_21_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-slb_2013_02_21 PROPERTIES OUTPUT_NAME "aliyun-api-slb_2013_02_21")
+SET_TARGET_PROPERTIES(aliyun-api-slb_2013_02_21 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2014-05-15 ##
 # static
 aux_source_directory(aliyun-api-slb/2014-05-15/src/ ALIYUN-API-SLB_2014_05_15_SRC)
-ADD_LIBRARY(aliyun-api-slb_2014_05_15_STATIC STATIC ${ALIYUN-API-SLB_2014_05_15_SRC})
-  target_include_directories(aliyun-api-slb_2014_05_15_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-slb_2014_05_15 SHARED ${ALIYUN-API-SLB_2014_05_15_SRC})
+  target_include_directories(aliyun-api-slb_2014_05_15 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-slb/2014-05-15/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-slb_2014_05_15_STATIC
+target_link_libraries(aliyun-api-slb_2014_05_15 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-slb_2014_05_15
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-slb_2014_05_15_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-slb_2014_05_15")
-SET_TARGET_PROPERTIES(aliyun-api-slb_2014_05_15_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-slb_2014_05_15_SHARED SHARED ${ALIYUN-API-SLB_2014_05_15_SRC})
-  target_include_directories(aliyun-api-slb_2014_05_15_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-slb/2014-05-15/include/
-)
-target_link_libraries(aliyun-api-slb_2014_05_15_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-slb_2014_05_15_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-slb_2014_05_15_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-slb_2014_05_15")
-SET_TARGET_PROPERTIES(aliyun-api-slb_2014_05_15_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-slb_2014_05_15 PROPERTIES OUTPUT_NAME "aliyun-api-slb_2014_05_15")
+SET_TARGET_PROPERTIES(aliyun-api-slb_2014_05_15 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-sts ####
@@ -1344,33 +684,16 @@ SET_TARGET_PROPERTIES(aliyun-api-slb_2014_05_15_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-04-01 ##
 # static
 aux_source_directory(aliyun-api-sts/2015-04-01/src/ ALIYUN-API-STS_2015_04_01_SRC)
-ADD_LIBRARY(aliyun-api-sts_2015_04_01_STATIC STATIC ${ALIYUN-API-STS_2015_04_01_SRC})
-  target_include_directories(aliyun-api-sts_2015_04_01_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-sts_2015_04_01 SHARED ${ALIYUN-API-STS_2015_04_01_SRC})
+  target_include_directories(aliyun-api-sts_2015_04_01 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-sts/2015-04-01/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-sts_2015_04_01_STATIC
+target_link_libraries(aliyun-api-sts_2015_04_01 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-sts_2015_04_01
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-sts_2015_04_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-sts_2015_04_01")
-SET_TARGET_PROPERTIES(aliyun-api-sts_2015_04_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-sts_2015_04_01_SHARED SHARED ${ALIYUN-API-STS_2015_04_01_SRC})
-  target_include_directories(aliyun-api-sts_2015_04_01_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-sts/2015-04-01/include/
-)
-target_link_libraries(aliyun-api-sts_2015_04_01_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-sts_2015_04_01_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-sts_2015_04_01_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-sts_2015_04_01")
-SET_TARGET_PROPERTIES(aliyun-api-sts_2015_04_01_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-sts_2015_04_01 PROPERTIES OUTPUT_NAME "aliyun-api-sts_2015_04_01")
+SET_TARGET_PROPERTIES(aliyun-api-sts_2015_04_01 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ubsms ####
@@ -1378,33 +701,16 @@ SET_TARGET_PROPERTIES(aliyun-api-sts_2015_04_01_STATIC PROPERTIES CLEAN_DIRECT_O
 ## 2015-06-23 ##
 # static
 aux_source_directory(aliyun-api-ubsms/2015-06-23/src/ ALIYUN-API-UBSMS_2015_06_23_SRC)
-ADD_LIBRARY(aliyun-api-ubsms_2015_06_23_STATIC STATIC ${ALIYUN-API-UBSMS_2015_06_23_SRC})
-  target_include_directories(aliyun-api-ubsms_2015_06_23_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ubsms_2015_06_23 SHARED ${ALIYUN-API-UBSMS_2015_06_23_SRC})
+  target_include_directories(aliyun-api-ubsms_2015_06_23 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ubsms/2015-06-23/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ubsms_2015_06_23_STATIC
+target_link_libraries(aliyun-api-ubsms_2015_06_23 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ubsms_2015_06_23
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ubsms_2015_06_23_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ubsms_2015_06_23")
-SET_TARGET_PROPERTIES(aliyun-api-ubsms_2015_06_23_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ubsms_2015_06_23_SHARED SHARED ${ALIYUN-API-UBSMS_2015_06_23_SRC})
-  target_include_directories(aliyun-api-ubsms_2015_06_23_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ubsms/2015-06-23/include/
-)
-target_link_libraries(aliyun-api-ubsms_2015_06_23_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ubsms_2015_06_23_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ubsms_2015_06_23_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ubsms_2015_06_23")
-SET_TARGET_PROPERTIES(aliyun-api-ubsms_2015_06_23_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ubsms_2015_06_23 PROPERTIES OUTPUT_NAME "aliyun-api-ubsms_2015_06_23")
+SET_TARGET_PROPERTIES(aliyun-api-ubsms_2015_06_23 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-ubsms-inner ####
@@ -1412,33 +718,16 @@ SET_TARGET_PROPERTIES(aliyun-api-ubsms_2015_06_23_STATIC PROPERTIES CLEAN_DIRECT
 ## 2015-06-23 ##
 # static
 aux_source_directory(aliyun-api-ubsms-inner/2015-06-23/src/ ALIYUN-API-UBSMS-INNER_2015_06_23_SRC)
-ADD_LIBRARY(aliyun-api-ubsms-inner_2015_06_23_STATIC STATIC ${ALIYUN-API-UBSMS-INNER_2015_06_23_SRC})
-  target_include_directories(aliyun-api-ubsms-inner_2015_06_23_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-ubsms-inner_2015_06_23 SHARED ${ALIYUN-API-UBSMS-INNER_2015_06_23_SRC})
+  target_include_directories(aliyun-api-ubsms-inner_2015_06_23 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-ubsms-inner/2015-06-23/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-ubsms-inner_2015_06_23_STATIC
+target_link_libraries(aliyun-api-ubsms-inner_2015_06_23 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-ubsms-inner_2015_06_23
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ubsms-inner_2015_06_23_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ubsms-inner_2015_06_23")
-SET_TARGET_PROPERTIES(aliyun-api-ubsms-inner_2015_06_23_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-ubsms-inner_2015_06_23_SHARED SHARED ${ALIYUN-API-UBSMS-INNER_2015_06_23_SRC})
-  target_include_directories(aliyun-api-ubsms-inner_2015_06_23_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-ubsms-inner/2015-06-23/include/
-)
-target_link_libraries(aliyun-api-ubsms-inner_2015_06_23_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-ubsms-inner_2015_06_23_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-ubsms-inner_2015_06_23_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-ubsms-inner_2015_06_23")
-SET_TARGET_PROPERTIES(aliyun-api-ubsms-inner_2015_06_23_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-ubsms-inner_2015_06_23 PROPERTIES OUTPUT_NAME "aliyun-api-ubsms-inner_2015_06_23")
+SET_TARGET_PROPERTIES(aliyun-api-ubsms-inner_2015_06_23 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 #### aliyun-api-yundun ####
@@ -1446,100 +735,31 @@ SET_TARGET_PROPERTIES(aliyun-api-ubsms-inner_2015_06_23_STATIC PROPERTIES CLEAN_
 ## 2015-02-27 ##
 # static
 aux_source_directory(aliyun-api-yundun/2015-02-27/src/ ALIYUN-API-YUNDUN_2015_02_27_SRC)
-ADD_LIBRARY(aliyun-api-yundun_2015_02_27_STATIC STATIC ${ALIYUN-API-YUNDUN_2015_02_27_SRC})
-  target_include_directories(aliyun-api-yundun_2015_02_27_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-yundun_2015_02_27 SHARED ${ALIYUN-API-YUNDUN_2015_02_27_SRC})
+  target_include_directories(aliyun-api-yundun_2015_02_27 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-yundun/2015-02-27/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_02_27_STATIC
+target_link_libraries(aliyun-api-yundun_2015_02_27 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_02_27
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_02_27_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-yundun_2015_02_27")
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_02_27_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-yundun_2015_02_27_SHARED SHARED ${ALIYUN-API-YUNDUN_2015_02_27_SRC})
-  target_include_directories(aliyun-api-yundun_2015_02_27_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-yundun/2015-02-27/include/
-)
-target_link_libraries(aliyun-api-yundun_2015_02_27_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_02_27_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_02_27_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-yundun_2015_02_27")
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_02_27_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_02_27 PROPERTIES OUTPUT_NAME "aliyun-api-yundun_2015_02_27")
+SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_02_27 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 
 ## 2015-04-16 ##
 # static
 aux_source_directory(aliyun-api-yundun/2015-04-16/src/ ALIYUN-API-YUNDUN_2015_04_16_SRC)
-ADD_LIBRARY(aliyun-api-yundun_2015_04_16_STATIC STATIC ${ALIYUN-API-YUNDUN_2015_04_16_SRC})
-  target_include_directories(aliyun-api-yundun_2015_04_16_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
+ADD_LIBRARY(aliyun-api-yundun_2015_04_16 SHARED ${ALIYUN-API-YUNDUN_2015_04_16_SRC})
+  target_include_directories(aliyun-api-yundun_2015_04_16 PUBLIC 
+  ${ALIYUN_API_CORE_INCLUDES}
   aliyun-api-yundun/2015-04-16/include/
 )
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16_STATIC
+target_link_libraries(aliyun-api-yundun_2015_04_16 aliyun_api_core)
+SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16
             PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-yundun_2015_04_16")
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(aliyun-api-yundun_2015_04_16_SHARED SHARED ${ALIYUN-API-YUNDUN_2015_04_16_SRC})
-  target_include_directories(aliyun-api-yundun_2015_04_16_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  aliyun-api-yundun/2015-04-16/include/
-)
-target_link_libraries(aliyun-api-yundun_2015_04_16_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16_STATIC PROPERTIES OUTPUT_NAME "aliyun-api-yundun_2015_04_16")
-SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-
-#### build ####
-
-## CMakeFiles ##
-# static
-aux_source_directory(build/CMakeFiles/src/ BUILD_CMakeFiles_SRC)
-ADD_LIBRARY(build_CMakeFiles_STATIC STATIC ${BUILD_CMakeFiles_SRC})
-  target_include_directories(build_CMakeFiles_STATIC PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  build/CMakeFiles/include/
-)
-SET_TARGET_PROPERTIES(build_CMakeFiles_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(build_CMakeFiles_STATIC PROPERTIES OUTPUT_NAME "build_CMakeFiles")
-SET_TARGET_PROPERTIES(build_CMakeFiles_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
-# shared
-ADD_LIBRARY(build_CMakeFiles_SHARED SHARED ${BUILD_CMakeFiles_SRC})
-  target_include_directories(build_CMakeFiles_SHARED PUBLIC 
-  aliyun_api_core/
-  aliyun_api_core/http/
-  aliyun_api_core/utils/
-  aliyun_api_core/third_party/jsoncpp/include/
-  build/CMakeFiles/include/
-)
-target_link_libraries(build_CMakeFiles_SHARED aliyun_api_core)
-SET_TARGET_PROPERTIES(build_CMakeFiles_STATIC
-            PROPERTIES LINKER_LANGUAGE CXX)
-SET_TARGET_PROPERTIES(build_CMakeFiles_STATIC PROPERTIES OUTPUT_NAME "build_CMakeFiles")
-SET_TARGET_PROPERTIES(build_CMakeFiles_STATIC PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
+SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16 PROPERTIES OUTPUT_NAME "aliyun-api-yundun_2015_04_16")
+SET_TARGET_PROPERTIES(aliyun-api-yundun_2015_04_16 PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 #### example ####
 add_executable(aliyun_ecs_example example/ecs_example.cc)
