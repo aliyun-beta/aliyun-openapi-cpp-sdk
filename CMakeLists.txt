@@ -784,7 +784,7 @@ add_executable(aliyun_ecs_example example/ecs_example.cc)
 target_include_directories(aliyun_ecs_example PUBLIC 
   aliyun-api-ecs/2014-05-26/include/)
 target_link_libraries(aliyun_ecs_example
-  aliyun-api-ecs_2014_05_26_STATIC
+  aliyun-api-ecs_2014_05_26
   aliyun_api_core
 )
 SET_TARGET_PROPERTIES(aliyun_ecs_example
