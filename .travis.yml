@@ -7,5 +7,5 @@ script:
 - chmod +x cmake-2.8.12.1-Linux-i386/bin/cmake
 - mkdir build
 - cd build
-- cmake ../
+- ../cmake-2.8.12.1-Linux-i386/bin/cmake ..
 - make
