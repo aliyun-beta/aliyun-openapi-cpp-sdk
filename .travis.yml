@@ -1,6 +1,10 @@
 language: cpp
 
 script:
+- sudo apt-get autoremove cmake
+- wget --no-check-certificate http://www.cmake.org/files/v2.8/cmake-2.8.12.1-Linux-i386.tar.gz
+- tar -zxvf cmake-2.8.12.1-Linux-i386.tar.gz
+- chmod +x cmake-2.8.12.1-Linux-i386/bin/cmake
 - mkdir build
 - cd build
 - cmake ../
