@@ -28,8 +28,8 @@ To enable code cover test, add flag COVER_TEST=1
 
 #### Windows && Visual Studio
 Install CMake(version >= 3.0) and Visual Studio,enter the root directory of the code, type commands below:
-> mkdir build
-> cmake ..
+> mkdir build   
+> cmake ..   
 The Visual Studo solution file will be generated.
 
 ### How to use
