@@ -11,19 +11,19 @@ We provide CMakeLists.txt to build.Version
 
 On linux or MacOS, we provide makefie to generate shared library.  
 If you want to build all projects, just make in sourct root folder like beleow
-> mkdir build
-> cmake ..
-> make  
+> mkdir build   
+> cmake ..   
+> make   
 
 If you just need to build single library, just make the target you need.The rule of library name is aliyun-api-${productname}-${version}.
 For example to build acs,type command:
-> mkdir build
-> cmake ..
-> make aliyun-api-ecs_2014_05_26
+> mkdir build   
+> cmake ..   
+> make aliyun-api-ecs_2014_05_26   
 
 To enable code cover test, add flag COVER_TEST=1
-> mkdir build
-> cmake -DCOVER_TEST=1 ..
+> mkdir build   
+> cmake -DCOVER_TEST=1 ..   
 > make  
 
 #### Windows && Visual Studio
