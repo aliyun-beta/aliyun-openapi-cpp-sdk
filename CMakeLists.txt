@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.0)
+cmake_minimum_required (VERSION 2.8.12)
 PROJECT(aliyun_open_api)
 if(NOT WIN32)
 if(COVER_TEST)
