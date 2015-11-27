@@ -1,7 +1,18 @@
+cmake_minimum_required (VERSION 3.0)
 PROJECT(aliyun_open_api)
 if(NOT WIN32)
-endif(NOT WIN32)
+if(COVER_TEST)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
+set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
+set(CMAKE_SHARED_LINKER_FLAGS
+    "${CMAKE_SHARED_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
+
+set(CMAKE_EXE_LINKER_FLAGS
+    "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
+endif(COVER_TEST)
 ADD_DEFINITIONS(-fPIC)
+endif(NOT WIN32)
+
 ########### core ################
 aux_source_directory(aliyun_api_core/ ALIYUN_API_CORE_SRC)
 aux_source_directory(aliyun_api_core/utils/ ALIYUN_API_CORE_UTILS_SRC)

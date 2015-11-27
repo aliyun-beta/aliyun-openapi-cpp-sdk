@@ -6,20 +6,39 @@ This is a c++ implement for aliyun open sdk.
 The meta data of functions is here: https://github.com/aliyun/openapi-meta.
 
 ### How to compile
+We provide CMakeLists.txt to build.Version
+#### Linux or MacOS or Cygwin
 
-#### Linux or MacOS  
 On linux or MacOS, we provide makefie to generate shared library.  
 If you want to build all projects, just make in sourct root folder like beleow
+> mkdir build
+> cmake ..
 > make  
-  
-If you just need to use single library, just enter the folder which the project you need,and make.  
 
-#### Windows
-We will commit the sln file latter.But it's easily to compile just include the codes to project, and add the include folder to project setting.Remember to call WSAStartup to initial socket library.
+If you just need to build single library, just make the target you need.The rule of library name is aliyun-api-${productname}-${version}.
+For example to build acs,type command:
+> mkdir build
+> cmake ..
+> make aliyun-api-ecs_2014_05_26
+
+To enable code cover test, add flag COVER_TEST=1
+> mkdir build
+> cmake -DCOVER_TEST=1 ..
+> make  
+
+#### Windows && Visual Studio
+Install CMake(version >= 3.0) and Visual Studio,enter the root directory of the code, type commands below:
+> mkdir build
+> cmake ..
+The Visual Studo solution file will be generated.
 
 ### How to use
-For example we need to use ecs project, and call describe regions function, just code like below  
 
+For example we need to use ecs project,we need to:
+1, add ecs include folder to project
+2, link dynamic library of ecs 
+
+here is the sample code:
     #include "ali_ecs.h"
     #include <stdio.h>
     using namespace aliyun;
