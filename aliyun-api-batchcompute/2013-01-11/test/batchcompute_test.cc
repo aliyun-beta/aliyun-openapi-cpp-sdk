@@ -147,7 +147,7 @@ static int test_list_images() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_list_images_response);
   listener->Start();
-  int ret = batchcompute->ListImages(req, &resp, NULL);
+  int ret = batchcompute->ListImages(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete batchcompute;
@@ -162,7 +162,7 @@ static int test_list_jobs() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_list_jobs_response);
   listener->Start();
-  int ret = batchcompute->ListJobs(req, &resp, NULL);
+  int ret = batchcompute->ListJobs(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete batchcompute;
@@ -177,7 +177,7 @@ static int test_list_snapshots() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_list_snapshots_response);
   listener->Start();
-  int ret = batchcompute->ListSnapshots(req, &resp, NULL);
+  int ret = batchcompute->ListSnapshots(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete batchcompute;
@@ -192,7 +192,7 @@ static int test_post_job() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_post_job_response);
   listener->Start();
-  int ret = batchcompute->PostJob(req, &resp, NULL);
+  int ret = batchcompute->PostJob(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete batchcompute;

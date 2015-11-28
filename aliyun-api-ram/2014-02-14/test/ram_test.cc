@@ -121,7 +121,7 @@ static int test_list_users() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_list_users_response);
   listener->Start();
-  int ret = ram->ListUsers(req, &resp, NULL);
+  int ret = ram->ListUsers(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete ram;

@@ -28,7 +28,7 @@ static int test_delete_user() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_delete_user_response);
   listener->Start();
-  int ret = otsfinance->DeleteUser(req, &resp, NULL);
+  int ret = otsfinance->DeleteUser(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete otsfinance;
@@ -83,7 +83,7 @@ static int test_get_user() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_get_user_response);
   listener->Start();
-  int ret = otsfinance->GetUser(req, &resp, NULL);
+  int ret = otsfinance->GetUser(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete otsfinance;
@@ -149,7 +149,7 @@ static int test_list_instance() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_list_instance_response);
   listener->Start();
-  int ret = otsfinance->ListInstance(req, &resp, NULL);
+  int ret = otsfinance->ListInstance(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete otsfinance;

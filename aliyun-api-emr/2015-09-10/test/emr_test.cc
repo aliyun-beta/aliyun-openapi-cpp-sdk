@@ -506,7 +506,7 @@ static int test_list_config_type() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_list_config_type_response);
   listener->Start();
-  int ret = emr->ListConfigType(req, &resp, NULL);
+  int ret = emr->ListConfigType(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete emr;
@@ -751,7 +751,7 @@ static int test_list_regions() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_list_regions_response);
   listener->Start();
-  int ret = emr->ListRegions(req, &resp, NULL);
+  int ret = emr->ListRegions(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete emr;

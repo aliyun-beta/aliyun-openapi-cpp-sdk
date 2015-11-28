@@ -375,7 +375,7 @@ static int test_get_ddos_config_options() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_get_ddos_config_options_response);
   listener->Start();
-  int ret = yundun->GetDdosConfigOptions(req, &resp, NULL);
+  int ret = yundun->GetDdosConfigOptions(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;

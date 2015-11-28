@@ -34,7 +34,7 @@ static int test_get_key_secret() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_get_key_secret_response);
   listener->Start();
-  int ret = pts->GetKeySecret(req, &resp, NULL);
+  int ret = pts->GetKeySecret(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete pts;

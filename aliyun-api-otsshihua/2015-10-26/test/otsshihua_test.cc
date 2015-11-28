@@ -80,7 +80,7 @@ static int test_list_instance() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_list_instance_response);
   listener->Start();
-  int ret = otsshihua->ListInstance(req, &resp, NULL);
+  int ret = otsshihua->ListInstance(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete otsshihua;

@@ -123,7 +123,7 @@ static int test_clear_account_alias() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_clear_account_alias_response);
   listener->Start();
-  int ret = ram->ClearAccountAlias(req, &resp, NULL);
+  int ret = ram->ClearAccountAlias(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete ram;
@@ -562,7 +562,7 @@ static int test_get_account_alias() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_get_account_alias_response);
   listener->Start();
-  int ret = ram->GetAccountAlias(req, &resp, NULL);
+  int ret = ram->GetAccountAlias(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete ram;
@@ -598,7 +598,7 @@ static int test_get_account_summary() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_get_account_summary_response);
   listener->Start();
-  int ret = ram->GetAccountSummary(req, &resp, NULL);
+  int ret = ram->GetAccountSummary(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete ram;
@@ -669,7 +669,7 @@ static int test_get_password_policy() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_get_password_policy_response);
   listener->Start();
-  int ret = ram->GetPasswordPolicy(req, &resp, NULL);
+  int ret = ram->GetPasswordPolicy(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete ram;
@@ -772,7 +772,7 @@ static int test_get_security_preference() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_get_security_preference_response);
   listener->Start();
-  int ret = ram->GetSecurityPreference(req, &resp, NULL);
+  int ret = ram->GetSecurityPreference(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete ram;
@@ -1250,7 +1250,7 @@ static int test_list_virtual_mf_adevices() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_list_virtual_mf_adevices_response);
   listener->Start();
-  int ret = ram->ListVirtualMFADevices(req, &resp, NULL);
+  int ret = ram->ListVirtualMFADevices(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete ram;

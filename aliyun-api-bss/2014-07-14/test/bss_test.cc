@@ -21,7 +21,7 @@ static int test_describe_cash_detail() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_describe_cash_detail_response);
   listener->Start();
-  int ret = bss->DescribeCashDetail(req, &resp, NULL);
+  int ret = bss->DescribeCashDetail(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete bss;

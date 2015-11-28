@@ -13,7 +13,7 @@ static int test_all_malware_num() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_all_malware_num_response);
   listener->Start();
-  int ret = yundun->AllMalwareNum(req, &resp, NULL);
+  int ret = yundun->AllMalwareNum(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;
@@ -30,7 +30,7 @@ static int test_current_ddos_attack_num() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_current_ddos_attack_num_response);
   listener->Start();
-  int ret = yundun->CurrentDdosAttackNum(req, &resp, NULL);
+  int ret = yundun->CurrentDdosAttackNum(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;
@@ -47,7 +47,7 @@ static int test_today_aegis_online_rate() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_today_aegis_online_rate_response);
   listener->Start();
-  int ret = yundun->TodayAegisOnlineRate(req, &resp, NULL);
+  int ret = yundun->TodayAegisOnlineRate(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;
@@ -64,7 +64,7 @@ static int test_today_allkbps() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_today_allkbps_response);
   listener->Start();
-  int ret = yundun->TodayAllkbps(req, &resp, NULL);
+  int ret = yundun->TodayAllkbps(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;
@@ -81,7 +81,7 @@ static int test_today_allpps() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_today_allpps_response);
   listener->Start();
-  int ret = yundun->TodayAllpps(req, &resp, NULL);
+  int ret = yundun->TodayAllpps(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;
@@ -98,7 +98,7 @@ static int test_today_backdoor() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_today_backdoor_response);
   listener->Start();
-  int ret = yundun->TodayBackdoor(req, &resp, NULL);
+  int ret = yundun->TodayBackdoor(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;
@@ -115,7 +115,7 @@ static int test_today_crack_intercept() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_today_crack_intercept_response);
   listener->Start();
-  int ret = yundun->TodayCrackIntercept(req, &resp, NULL);
+  int ret = yundun->TodayCrackIntercept(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;
@@ -132,7 +132,7 @@ static int test_today_malware_num() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_today_malware_num_response);
   listener->Start();
-  int ret = yundun->TodayMalwareNum(req, &resp, NULL);
+  int ret = yundun->TodayMalwareNum(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;
@@ -157,7 +157,7 @@ static int test_todayqps_by_region() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_todayqps_by_region_response);
   listener->Start();
-  int ret = yundun->TodayqpsByRegion(req, &resp, NULL);
+  int ret = yundun->TodayqpsByRegion(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;
@@ -174,7 +174,7 @@ static int test_web_attack_num() {
   HttpTestListener* listener = new HttpTestListener(12234);
   listener->SetResponseBody(test_web_attack_num_response);
   listener->Start();
-  int ret = yundun->WebAttackNum(req, &resp, NULL);
+  int ret = yundun->WebAttackNum(&resp, NULL);
   listener->WaitComplete();
   delete listener;
   delete yundun;
