@@ -6,7 +6,7 @@ static int test_delete_instance() {
   OtsDeleteInstanceRequestType req;
   OtsDeleteInstanceResponseType resp;
   Ots* ots = Ots::CreateOtsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ots) return 0;
   ots->SetProxyHost("127.0.0.1:12234");
   ots->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -22,7 +22,7 @@ static const char* test_delete_user_response = "{}";
 static int test_delete_user() {
   OtsDeleteUserResponseType resp;
   Ots* ots = Ots::CreateOtsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ots) return 0;
   ots->SetProxyHost("127.0.0.1:12234");
   ots->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -52,7 +52,7 @@ static int test_get_instance() {
   OtsGetInstanceRequestType req;
   OtsGetInstanceResponseType resp;
   Ots* ots = Ots::CreateOtsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ots) return 0;
   ots->SetProxyHost("127.0.0.1:12234");
   ots->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -77,7 +77,7 @@ static const char* test_get_user_response = "{"
 static int test_get_user() {
   OtsGetUserResponseType resp;
   Ots* ots = Ots::CreateOtsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ots) return 0;
   ots->SetProxyHost("127.0.0.1:12234");
   ots->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -93,7 +93,7 @@ static int test_insert_instance() {
   OtsInsertInstanceRequestType req;
   OtsInsertInstanceResponseType resp;
   Ots* ots = Ots::CreateOtsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ots) return 0;
   ots->SetProxyHost("127.0.0.1:12234");
   ots->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -115,7 +115,7 @@ static int test_insert_user() {
   OtsInsertUserRequestType req;
   OtsInsertUserResponseType resp;
   Ots* ots = Ots::CreateOtsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ots) return 0;
   ots->SetProxyHost("127.0.0.1:12234");
   ots->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -143,7 +143,7 @@ static const char* test_list_instance_response = "{"
 static int test_list_instance() {
   OtsListInstanceResponseType resp;
   Ots* ots = Ots::CreateOtsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ots) return 0;
   ots->SetProxyHost("127.0.0.1:12234");
   ots->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -159,7 +159,7 @@ static int test_update_instance() {
   OtsUpdateInstanceRequestType req;
   OtsUpdateInstanceResponseType resp;
   Ots* ots = Ots::CreateOtsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ots) return 0;
   ots->SetProxyHost("127.0.0.1:12234");
   ots->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -180,7 +180,7 @@ static int test_update_user() {
   OtsUpdateUserRequestType req;
   OtsUpdateUserResponseType resp;
   Ots* ots = Ots::CreateOtsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ots) return 0;
   ots->SetProxyHost("127.0.0.1:12234");
   ots->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

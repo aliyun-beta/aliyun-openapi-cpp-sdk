@@ -6,7 +6,7 @@ static int test_add_cdn_domain() {
   CdnAddCdnDomainRequestType req;
   CdnAddCdnDomainResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -30,7 +30,7 @@ static int test_delete_cdn_domain() {
   CdnDeleteCdnDomainRequestType req;
   CdnDeleteCdnDomainResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -66,7 +66,7 @@ static int test_describe_cdn_domain_base_detail() {
   CdnDescribeCdnDomainBaseDetailRequestType req;
   CdnDescribeCdnDomainBaseDetailResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -103,7 +103,7 @@ static int test_describe_cdn_domain_detail() {
   CdnDescribeCdnDomainDetailRequestType req;
   CdnDescribeCdnDomainDetailResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -138,7 +138,7 @@ static int test_describe_cdn_domain_logs() {
   CdnDescribeCdnDomainLogsRequestType req;
   CdnDescribeCdnDomainLogsResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -176,7 +176,7 @@ static int test_describe_cdn_monitor_data() {
   CdnDescribeCdnMonitorDataRequestType req;
   CdnDescribeCdnMonitorDataResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -210,7 +210,7 @@ static int test_describe_cdn_service() {
   CdnDescribeCdnServiceRequestType req;
   CdnDescribeCdnServiceResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -232,7 +232,7 @@ static int test_describe_one_minute_data() {
   CdnDescribeOneMinuteDataRequestType req;
   CdnDescribeOneMinuteDataResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -267,7 +267,7 @@ static int test_describe_refresh_tasks() {
   CdnDescribeRefreshTasksRequestType req;
   CdnDescribeRefreshTasksResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -306,7 +306,7 @@ static int test_describe_user_domains() {
   CdnDescribeUserDomainsRequestType req;
   CdnDescribeUserDomainsResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -327,7 +327,7 @@ static int test_modify_cdn_service() {
   CdnModifyCdnServiceRequestType req;
   CdnModifyCdnServiceResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -347,7 +347,7 @@ static int test_open_cdn_service() {
   CdnOpenCdnServiceRequestType req;
   CdnOpenCdnServiceResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -369,7 +369,7 @@ static int test_push_object_cache() {
   CdnPushObjectCacheRequestType req;
   CdnPushObjectCacheResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -391,7 +391,7 @@ static int test_refresh_object_caches() {
   CdnRefreshObjectCachesRequestType req;
   CdnRefreshObjectCachesResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -412,7 +412,7 @@ static int test_start_cdn_domain() {
   CdnStartCdnDomainRequestType req;
   CdnStartCdnDomainResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -432,7 +432,7 @@ static int test_stop_cdn_domain() {
   CdnStopCdnDomainRequestType req;
   CdnStopCdnDomainResponseType resp;
   Cdn* cdn = Cdn::CreateCdnClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cdn) return 0;
   cdn->SetProxyHost("127.0.0.1:12234");
   cdn->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

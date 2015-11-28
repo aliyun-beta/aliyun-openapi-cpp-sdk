@@ -6,7 +6,7 @@ static int test_add_tags() {
   EcsAddTagsRequestType req;
   EcsAddTagsResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -40,7 +40,7 @@ static int test_allocate_eip_address() {
   EcsAllocateEipAddressRequestType req;
   EcsAllocateEipAddressResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -64,7 +64,7 @@ static int test_allocate_public_ip_address() {
   EcsAllocatePublicIpAddressRequestType req;
   EcsAllocatePublicIpAddressResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -87,7 +87,7 @@ static int test_associate_eip_address() {
   EcsAssociateEipAddressRequestType req;
   EcsAssociateEipAddressResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -110,7 +110,7 @@ static int test_associate_ha_vip() {
   EcsAssociateHaVipRequestType req;
   EcsAssociateHaVipResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -133,7 +133,7 @@ static int test_attach_disk() {
   EcsAttachDiskRequestType req;
   EcsAttachDiskResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -157,7 +157,7 @@ static int test_authorize_security_group() {
   EcsAuthorizeSecurityGroupRequestType req;
   EcsAuthorizeSecurityGroupResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -187,7 +187,7 @@ static int test_authorize_security_group_egress() {
   EcsAuthorizeSecurityGroupEgressRequestType req;
   EcsAuthorizeSecurityGroupEgressResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -217,7 +217,7 @@ static int test_cancel_copy_image() {
   EcsCancelCopyImageRequestType req;
   EcsCancelCopyImageResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -241,7 +241,7 @@ static int test_check_auto_snapshot_policy() {
   EcsCheckAutoSnapshotPolicyRequestType req;
   EcsCheckAutoSnapshotPolicyResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -272,7 +272,7 @@ static int test_check_disk_enable_auto_snapshot_validation() {
   EcsCheckDiskEnableAutoSnapshotValidationRequestType req;
   EcsCheckDiskEnableAutoSnapshotValidationResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -295,7 +295,7 @@ static int test_copy_image() {
   EcsCopyImageRequestType req;
   EcsCopyImageResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -321,7 +321,7 @@ static int test_create_disk() {
   EcsCreateDiskRequestType req;
   EcsCreateDiskResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -350,7 +350,7 @@ static int test_create_ha_vip() {
   EcsCreateHaVipRequestType req;
   EcsCreateHaVipResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -376,7 +376,7 @@ static int test_create_image() {
   EcsCreateImageRequestType req;
   EcsCreateImageResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -403,7 +403,7 @@ static int test_create_instance() {
   EcsCreateInstanceRequestType req;
   EcsCreateInstanceResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -476,7 +476,7 @@ static int test_create_route_entry() {
   EcsCreateRouteEntryRequestType req;
   EcsCreateRouteEntryResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -503,7 +503,7 @@ static int test_create_security_group() {
   EcsCreateSecurityGroupRequestType req;
   EcsCreateSecurityGroupResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -529,7 +529,7 @@ static int test_create_snapshot() {
   EcsCreateSnapshotRequestType req;
   EcsCreateSnapshotResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -557,7 +557,7 @@ static int test_create_vpc() {
   EcsCreateVpcRequestType req;
   EcsCreateVpcResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -584,7 +584,7 @@ static int test_create_vswitch() {
   EcsCreateVSwitchRequestType req;
   EcsCreateVSwitchResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -610,7 +610,7 @@ static int test_delete_disk() {
   EcsDeleteDiskRequestType req;
   EcsDeleteDiskResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -631,7 +631,7 @@ static int test_delete_ha_vip() {
   EcsDeleteHaVipRequestType req;
   EcsDeleteHaVipResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -653,7 +653,7 @@ static int test_delete_image() {
   EcsDeleteImageRequestType req;
   EcsDeleteImageResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -674,7 +674,7 @@ static int test_delete_instance() {
   EcsDeleteInstanceRequestType req;
   EcsDeleteInstanceResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -695,7 +695,7 @@ static int test_delete_route_entry() {
   EcsDeleteRouteEntryRequestType req;
   EcsDeleteRouteEntryResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -718,7 +718,7 @@ static int test_delete_security_group() {
   EcsDeleteSecurityGroupRequestType req;
   EcsDeleteSecurityGroupResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -739,7 +739,7 @@ static int test_delete_snapshot() {
   EcsDeleteSnapshotRequestType req;
   EcsDeleteSnapshotResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -760,7 +760,7 @@ static int test_delete_vpc() {
   EcsDeleteVpcRequestType req;
   EcsDeleteVpcResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -781,7 +781,7 @@ static int test_delete_vswitch() {
   EcsDeleteVSwitchRequestType req;
   EcsDeleteVSwitchResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -818,7 +818,7 @@ static int test_describe_auto_snapshot_policy() {
   EcsDescribeAutoSnapshotPolicyRequestType req;
   EcsDescribeAutoSnapshotPolicyResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -854,7 +854,7 @@ static int test_describe_disk_monitor_data() {
   EcsDescribeDiskMonitorDataRequestType req;
   EcsDescribeDiskMonitorDataResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -926,7 +926,7 @@ static int test_describe_disks() {
   EcsDescribeDisksRequestType req;
   EcsDescribeDisksResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1002,7 +1002,7 @@ static int test_describe_eip_addresses() {
   EcsDescribeEipAddressesRequestType req;
   EcsDescribeEipAddressesResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1047,7 +1047,7 @@ static int test_describe_eip_monitor_data() {
   EcsDescribeEipMonitorDataRequestType req;
   EcsDescribeEipMonitorDataResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1100,7 +1100,7 @@ static int test_describe_ha_vips() {
   EcsDescribeHaVipsRequestType req;
   EcsDescribeHaVipsResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1169,7 +1169,7 @@ static int test_describe_images() {
   EcsDescribeImagesRequestType req;
   EcsDescribeImagesResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1232,7 +1232,7 @@ static int test_describe_image_share_permission() {
   EcsDescribeImageSharePermissionRequestType req;
   EcsDescribeImageSharePermissionResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1314,7 +1314,7 @@ static int test_describe_instance_attribute() {
   EcsDescribeInstanceAttributeRequestType req;
   EcsDescribeInstanceAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1355,7 +1355,7 @@ static int test_describe_instance_monitor_data() {
   EcsDescribeInstanceMonitorDataRequestType req;
   EcsDescribeInstanceMonitorDataResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1456,7 +1456,7 @@ static int test_describe_instances() {
   EcsDescribeInstancesRequestType req;
   EcsDescribeInstancesResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1525,7 +1525,7 @@ static int test_describe_instance_status() {
   EcsDescribeInstanceStatusRequestType req;
   EcsDescribeInstanceStatusResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1559,7 +1559,7 @@ static int test_describe_instance_types() {
   EcsDescribeInstanceTypesRequestType req;
   EcsDescribeInstanceTypesResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1581,7 +1581,7 @@ static int test_describe_instance_vnc_passwd() {
   EcsDescribeInstanceVncPasswdRequestType req;
   EcsDescribeInstanceVncPasswdResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1604,7 +1604,7 @@ static int test_describe_instance_vnc_url() {
   EcsDescribeInstanceVncUrlRequestType req;
   EcsDescribeInstanceVncUrlResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1628,7 +1628,7 @@ static int test_describe_limitation() {
   EcsDescribeLimitationRequestType req;
   EcsDescribeLimitationResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1658,7 +1658,7 @@ static int test_describe_regions() {
   EcsDescribeRegionsRequestType req;
   EcsDescribeRegionsResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1691,7 +1691,7 @@ static int test_describe_resource_by_tags() {
   EcsDescribeResourceByTagsRequestType req;
   EcsDescribeResourceByTagsResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1749,7 +1749,7 @@ static int test_describe_route_tables() {
   EcsDescribeRouteTablesRequestType req;
   EcsDescribeRouteTablesResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1797,7 +1797,7 @@ static int test_describe_security_group_attribute() {
   EcsDescribeSecurityGroupAttributeRequestType req;
   EcsDescribeSecurityGroupAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1836,7 +1836,7 @@ static int test_describe_security_groups() {
   EcsDescribeSecurityGroupsRequestType req;
   EcsDescribeSecurityGroupsResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1889,7 +1889,7 @@ static int test_describe_snapshots() {
   EcsDescribeSnapshotsRequestType req;
   EcsDescribeSnapshotsResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1942,7 +1942,7 @@ static int test_describe_tag_keys() {
   EcsDescribeTagKeysRequestType req;
   EcsDescribeTagKeysResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1977,7 +1977,7 @@ static int test_describe_tags() {
   EcsDescribeTagsRequestType req;
   EcsDescribeTagsResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2038,7 +2038,7 @@ static int test_describe_vpcs() {
   EcsDescribeVpcsRequestType req;
   EcsDescribeVpcsResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2082,7 +2082,7 @@ static int test_describe_vrouters() {
   EcsDescribeVRoutersRequestType req;
   EcsDescribeVRoutersResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2124,7 +2124,7 @@ static int test_describe_vswitches() {
   EcsDescribeVSwitchesRequestType req;
   EcsDescribeVSwitchesResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2168,7 +2168,7 @@ static int test_describe_zones() {
   EcsDescribeZonesRequestType req;
   EcsDescribeZonesResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2188,7 +2188,7 @@ static int test_detach_disk() {
   EcsDetachDiskRequestType req;
   EcsDetachDiskResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2210,7 +2210,7 @@ static int test_join_security_group() {
   EcsJoinSecurityGroupRequestType req;
   EcsJoinSecurityGroupResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2232,7 +2232,7 @@ static int test_leave_security_group() {
   EcsLeaveSecurityGroupRequestType req;
   EcsLeaveSecurityGroupResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2254,7 +2254,7 @@ static int test_modify_auto_snapshot_policy() {
   EcsModifyAutoSnapshotPolicyRequestType req;
   EcsModifyAutoSnapshotPolicyResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2282,7 +2282,7 @@ static int test_modify_disk_attribute() {
   EcsModifyDiskAttributeRequestType req;
   EcsModifyDiskAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2308,7 +2308,7 @@ static int test_modify_eip_address_attribute() {
   EcsModifyEipAddressAttributeRequestType req;
   EcsModifyEipAddressAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2330,7 +2330,7 @@ static int test_modify_ha_vip_attribute() {
   EcsModifyHaVipAttributeRequestType req;
   EcsModifyHaVipAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2353,7 +2353,7 @@ static int test_modify_image_attribute() {
   EcsModifyImageAttributeRequestType req;
   EcsModifyImageAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2376,7 +2376,7 @@ static int test_modify_image_share_group_permission() {
   EcsModifyImageShareGroupPermissionRequestType req;
   EcsModifyImageShareGroupPermissionResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2399,7 +2399,7 @@ static int test_modify_image_share_permission() {
   EcsModifyImageSharePermissionRequestType req;
   EcsModifyImageSharePermissionResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2440,7 +2440,7 @@ static int test_modify_instance_attribute() {
   EcsModifyInstanceAttributeRequestType req;
   EcsModifyInstanceAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2465,7 +2465,7 @@ static int test_modify_instance_network_spec() {
   EcsModifyInstanceNetworkSpecRequestType req;
   EcsModifyInstanceNetworkSpecResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2488,7 +2488,7 @@ static int test_modify_instance_vnc_passwd() {
   EcsModifyInstanceVncPasswdRequestType req;
   EcsModifyInstanceVncPasswdResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2510,7 +2510,7 @@ static int test_modify_instance_vpc_attribute() {
   EcsModifyInstanceVpcAttributeRequestType req;
   EcsModifyInstanceVpcAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2533,7 +2533,7 @@ static int test_modify_security_group_attribute() {
   EcsModifySecurityGroupAttributeRequestType req;
   EcsModifySecurityGroupAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2556,7 +2556,7 @@ static int test_modify_snapshot_attribute() {
   EcsModifySnapshotAttributeRequestType req;
   EcsModifySnapshotAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2579,7 +2579,7 @@ static int test_modify_vpc_attribute() {
   EcsModifyVpcAttributeRequestType req;
   EcsModifyVpcAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2603,7 +2603,7 @@ static int test_modify_vrouter_attribute() {
   EcsModifyVRouterAttributeRequestType req;
   EcsModifyVRouterAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2626,7 +2626,7 @@ static int test_modify_vswitch_attribute() {
   EcsModifyVSwitchAttributeRequestType req;
   EcsModifyVSwitchAttributeResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2649,7 +2649,7 @@ static int test_reboot_instance() {
   EcsRebootInstanceRequestType req;
   EcsRebootInstanceResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2671,7 +2671,7 @@ static int test_re_init_disk() {
   EcsReInitDiskRequestType req;
   EcsReInitDiskResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2692,7 +2692,7 @@ static int test_release_eip_address() {
   EcsReleaseEipAddressRequestType req;
   EcsReleaseEipAddressResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2713,7 +2713,7 @@ static int test_remove_tags() {
   EcsRemoveTagsRequestType req;
   EcsRemoveTagsResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2744,7 +2744,7 @@ static int test_renew_instance() {
   EcsRenewInstanceRequestType req;
   EcsRenewInstanceResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2776,7 +2776,7 @@ static int test_replace_system_disk() {
   EcsReplaceSystemDiskRequestType req;
   EcsReplaceSystemDiskResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2800,7 +2800,7 @@ static int test_reset_disk() {
   EcsResetDiskRequestType req;
   EcsResetDiskResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2822,7 +2822,7 @@ static int test_resize_disk() {
   EcsResizeDiskRequestType req;
   EcsResizeDiskResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2845,7 +2845,7 @@ static int test_revoke_security_group() {
   EcsRevokeSecurityGroupRequestType req;
   EcsRevokeSecurityGroupResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2873,7 +2873,7 @@ static int test_revoke_security_group_egress() {
   EcsRevokeSecurityGroupEgressRequestType req;
   EcsRevokeSecurityGroupEgressResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2901,7 +2901,7 @@ static int test_start_instance() {
   EcsStartInstanceRequestType req;
   EcsStartInstanceResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2922,7 +2922,7 @@ static int test_stop_instance() {
   EcsStopInstanceRequestType req;
   EcsStopInstanceResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2944,7 +2944,7 @@ static int test_unassociate_eip_address() {
   EcsUnassociateEipAddressRequestType req;
   EcsUnassociateEipAddressResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2967,7 +2967,7 @@ static int test_unassociate_ha_vip() {
   EcsUnassociateHaVipRequestType req;
   EcsUnassociateHaVipResponseType resp;
   Ecs* ecs = Ecs::CreateEcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ecs) return 0;
   ecs->SetProxyHost("127.0.0.1:12234");
   ecs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

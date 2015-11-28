@@ -6,7 +6,7 @@ static int test_activate_instance() {
   OcsActivateInstanceRequestType req;
   OcsActivateInstanceResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -27,7 +27,7 @@ static int test_add_authentic_ip() {
   OcsAddAuthenticIPRequestType req;
   OcsAddAuthenticIPResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -64,7 +64,7 @@ static int test_create_instance() {
   OcsCreateInstanceRequestType req;
   OcsCreateInstanceResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -95,7 +95,7 @@ static int test_data_operate() {
   OcsDataOperateRequestType req;
   OcsDataOperateResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -117,7 +117,7 @@ static int test_deactivate_instance() {
   OcsDeactivateInstanceRequestType req;
   OcsDeactivateInstanceResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -138,7 +138,7 @@ static int test_delete_instance() {
   OcsDeleteInstanceRequestType req;
   OcsDeleteInstanceResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -161,7 +161,7 @@ static int test_describe_authentic_ip() {
   OcsDescribeAuthenticIPRequestType req;
   OcsDescribeAuthenticIPResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -184,7 +184,7 @@ static int test_describe_history_monitor_values() {
   OcsDescribeHistoryMonitorValuesRequestType req;
   OcsDescribeHistoryMonitorValuesResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -236,7 +236,7 @@ static int test_describe_instances() {
   OcsDescribeInstancesRequestType req;
   OcsDescribeInstancesResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -273,7 +273,7 @@ static int test_describe_monitor_items() {
   OcsDescribeMonitorItemsRequestType req;
   OcsDescribeMonitorItemsResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -311,7 +311,7 @@ static int test_describe_monitor_values() {
   OcsDescribeMonitorValuesRequestType req;
   OcsDescribeMonitorValuesResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -343,7 +343,7 @@ static int test_describe_regions() {
   OcsDescribeRegionsRequestType req;
   OcsDescribeRegionsResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -365,7 +365,7 @@ static int test_describe_security_ips() {
   OcsDescribeSecurityIpsRequestType req;
   OcsDescribeSecurityIpsResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -396,7 +396,7 @@ static int test_describe_zones() {
   OcsDescribeZonesRequestType req;
   OcsDescribeZonesResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -417,7 +417,7 @@ static int test_flush_instance() {
   OcsFlushInstanceRequestType req;
   OcsFlushInstanceResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -438,7 +438,7 @@ static int test_modify_instance_attribute() {
   OcsModifyInstanceAttributeRequestType req;
   OcsModifyInstanceAttributeResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -461,7 +461,7 @@ static int test_modify_instance_capacity() {
   OcsModifyInstanceCapacityRequestType req;
   OcsModifyInstanceCapacityResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -483,7 +483,7 @@ static int test_modify_security_ips() {
   OcsModifySecurityIpsRequestType req;
   OcsModifySecurityIpsResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -505,7 +505,7 @@ static int test_remove_authentic_ip() {
   OcsRemoveAuthenticIPRequestType req;
   OcsRemoveAuthenticIPResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -527,7 +527,7 @@ static int test_replace_authentic_ip() {
   OcsReplaceAuthenticIPRequestType req;
   OcsReplaceAuthenticIPResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -552,7 +552,7 @@ static int test_verify_password() {
   OcsVerifyPasswordRequestType req;
   OcsVerifyPasswordResponseType resp;
   Ocs* ocs = Ocs::CreateOcsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ocs) return 0;
   ocs->SetProxyHost("127.0.0.1:12234");
   ocs->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

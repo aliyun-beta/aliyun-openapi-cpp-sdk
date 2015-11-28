@@ -6,7 +6,7 @@ static int test_add_user() {
   RamAddUserRequestType req;
   RamAddUserResponseType resp;
   Ram* ram = Ram::CreateRamClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ram) return 0;
   ram->SetProxyHost("127.0.0.1:12234");
   ram->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -24,7 +24,7 @@ static int test_delete_user_policy() {
   RamDeleteUserPolicyRequestType req;
   RamDeleteUserPolicyResponseType resp;
   Ram* ram = Ram::CreateRamClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ram) return 0;
   ram->SetProxyHost("127.0.0.1:12234");
   ram->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -45,7 +45,7 @@ static int test_get_user() {
   RamGetUserRequestType req;
   RamGetUserResponseType resp;
   Ram* ram = Ram::CreateRamClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ram) return 0;
   ram->SetProxyHost("127.0.0.1:12234");
   ram->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -66,7 +66,7 @@ static int test_get_user_policy() {
   RamGetUserPolicyRequestType req;
   RamGetUserPolicyResponseType resp;
   Ram* ram = Ram::CreateRamClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ram) return 0;
   ram->SetProxyHost("127.0.0.1:12234");
   ram->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -90,7 +90,7 @@ static int test_list_user_policies() {
   RamListUserPoliciesRequestType req;
   RamListUserPoliciesResponseType resp;
   Ram* ram = Ram::CreateRamClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ram) return 0;
   ram->SetProxyHost("127.0.0.1:12234");
   ram->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -115,7 +115,7 @@ static const char* test_list_users_response = "{"
 static int test_list_users() {
   RamListUsersResponseType resp;
   Ram* ram = Ram::CreateRamClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ram) return 0;
   ram->SetProxyHost("127.0.0.1:12234");
   ram->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -131,7 +131,7 @@ static int test_put_user_policy() {
   RamPutUserPolicyRequestType req;
   RamPutUserPolicyResponseType resp;
   Ram* ram = Ram::CreateRamClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ram) return 0;
   ram->SetProxyHost("127.0.0.1:12234");
   ram->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -150,7 +150,7 @@ static int test_remove_user() {
   RamRemoveUserRequestType req;
   RamRemoveUserResponseType resp;
   Ram* ram = Ram::CreateRamClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ram) return 0;
   ram->SetProxyHost("127.0.0.1:12234");
   ram->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

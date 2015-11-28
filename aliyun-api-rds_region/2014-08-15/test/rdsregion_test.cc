@@ -6,7 +6,7 @@ static int test_add_tags_to_resource() {
   RdsRegionAddTagsToResourceRequestType req;
   RdsRegionAddTagsToResourceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -39,7 +39,7 @@ static int test_allocate_instance_private_connection() {
   RdsRegionAllocateInstancePrivateConnectionRequestType req;
   RdsRegionAllocateInstancePrivateConnectionResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -62,7 +62,7 @@ static int test_allocate_instance_public_connection() {
   RdsRegionAllocateInstancePublicConnectionRequestType req;
   RdsRegionAllocateInstancePublicConnectionResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -85,7 +85,7 @@ static int test_batch_grant_account_privilege() {
   RdsRegionBatchGrantAccountPrivilegeRequestType req;
   RdsRegionBatchGrantAccountPrivilegeResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -109,7 +109,7 @@ static int test_batch_revoke_account_privilege() {
   RdsRegionBatchRevokeAccountPrivilegeRequestType req;
   RdsRegionBatchRevokeAccountPrivilegeResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -132,7 +132,7 @@ static int test_cancel_import() {
   RdsRegionCancelImportRequestType req;
   RdsRegionCancelImportResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -154,7 +154,7 @@ static int test_check_account_name_available() {
   RdsRegionCheckAccountNameAvailableRequestType req;
   RdsRegionCheckAccountNameAvailableResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -177,7 +177,7 @@ static int test_check_db_name_available() {
   RdsRegionCheckDBNameAvailableRequestType req;
   RdsRegionCheckDBNameAvailableResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -200,7 +200,7 @@ static int test_create_account() {
   RdsRegionCreateAccountRequestType req;
   RdsRegionCreateAccountResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -224,7 +224,7 @@ static int test_create_account_for_inner() {
   RdsRegionCreateAccountForInnerRequestType req;
   RdsRegionCreateAccountForInnerResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -250,7 +250,7 @@ static int test_create_backup() {
   RdsRegionCreateBackupRequestType req;
   RdsRegionCreateBackupResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -274,7 +274,7 @@ static int test_create_database() {
   RdsRegionCreateDatabaseRequestType req;
   RdsRegionCreateDatabaseResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -298,7 +298,7 @@ static int test_create_database_for_inner() {
   RdsRegionCreateDatabaseForInnerRequestType req;
   RdsRegionCreateDatabaseForInnerResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -330,7 +330,7 @@ static int test_create_db_instance() {
   RdsRegionCreateDBInstanceRequestType req;
   RdsRegionCreateDBInstanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -371,7 +371,7 @@ static int test_create_db_instance_for_channel() {
   RdsRegionCreateDBInstanceForChannelRequestType req;
   RdsRegionCreateDBInstanceForChannelResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -407,7 +407,7 @@ static int test_create_db_instancefor_first_pay() {
   RdsRegionCreateDBInstanceforFirstPayRequestType req;
   RdsRegionCreateDBInstanceforFirstPayResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -441,7 +441,7 @@ static int test_create_postpaid_db_instance() {
   RdsRegionCreatePostpaidDBInstanceRequestType req;
   RdsRegionCreatePostpaidDBInstanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -474,7 +474,7 @@ static int test_create_postpaid_db_instance_for_channel() {
   RdsRegionCreatePostpaidDBInstanceForChannelRequestType req;
   RdsRegionCreatePostpaidDBInstanceForChannelResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -507,7 +507,7 @@ static int test_create_read_only_db_instance() {
   RdsRegionCreateReadOnlyDBInstanceRequestType req;
   RdsRegionCreateReadOnlyDBInstanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -541,7 +541,7 @@ static int test_create_temp_db_instance() {
   RdsRegionCreateTempDBInstanceRequestType req;
   RdsRegionCreateTempDBInstanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -572,7 +572,7 @@ static int test_create_upload_path_for_sq_lserver() {
   RdsRegionCreateUploadPathForSQLServerRequestType req;
   RdsRegionCreateUploadPathForSQLServerResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -594,7 +594,7 @@ static int test_delete_account() {
   RdsRegionDeleteAccountRequestType req;
   RdsRegionDeleteAccountResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -616,7 +616,7 @@ static int test_delete_database() {
   RdsRegionDeleteDatabaseRequestType req;
   RdsRegionDeleteDatabaseResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -638,7 +638,7 @@ static int test_delete_db_instance() {
   RdsRegionDeleteDBInstanceRequestType req;
   RdsRegionDeleteDBInstanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -675,7 +675,7 @@ static int test_descibe_imports_from_database() {
   RdsRegionDescibeImportsFromDatabaseRequestType req;
   RdsRegionDescibeImportsFromDatabaseResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -732,7 +732,7 @@ static int test_describe_abnormal_db_instances() {
   RdsRegionDescribeAbnormalDBInstancesRequestType req;
   RdsRegionDescribeAbnormalDBInstancesResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -786,7 +786,7 @@ static int test_describe_accounts() {
   RdsRegionDescribeAccountsRequestType req;
   RdsRegionDescribeAccountsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -813,7 +813,7 @@ static int test_describe_backup_policy() {
   RdsRegionDescribeBackupPolicyRequestType req;
   RdsRegionDescribeBackupPolicyResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -858,7 +858,7 @@ static int test_describe_backups() {
   RdsRegionDescribeBackupsRequestType req;
   RdsRegionDescribeBackupsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -899,7 +899,7 @@ static int test_describe_backup_tasks() {
   RdsRegionDescribeBackupTasksRequestType req;
   RdsRegionDescribeBackupTasksResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -940,7 +940,7 @@ static int test_describe_binlog_files() {
   RdsRegionDescribeBinlogFilesRequestType req;
   RdsRegionDescribeBinlogFilesResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -986,7 +986,7 @@ static int test_describe_databases() {
   RdsRegionDescribeDatabasesRequestType req;
   RdsRegionDescribeDatabasesResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1059,7 +1059,7 @@ static int test_describe_db_instance_attribute() {
   RdsRegionDescribeDBInstanceAttributeRequestType req;
   RdsRegionDescribeDBInstanceAttributeResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1091,7 +1091,7 @@ static int test_describe_db_instance_ip_array_list() {
   RdsRegionDescribeDBInstanceIPArrayListRequestType req;
   RdsRegionDescribeDBInstanceIPArrayListResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1134,7 +1134,7 @@ static int test_describe_db_instance_net_info() {
   RdsRegionDescribeDBInstanceNetInfoRequestType req;
   RdsRegionDescribeDBInstanceNetInfoResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1179,7 +1179,7 @@ static int test_describe_db_instance_net_info_for_channel() {
   RdsRegionDescribeDBInstanceNetInfoForChannelRequestType req;
   RdsRegionDescribeDBInstanceNetInfoForChannelResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1224,7 +1224,7 @@ static int test_describe_db_instance_performance() {
   RdsRegionDescribeDBInstancePerformanceRequestType req;
   RdsRegionDescribeDBInstancePerformanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1288,7 +1288,7 @@ static int test_describe_db_instances() {
   RdsRegionDescribeDBInstancesRequestType req;
   RdsRegionDescribeDBInstancesResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1332,7 +1332,7 @@ static int test_describe_db_instances_by_expire_time() {
   RdsRegionDescribeDBInstancesByExpireTimeRequestType req;
   RdsRegionDescribeDBInstancesByExpireTimeResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1373,7 +1373,7 @@ static int test_describe_db_instances_by_performance() {
   RdsRegionDescribeDBInstancesByPerformanceRequestType req;
   RdsRegionDescribeDBInstancesByPerformanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1422,7 +1422,7 @@ static int test_describe_error_logs() {
   RdsRegionDescribeErrorLogsRequestType req;
   RdsRegionDescribeErrorLogsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1470,7 +1470,7 @@ static int test_describe_files_for_sq_lserver() {
   RdsRegionDescribeFilesForSQLServerRequestType req;
   RdsRegionDescribeFilesForSQLServerResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1510,7 +1510,7 @@ static int test_describe_imports_for_sq_lserver() {
   RdsRegionDescribeImportsForSQLServerRequestType req;
   RdsRegionDescribeImportsForSQLServerResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1554,7 +1554,7 @@ static int test_describe_modify_parameter_log() {
   RdsRegionDescribeModifyParameterLogRequestType req;
   RdsRegionDescribeModifyParameterLogResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1595,7 +1595,7 @@ static int test_describe_operation_logs() {
   RdsRegionDescribeOperationLogsRequestType req;
   RdsRegionDescribeOperationLogsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1633,7 +1633,7 @@ static int test_describe_optimize_advice_by_db_a() {
   RdsRegionDescribeOptimizeAdviceByDBARequestType req;
   RdsRegionDescribeOptimizeAdviceByDBAResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1671,7 +1671,7 @@ static int test_describe_optimize_advice_on_big_table() {
   RdsRegionDescribeOptimizeAdviceOnBigTableRequestType req;
   RdsRegionDescribeOptimizeAdviceOnBigTableResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1707,7 +1707,7 @@ static int test_describe_optimize_advice_on_excess_index() {
   RdsRegionDescribeOptimizeAdviceOnExcessIndexRequestType req;
   RdsRegionDescribeOptimizeAdviceOnExcessIndexResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1745,7 +1745,7 @@ static int test_describe_optimize_advice_on_miss_index() {
   RdsRegionDescribeOptimizeAdviceOnMissIndexRequestType req;
   RdsRegionDescribeOptimizeAdviceOnMissIndexResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1780,7 +1780,7 @@ static int test_describe_optimize_advice_on_miss_pk() {
   RdsRegionDescribeOptimizeAdviceOnMissPKRequestType req;
   RdsRegionDescribeOptimizeAdviceOnMissPKResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1818,7 +1818,7 @@ static int test_describe_optimize_advice_on_storage() {
   RdsRegionDescribeOptimizeAdviceOnStorageRequestType req;
   RdsRegionDescribeOptimizeAdviceOnStorageResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1862,7 +1862,7 @@ static int test_describe_parameters() {
   RdsRegionDescribeParametersRequestType req;
   RdsRegionDescribeParametersResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1900,7 +1900,7 @@ static int test_describe_parameter_templates() {
   RdsRegionDescribeParameterTemplatesRequestType req;
   RdsRegionDescribeParameterTemplatesResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1935,7 +1935,7 @@ static int test_describe_pre_check_results() {
   RdsRegionDescribePreCheckResultsRequestType req;
   RdsRegionDescribePreCheckResultsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1973,7 +1973,7 @@ static int test_describe_realtime_diagnoses() {
   RdsRegionDescribeRealtimeDiagnosesRequestType req;
   RdsRegionDescribeRealtimeDiagnosesResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2007,7 +2007,7 @@ static int test_describe_regions() {
   RdsRegionDescribeRegionsRequestType req;
   RdsRegionDescribeRegionsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2037,7 +2037,7 @@ static int test_describe_resource_usage() {
   RdsRegionDescribeResourceUsageRequestType req;
   RdsRegionDescribeResourceUsageResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2078,7 +2078,7 @@ static int test_describe_slow_log_records() {
   RdsRegionDescribeSlowLogRecordsRequestType req;
   RdsRegionDescribeSlowLogRecordsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2138,7 +2138,7 @@ static int test_describe_slow_logs() {
   RdsRegionDescribeSlowLogsRequestType req;
   RdsRegionDescribeSlowLogsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2183,7 +2183,7 @@ static int test_describe_sq_linjection_infos() {
   RdsRegionDescribeSQLInjectionInfosRequestType req;
   RdsRegionDescribeSQLInjectionInfosResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2225,7 +2225,7 @@ static int test_describe_sq_llog_records() {
   RdsRegionDescribeSQLLogRecordsRequestType req;
   RdsRegionDescribeSQLLogRecordsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2267,7 +2267,7 @@ static int test_describe_sq_llog_reports() {
   RdsRegionDescribeSQLLogReportsRequestType req;
   RdsRegionDescribeSQLLogReportsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2313,7 +2313,7 @@ static int test_describe_tasks() {
   RdsRegionDescribeTasksRequestType req;
   RdsRegionDescribeTasksResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2350,7 +2350,7 @@ static int test_describe_vpc_zone_nos() {
   RdsRegionDescribeVpcZoneNosRequestType req;
   RdsRegionDescribeVpcZoneNosResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2375,7 +2375,7 @@ static int test_extract_backup_from_oa_s() {
   RdsRegionExtractBackupFromOASRequestType req;
   RdsRegionExtractBackupFromOASResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2398,7 +2398,7 @@ static int test_grant_account_privilege() {
   RdsRegionGrantAccountPrivilegeRequestType req;
   RdsRegionGrantAccountPrivilegeResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2424,7 +2424,7 @@ static int test_import_database_between_instances() {
   RdsRegionImportDatabaseBetweenInstancesRequestType req;
   RdsRegionImportDatabaseBetweenInstancesResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2449,7 +2449,7 @@ static int test_import_data_for_sq_lserver() {
   RdsRegionImportDataForSQLServerRequestType req;
   RdsRegionImportDataForSQLServerResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2473,7 +2473,7 @@ static int test_import_data_from_database() {
   RdsRegionImportDataFromDatabaseRequestType req;
   RdsRegionImportDataFromDatabaseResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2501,7 +2501,7 @@ static int test_lock_db_instance() {
   RdsRegionLockDBInstanceRequestType req;
   RdsRegionLockDBInstanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2523,7 +2523,7 @@ static int test_migrate_to_other_zone() {
   RdsRegionMigrateToOtherZoneRequestType req;
   RdsRegionMigrateToOtherZoneResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2545,7 +2545,7 @@ static int test_modify_account_description() {
   RdsRegionModifyAccountDescriptionRequestType req;
   RdsRegionModifyAccountDescriptionResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2568,7 +2568,7 @@ static int test_modify_backup_policy() {
   RdsRegionModifyBackupPolicyRequestType req;
   RdsRegionModifyBackupPolicyResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2591,7 +2591,7 @@ static int test_modify_db_description() {
   RdsRegionModifyDBDescriptionRequestType req;
   RdsRegionModifyDBDescriptionResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2614,7 +2614,7 @@ static int test_modify_db_instance_connection_mode() {
   RdsRegionModifyDBInstanceConnectionModeRequestType req;
   RdsRegionModifyDBInstanceConnectionModeResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2636,7 +2636,7 @@ static int test_modify_db_instance_connection_string() {
   RdsRegionModifyDBInstanceConnectionStringRequestType req;
   RdsRegionModifyDBInstanceConnectionStringResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2660,7 +2660,7 @@ static int test_modify_db_instance_description() {
   RdsRegionModifyDBInstanceDescriptionRequestType req;
   RdsRegionModifyDBInstanceDescriptionResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2683,7 +2683,7 @@ static int test_modify_db_instance_maintain_time() {
   RdsRegionModifyDBInstanceMaintainTimeRequestType req;
   RdsRegionModifyDBInstanceMaintainTimeResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2706,7 +2706,7 @@ static int test_modify_db_instance_network_type() {
   RdsRegionModifyDBInstanceNetworkTypeRequestType req;
   RdsRegionModifyDBInstanceNetworkTypeResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2731,7 +2731,7 @@ static int test_modify_db_instance_spec() {
   RdsRegionModifyDBInstanceSpecRequestType req;
   RdsRegionModifyDBInstanceSpecResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2756,7 +2756,7 @@ static int test_modify_parameter() {
   RdsRegionModifyParameterRequestType req;
   RdsRegionModifyParameterResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2780,7 +2780,7 @@ static int test_modify_postpaid_db_instance_spec() {
   RdsRegionModifyPostpaidDBInstanceSpecRequestType req;
   RdsRegionModifyPostpaidDBInstanceSpecResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2804,7 +2804,7 @@ static int test_modify_security_ips() {
   RdsRegionModifySecurityIpsRequestType req;
   RdsRegionModifySecurityIpsResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2829,7 +2829,7 @@ static int test_pre_check_before_import_data() {
   RdsRegionPreCheckBeforeImportDataRequestType req;
   RdsRegionPreCheckBeforeImportDataResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2857,7 +2857,7 @@ static int test_purge_db_instance_log() {
   RdsRegionPurgeDBInstanceLogRequestType req;
   RdsRegionPurgeDBInstanceLogResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2879,7 +2879,7 @@ static int test_release_instance_public_connection() {
   RdsRegionReleaseInstancePublicConnectionRequestType req;
   RdsRegionReleaseInstancePublicConnectionResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2901,7 +2901,7 @@ static int test_remove_tags_from_resource() {
   RdsRegionRemoveTagsFromResourceRequestType req;
   RdsRegionRemoveTagsFromResourceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2934,7 +2934,7 @@ static int test_reset_account_for_pg() {
   RdsRegionResetAccountForPGRequestType req;
   RdsRegionResetAccountForPGResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2957,7 +2957,7 @@ static int test_reset_account_password() {
   RdsRegionResetAccountPasswordRequestType req;
   RdsRegionResetAccountPasswordResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -2980,7 +2980,7 @@ static int test_restart_db_instance() {
   RdsRegionRestartDBInstanceRequestType req;
   RdsRegionRestartDBInstanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -3002,7 +3002,7 @@ static int test_restore_db_instance() {
   RdsRegionRestoreDBInstanceRequestType req;
   RdsRegionRestoreDBInstanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -3025,7 +3025,7 @@ static int test_revoke_account_privilege() {
   RdsRegionRevokeAccountPrivilegeRequestType req;
   RdsRegionRevokeAccountPrivilegeResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -3051,7 +3051,7 @@ static int test_start_db_instance_diagnose() {
   RdsRegionStartDBInstanceDiagnoseRequestType req;
   RdsRegionStartDBInstanceDiagnoseResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -3074,7 +3074,7 @@ static int test_stop_syncing() {
   RdsRegionStopSyncingRequestType req;
   RdsRegionStopSyncingResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -3097,7 +3097,7 @@ static int test_switch_db_instance_net_type() {
   RdsRegionSwitchDBInstanceNetTypeRequestType req;
   RdsRegionSwitchDBInstanceNetTypeResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -3121,7 +3121,7 @@ static int test_unlock_db_instance() {
   RdsRegionUnlockDBInstanceRequestType req;
   RdsRegionUnlockDBInstanceResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -3144,7 +3144,7 @@ static int test_upgrade_db_instance_engine_version() {
   RdsRegionUpgradeDBInstanceEngineVersionRequestType req;
   RdsRegionUpgradeDBInstanceEngineVersionResponseType resp;
   RdsRegion* rdsregion = RdsRegion::CreateRdsRegionClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rdsregion) return 0;
   rdsregion->SetProxyHost("127.0.0.1:12234");
   rdsregion->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

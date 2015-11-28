@@ -17,7 +17,7 @@ static int test_assume_role() {
   StsAssumeRoleRequestType req;
   StsAssumeRoleResponseType resp;
   Sts* sts = Sts::CreateStsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!sts) return 0;
   sts->SetProxyHost("127.0.0.1:12234");
   sts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -48,7 +48,7 @@ static int test_assume_role_with_service_identity() {
   StsAssumeRoleWithServiceIdentityRequestType req;
   StsAssumeRoleWithServiceIdentityResponseType resp;
   Sts* sts = Sts::CreateStsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!sts) return 0;
   sts->SetProxyHost("127.0.0.1:12234");
   sts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

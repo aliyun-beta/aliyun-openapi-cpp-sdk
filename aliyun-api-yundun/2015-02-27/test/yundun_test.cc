@@ -7,7 +7,7 @@ static const char* test_all_malware_num_response = "{"
 static int test_all_malware_num() {
   YundunAllMalwareNumResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -24,7 +24,7 @@ static const char* test_current_ddos_attack_num_response = "{"
 static int test_current_ddos_attack_num() {
   YundunCurrentDdosAttackNumResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -41,7 +41,7 @@ static const char* test_today_aegis_online_rate_response = "{"
 static int test_today_aegis_online_rate() {
   YundunTodayAegisOnlineRateResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -58,7 +58,7 @@ static const char* test_today_allkbps_response = "{"
 static int test_today_allkbps() {
   YundunTodayAllkbpsResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -75,7 +75,7 @@ static const char* test_today_allpps_response = "{"
 static int test_today_allpps() {
   YundunTodayAllppsResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -92,7 +92,7 @@ static const char* test_today_backdoor_response = "{"
 static int test_today_backdoor() {
   YundunTodayBackdoorResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -109,7 +109,7 @@ static const char* test_today_crack_intercept_response = "{"
 static int test_today_crack_intercept() {
   YundunTodayCrackInterceptResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -126,7 +126,7 @@ static const char* test_today_malware_num_response = "{"
 static int test_today_malware_num() {
   YundunTodayMalwareNumResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -151,7 +151,7 @@ static const char* test_todayqps_by_region_response = "{"
 static int test_todayqps_by_region() {
   YundunTodayqpsByRegionResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -168,7 +168,7 @@ static const char* test_web_attack_num_response = "{"
 static int test_web_attack_num() {
   YundunWebAttackNumResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

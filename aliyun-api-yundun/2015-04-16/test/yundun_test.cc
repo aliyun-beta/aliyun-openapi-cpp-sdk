@@ -17,7 +17,7 @@ static int test_add_cname_waf() {
   YundunAddCNameWafRequestType req;
   YundunAddCNameWafResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -53,7 +53,7 @@ static int test_bruteforce_log() {
   YundunBruteforceLogRequestType req;
   YundunBruteforceLogResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -74,7 +74,7 @@ static int test_close_cc_protect() {
   YundunCloseCCProtectRequestType req;
   YundunCloseCCProtectResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -92,7 +92,7 @@ static int test_close_port_scan() {
   YundunClosePortScanRequestType req;
   YundunClosePortScanResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -109,7 +109,7 @@ static int test_close_vul_scan() {
   YundunCloseVulScanRequestType req;
   YundunCloseVulScanResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -126,7 +126,7 @@ static int test_config_ddos() {
   YundunConfigDdosRequestType req;
   YundunConfigDdosResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -147,7 +147,7 @@ static int test_confirm_login() {
   YundunConfirmLoginRequestType req;
   YundunConfirmLoginResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -187,7 +187,7 @@ static int test_ddos_flow_graph() {
   YundunDdosFlowGraphRequestType req;
   YundunDdosFlowGraphResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -228,7 +228,7 @@ static int test_ddos_log() {
   YundunDdosLogRequestType req;
   YundunDdosLogResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -249,7 +249,7 @@ static int test_delete_back_door_file() {
   YundunDeleteBackDoorFileRequestType req;
   YundunDeleteBackDoorFileResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -279,7 +279,7 @@ static int test_delete_cname_waf() {
   YundunDeleteCNameWafRequestType req;
   YundunDeleteCNameWafResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -299,7 +299,7 @@ static int test_detect_vul_by_id() {
   YundunDetectVulByIdRequestType req;
   YundunDetectVulByIdResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -317,7 +317,7 @@ static int test_detect_vul_by_ip() {
   YundunDetectVulByIpRequestType req;
   YundunDetectVulByIpResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -369,7 +369,7 @@ static const char* test_get_ddos_config_options_response = "{"
 static int test_get_ddos_config_options() {
   YundunGetDdosConfigOptionsResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -412,7 +412,7 @@ static int test_list_instance_infos() {
   YundunListInstanceInfosRequestType req;
   YundunListInstanceInfosResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -453,7 +453,7 @@ static int test_loginevent_log() {
   YundunLogineventLogRequestType req;
   YundunLogineventLogResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -474,7 +474,7 @@ static int test_open_cc_protect() {
   YundunOpenCCProtectRequestType req;
   YundunOpenCCProtectResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -492,7 +492,7 @@ static int test_open_port_scan() {
   YundunOpenPortScanRequestType req;
   YundunOpenPortScanResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -509,7 +509,7 @@ static int test_open_vul_scan() {
   YundunOpenVulScanRequestType req;
   YundunOpenVulScanResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -539,7 +539,7 @@ static int test_query_ddos_config() {
   YundunQueryDdosConfigRequestType req;
   YundunQueryDdosConfigResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -609,7 +609,7 @@ static int test_secure_check() {
   YundunSecureCheckRequestType req;
   YundunSecureCheckResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -630,7 +630,7 @@ static int test_service_status() {
   YundunServiceStatusRequestType req;
   YundunServiceStatusResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -647,7 +647,7 @@ static int test_set_ddos_auto() {
   YundunSetDdosAutoRequestType req;
   YundunSetDdosAutoResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -665,7 +665,7 @@ static int test_set_ddos_qps() {
   YundunSetDdosQpsRequestType req;
   YundunSetDdosQpsResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -712,7 +712,7 @@ static int test_summary() {
   YundunSummaryRequestType req;
   YundunSummaryResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -748,7 +748,7 @@ static int test_vul_scan_log() {
   YundunVulScanLogRequestType req;
   YundunVulScanLogResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -781,7 +781,7 @@ static int test_waf_info() {
   YundunWafInfoRequestType req;
   YundunWafInfoResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -821,7 +821,7 @@ static int test_waf_log() {
   YundunWafLogRequestType req;
   YundunWafLogResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -856,7 +856,7 @@ static int test_webshell_log() {
   YundunWebshellLogRequestType req;
   YundunWebshellLogResponseType resp;
   Yundun* yundun = Yundun::CreateYundunClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!yundun) return 0;
   yundun->SetProxyHost("127.0.0.1:12234");
   yundun->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

@@ -16,7 +16,7 @@ static int test_batch_get_devices_info() {
   PushBatchGetDevicesInfoRequestType req;
   PushBatchGetDevicesInfoResponseType resp;
   Push* push = Push::CreatePushClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!push) return 0;
   push->SetProxyHost("127.0.0.1:12234");
   push->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -36,7 +36,7 @@ static int test_push_byte_message() {
   PushPushByteMessageRequestType req;
   PushPushByteMessageResponseType resp;
   Push* push = Push::CreatePushClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!push) return 0;
   push->SetProxyHost("127.0.0.1:12234");
   push->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -60,7 +60,7 @@ static int test_revert_rpc() {
   PushRevertRpcRequestType req;
   PushRevertRpcResponseType resp;
   Push* push = Push::CreatePushClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!push) return 0;
   push->SetProxyHost("127.0.0.1:12234");
   push->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

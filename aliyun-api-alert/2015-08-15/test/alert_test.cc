@@ -13,7 +13,7 @@ static int test_batch_query_project() {
   AlertBatchQueryProjectRequestType req;
   AlertBatchQueryProjectResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -38,7 +38,7 @@ static int test_create_alert() {
   AlertCreateAlertRequestType req;
   AlertCreateAlertResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -62,7 +62,7 @@ static int test_create_contact() {
   AlertCreateContactRequestType req;
   AlertCreateContactResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -86,7 +86,7 @@ static int test_create_contact_group() {
   AlertCreateContactGroupRequestType req;
   AlertCreateContactGroupResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -110,7 +110,7 @@ static int test_create_db_metric() {
   AlertCreateDBMetricRequestType req;
   AlertCreateDBMetricResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -134,7 +134,7 @@ static int test_create_db_source() {
   AlertCreateDBSourceRequestType req;
   AlertCreateDBSourceResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -158,7 +158,7 @@ static int test_create_dimensions() {
   AlertCreateDimensionsRequestType req;
   AlertCreateDimensionsResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -183,7 +183,7 @@ static int test_create_level_channel() {
   AlertCreateLevelChannelRequestType req;
   AlertCreateLevelChannelResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -207,7 +207,7 @@ static int test_create_log_hub_metric() {
   AlertCreateLogHubMetricRequestType req;
   AlertCreateLogHubMetricResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -231,7 +231,7 @@ static int test_create_project() {
   AlertCreateProjectRequestType req;
   AlertCreateProjectResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -253,7 +253,7 @@ static int test_delete_alert() {
   AlertDeleteAlertRequestType req;
   AlertDeleteAlertResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -276,7 +276,7 @@ static int test_delete_contact() {
   AlertDeleteContactRequestType req;
   AlertDeleteContactResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -299,7 +299,7 @@ static int test_delete_contact_group() {
   AlertDeleteContactGroupRequestType req;
   AlertDeleteContactGroupResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -322,7 +322,7 @@ static int test_delete_db_metric() {
   AlertDeleteDBMetricRequestType req;
   AlertDeleteDBMetricResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -345,7 +345,7 @@ static int test_delete_db_source() {
   AlertDeleteDBSourceRequestType req;
   AlertDeleteDBSourceResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -368,7 +368,7 @@ static int test_delete_dimensions() {
   AlertDeleteDimensionsRequestType req;
   AlertDeleteDimensionsResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -392,7 +392,7 @@ static int test_delete_level_channel() {
   AlertDeleteLevelChannelRequestType req;
   AlertDeleteLevelChannelResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -415,7 +415,7 @@ static int test_delete_log_hub_metric() {
   AlertDeleteLogHubMetricRequestType req;
   AlertDeleteLogHubMetricResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -438,7 +438,7 @@ static int test_delete_project() {
   AlertDeleteProjectRequestType req;
   AlertDeleteProjectResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -460,7 +460,7 @@ static int test_disable_alert() {
   AlertDisableAlertRequestType req;
   AlertDisableAlertResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -483,7 +483,7 @@ static int test_enable_alert() {
   AlertEnableAlertRequestType req;
   AlertEnableAlertResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -507,7 +507,7 @@ static int test_get_alert() {
   AlertGetAlertRequestType req;
   AlertGetAlertResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -531,7 +531,7 @@ static int test_get_contact() {
   AlertGetContactRequestType req;
   AlertGetContactResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -555,7 +555,7 @@ static int test_get_contact_group() {
   AlertGetContactGroupRequestType req;
   AlertGetContactGroupResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -579,7 +579,7 @@ static int test_get_db_metric() {
   AlertGetDBMetricRequestType req;
   AlertGetDBMetricResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -603,7 +603,7 @@ static int test_get_db_source() {
   AlertGetDBSourceRequestType req;
   AlertGetDBSourceResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -627,7 +627,7 @@ static int test_get_dimensions() {
   AlertGetDimensionsRequestType req;
   AlertGetDimensionsResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -652,7 +652,7 @@ static int test_get_level_channel() {
   AlertGetLevelChannelRequestType req;
   AlertGetLevelChannelResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -676,7 +676,7 @@ static int test_get_log_hub_metric() {
   AlertGetLogHubMetricRequestType req;
   AlertGetLogHubMetricResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -700,7 +700,7 @@ static int test_get_project() {
   AlertGetProjectRequestType req;
   AlertGetProjectResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -722,7 +722,7 @@ static int test_grant_project_owner() {
   AlertGrantProjectOwnerRequestType req;
   AlertGrantProjectOwnerResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -747,7 +747,7 @@ static int test_list_alert() {
   AlertListAlertRequestType req;
   AlertListAlertResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -774,7 +774,7 @@ static int test_list_alert_state() {
   AlertListAlertStateRequestType req;
   AlertListAlertStateResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -804,7 +804,7 @@ static int test_list_contact() {
   AlertListContactRequestType req;
   AlertListContactResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -831,7 +831,7 @@ static int test_list_contact_group() {
   AlertListContactGroupRequestType req;
   AlertListContactGroupResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -858,7 +858,7 @@ static int test_list_db_metric() {
   AlertListDBMetricRequestType req;
   AlertListDBMetricResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -885,7 +885,7 @@ static int test_list_db_source() {
   AlertListDBSourceRequestType req;
   AlertListDBSourceResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -912,7 +912,7 @@ static int test_list_dimensions() {
   AlertListDimensionsRequestType req;
   AlertListDimensionsResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -939,7 +939,7 @@ static int test_list_level_channel() {
   AlertListLevelChannelRequestType req;
   AlertListLevelChannelResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -966,7 +966,7 @@ static int test_list_log_hub_metric() {
   AlertListLogHubMetricRequestType req;
   AlertListLogHubMetricResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -993,7 +993,7 @@ static int test_list_notify_history() {
   AlertListNotifyHistoryRequestType req;
   AlertListNotifyHistoryResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1023,7 +1023,7 @@ static int test_list_project() {
   AlertListProjectRequestType req;
   AlertListProjectResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1047,7 +1047,7 @@ static int test_remove_project_owner() {
   AlertRemoveProjectOwnerRequestType req;
   AlertRemoveProjectOwnerResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1070,7 +1070,7 @@ static int test_update_alert() {
   AlertUpdateAlertRequestType req;
   AlertUpdateAlertResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1094,7 +1094,7 @@ static int test_update_contact() {
   AlertUpdateContactRequestType req;
   AlertUpdateContactResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1118,7 +1118,7 @@ static int test_update_contact_group() {
   AlertUpdateContactGroupRequestType req;
   AlertUpdateContactGroupResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1142,7 +1142,7 @@ static int test_update_db_metric() {
   AlertUpdateDBMetricRequestType req;
   AlertUpdateDBMetricResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1166,7 +1166,7 @@ static int test_update_db_source() {
   AlertUpdateDBSourceRequestType req;
   AlertUpdateDBSourceResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1190,7 +1190,7 @@ static int test_update_dimensions() {
   AlertUpdateDimensionsRequestType req;
   AlertUpdateDimensionsResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1215,7 +1215,7 @@ static int test_update_level_channel() {
   AlertUpdateLevelChannelRequestType req;
   AlertUpdateLevelChannelResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1239,7 +1239,7 @@ static int test_update_log_hub_metric() {
   AlertUpdateLogHubMetricRequestType req;
   AlertUpdateLogHubMetricResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1263,7 +1263,7 @@ static int test_update_project() {
   AlertUpdateProjectRequestType req;
   AlertUpdateProjectResponseType resp;
   Alert* alert = Alert::CreateAlertClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!alert) return 0;
   alert->SetProxyHost("127.0.0.1:12234");
   alert->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

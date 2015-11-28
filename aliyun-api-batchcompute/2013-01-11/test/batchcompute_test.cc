@@ -6,7 +6,7 @@ static int test_delete_image() {
   BatchComputeDeleteImageRequestType req;
   BatchComputeDeleteImageResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -23,7 +23,7 @@ static int test_delete_job() {
   BatchComputeDeleteJobRequestType req;
   BatchComputeDeleteJobResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -40,7 +40,7 @@ static int test_delete_snapshot() {
   BatchComputeDeleteSnapshotRequestType req;
   BatchComputeDeleteSnapshotResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -57,7 +57,7 @@ static int test_get_image() {
   BatchComputeGetImageRequestType req;
   BatchComputeGetImageResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -74,7 +74,7 @@ static int test_get_job() {
   BatchComputeGetJobRequestType req;
   BatchComputeGetJobResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -91,7 +91,7 @@ static int test_get_job_description() {
   BatchComputeGetJobDescriptionRequestType req;
   BatchComputeGetJobDescriptionResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -108,7 +108,7 @@ static int test_get_snapshot() {
   BatchComputeGetSnapshotRequestType req;
   BatchComputeGetSnapshotResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -125,7 +125,7 @@ static int test_get_tasks() {
   BatchComputeGetTasksRequestType req;
   BatchComputeGetTasksResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -141,7 +141,7 @@ static const char* test_list_images_response = "{}";
 static int test_list_images() {
   BatchComputeListImagesResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -156,7 +156,7 @@ static const char* test_list_jobs_response = "{}";
 static int test_list_jobs() {
   BatchComputeListJobsResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -171,7 +171,7 @@ static const char* test_list_snapshots_response = "{}";
 static int test_list_snapshots() {
   BatchComputeListSnapshotsResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -186,7 +186,7 @@ static const char* test_post_job_response = "{}";
 static int test_post_job() {
   BatchComputePostJobResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -202,7 +202,7 @@ static int test_put_job() {
   BatchComputePutJobRequestType req;
   BatchComputePutJobResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -219,7 +219,7 @@ static int test_release_job() {
   BatchComputeReleaseJobRequestType req;
   BatchComputeReleaseJobResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -236,7 +236,7 @@ static int test_start_job() {
   BatchComputeStartJobRequestType req;
   BatchComputeStartJobResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -253,7 +253,7 @@ static int test_stop_job() {
   BatchComputeStopJobRequestType req;
   BatchComputeStopJobResponseType resp;
   BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

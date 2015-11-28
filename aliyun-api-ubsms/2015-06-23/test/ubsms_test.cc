@@ -24,7 +24,7 @@ static int test_describe_business_status() {
   UbsmsDescribeBusinessStatusRequestType req;
   UbsmsDescribeBusinessStatusResponseType resp;
   Ubsms* ubsms = Ubsms::CreateUbsmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ubsms) return 0;
   ubsms->SetProxyHost("127.0.0.1:12234");
   ubsms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -44,7 +44,7 @@ static int test_notify_user_business_command() {
   UbsmsNotifyUserBusinessCommandRequestType req;
   UbsmsNotifyUserBusinessCommandResponseType resp;
   Ubsms* ubsms = Ubsms::CreateUbsmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ubsms) return 0;
   ubsms->SetProxyHost("127.0.0.1:12234");
   ubsms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -69,7 +69,7 @@ static int test_set_user_business_status() {
   UbsmsSetUserBusinessStatusRequestType req;
   UbsmsSetUserBusinessStatusResponseType resp;
   Ubsms* ubsms = Ubsms::CreateUbsmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ubsms) return 0;
   ubsms->SetProxyHost("127.0.0.1:12234");
   ubsms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -91,7 +91,7 @@ static int test_set_user_business_statuses() {
   UbsmsSetUserBusinessStatusesRequestType req;
   UbsmsSetUserBusinessStatusesResponseType resp;
   Ubsms* ubsms = Ubsms::CreateUbsmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ubsms) return 0;
   ubsms->SetProxyHost("127.0.0.1:12234");
   ubsms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

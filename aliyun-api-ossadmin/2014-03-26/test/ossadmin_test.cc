@@ -16,7 +16,7 @@ static int test_restart_oss() {
   OssAdminrestartOssRequestType req;
   OssAdminrestartOssResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -47,7 +47,7 @@ static int test_stop_oss() {
   OssAdminstopOssRequestType req;
   OssAdminstopOssResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

@@ -15,7 +15,7 @@ static const char* test_describe_cash_detail_response = "{"
 static int test_describe_cash_detail() {
   BssDescribeCashDetailResponseType resp;
   Bss* bss = Bss::CreateBssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!bss) return 0;
   bss->SetProxyHost("127.0.0.1:12234");
   bss->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -56,7 +56,7 @@ static int test_describe_coupon_detail() {
   BssDescribeCouponDetailRequestType req;
   BssDescribeCouponDetailResponseType resp;
   Bss* bss = Bss::CreateBssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!bss) return 0;
   bss->SetProxyHost("127.0.0.1:12234");
   bss->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -104,7 +104,7 @@ static int test_describe_coupon_list() {
   BssDescribeCouponListRequestType req;
   BssDescribeCouponListResponseType resp;
   Bss* bss = Bss::CreateBssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!bss) return 0;
   bss->SetProxyHost("127.0.0.1:12234");
   bss->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -125,7 +125,7 @@ static int test_set_resource_business_status() {
   BssSetResourceBusinessStatusRequestType req;
   BssSetResourceBusinessStatusResponseType resp;
   Bss* bss = Bss::CreateBssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!bss) return 0;
   bss->SetProxyHost("127.0.0.1:12234");
   bss->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

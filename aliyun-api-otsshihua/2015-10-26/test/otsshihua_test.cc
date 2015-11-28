@@ -6,7 +6,7 @@ static int test_delete_instance() {
   OtsShihuaDeleteInstanceRequestType req;
   OtsShihuaDeleteInstanceResponseType resp;
   OtsShihua* otsshihua = OtsShihua::CreateOtsShihuaClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsshihua) return 0;
   otsshihua->SetProxyHost("127.0.0.1:12234");
   otsshihua->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -30,7 +30,7 @@ static int test_get_instance() {
   OtsShihuaGetInstanceRequestType req;
   OtsShihuaGetInstanceResponseType resp;
   OtsShihua* otsshihua = OtsShihua::CreateOtsShihuaClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsshihua) return 0;
   otsshihua->SetProxyHost("127.0.0.1:12234");
   otsshihua->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -47,7 +47,7 @@ static int test_insert_instance() {
   OtsShihuaInsertInstanceRequestType req;
   OtsShihuaInsertInstanceResponseType resp;
   OtsShihua* otsshihua = OtsShihua::CreateOtsShihuaClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsshihua) return 0;
   otsshihua->SetProxyHost("127.0.0.1:12234");
   otsshihua->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -74,7 +74,7 @@ static const char* test_list_instance_response = "{"
 static int test_list_instance() {
   OtsShihuaListInstanceResponseType resp;
   OtsShihua* otsshihua = OtsShihua::CreateOtsShihuaClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsshihua) return 0;
   otsshihua->SetProxyHost("127.0.0.1:12234");
   otsshihua->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

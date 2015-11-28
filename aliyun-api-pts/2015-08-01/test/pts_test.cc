@@ -8,7 +8,7 @@ static int test_create_transaction() {
   PTSCreateTransactionRequestType req;
   PTSCreateTransactionResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -28,7 +28,7 @@ static const char* test_get_key_secret_response = "{"
 static int test_get_key_secret() {
   PTSGetKeySecretResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -46,7 +46,7 @@ static int test_get_script() {
   PTSGetScriptRequestType req;
   PTSGetScriptResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -66,7 +66,7 @@ static int test_get_tasks() {
   PTSGetTasksRequestType req;
   PTSGetTasksResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -83,7 +83,7 @@ static int test_report_log_sample() {
   PTSReportLogSampleRequestType req;
   PTSReportLogSampleResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -102,7 +102,7 @@ static int test_report_test_sample() {
   PTSReportTestSampleRequestType req;
   PTSReportTestSampleResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -119,7 +119,7 @@ static int test_report_vuser() {
   PTSReportVuserRequestType req;
   PTSReportVuserResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -139,7 +139,7 @@ static int test_send_wang_wang() {
   PTSSendWangWangRequestType req;
   PTSSendWangWangResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -158,7 +158,7 @@ static int test_set_scenario_status() {
   PTSSetScenarioStatusRequestType req;
   PTSSetScenarioStatusResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -178,7 +178,7 @@ static int test_set_task_status() {
   PTSSetTaskStatusRequestType req;
   PTSSetTaskStatusResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -196,7 +196,7 @@ static int test_stop_task() {
   PTSStopTaskRequestType req;
   PTSStopTaskResponseType resp;
   PTS* pts = PTS::CreatePTSClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!pts) return 0;
   pts->SetProxyHost("127.0.0.1:12234");
   pts->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

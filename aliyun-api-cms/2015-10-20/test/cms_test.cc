@@ -12,7 +12,7 @@ static int test_batch_create_sql_metrics() {
   CmsBatchCreateSqlMetricsRequestType req;
   CmsBatchCreateSqlMetricsResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -36,7 +36,7 @@ static int test_batch_put_dim_table_data() {
   CmsBatchPutDimTableDataRequestType req;
   CmsBatchPutDimTableDataResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -64,7 +64,7 @@ static int test_batch_query_metric() {
   CmsBatchQueryMetricRequestType req;
   CmsBatchQueryMetricResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -94,7 +94,7 @@ static int test_create_dim_table() {
   CmsCreateDimTableRequestType req;
   CmsCreateDimTableResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -117,7 +117,7 @@ static int test_create_metric_stream() {
   CmsCreateMetricStreamRequestType req;
   CmsCreateMetricStreamResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -141,7 +141,7 @@ static int test_create_project() {
   CmsCreateProjectRequestType req;
   CmsCreateProjectResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -164,7 +164,7 @@ static int test_create_sql_metrics() {
   CmsCreateSqlMetricsRequestType req;
   CmsCreateSqlMetricsResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -188,7 +188,7 @@ static int test_delete_dim_table() {
   CmsDeleteDimTableRequestType req;
   CmsDeleteDimTableResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -210,7 +210,7 @@ static int test_delete_dim_table_data() {
   CmsDeleteDimTableDataRequestType req;
   CmsDeleteDimTableDataResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -233,7 +233,7 @@ static int test_delete_metrics() {
   CmsDeleteMetricsRequestType req;
   CmsDeleteMetricsResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -256,7 +256,7 @@ static int test_delete_metric_stream() {
   CmsDeleteMetricStreamRequestType req;
   CmsDeleteMetricStreamResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -279,7 +279,7 @@ static int test_delete_project() {
   CmsDeleteProjectRequestType req;
   CmsDeleteProjectResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -306,7 +306,7 @@ static int test_describe_metric() {
   CmsDescribeMetricRequestType req;
   CmsDescribeMetricResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -339,7 +339,7 @@ static int test_describe_metric_datum() {
   CmsDescribeMetricDatumRequestType req;
   CmsDescribeMetricDatumResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -370,7 +370,7 @@ static int test_get_dim_table() {
   CmsGetDimTableRequestType req;
   CmsGetDimTableResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -393,7 +393,7 @@ static int test_get_metrics_meta() {
   CmsGetMetricsMetaRequestType req;
   CmsGetMetricsMetaResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -421,7 +421,7 @@ static int test_get_metric_statistics() {
   CmsGetMetricStatisticsRequestType req;
   CmsGetMetricStatisticsResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -451,7 +451,7 @@ static int test_get_metric_stream() {
   CmsGetMetricStreamRequestType req;
   CmsGetMetricStreamResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -475,7 +475,7 @@ static int test_get_project() {
   CmsGetProjectRequestType req;
   CmsGetProjectResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -498,7 +498,7 @@ static int test_get_sql_metrics() {
   CmsGetSqlMetricsRequestType req;
   CmsGetSqlMetricsResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -527,7 +527,7 @@ static int test_list_dim_table() {
   CmsListDimTableRequestType req;
   CmsListDimTableResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -557,7 +557,7 @@ static int test_list_metric_stream() {
   CmsListMetricStreamRequestType req;
   CmsListMetricStreamResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -588,7 +588,7 @@ static int test_list_project() {
   CmsListProjectRequestType req;
   CmsListProjectResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -618,7 +618,7 @@ static int test_list_sql_metrics() {
   CmsListSqlMetricsRequestType req;
   CmsListSqlMetricsResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -643,7 +643,7 @@ static int test_put_dim_table_data() {
   CmsPutDimTableDataRequestType req;
   CmsPutDimTableDataResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -671,7 +671,7 @@ static int test_query_incremental() {
   CmsQueryIncrementalRequestType req;
   CmsQueryIncrementalResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -707,7 +707,7 @@ static int test_query_list_metric() {
   CmsQueryListMetricRequestType req;
   CmsQueryListMetricResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -744,7 +744,7 @@ static int test_query_metric() {
   CmsQueryMetricRequestType req;
   CmsQueryMetricResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -779,7 +779,7 @@ static int test_query_metric_top_n() {
   CmsQueryMetricTopNRequestType req;
   CmsQueryMetricTopNResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -814,7 +814,7 @@ static int test_query_statistics() {
   CmsQueryStatisticsRequestType req;
   CmsQueryStatisticsResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -844,7 +844,7 @@ static int test_start_project() {
   CmsStartProjectRequestType req;
   CmsStartProjectResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -867,7 +867,7 @@ static int test_status_project() {
   CmsStatusProjectRequestType req;
   CmsStatusProjectResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -889,7 +889,7 @@ static int test_stop_project() {
   CmsStopProjectRequestType req;
   CmsStopProjectResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -911,7 +911,7 @@ static int test_update_dim_table() {
   CmsUpdateDimTableRequestType req;
   CmsUpdateDimTableResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -934,7 +934,7 @@ static int test_update_metric_stream() {
   CmsUpdateMetricStreamRequestType req;
   CmsUpdateMetricStreamResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -958,7 +958,7 @@ static int test_update_project() {
   CmsUpdateProjectRequestType req;
   CmsUpdateProjectResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -981,7 +981,7 @@ static int test_update_sql_metrics() {
   CmsUpdateSqlMetricsRequestType req;
   CmsUpdateSqlMetricsResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

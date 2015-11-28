@@ -16,7 +16,7 @@ static int test_create_oss_instance() {
   OssAdmincreateOssInstanceRequestType req;
   OssAdmincreateOssInstanceResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -54,7 +54,7 @@ static int test_get_bucket_policy() {
   OssAdminGetBucketPolicyRequestType req;
   OssAdminGetBucketPolicyResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -78,7 +78,7 @@ static int test_put_bucket_limit() {
   OssAdminPutBucketLimitRequestType req;
   OssAdminPutBucketLimitResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -102,7 +102,7 @@ static int test_put_bucket_policy() {
   OssAdminPutBucketPolicyRequestType req;
   OssAdminPutBucketPolicyResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -135,7 +135,7 @@ static int test_put_bucket_status() {
   OssAdminPutBucketStatusRequestType req;
   OssAdminPutBucketStatusResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

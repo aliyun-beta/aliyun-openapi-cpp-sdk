@@ -6,7 +6,7 @@ static int test_delete_instance() {
   OtsFinanceDeleteInstanceRequestType req;
   OtsFinanceDeleteInstanceResponseType resp;
   OtsFinance* otsfinance = OtsFinance::CreateOtsFinanceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsfinance) return 0;
   otsfinance->SetProxyHost("127.0.0.1:12234");
   otsfinance->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -22,7 +22,7 @@ static const char* test_delete_user_response = "{}";
 static int test_delete_user() {
   OtsFinanceDeleteUserResponseType resp;
   OtsFinance* otsfinance = OtsFinance::CreateOtsFinanceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsfinance) return 0;
   otsfinance->SetProxyHost("127.0.0.1:12234");
   otsfinance->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -52,7 +52,7 @@ static int test_get_instance() {
   OtsFinanceGetInstanceRequestType req;
   OtsFinanceGetInstanceResponseType resp;
   OtsFinance* otsfinance = OtsFinance::CreateOtsFinanceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsfinance) return 0;
   otsfinance->SetProxyHost("127.0.0.1:12234");
   otsfinance->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -77,7 +77,7 @@ static const char* test_get_user_response = "{"
 static int test_get_user() {
   OtsFinanceGetUserResponseType resp;
   OtsFinance* otsfinance = OtsFinance::CreateOtsFinanceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsfinance) return 0;
   otsfinance->SetProxyHost("127.0.0.1:12234");
   otsfinance->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -93,7 +93,7 @@ static int test_insert_instance() {
   OtsFinanceInsertInstanceRequestType req;
   OtsFinanceInsertInstanceResponseType resp;
   OtsFinance* otsfinance = OtsFinance::CreateOtsFinanceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsfinance) return 0;
   otsfinance->SetProxyHost("127.0.0.1:12234");
   otsfinance->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -115,7 +115,7 @@ static int test_insert_user() {
   OtsFinanceInsertUserRequestType req;
   OtsFinanceInsertUserResponseType resp;
   OtsFinance* otsfinance = OtsFinance::CreateOtsFinanceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsfinance) return 0;
   otsfinance->SetProxyHost("127.0.0.1:12234");
   otsfinance->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -143,7 +143,7 @@ static const char* test_list_instance_response = "{"
 static int test_list_instance() {
   OtsFinanceListInstanceResponseType resp;
   OtsFinance* otsfinance = OtsFinance::CreateOtsFinanceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsfinance) return 0;
   otsfinance->SetProxyHost("127.0.0.1:12234");
   otsfinance->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -159,7 +159,7 @@ static int test_update_instance() {
   OtsFinanceUpdateInstanceRequestType req;
   OtsFinanceUpdateInstanceResponseType resp;
   OtsFinance* otsfinance = OtsFinance::CreateOtsFinanceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsfinance) return 0;
   otsfinance->SetProxyHost("127.0.0.1:12234");
   otsfinance->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -180,7 +180,7 @@ static int test_update_user() {
   OtsFinanceUpdateUserRequestType req;
   OtsFinanceUpdateUserResponseType resp;
   OtsFinance* otsfinance = OtsFinance::CreateOtsFinanceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!otsfinance) return 0;
   otsfinance->SetProxyHost("127.0.0.1:12234");
   otsfinance->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

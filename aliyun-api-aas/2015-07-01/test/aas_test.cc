@@ -15,7 +15,7 @@ static int test_create_access_key_for_account() {
   AasCreateAccessKeyForAccountRequestType req;
   AasCreateAccessKeyForAccountResponseType resp;
   Aas* aas = Aas::CreateAasClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!aas) return 0;
   aas->SetProxyHost("127.0.0.1:12234");
   aas->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -36,7 +36,7 @@ static int test_create_aliyun_account() {
   AasCreateAliyunAccountRequestType req;
   AasCreateAliyunAccountResponseType resp;
   Aas* aas = Aas::CreateAasClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!aas) return 0;
   aas->SetProxyHost("127.0.0.1:12234");
   aas->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -56,7 +56,7 @@ static int test_delete_access_key_for_account() {
   AasDeleteAccessKeyForAccountRequestType req;
   AasDeleteAccessKeyForAccountResponseType resp;
   Aas* aas = Aas::CreateAasClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!aas) return 0;
   aas->SetProxyHost("127.0.0.1:12234");
   aas->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -77,7 +77,7 @@ static int test_get_basic_info_for_account() {
   AasGetBasicInfoForAccountRequestType req;
   AasGetBasicInfoForAccountResponseType resp;
   Aas* aas = Aas::CreateAasClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!aas) return 0;
   aas->SetProxyHost("127.0.0.1:12234");
   aas->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -107,7 +107,7 @@ static int test_list_access_keys_for_account() {
   AasListAccessKeysForAccountRequestType req;
   AasListAccessKeysForAccountResponseType resp;
   Aas* aas = Aas::CreateAasClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!aas) return 0;
   aas->SetProxyHost("127.0.0.1:12234");
   aas->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -129,7 +129,7 @@ static int test_update_access_key_status_for_account() {
   AasUpdateAccessKeyStatusForAccountRequestType req;
   AasUpdateAccessKeyStatusForAccountResponseType resp;
   Aas* aas = Aas::CreateAasClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!aas) return 0;
   aas->SetProxyHost("127.0.0.1:12234");
   aas->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

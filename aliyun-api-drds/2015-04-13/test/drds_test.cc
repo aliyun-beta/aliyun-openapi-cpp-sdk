@@ -8,7 +8,7 @@ static int test_alter_table() {
   DrdsAlterTableRequestType req;
   DrdsAlterTableResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -27,7 +27,7 @@ static int test_cancel_dd_ltask() {
   DrdsCancelDDLTaskRequestType req;
   DrdsCancelDDLTaskResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -48,7 +48,7 @@ static int test_create_drds_db() {
   DrdsCreateDrdsDBRequestType req;
   DrdsCreateDrdsDBResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -79,7 +79,7 @@ static int test_create_drds_instance() {
   DrdsCreateDrdsInstanceRequestType req;
   DrdsCreateDrdsInstanceResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -105,7 +105,7 @@ static int test_create_index() {
   DrdsCreateIndexRequestType req;
   DrdsCreateIndexResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -126,7 +126,7 @@ static int test_create_table() {
   DrdsCreateTableRequestType req;
   DrdsCreateTableResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -150,7 +150,7 @@ static int test_delete_drds_db() {
   DrdsDeleteDrdsDBRequestType req;
   DrdsDeleteDrdsDBResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -173,7 +173,7 @@ static int test_describe_create_drds_instance_status() {
   DrdsDescribeCreateDrdsInstanceStatusRequestType req;
   DrdsDescribeCreateDrdsInstanceStatusResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -203,7 +203,7 @@ static int test_describe_dd_ltask() {
   DrdsDescribeDDLTaskRequestType req;
   DrdsDescribeDDLTaskResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -231,7 +231,7 @@ static int test_describe_drds_db() {
   DrdsDescribeDrdsDBRequestType req;
   DrdsDescribeDrdsDBResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -258,7 +258,7 @@ static int test_describe_drds_db_ip_white_list() {
   DrdsDescribeDrdsDBIpWhiteListRequestType req;
   DrdsDescribeDrdsDBIpWhiteListResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -289,7 +289,7 @@ static int test_describe_drds_dbs() {
   DrdsDescribeDrdsDBsRequestType req;
   DrdsDescribeDrdsDBsResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -328,7 +328,7 @@ static int test_describe_drds_instance() {
   DrdsDescribeDrdsInstanceRequestType req;
   DrdsDescribeDrdsInstanceResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -371,7 +371,7 @@ static int test_describe_drds_instances() {
   DrdsDescribeDrdsInstancesRequestType req;
   DrdsDescribeDrdsInstancesResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -390,7 +390,7 @@ static int test_drop_indexes() {
   DrdsDropIndexesRequestType req;
   DrdsDropIndexesResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -412,7 +412,7 @@ static int test_drop_tables() {
   DrdsDropTablesRequestType req;
   DrdsDropTablesResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -448,7 +448,7 @@ static int test_list_un_complete_tasks() {
   DrdsListUnCompleteTasksRequestType req;
   DrdsListUnCompleteTasksResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -468,7 +468,7 @@ static int test_modify_drds_db_passwd() {
   DrdsModifyDrdsDBPasswdRequestType req;
   DrdsModifyDrdsDBPasswdResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -489,7 +489,7 @@ static int test_modify_drds_instance_description() {
   DrdsModifyDrdsInstanceDescriptionRequestType req;
   DrdsModifyDrdsInstanceDescriptionResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -509,7 +509,7 @@ static int test_modify_drds_ip_white_list() {
   DrdsModifyDrdsIpWhiteListRequestType req;
   DrdsModifyDrdsIpWhiteListResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -531,7 +531,7 @@ static int test_remove_drds_instance() {
   DrdsRemoveDrdsInstanceRequestType req;
   DrdsRemoveDrdsInstanceResponseType resp;
   Drds* drds = Drds::CreateDrdsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!drds) return 0;
   drds->SetProxyHost("127.0.0.1:12234");
   drds->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

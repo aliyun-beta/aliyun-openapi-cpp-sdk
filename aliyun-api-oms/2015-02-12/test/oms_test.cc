@@ -28,7 +28,7 @@ static int test_get_product_define() {
   OmsGetProductDefineRequestType req;
   OmsGetProductDefineResponseType resp;
   Oms* oms = Oms::CreateOmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!oms) return 0;
   oms->SetProxyHost("127.0.0.1:12234");
   oms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -64,7 +64,7 @@ static int test_get_user_data() {
   OmsGetUserDataRequestType req;
   OmsGetUserDataResponseType resp;
   Oms* oms = Oms::CreateOmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!oms) return 0;
   oms->SetProxyHost("127.0.0.1:12234");
   oms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

@@ -15,7 +15,7 @@ static int test_describe_metric_datum() {
   CmsDescribeMetricDatumRequestType req;
   CmsDescribeMetricDatumResponseType resp;
   Cms* cms = Cms::CreateCmsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!cms) return 0;
   cms->SetProxyHost("127.0.0.1:12234");
   cms->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

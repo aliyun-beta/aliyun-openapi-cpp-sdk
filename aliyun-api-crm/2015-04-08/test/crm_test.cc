@@ -8,7 +8,7 @@ static int test_add_label() {
   CrmAddLabelRequestType req;
   CrmAddLabelResponseType resp;
   Crm* crm = Crm::CreateCrmClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!crm) return 0;
   crm->SetProxyHost("127.0.0.1:12234");
   crm->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -30,7 +30,7 @@ static int test_check_label() {
   CrmCheckLabelRequestType req;
   CrmCheckLabelResponseType resp;
   Crm* crm = Crm::CreateCrmClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!crm) return 0;
   crm->SetProxyHost("127.0.0.1:12234");
   crm->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -51,7 +51,7 @@ static int test_delete_label() {
   CrmDeleteLabelRequestType req;
   CrmDeleteLabelResponseType resp;
   Crm* crm = Crm::CreateCrmClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!crm) return 0;
   crm->SetProxyHost("127.0.0.1:12234");
   crm->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -82,7 +82,7 @@ static int test_query_customer_label() {
   CrmQueryCustomerLabelRequestType req;
   CrmQueryCustomerLabelResponseType resp;
   Crm* crm = Crm::CreateCrmClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!crm) return 0;
   crm->SetProxyHost("127.0.0.1:12234");
   crm->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

@@ -6,7 +6,7 @@ static int test_create_cluster() {
   EmrCreateClusterRequestType req;
   EmrCreateClusterResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -40,7 +40,7 @@ static int test_create_execute_plan() {
   EmrCreateExecutePlanRequestType req;
   EmrCreateExecutePlanResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -63,7 +63,7 @@ static int test_create_execute_plan_with_cluster() {
   EmrCreateExecutePlanWithClusterRequestType req;
   EmrCreateExecutePlanWithClusterResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -103,7 +103,7 @@ static int test_create_job() {
   EmrCreateJobRequestType req;
   EmrCreateJobResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -123,7 +123,7 @@ static int test_delete_execute_plan() {
   EmrDeleteExecutePlanRequestType req;
   EmrDeleteExecutePlanResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -140,7 +140,7 @@ static int test_delete_job() {
   EmrDeleteJobRequestType req;
   EmrDeleteJobResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -221,7 +221,7 @@ static int test_describe_cluster() {
   EmrDescribeClusterRequestType req;
   EmrDescribeClusterResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -316,7 +316,7 @@ static int test_describe_execute_plan() {
   EmrDescribeExecutePlanRequestType req;
   EmrDescribeExecutePlanResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -339,7 +339,7 @@ static int test_describe_job() {
   EmrDescribeJobRequestType req;
   EmrDescribeJobResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -367,7 +367,7 @@ static int test_job_resource() {
   EmrJobResourceRequestType req;
   EmrJobResourceResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -385,7 +385,7 @@ static int test_kill_execute_plan_record_node() {
   EmrKillExecutePlanRecordNodeRequestType req;
   EmrKillExecutePlanRecordNodeResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -420,7 +420,7 @@ static int test_list_clusters() {
   EmrListClustersRequestType req;
   EmrListClustersResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -500,7 +500,7 @@ static const char* test_list_config_type_response = "{"
 static int test_list_config_type() {
   EmrListConfigTypeResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -534,7 +534,7 @@ static int test_list_execute_plan_execute_record_nodes() {
   EmrListExecutePlanExecuteRecordNodesRequestType req;
   EmrListExecutePlanExecuteRecordNodesResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -575,7 +575,7 @@ static int test_list_execute_plan_execute_records() {
   EmrListExecutePlanExecuteRecordsRequestType req;
   EmrListExecutePlanExecuteRecordsResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -612,7 +612,7 @@ static int test_list_execute_plan_jobs() {
   EmrListExecutePlanJobsRequestType req;
   EmrListExecutePlanJobsResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -643,7 +643,7 @@ static int test_list_execute_plan_node_instances() {
   EmrListExecutePlanNodeInstancesRequestType req;
   EmrListExecutePlanNodeInstancesResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -681,7 +681,7 @@ static int test_list_execute_plans() {
   EmrListExecutePlansRequestType req;
   EmrListExecutePlansResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -717,7 +717,7 @@ static int test_list_jobs() {
   EmrListJobsRequestType req;
   EmrListJobsResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -745,7 +745,7 @@ static const char* test_list_regions_response = "{"
 static int test_list_regions() {
   EmrListRegionsResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -761,7 +761,7 @@ static int test_modify_cluster_name() {
   EmrModifyClusterNameRequestType req;
   EmrModifyClusterNameResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -781,7 +781,7 @@ static int test_modify_execute_plan() {
   EmrModifyExecutePlanRequestType req;
   EmrModifyExecutePlanResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -805,7 +805,7 @@ static int test_modify_execute_plan_with_cluster() {
   EmrModifyExecutePlanWithClusterRequestType req;
   EmrModifyExecutePlanWithClusterResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -844,7 +844,7 @@ static int test_modify_job() {
   EmrModifyJobRequestType req;
   EmrModifyJobResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -865,7 +865,7 @@ static int test_release_cluster() {
   EmrReleaseClusterRequestType req;
   EmrReleaseClusterResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -882,7 +882,7 @@ static int test_resume_execute_plan() {
   EmrResumeExecutePlanRequestType req;
   EmrResumeExecutePlanResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -899,7 +899,7 @@ static int test_run_execute_plan() {
   EmrRunExecutePlanRequestType req;
   EmrRunExecutePlanResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -916,7 +916,7 @@ static int test_stop_execute_plan() {
   EmrStopExecutePlanRequestType req;
   EmrStopExecutePlanResponseType resp;
   Emr* emr = Emr::CreateEmrClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!emr) return 0;
   emr->SetProxyHost("127.0.0.1:12234");
   emr->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

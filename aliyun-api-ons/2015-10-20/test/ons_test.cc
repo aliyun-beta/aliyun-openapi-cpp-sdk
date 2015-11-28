@@ -17,7 +17,7 @@ static int test_ons_cloud_get_appkey_list() {
   OnsOnsCloudGetAppkeyListRequestType req;
   OnsOnsCloudGetAppkeyListResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -64,7 +64,7 @@ static int test_ons_cluster_list() {
   OnsOnsClusterListRequestType req;
   OnsOnsClusterListResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -91,7 +91,7 @@ static int test_ons_cluster_names() {
   OnsOnsClusterNamesRequestType req;
   OnsOnsClusterNamesResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -141,7 +141,7 @@ static int test_ons_consumer_accumulate() {
   OnsOnsConsumerAccumulateRequestType req;
   OnsOnsConsumerAccumulateResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -176,7 +176,7 @@ static int test_ons_consumer_get_connection() {
   OnsOnsConsumerGetConnectionRequestType req;
   OnsOnsConsumerGetConnectionResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -198,7 +198,7 @@ static int test_ons_consumer_reset_offset() {
   OnsOnsConsumerResetOffsetRequestType req;
   OnsOnsConsumerResetOffsetResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -337,7 +337,7 @@ static int test_ons_consumer_status() {
   OnsOnsConsumerStatusRequestType req;
   OnsOnsConsumerStatusResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -381,7 +381,7 @@ static int test_ons_consumer_time_span() {
   OnsOnsConsumerTimeSpanRequestType req;
   OnsOnsConsumerTimeSpanResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -404,7 +404,7 @@ static int test_ons_empower_create() {
   OnsOnsEmpowerCreateRequestType req;
   OnsOnsEmpowerCreateResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -428,7 +428,7 @@ static int test_ons_empower_delete() {
   OnsOnsEmpowerDeleteRequestType req;
   OnsOnsEmpowerDeleteResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -464,7 +464,7 @@ static int test_ons_empower_list() {
   OnsOnsEmpowerListRequestType req;
   OnsOnsEmpowerListResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -517,7 +517,7 @@ static int test_ons_message_get_by_key() {
   OnsOnsMessageGetByKeyRequestType req;
   OnsOnsMessageGetByKeyResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -566,7 +566,7 @@ static int test_ons_message_get_by_msg_id() {
   OnsOnsMessageGetByMsgIdRequestType req;
   OnsOnsMessageGetByMsgIdResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -618,7 +618,7 @@ static int test_ons_message_get_by_topic() {
   OnsOnsMessageGetByTopicRequestType req;
   OnsOnsMessageGetByTopicResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -640,7 +640,7 @@ static int test_ons_message_push() {
   OnsOnsMessagePushRequestType req;
   OnsOnsMessagePushResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -666,7 +666,7 @@ static int test_ons_message_send() {
   OnsOnsMessageSendRequestType req;
   OnsOnsMessageSendResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -701,7 +701,7 @@ static int test_ons_message_trace() {
   OnsOnsMessageTraceRequestType req;
   OnsOnsMessageTraceResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -724,7 +724,7 @@ static int test_ons_publish_create() {
   OnsOnsPublishCreateRequestType req;
   OnsOnsPublishCreateResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -748,7 +748,7 @@ static int test_ons_publish_delete() {
   OnsOnsPublishDeleteRequestType req;
   OnsOnsPublishDeleteResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -789,7 +789,7 @@ static int test_ons_publish_get() {
   OnsOnsPublishGetRequestType req;
   OnsOnsPublishGetResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -830,7 +830,7 @@ static int test_ons_publish_list() {
   OnsOnsPublishListRequestType req;
   OnsOnsPublishListResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -869,7 +869,7 @@ static int test_ons_publish_search() {
   OnsOnsPublishSearchRequestType req;
   OnsOnsPublishSearchResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -908,7 +908,7 @@ static int test_ons_region_list() {
   OnsOnsRegionListRequestType req;
   OnsOnsRegionListResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -929,7 +929,7 @@ static int test_ons_subscription_create() {
   OnsOnsSubscriptionCreateRequestType req;
   OnsOnsSubscriptionCreateResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -952,7 +952,7 @@ static int test_ons_subscription_delete() {
   OnsOnsSubscriptionDeleteRequestType req;
   OnsOnsSubscriptionDeleteResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -993,7 +993,7 @@ static int test_ons_subscription_get() {
   OnsOnsSubscriptionGetRequestType req;
   OnsOnsSubscriptionGetResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1034,7 +1034,7 @@ static int test_ons_subscription_list() {
   OnsOnsSubscriptionListRequestType req;
   OnsOnsSubscriptionListResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1073,7 +1073,7 @@ static int test_ons_subscription_search() {
   OnsOnsSubscriptionSearchRequestType req;
   OnsOnsSubscriptionSearchResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1095,7 +1095,7 @@ static int test_ons_topic_create() {
   OnsOnsTopicCreateRequestType req;
   OnsOnsTopicCreateResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1125,7 +1125,7 @@ static int test_ons_topic_delete() {
   OnsOnsTopicDeleteRequestType req;
   OnsOnsTopicDeleteResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1169,7 +1169,7 @@ static int test_ons_topic_get() {
   OnsOnsTopicGetRequestType req;
   OnsOnsTopicGetResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1212,7 +1212,7 @@ static int test_ons_topic_list() {
   OnsOnsTopicListRequestType req;
   OnsOnsTopicListResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1255,7 +1255,7 @@ static int test_ons_topic_search() {
   OnsOnsTopicSearchRequestType req;
   OnsOnsTopicSearchResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1293,7 +1293,7 @@ static int test_ons_topic_status() {
   OnsOnsTopicStatusRequestType req;
   OnsOnsTopicStatusResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1329,7 +1329,7 @@ static int test_ons_trend_cluster_input_tps() {
   OnsOnsTrendClusterInputTpsRequestType req;
   OnsOnsTrendClusterInputTpsResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1367,7 +1367,7 @@ static int test_ons_trend_cluster_output_tps() {
   OnsOnsTrendClusterOutputTpsRequestType req;
   OnsOnsTrendClusterOutputTpsResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1405,7 +1405,7 @@ static int test_ons_trend_get_machine_sar() {
   OnsOnsTrendGetMachineSarRequestType req;
   OnsOnsTrendGetMachineSarResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1445,7 +1445,7 @@ static int test_ons_trend_group_output_tps() {
   OnsOnsTrendGroupOutputTpsRequestType req;
   OnsOnsTrendGroupOutputTpsResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1484,7 +1484,7 @@ static int test_ons_trend_topic_input_tps() {
   OnsOnsTrendTopicInputTpsRequestType req;
   OnsOnsTrendTopicInputTpsResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1509,7 +1509,7 @@ static int test_ons_warn_admin() {
   OnsOnsWarnAdminRequestType req;
   OnsOnsWarnAdminResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1534,7 +1534,7 @@ static int test_ons_warn_create() {
   OnsOnsWarnCreateRequestType req;
   OnsOnsWarnCreateResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1559,7 +1559,7 @@ static int test_ons_warn_delete() {
   OnsOnsWarnDeleteRequestType req;
   OnsOnsWarnDeleteResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1582,7 +1582,7 @@ static int test_ons_warn_disable() {
   OnsOnsWarnDisableRequestType req;
   OnsOnsWarnDisableResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1605,7 +1605,7 @@ static int test_ons_warn_editor() {
   OnsOnsWarnEditorRequestType req;
   OnsOnsWarnEditorResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1630,7 +1630,7 @@ static int test_ons_warn_enable() {
   OnsOnsWarnEnableRequestType req;
   OnsOnsWarnEnableResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1675,7 +1675,7 @@ static int test_ons_warn_list() {
   OnsOnsWarnListRequestType req;
   OnsOnsWarnListResponseType resp;
   Ons* ons = Ons::CreateOnsClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ons) return 0;
   ons->SetProxyHost("127.0.0.1:12234");
   ons->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

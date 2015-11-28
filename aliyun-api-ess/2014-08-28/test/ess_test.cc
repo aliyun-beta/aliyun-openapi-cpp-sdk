@@ -8,7 +8,7 @@ static int test_attach_instances() {
   EssAttachInstancesRequestType req;
   EssAttachInstancesResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -51,7 +51,7 @@ static int test_create_scaling_configuration() {
   EssCreateScalingConfigurationRequestType req;
   EssCreateScalingConfigurationResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -102,7 +102,7 @@ static int test_create_scaling_group() {
   EssCreateScalingGroupRequestType req;
   EssCreateScalingGroupResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -135,7 +135,7 @@ static int test_create_scaling_rule() {
   EssCreateScalingRuleRequestType req;
   EssCreateScalingRuleResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -162,7 +162,7 @@ static int test_create_scheduled_task() {
   EssCreateScheduledTaskRequestType req;
   EssCreateScheduledTaskResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -191,7 +191,7 @@ static int test_delete_scaling_configuration() {
   EssDeleteScalingConfigurationRequestType req;
   EssDeleteScalingConfigurationResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -212,7 +212,7 @@ static int test_delete_scaling_group() {
   EssDeleteScalingGroupRequestType req;
   EssDeleteScalingGroupResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -234,7 +234,7 @@ static int test_delete_scaling_rule() {
   EssDeleteScalingRuleRequestType req;
   EssDeleteScalingRuleResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -255,7 +255,7 @@ static int test_delete_scheduled_task() {
   EssDeleteScheduledTaskRequestType req;
   EssDeleteScheduledTaskResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -295,7 +295,7 @@ static int test_describe_scaling_activities() {
   EssDescribeScalingActivitiesRequestType req;
   EssDescribeScalingActivitiesResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -371,7 +371,7 @@ static int test_describe_scaling_configurations() {
   EssDescribeScalingConfigurationsRequestType req;
   EssDescribeScalingConfigurationsResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -448,7 +448,7 @@ static int test_describe_scaling_groups() {
   EssDescribeScalingGroupsRequestType req;
   EssDescribeScalingGroupsResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -526,7 +526,7 @@ static int test_describe_scaling_instances() {
   EssDescribeScalingInstancesRequestType req;
   EssDescribeScalingInstancesResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -592,7 +592,7 @@ static int test_describe_scaling_rules() {
   EssDescribeScalingRulesRequestType req;
   EssDescribeScalingRulesResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -665,7 +665,7 @@ static int test_describe_scheduled_tasks() {
   EssDescribeScheduledTasksRequestType req;
   EssDescribeScheduledTasksResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -749,7 +749,7 @@ static int test_detach_instances() {
   EssDetachInstancesRequestType req;
   EssDetachInstancesResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -790,7 +790,7 @@ static int test_disable_scaling_group() {
   EssDisableScalingGroupRequestType req;
   EssDisableScalingGroupResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -811,7 +811,7 @@ static int test_enable_scaling_group() {
   EssEnableScalingGroupRequestType req;
   EssEnableScalingGroupResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -855,7 +855,7 @@ static int test_execute_scaling_rule() {
   EssExecuteScalingRuleRequestType req;
   EssExecuteScalingRuleResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -877,7 +877,7 @@ static int test_modify_scaling_group() {
   EssModifyScalingGroupRequestType req;
   EssModifyScalingGroupResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -905,7 +905,7 @@ static int test_modify_scaling_rule() {
   EssModifyScalingRuleRequestType req;
   EssModifyScalingRuleResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -930,7 +930,7 @@ static int test_modify_scheduled_task() {
   EssModifyScheduledTaskRequestType req;
   EssModifyScheduledTaskResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -962,7 +962,7 @@ static int test_remove_instances() {
   EssRemoveInstancesRequestType req;
   EssRemoveInstancesResponseType resp;
   Ess* ess = Ess::CreateEssClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ess) return 0;
   ess->SetProxyHost("127.0.0.1:12234");
   ess->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

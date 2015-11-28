@@ -8,7 +8,7 @@ static int test_bind_bucket_vip() {
   OssAdminBindBucketVipRequestType req;
   OssAdminBindBucketVipResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -36,7 +36,7 @@ static int test_create_img_vpc() {
   OssAdminCreateImgVpcRequestType req;
   OssAdminCreateImgVpcResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -64,7 +64,7 @@ static int test_create_oss_vpc() {
   OssAdminCreateOssVpcRequestType req;
   OssAdminCreateOssVpcResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -90,7 +90,7 @@ static int test_delete_img_vpc() {
   OssAdminDeleteImgVpcRequestType req;
   OssAdminDeleteImgVpcResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -115,7 +115,7 @@ static int test_delete_oss_vpc() {
   OssAdminDeleteOssVpcRequestType req;
   OssAdminDeleteOssVpcResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -145,7 +145,7 @@ static int test_get_bucket_vips() {
   OssAdminGetBucketVipsRequestType req;
   OssAdminGetBucketVipsResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -170,7 +170,7 @@ static int test_get_img_vpc_info() {
   OssAdminGetImgVpcInfoRequestType req;
   OssAdminGetImgVpcInfoResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -197,7 +197,7 @@ static int test_get_oss_vpc_info() {
   OssAdminGetOssVpcInfoRequestType req;
   OssAdminGetOssVpcInfoResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -222,7 +222,7 @@ static int test_un_bind_bucket_vip() {
   OssAdminUnBindBucketVipRequestType req;
   OssAdminUnBindBucketVipResponseType resp;
   OssAdmin* ossadmin = OssAdmin::CreateOssAdminClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ossadmin) return 0;
   ossadmin->SetProxyHost("127.0.0.1:12234");
   ossadmin->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

@@ -6,7 +6,7 @@ static int test_activate_instance() {
   RkvstoreActivateInstanceRequestType req;
   RkvstoreActivateInstanceResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -43,7 +43,7 @@ static int test_create_instance() {
   RkvstoreCreateInstanceRequestType req;
   RkvstoreCreateInstanceResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -73,7 +73,7 @@ static int test_create_instances() {
   RkvstoreCreateInstancesRequestType req;
   RkvstoreCreateInstancesResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -98,7 +98,7 @@ static int test_data_operate() {
   RkvstoreDataOperateRequestType req;
   RkvstoreDataOperateResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -120,7 +120,7 @@ static int test_deactivate_instance() {
   RkvstoreDeactivateInstanceRequestType req;
   RkvstoreDeactivateInstanceResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -141,7 +141,7 @@ static int test_delete_instance() {
   RkvstoreDeleteInstanceRequestType req;
   RkvstoreDeleteInstanceResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -164,7 +164,7 @@ static int test_describe_commodity() {
   RkvstoreDescribeCommodityRequestType req;
   RkvstoreDescribeCommodityResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -189,7 +189,7 @@ static int test_describe_connection_domain() {
   RkvstoreDescribeConnectionDomainRequestType req;
   RkvstoreDescribeConnectionDomainResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -212,7 +212,7 @@ static int test_describe_history_monitor_values() {
   RkvstoreDescribeHistoryMonitorValuesRequestType req;
   RkvstoreDescribeHistoryMonitorValuesResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -239,7 +239,7 @@ static int test_describe_instance_config() {
   RkvstoreDescribeInstanceConfigRequestType req;
   RkvstoreDescribeInstanceConfigResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -262,7 +262,7 @@ static int test_describe_instance_count() {
   RkvstoreDescribeInstanceCountRequestType req;
   RkvstoreDescribeInstanceCountResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -308,7 +308,7 @@ static int test_describe_instances() {
   RkvstoreDescribeInstancesRequestType req;
   RkvstoreDescribeInstancesResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -342,7 +342,7 @@ static int test_describe_monitor_items() {
   RkvstoreDescribeMonitorItemsRequestType req;
   RkvstoreDescribeMonitorItemsResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -380,7 +380,7 @@ static int test_describe_monitor_values() {
   RkvstoreDescribeMonitorValuesRequestType req;
   RkvstoreDescribeMonitorValuesResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -422,7 +422,7 @@ static int test_describe_price() {
   RkvstoreDescribePriceRequestType req;
   RkvstoreDescribePriceResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -459,7 +459,7 @@ static int test_describe_regions() {
   RkvstoreDescribeRegionsRequestType req;
   RkvstoreDescribeRegionsResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -487,7 +487,7 @@ static int test_describe_user_info() {
   RkvstoreDescribeUserInfoRequestType req;
   RkvstoreDescribeUserInfoResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -507,7 +507,7 @@ static int test_flush_instance() {
   RkvstoreFlushInstanceRequestType req;
   RkvstoreFlushInstanceResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -528,7 +528,7 @@ static int test_modify_instance_attribute() {
   RkvstoreModifyInstanceAttributeRequestType req;
   RkvstoreModifyInstanceAttributeResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -553,7 +553,7 @@ static int test_modify_instance_capacity() {
   RkvstoreModifyInstanceCapacityRequestType req;
   RkvstoreModifyInstanceCapacityResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -575,7 +575,7 @@ static int test_modify_instance_config() {
   RkvstoreModifyInstanceConfigRequestType req;
   RkvstoreModifyInstanceConfigResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -600,7 +600,7 @@ static int test_renew_instance() {
   RkvstoreRenewInstanceRequestType req;
   RkvstoreRenewInstanceResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -627,7 +627,7 @@ static int test_transform_to_pre_paid() {
   RkvstoreTransformToPrePaidRequestType req;
   RkvstoreTransformToPrePaidResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -650,7 +650,7 @@ static int test_verify_password() {
   RkvstoreVerifyPasswordRequestType req;
   RkvstoreVerifyPasswordResponseType resp;
   Rkvstore* rkvstore = Rkvstore::CreateRkvstoreClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!rkvstore) return 0;
   rkvstore->SetProxyHost("127.0.0.1:12234");
   rkvstore->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

@@ -16,7 +16,7 @@ static int test_describe_app_logs() {
   AceDescribeAppLogsRequestType req;
   AceDescribeAppLogsResponseType resp;
   Ace* ace = Ace::CreateAceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ace) return 0;
   ace->SetProxyHost("127.0.0.1:12234");
   ace->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -47,7 +47,7 @@ static int test_get_monitor_data() {
   AceGetMonitorDataRequestType req;
   AceGetMonitorDataResponseType resp;
   Ace* ace = Ace::CreateAceClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!ace) return 0;
   ace->SetProxyHost("127.0.0.1:12234");
   ace->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);

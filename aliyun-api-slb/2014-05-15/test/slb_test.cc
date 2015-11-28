@@ -16,7 +16,7 @@ static int test_add_backend_servers() {
   SlbAddBackendServersRequestType req;
   SlbAddBackendServersResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -38,7 +38,7 @@ static int test_add_listener_white_list_item() {
   SlbAddListenerWhiteListItemRequestType req;
   SlbAddListenerWhiteListItemResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -68,7 +68,7 @@ static int test_create_load_balancer() {
   SlbCreateLoadBalancerRequestType req;
   SlbCreateLoadBalancerResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -99,7 +99,7 @@ static int test_create_load_balancer_ht_tp_listener() {
   SlbCreateLoadBalancerHTTPListenerRequestType req;
   SlbCreateLoadBalancerHTTPListenerResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -139,7 +139,7 @@ static int test_create_load_balancer_ht_tp_slistener() {
   SlbCreateLoadBalancerHTTPSListenerRequestType req;
   SlbCreateLoadBalancerHTTPSListenerResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -180,7 +180,7 @@ static int test_create_load_balancer_tc_plistener() {
   SlbCreateLoadBalancerTCPListenerRequestType req;
   SlbCreateLoadBalancerTCPListenerResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -216,7 +216,7 @@ static int test_create_load_balancer_ud_plistener() {
   SlbCreateLoadBalancerUDPListenerRequestType req;
   SlbCreateLoadBalancerUDPListenerResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -248,7 +248,7 @@ static int test_delete_load_balancer() {
   SlbDeleteLoadBalancerRequestType req;
   SlbDeleteLoadBalancerResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -269,7 +269,7 @@ static int test_delete_load_balancer_listener() {
   SlbDeleteLoadBalancerListenerRequestType req;
   SlbDeleteLoadBalancerListenerResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -291,7 +291,7 @@ static int test_delete_server_certificate() {
   SlbDeleteServerCertificateRequestType req;
   SlbDeleteServerCertificateResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -321,7 +321,7 @@ static int test_describe_health_status() {
   SlbDescribeHealthStatusRequestType req;
   SlbDescribeHealthStatusResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -346,7 +346,7 @@ static int test_describe_listener_access_control_attribute() {
   SlbDescribeListenerAccessControlAttributeRequestType req;
   SlbDescribeListenerAccessControlAttributeResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -417,7 +417,7 @@ static int test_describe_load_balancer_attribute() {
   SlbDescribeLoadBalancerAttributeRequestType req;
   SlbDescribeLoadBalancerAttributeResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -459,7 +459,7 @@ static int test_describe_load_balancer_ht_tp_listener_attribute() {
   SlbDescribeLoadBalancerHTTPListenerAttributeRequestType req;
   SlbDescribeLoadBalancerHTTPListenerAttributeResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -503,7 +503,7 @@ static int test_describe_load_balancer_ht_tp_slistener_attribute() {
   SlbDescribeLoadBalancerHTTPSListenerAttributeRequestType req;
   SlbDescribeLoadBalancerHTTPSListenerAttributeResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -548,7 +548,7 @@ static int test_describe_load_balancers() {
   SlbDescribeLoadBalancersRequestType req;
   SlbDescribeLoadBalancersResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -598,7 +598,7 @@ static int test_describe_load_balancer_tc_plistener_attribute() {
   SlbDescribeLoadBalancerTCPListenerAttributeRequestType req;
   SlbDescribeLoadBalancerTCPListenerAttributeResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -634,7 +634,7 @@ static int test_describe_load_balancer_ud_plistener_attribute() {
   SlbDescribeLoadBalancerUDPListenerAttributeRequestType req;
   SlbDescribeLoadBalancerUDPListenerAttributeResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -656,7 +656,7 @@ static int test_describe_locations() {
   SlbDescribeLocationsRequestType req;
   SlbDescribeLocationsResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -687,7 +687,7 @@ static int test_describe_regions() {
   SlbDescribeRegionsRequestType req;
   SlbDescribeRegionsResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -716,7 +716,7 @@ static int test_describe_regions4_location() {
   SlbDescribeRegions4LocationRequestType req;
   SlbDescribeRegions4LocationResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -742,7 +742,7 @@ static int test_describe_server_certificate() {
   SlbDescribeServerCertificateRequestType req;
   SlbDescribeServerCertificateResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -775,7 +775,7 @@ static int test_describe_server_certificates() {
   SlbDescribeServerCertificatesRequestType req;
   SlbDescribeServerCertificatesResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -813,7 +813,7 @@ static int test_describe_zones() {
   SlbDescribeZonesRequestType req;
   SlbDescribeZonesResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -833,7 +833,7 @@ static int test_modify_load_balancer_internet_spec() {
   SlbModifyLoadBalancerInternetSpecRequestType req;
   SlbModifyLoadBalancerInternetSpecResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -870,7 +870,7 @@ static int test_remove_backend_servers() {
   SlbRemoveBackendServersRequestType req;
   SlbRemoveBackendServersResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -892,7 +892,7 @@ static int test_remove_listener_white_list_item() {
   SlbRemoveListenerWhiteListItemRequestType req;
   SlbRemoveListenerWhiteListItemResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -925,7 +925,7 @@ static int test_set_backend_servers() {
   SlbSetBackendServersRequestType req;
   SlbSetBackendServersResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -947,7 +947,7 @@ static int test_set_listener_access_control_status() {
   SlbSetListenerAccessControlStatusRequestType req;
   SlbSetListenerAccessControlStatusResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -970,7 +970,7 @@ static int test_set_load_balancer_ht_tp_listener_attribute() {
   SlbSetLoadBalancerHTTPListenerAttributeRequestType req;
   SlbSetLoadBalancerHTTPListenerAttributeResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1009,7 +1009,7 @@ static int test_set_load_balancer_ht_tp_slistener_attribute() {
   SlbSetLoadBalancerHTTPSListenerAttributeRequestType req;
   SlbSetLoadBalancerHTTPSListenerAttributeResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1049,7 +1049,7 @@ static int test_set_load_balancer_name() {
   SlbSetLoadBalancerNameRequestType req;
   SlbSetLoadBalancerNameResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1071,7 +1071,7 @@ static int test_set_load_balancer_status() {
   SlbSetLoadBalancerStatusRequestType req;
   SlbSetLoadBalancerStatusResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1093,7 +1093,7 @@ static int test_set_load_balancer_tc_plistener_attribute() {
   SlbSetLoadBalancerTCPListenerAttributeRequestType req;
   SlbSetLoadBalancerTCPListenerAttributeResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1129,7 +1129,7 @@ static int test_set_load_balancer_ud_plistener_attribute() {
   SlbSetLoadBalancerUDPListenerAttributeRequestType req;
   SlbSetLoadBalancerUDPListenerAttributeResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1160,7 +1160,7 @@ static int test_set_server_certificate_name() {
   SlbSetServerCertificateNameRequestType req;
   SlbSetServerCertificateNameResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1182,7 +1182,7 @@ static int test_start_load_balancer_listener() {
   SlbStartLoadBalancerListenerRequestType req;
   SlbStartLoadBalancerListenerResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1204,7 +1204,7 @@ static int test_stop_load_balancer_listener() {
   SlbStopLoadBalancerListenerRequestType req;
   SlbStopLoadBalancerListenerResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
@@ -1232,7 +1232,7 @@ static int test_upload_server_certificate() {
   SlbUploadServerCertificateRequestType req;
   SlbUploadServerCertificateResponseType resp;
   Slb* slb = Slb::CreateSlbClient("cn-hangzhou", "my_appid", "my_secret");
-  if(!{0}) return 0;
+  if(!slb) return 0;
   slb->SetProxyHost("127.0.0.1:12234");
   slb->SetUseTls(false);
   HttpTestListener* listener = new HttpTestListener(12234);
