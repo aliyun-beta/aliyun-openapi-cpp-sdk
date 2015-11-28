@@ -65,6 +65,7 @@ target_include_directories(aliyun_api_aas_2015_07_01_test PUBLIC
   aliyun-api-aas/2015-07-01/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_aas_2015_07_01_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_aas_2015_07_01_test
   aliyun_api_aas_2015_07_01
   aliyun_api_core
@@ -93,6 +94,7 @@ target_include_directories(aliyun_api_ace_2015_07_13_test PUBLIC
   aliyun-api-ace/2015-07-13/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ace_2015_07_13_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ace_2015_07_13_test
   aliyun_api_ace_2015_07_13
   aliyun_api_core
@@ -121,6 +123,7 @@ target_include_directories(aliyun_api_ace_ops_2015_09_09_test PUBLIC
   aliyun-api-ace-ops/2015-09-09/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ace_ops_2015_09_09_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ace_ops_2015_09_09_test
   aliyun_api_ace_ops_2015_09_09
   aliyun_api_core
@@ -149,6 +152,7 @@ target_include_directories(aliyun_api_alert_2015_08_15_test PUBLIC
   aliyun-api-alert/2015-08-15/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_alert_2015_08_15_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_alert_2015_08_15_test
   aliyun_api_alert_2015_08_15
   aliyun_api_core
@@ -177,6 +181,7 @@ target_include_directories(aliyun_api_batchcompute_2013_01_11_test PUBLIC
   aliyun-api-batchcompute/2013-01-11/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_batchcompute_2013_01_11_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_batchcompute_2013_01_11_test
   aliyun_api_batchcompute_2013_01_11
   aliyun_api_core
@@ -203,6 +208,7 @@ target_include_directories(aliyun_api_batchcompute_2015_06_30_test PUBLIC
   aliyun-api-batchcompute/2015-06-30/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_batchcompute_2015_06_30_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_batchcompute_2015_06_30_test
   aliyun_api_batchcompute_2015_06_30
   aliyun_api_core
@@ -231,6 +237,7 @@ target_include_directories(aliyun_api_bss_2014_07_14_test PUBLIC
   aliyun-api-bss/2014-07-14/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_bss_2014_07_14_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_bss_2014_07_14_test
   aliyun_api_bss_2014_07_14
   aliyun_api_core
@@ -259,6 +266,7 @@ target_include_directories(aliyun_api_cdn_2014_11_11_test PUBLIC
   aliyun-api-cdn/2014-11-11/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_cdn_2014_11_11_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_cdn_2014_11_11_test
   aliyun_api_cdn_2014_11_11
   aliyun_api_core
@@ -287,6 +295,7 @@ target_include_directories(aliyun_api_cms_2015_04_20_test PUBLIC
   aliyun-api-cms/2015-04-20/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_cms_2015_04_20_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_cms_2015_04_20_test
   aliyun_api_cms_2015_04_20
   aliyun_api_core
@@ -313,6 +322,7 @@ target_include_directories(aliyun_api_cms_2015_07_29_test PUBLIC
   aliyun-api-cms/2015-07-29/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_cms_2015_07_29_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_cms_2015_07_29_test
   aliyun_api_cms_2015_07_29
   aliyun_api_core
@@ -339,6 +349,7 @@ target_include_directories(aliyun_api_cms_2015_08_01_test PUBLIC
   aliyun-api-cms/2015-08-01/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_cms_2015_08_01_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_cms_2015_08_01_test
   aliyun_api_cms_2015_08_01
   aliyun_api_core
@@ -365,6 +376,7 @@ target_include_directories(aliyun_api_cms_2015_10_20_test PUBLIC
   aliyun-api-cms/2015-10-20/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_cms_2015_10_20_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_cms_2015_10_20_test
   aliyun_api_cms_2015_10_20
   aliyun_api_core
@@ -393,6 +405,7 @@ target_include_directories(aliyun_api_crm_2015_04_08_test PUBLIC
   aliyun-api-crm/2015-04-08/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_crm_2015_04_08_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_crm_2015_04_08_test
   aliyun_api_crm_2015_04_08
   aliyun_api_core
@@ -421,6 +434,7 @@ target_include_directories(aliyun_api_drds_2015_04_13_test PUBLIC
   aliyun-api-drds/2015-04-13/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_drds_2015_04_13_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_drds_2015_04_13_test
   aliyun_api_drds_2015_04_13
   aliyun_api_core
@@ -449,6 +463,7 @@ target_include_directories(aliyun_api_dts_2015_06_29_test PUBLIC
   aliyun-api-dts/2015-06-29/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_dts_2015_06_29_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_dts_2015_06_29_test
   aliyun_api_dts_2015_06_29
   aliyun_api_core
@@ -477,6 +492,7 @@ target_include_directories(aliyun_api_ecs_2014_05_26_test PUBLIC
   aliyun-api-ecs/2014-05-26/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ecs_2014_05_26_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ecs_2014_05_26_test
   aliyun_api_ecs_2014_05_26
   aliyun_api_core
@@ -505,6 +521,7 @@ target_include_directories(aliyun_api_emr_2015_09_10_test PUBLIC
   aliyun-api-emr/2015-09-10/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_emr_2015_09_10_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_emr_2015_09_10_test
   aliyun_api_emr_2015_09_10
   aliyun_api_core
@@ -533,6 +550,7 @@ target_include_directories(aliyun_api_ess_2014_08_28_test PUBLIC
   aliyun-api-ess/2014-08-28/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ess_2014_08_28_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ess_2014_08_28_test
   aliyun_api_ess_2014_08_28
   aliyun_api_core
@@ -561,6 +579,7 @@ target_include_directories(aliyun_api_ocs_2015_03_01_test PUBLIC
   aliyun-api-ocs/2015-03-01/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ocs_2015_03_01_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ocs_2015_03_01_test
   aliyun_api_ocs_2015_03_01
   aliyun_api_core
@@ -589,6 +608,7 @@ target_include_directories(aliyun_api_oms_2015_02_12_test PUBLIC
   aliyun-api-oms/2015-02-12/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_oms_2015_02_12_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_oms_2015_02_12_test
   aliyun_api_oms_2015_02_12
   aliyun_api_core
@@ -617,6 +637,7 @@ target_include_directories(aliyun_api_ons_2015_10_20_test PUBLIC
   aliyun-api-ons/2015-10-20/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ons_2015_10_20_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ons_2015_10_20_test
   aliyun_api_ons_2015_10_20
   aliyun_api_core
@@ -645,6 +666,7 @@ target_include_directories(aliyun_api_ossadmin_2013_07_12_test PUBLIC
   aliyun-api-ossadmin/2013-07-12/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ossadmin_2013_07_12_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ossadmin_2013_07_12_test
   aliyun_api_ossadmin_2013_07_12
   aliyun_api_core
@@ -671,6 +693,7 @@ target_include_directories(aliyun_api_ossadmin_2014_03_26_test PUBLIC
   aliyun-api-ossadmin/2014-03-26/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ossadmin_2014_03_26_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ossadmin_2014_03_26_test
   aliyun_api_ossadmin_2014_03_26
   aliyun_api_core
@@ -697,6 +720,7 @@ target_include_directories(aliyun_api_ossadmin_2015_03_02_test PUBLIC
   aliyun-api-ossadmin/2015-03-02/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ossadmin_2015_03_02_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ossadmin_2015_03_02_test
   aliyun_api_ossadmin_2015_03_02
   aliyun_api_core
@@ -723,6 +747,7 @@ target_include_directories(aliyun_api_ossadmin_2015_05_20_test PUBLIC
   aliyun-api-ossadmin/2015-05-20/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ossadmin_2015_05_20_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ossadmin_2015_05_20_test
   aliyun_api_ossadmin_2015_05_20
   aliyun_api_core
@@ -751,6 +776,7 @@ target_include_directories(aliyun_api_ots_2013_09_12_test PUBLIC
   aliyun-api-ots/2013-09-12/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ots_2013_09_12_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ots_2013_09_12_test
   aliyun_api_ots_2013_09_12
   aliyun_api_core
@@ -779,6 +805,7 @@ target_include_directories(aliyun_api_otsfinance_2013_09_12_test PUBLIC
   aliyun-api-otsfinance/2013-09-12/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_otsfinance_2013_09_12_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_otsfinance_2013_09_12_test
   aliyun_api_otsfinance_2013_09_12
   aliyun_api_core
@@ -807,6 +834,7 @@ target_include_directories(aliyun_api_otsshihua_2015_10_26_test PUBLIC
   aliyun-api-otsshihua/2015-10-26/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_otsshihua_2015_10_26_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_otsshihua_2015_10_26_test
   aliyun_api_otsshihua_2015_10_26
   aliyun_api_core
@@ -835,6 +863,7 @@ target_include_directories(aliyun_api_pts_2015_08_01_test PUBLIC
   aliyun-api-pts/2015-08-01/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_pts_2015_08_01_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_pts_2015_08_01_test
   aliyun_api_pts_2015_08_01
   aliyun_api_core
@@ -863,6 +892,7 @@ target_include_directories(aliyun_api_push_2015_08_27_test PUBLIC
   aliyun-api-push/2015-08-27/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_push_2015_08_27_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_push_2015_08_27_test
   aliyun_api_push_2015_08_27
   aliyun_api_core
@@ -891,6 +921,7 @@ target_include_directories(aliyun_api_r_kvstore_2015_01_01_test PUBLIC
   aliyun-api-r-kvstore/2015-01-01/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_r_kvstore_2015_01_01_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_r_kvstore_2015_01_01_test
   aliyun_api_r_kvstore_2015_01_01
   aliyun_api_core
@@ -919,6 +950,7 @@ target_include_directories(aliyun_api_ram_2014_02_14_test PUBLIC
   aliyun-api-ram/2014-02-14/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ram_2014_02_14_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ram_2014_02_14_test
   aliyun_api_ram_2014_02_14
   aliyun_api_core
@@ -945,6 +977,7 @@ target_include_directories(aliyun_api_ram_2015_05_01_test PUBLIC
   aliyun-api-ram/2015-05-01/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ram_2015_05_01_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ram_2015_05_01_test
   aliyun_api_ram_2015_05_01
   aliyun_api_core
@@ -973,6 +1006,7 @@ target_include_directories(aliyun_api_rds_2014_08_15_test PUBLIC
   aliyun-api-rds/2014-08-15/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_rds_2014_08_15_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_rds_2014_08_15_test
   aliyun_api_rds_2014_08_15
   aliyun_api_core
@@ -1001,6 +1035,7 @@ target_include_directories(aliyun_api_rds_region_2014_08_15_test PUBLIC
   aliyun-api-rds_region/2014-08-15/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_rds_region_2014_08_15_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_rds_region_2014_08_15_test
   aliyun_api_rds_region_2014_08_15
   aliyun_api_core
@@ -1029,6 +1064,7 @@ target_include_directories(aliyun_api_slb_2013_02_21_test PUBLIC
   aliyun-api-slb/2013-02-21/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_slb_2013_02_21_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_slb_2013_02_21_test
   aliyun_api_slb_2013_02_21
   aliyun_api_core
@@ -1055,6 +1091,7 @@ target_include_directories(aliyun_api_slb_2014_05_15_test PUBLIC
   aliyun-api-slb/2014-05-15/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_slb_2014_05_15_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_slb_2014_05_15_test
   aliyun_api_slb_2014_05_15
   aliyun_api_core
@@ -1083,6 +1120,7 @@ target_include_directories(aliyun_api_sts_2015_04_01_test PUBLIC
   aliyun-api-sts/2015-04-01/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_sts_2015_04_01_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_sts_2015_04_01_test
   aliyun_api_sts_2015_04_01
   aliyun_api_core
@@ -1111,6 +1149,7 @@ target_include_directories(aliyun_api_ubsms_2015_06_23_test PUBLIC
   aliyun-api-ubsms/2015-06-23/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_ubsms_2015_06_23_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_ubsms_2015_06_23_test
   aliyun_api_ubsms_2015_06_23
   aliyun_api_core
@@ -1139,6 +1178,7 @@ target_include_directories(aliyun_api_yundun_2015_02_27_test PUBLIC
   aliyun-api-yundun/2015-02-27/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_yundun_2015_02_27_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_yundun_2015_02_27_test
   aliyun_api_yundun_2015_02_27
   aliyun_api_core
@@ -1165,6 +1205,7 @@ target_include_directories(aliyun_api_yundun_2015_04_16_test PUBLIC
   aliyun-api-yundun/2015-04-16/include/
   ${ALIYUN_API_CORE_INCLUDES}
 )
+SET_TARGET_PROPERTIES(aliyun_api_yundun_2015_04_16_test PROPERTIES LINK_FLAGS -pthread)
 target_link_libraries(aliyun_api_yundun_2015_04_16_test
   aliyun_api_yundun_2015_04_16
   aliyun_api_core
