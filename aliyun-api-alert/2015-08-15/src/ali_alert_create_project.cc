@@ -57,11 +57,14 @@ int Alert::CreateProject(const AlertCreateProjectRequestType& req,
   Json::Value val;
   Json::Reader reader;
   std::string secheme = this->use_tls_ ? "https" : "http";
-  std::string url = "http://" + host_ + get_format_string("/projects");
+  std::string url = secheme  + "://" + host_ + get_format_string("/projects");
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
                          secret_,
                          url);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   req_rpc->setRequestMethod("POST");
   if(req_rpc->CommitRequestWithBody(req.project) != 0) {
      if(error_info) {

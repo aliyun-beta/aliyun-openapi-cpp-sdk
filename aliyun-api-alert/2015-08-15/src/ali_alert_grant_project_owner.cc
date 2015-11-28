@@ -54,11 +54,14 @@ int Alert::GrantProjectOwner(const AlertGrantProjectOwnerRequestType& req,
   Json::Value val;
   Json::Reader reader;
   std::string secheme = this->use_tls_ ? "https" : "http";
-  std::string url = "http://" + host_ + get_format_string("/projects/grantOwner");
+  std::string url = secheme  + "://" + host_ + get_format_string("/projects/grantOwner");
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
                          secret_,
                          url);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   req_rpc->setRequestMethod("GET");
   if(!req.project_name.empty()) {
     req_rpc->AddRequestQuery("ProjectName", req.project_name);

@@ -54,11 +54,14 @@ int Alert::UpdateLevelChannel(const AlertUpdateLevelChannelRequestType& req,
   Json::Value val;
   Json::Reader reader;
   std::string secheme = this->use_tls_ ? "https" : "http";
-  std::string url = "http://" + host_ + get_format_string("/projects/%s/level_channels/%s", req.project_name.c_str(), req.level.c_str());
+  std::string url = secheme  + "://" + host_ + get_format_string("/projects/%s/level_channels/%s", req.project_name.c_str(), req.level.c_str());
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
                          secret_,
                          url);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   req_rpc->setRequestMethod("PUT");
   if(req_rpc->CommitRequestWithBody(req.level_channel_setting) != 0) {
      if(error_info) {

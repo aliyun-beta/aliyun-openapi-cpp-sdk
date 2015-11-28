@@ -47,6 +47,9 @@ int Drds::CreateTable(const DrdsCreateTableRequestType& req,
                          appid_,
                          secret_,
                          secheme + "://" + host_);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","CreateTable");
@@ -68,7 +71,7 @@ int Drds::CreateTable(const DrdsCreateTableRequestType& req,
   if(!req.allow_full_table_scan.empty()) {
     req_rpc->AddRequestQuery("AllowFullTableScan", req.allow_full_table_scan);
   }
-  if(!this->region_id_.empty()) {
+  if(this->region_id_ && this->region_id_[0]) {
     req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {

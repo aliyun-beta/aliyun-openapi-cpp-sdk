@@ -109,6 +109,10 @@ AliHttpRequest& AliHttpRequest::setRequestMethod(std::string method) {
   return *this;
 }
 
+void AliHttpRequest::SetHttpProxy(std::string proxy_host) {
+  this->proxy_host_ = proxy_host;
+}
+
 int AliHttpRequest::CommitRequest() {
   bool with_query = true;  
 
@@ -135,7 +139,20 @@ int AliHttpRequest::CommitRequest() {
   if(this->is_tls) {
     connection_ = new AliTlsConnection(this->host_, atoi(this->port_.c_str()));
   } else {
-    connection_ = new AliTcpConnection(this->host_, atoi(this->port_.c_str()));
+    std::string host = this->host_;
+    int port = atoi(this->port_.c_str());
+    if(!this->proxy_host_.empty()) {
+        size_t pos = this->proxy_host_.find(":");
+        if(pos == std::string::npos) {
+          host = this->proxy_host_;
+          port = 80;
+        } else {
+          host = this->proxy_host_.substr(0, pos);
+          port = atoi(this->proxy_host_.substr(pos + 1, this->proxy_host_.size() - pos - 1).c_str());
+        }
+    }
+    ALI_LOG("host=%s,port=%d", host.c_str(), port);
+    connection_ = new AliTcpConnection(host, port);
   }
 
   if(connection_->Connect() != 0) {
@@ -263,6 +280,11 @@ std::string AliHttpRequest::GetPath(bool with_query) {
 
   if(path.empty()) {
     path = "/";
+  }
+
+  // support http proxy only
+  if(!this->is_tls && !this->proxy_host_.empty()) {
+    path = "http://" + this->host_ + path;
   }
   
   if(with_query) {

@@ -1,6 +1,8 @@
 #ifndef ALI_ECSH
 #define ALI_ECSH
 #include <string>
+#include <string.h>
+#include <stdlib.h>
 #include "ali_ecs_add_tags_types.h"
 #include "ali_ecs_allocate_eip_address_types.h"
 #include "ali_ecs_allocate_public_ip_address_types.h"
@@ -92,6 +94,15 @@
 #include "ali_ecs_stop_instance_types.h"
 #include "ali_ecs_unassociate_eip_address_types.h"
 #include "ali_ecs_unassociate_ha_vip_types.h"
+#ifdef WIN32
+ #ifdef aliyun_api_ecs_2014_05_26_EXPORTS
+ #define ALIYUN_API_ECS_2014_05_26_DLL_EXPORT_IMPORT __declspec(dllexport)
+ #else
+ #define ALIYUN_API_ECS_2014_05_26_DLL_EXPORT_IMPORT 
+ #endif
+#else
+#define ALIYUN_API_ECS_2014_05_26_DLL_EXPORT_IMPORT
+#endif
 namespace aliyun {
 struct EcsErrorInfo {
   std::string request_id;
@@ -99,22 +110,29 @@ struct EcsErrorInfo {
   std::string message;
   std::string host_id;
 };
-class Ecs {
+class ALIYUN_API_ECS_2014_05_26_DLL_EXPORT_IMPORT Ecs {
 public:
   static Ecs* CreateEcsClient(std::string endpoint, std::string appid, std::string secret);
+  ~Ecs();
 private:
-  Ecs(std::string host, std::string appid, std::string secret) : 
-  appid_(appid),
-  secret_(secret),
-  version_("2014-05-26"),
-  use_tls_(true),
-  support_tls_(true),
-  host_(host) {}
+  Ecs(std::string host, std::string appid, std::string secret);
 public:
   void SetUseTls(bool use_tls = true) {  if(support_tls_) use_tls_ = use_tls;  }
   bool GetUseTls() {  return use_tls_;  }
   bool GetSupportTls() {  return support_tls_;  }
-  void SetRegionId(std::string region_id) {  this->region_id_ = region_id; }
+  void SetProxyHost(std::string proxy_host) {
+    if(this->proxy_host_) {
+      free(this->proxy_host_);
+    }
+    this->proxy_host_ = strdup(proxy_host.c_str());
+  }
+  std::string GetProxyHost() {  return this->proxy_host_;  }
+  void SetRegionId(std::string region_id) {
+    if(this->region_id_) {
+      free(this->region_id_);
+    }
+    this->region_id_ = strdup(region_id.c_str());
+  }
   std::string GetRegionId() {  return this->region_id_;  }
   int AddTags(const EcsAddTagsRequestType& req,
           EcsAddTagsResponseType* resp,
@@ -481,13 +499,14 @@ public:
           EcsErrorInfo* error_info);
 
 private:
-  const std::string appid_;
-  const std::string secret_;
-  const std::string version_;
-  const std::string host_;
-  const bool support_tls_;
+  char* appid_;
+  char* secret_;
+  char* version_;
+  char* host_;
+  char* proxy_host_;
+  bool support_tls_;
   bool use_tls_;
-  std::string region_id_;
+  char* region_id_;
 };  //end class
 } // end namespace
 #endif

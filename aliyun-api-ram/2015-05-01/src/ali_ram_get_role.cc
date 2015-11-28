@@ -71,13 +71,16 @@ int Ram::GetRole(const RamGetRoleRequestType& req,
                          appid_,
                          secret_,
                          secheme + "://" + host_);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","GetRole");
   if(!req.role_name.empty()) {
     req_rpc->AddRequestQuery("RoleName", req.role_name);
   }
-  if(!this->region_id_.empty()) {
+  if(this->region_id_ && this->region_id_[0]) {
     req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {

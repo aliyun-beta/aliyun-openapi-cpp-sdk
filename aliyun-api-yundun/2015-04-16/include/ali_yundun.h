@@ -1,6 +1,8 @@
 #ifndef ALI_YUNDUNH
 #define ALI_YUNDUNH
 #include <string>
+#include <string.h>
+#include <stdlib.h>
 #include "ali_yundun_add_cname_waf_types.h"
 #include "ali_yundun_bruteforce_log_types.h"
 #include "ali_yundun_close_cc_protect_types.h"
@@ -30,6 +32,15 @@
 #include "ali_yundun_waf_info_types.h"
 #include "ali_yundun_waf_log_types.h"
 #include "ali_yundun_webshell_log_types.h"
+#ifdef WIN32
+ #ifdef aliyun_api_yundun_2015_04_16_EXPORTS
+ #define ALIYUN_API_YUNDUN_2015_04_16_DLL_EXPORT_IMPORT __declspec(dllexport)
+ #else
+ #define ALIYUN_API_YUNDUN_2015_04_16_DLL_EXPORT_IMPORT 
+ #endif
+#else
+#define ALIYUN_API_YUNDUN_2015_04_16_DLL_EXPORT_IMPORT
+#endif
 namespace aliyun {
 struct YundunErrorInfo {
   std::string request_id;
@@ -37,22 +48,29 @@ struct YundunErrorInfo {
   std::string message;
   std::string host_id;
 };
-class Yundun {
+class ALIYUN_API_YUNDUN_2015_04_16_DLL_EXPORT_IMPORT Yundun {
 public:
   static Yundun* CreateYundunClient(std::string endpoint, std::string appid, std::string secret);
+  ~Yundun();
 private:
-  Yundun(std::string host, std::string appid, std::string secret) : 
-  appid_(appid),
-  secret_(secret),
-  version_("2015-04-16"),
-  use_tls_(true),
-  support_tls_(true),
-  host_(host) {}
+  Yundun(std::string host, std::string appid, std::string secret);
 public:
   void SetUseTls(bool use_tls = true) {  if(support_tls_) use_tls_ = use_tls;  }
   bool GetUseTls() {  return use_tls_;  }
   bool GetSupportTls() {  return support_tls_;  }
-  void SetRegionId(std::string region_id) {  this->region_id_ = region_id; }
+  void SetProxyHost(std::string proxy_host) {
+    if(this->proxy_host_) {
+      free(this->proxy_host_);
+    }
+    this->proxy_host_ = strdup(proxy_host.c_str());
+  }
+  std::string GetProxyHost() {  return this->proxy_host_;  }
+  void SetRegionId(std::string region_id) {
+    if(this->region_id_) {
+      free(this->region_id_);
+    }
+    this->region_id_ = strdup(region_id.c_str());
+  }
   std::string GetRegionId() {  return this->region_id_;  }
   int AddCNameWaf(const YundunAddCNameWafRequestType& req,
           YundunAddCNameWafResponseType* resp,
@@ -170,13 +188,14 @@ public:
           YundunErrorInfo* error_info);
 
 private:
-  const std::string appid_;
-  const std::string secret_;
-  const std::string version_;
-  const std::string host_;
-  const bool support_tls_;
+  char* appid_;
+  char* secret_;
+  char* version_;
+  char* host_;
+  char* proxy_host_;
+  bool support_tls_;
   bool use_tls_;
-  std::string region_id_;
+  char* region_id_;
 };  //end class
 } // end namespace
 #endif

@@ -1,6 +1,8 @@
 #ifndef ALI_ONSH
 #define ALI_ONSH
 #include <string>
+#include <string.h>
+#include <stdlib.h>
 #include "ali_ons_ons_cloud_get_appkey_list_types.h"
 #include "ali_ons_ons_cluster_list_types.h"
 #include "ali_ons_ons_cluster_names_types.h"
@@ -47,6 +49,15 @@
 #include "ali_ons_ons_warn_editor_types.h"
 #include "ali_ons_ons_warn_enable_types.h"
 #include "ali_ons_ons_warn_list_types.h"
+#ifdef WIN32
+ #ifdef aliyun_api_ons_2015_10_20_EXPORTS
+ #define ALIYUN_API_ONS_2015_10_20_DLL_EXPORT_IMPORT __declspec(dllexport)
+ #else
+ #define ALIYUN_API_ONS_2015_10_20_DLL_EXPORT_IMPORT 
+ #endif
+#else
+#define ALIYUN_API_ONS_2015_10_20_DLL_EXPORT_IMPORT
+#endif
 namespace aliyun {
 struct OnsErrorInfo {
   std::string request_id;
@@ -54,22 +65,29 @@ struct OnsErrorInfo {
   std::string message;
   std::string host_id;
 };
-class Ons {
+class ALIYUN_API_ONS_2015_10_20_DLL_EXPORT_IMPORT Ons {
 public:
   static Ons* CreateOnsClient(std::string endpoint, std::string appid, std::string secret);
+  ~Ons();
 private:
-  Ons(std::string host, std::string appid, std::string secret) : 
-  appid_(appid),
-  secret_(secret),
-  version_("2015-10-20"),
-  use_tls_(true),
-  support_tls_(true),
-  host_(host) {}
+  Ons(std::string host, std::string appid, std::string secret);
 public:
   void SetUseTls(bool use_tls = true) {  if(support_tls_) use_tls_ = use_tls;  }
   bool GetUseTls() {  return use_tls_;  }
   bool GetSupportTls() {  return support_tls_;  }
-  void SetRegionId(std::string region_id) {  this->region_id_ = region_id; }
+  void SetProxyHost(std::string proxy_host) {
+    if(this->proxy_host_) {
+      free(this->proxy_host_);
+    }
+    this->proxy_host_ = strdup(proxy_host.c_str());
+  }
+  std::string GetProxyHost() {  return this->proxy_host_;  }
+  void SetRegionId(std::string region_id) {
+    if(this->region_id_) {
+      free(this->region_id_);
+    }
+    this->region_id_ = strdup(region_id.c_str());
+  }
   std::string GetRegionId() {  return this->region_id_;  }
   int OnsCloudGetAppkeyList(const OnsOnsCloudGetAppkeyListRequestType& req,
           OnsOnsCloudGetAppkeyListResponseType* resp,
@@ -256,13 +274,14 @@ public:
           OnsErrorInfo* error_info);
 
 private:
-  const std::string appid_;
-  const std::string secret_;
-  const std::string version_;
-  const std::string host_;
-  const bool support_tls_;
+  char* appid_;
+  char* secret_;
+  char* version_;
+  char* host_;
+  char* proxy_host_;
+  bool support_tls_;
   bool use_tls_;
-  std::string region_id_;
+  char* region_id_;
 };  //end class
 } // end namespace
 #endif

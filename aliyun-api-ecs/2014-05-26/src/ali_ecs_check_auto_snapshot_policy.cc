@@ -50,6 +50,9 @@ int Ecs::CheckAutoSnapshotPolicy(const EcsCheckAutoSnapshotPolicyRequestType& re
                          appid_,
                          secret_,
                          secheme + "://" + host_);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","CheckAutoSnapshotPolicy");
@@ -89,7 +92,7 @@ int Ecs::CheckAutoSnapshotPolicy(const EcsCheckAutoSnapshotPolicyRequestType& re
   if(!req.data_disk_policy_retention_last_week.empty()) {
     req_rpc->AddRequestQuery("DataDiskPolicyRetentionLastWeek", req.data_disk_policy_retention_last_week);
   }
-  if(!this->region_id_.empty()) {
+  if(this->region_id_ && this->region_id_[0]) {
     req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {

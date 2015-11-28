@@ -68,6 +68,9 @@ int Ram::CreateRole(const RamCreateRoleRequestType& req,
                          appid_,
                          secret_,
                          secheme + "://" + host_);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","CreateRole");
@@ -80,7 +83,7 @@ int Ram::CreateRole(const RamCreateRoleRequestType& req,
   if(!req.assume_role_policy_document.empty()) {
     req_rpc->AddRequestQuery("AssumeRolePolicyDocument", req.assume_role_policy_document);
   }
-  if(!this->region_id_.empty()) {
+  if(this->region_id_ && this->region_id_[0]) {
     req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {

@@ -21,6 +21,7 @@ public:
   int GetResponseStatusCode();
   int ReadResponseBody(std::string& body);
   int AppendBody(std::string& body);
+  void SetHttpProxy(std::string proxy_host);
   std::string GetPath(bool with_query = true);
 
 private:  
@@ -40,6 +41,7 @@ protected:
   std::string path_;
   std::string sechema_;
   std::string resposne_body_;
+  std::string proxy_host_;
   int response_status_code_;
 
   bool is_response_header_complete;

@@ -35,10 +35,10 @@ The Visual Studo solution file will be generated.
 ### How to use
 
 For example we need to use ecs project,we need to:
-1, add ecs include folder to project
-2, link dynamic library of ecs 
+1, add ecs include folder to project   
+2, link dynamic library of ecs   
 
-here is the sample code:
+here is the sample code:   
     #include "ali_ecs.h"
     #include <stdio.h>
     using namespace aliyun;

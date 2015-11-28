@@ -42,11 +42,14 @@ int BatchCompute::DeleteImage(const BatchComputeDeleteImageRequestType& req,
   Json::Value val;
   Json::Reader reader;
   std::string secheme = this->use_tls_ ? "https" : "http";
-  std::string url = "https://" + host_ + get_format_string("/images/%s", req.resource_name.c_str());
+  std::string url = secheme  + "://" + host_ + get_format_string("/images/%s", req.resource_name.c_str());
   AliRoaRequest* req_rpc = new AliRoaRequest(version_,
                          appid_,
                          secret_,
                          url);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   req_rpc->setRequestMethod("DELETE");
   if(req_rpc->CommitRequest() != 0) {
      if(error_info) {

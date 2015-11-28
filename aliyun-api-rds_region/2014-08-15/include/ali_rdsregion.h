@@ -1,6 +1,8 @@
 #ifndef ALI_RDS_REGIONH
 #define ALI_RDS_REGIONH
 #include <string>
+#include <string.h>
+#include <stdlib.h>
 #include "ali_rdsregion_add_tags_to_resource_types.h"
 #include "ali_rdsregion_allocate_instance_private_connection_types.h"
 #include "ali_rdsregion_allocate_instance_public_connection_types.h"
@@ -98,6 +100,15 @@
 #include "ali_rdsregion_switch_db_instance_net_type_types.h"
 #include "ali_rdsregion_unlock_db_instance_types.h"
 #include "ali_rdsregion_upgrade_db_instance_engine_version_types.h"
+#ifdef WIN32
+ #ifdef aliyun_api_rdsregion_2014_08_15_EXPORTS
+ #define ALIYUN_API_RDSREGION_2014_08_15_DLL_EXPORT_IMPORT __declspec(dllexport)
+ #else
+ #define ALIYUN_API_RDSREGION_2014_08_15_DLL_EXPORT_IMPORT 
+ #endif
+#else
+#define ALIYUN_API_RDSREGION_2014_08_15_DLL_EXPORT_IMPORT
+#endif
 namespace aliyun {
 struct RdsRegionErrorInfo {
   std::string request_id;
@@ -105,22 +116,29 @@ struct RdsRegionErrorInfo {
   std::string message;
   std::string host_id;
 };
-class RdsRegion {
+class ALIYUN_API_RDSREGION_2014_08_15_DLL_EXPORT_IMPORT RdsRegion {
 public:
   static RdsRegion* CreateRdsRegionClient(std::string endpoint, std::string appid, std::string secret);
+  ~RdsRegion();
 private:
-  RdsRegion(std::string host, std::string appid, std::string secret) : 
-  appid_(appid),
-  secret_(secret),
-  version_("2014-08-15"),
-  use_tls_(true),
-  support_tls_(true),
-  host_(host) {}
+  RdsRegion(std::string host, std::string appid, std::string secret);
 public:
   void SetUseTls(bool use_tls = true) {  if(support_tls_) use_tls_ = use_tls;  }
   bool GetUseTls() {  return use_tls_;  }
   bool GetSupportTls() {  return support_tls_;  }
-  void SetRegionId(std::string region_id) {  this->region_id_ = region_id; }
+  void SetProxyHost(std::string proxy_host) {
+    if(this->proxy_host_) {
+      free(this->proxy_host_);
+    }
+    this->proxy_host_ = strdup(proxy_host.c_str());
+  }
+  std::string GetProxyHost() {  return this->proxy_host_;  }
+  void SetRegionId(std::string region_id) {
+    if(this->region_id_) {
+      free(this->region_id_);
+    }
+    this->region_id_ = strdup(region_id.c_str());
+  }
   std::string GetRegionId() {  return this->region_id_;  }
   int AddTagsToResource(const RdsRegionAddTagsToResourceRequestType& req,
           RdsRegionAddTagsToResourceResponseType* resp,
@@ -511,13 +529,14 @@ public:
           RdsRegionErrorInfo* error_info);
 
 private:
-  const std::string appid_;
-  const std::string secret_;
-  const std::string version_;
-  const std::string host_;
-  const bool support_tls_;
+  char* appid_;
+  char* secret_;
+  char* version_;
+  char* host_;
+  char* proxy_host_;
+  bool support_tls_;
   bool use_tls_;
-  std::string region_id_;
+  char* region_id_;
 };  //end class
 } // end namespace
 #endif

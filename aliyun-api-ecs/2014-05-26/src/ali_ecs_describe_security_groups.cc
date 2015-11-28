@@ -77,6 +77,9 @@ int Ecs::DescribeSecurityGroups(const EcsDescribeSecurityGroupsRequestType& req,
                          appid_,
                          secret_,
                          secheme + "://" + host_);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","DescribeSecurityGroups");
@@ -104,7 +107,7 @@ int Ecs::DescribeSecurityGroups(const EcsDescribeSecurityGroupsRequestType& req,
   if(!req.security_group_ids.empty()) {
     req_rpc->AddRequestQuery("SecurityGroupIds", req.security_group_ids);
   }
-  if(!this->region_id_.empty()) {
+  if(this->region_id_ && this->region_id_[0]) {
     req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {

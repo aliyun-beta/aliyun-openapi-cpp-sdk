@@ -1,6 +1,8 @@
 #ifndef ALI_SLBH
 #define ALI_SLBH
 #include <string>
+#include <string.h>
+#include <stdlib.h>
 #include "ali_slb_add_backend_servers_types.h"
 #include "ali_slb_add_listener_white_list_item_types.h"
 #include "ali_slb_create_load_balancer_types.h"
@@ -40,6 +42,15 @@
 #include "ali_slb_start_load_balancer_listener_types.h"
 #include "ali_slb_stop_load_balancer_listener_types.h"
 #include "ali_slb_upload_server_certificate_types.h"
+#ifdef WIN32
+ #ifdef aliyun_api_slb_2014_05_15_EXPORTS
+ #define ALIYUN_API_SLB_2014_05_15_DLL_EXPORT_IMPORT __declspec(dllexport)
+ #else
+ #define ALIYUN_API_SLB_2014_05_15_DLL_EXPORT_IMPORT 
+ #endif
+#else
+#define ALIYUN_API_SLB_2014_05_15_DLL_EXPORT_IMPORT
+#endif
 namespace aliyun {
 struct SlbErrorInfo {
   std::string request_id;
@@ -47,22 +58,29 @@ struct SlbErrorInfo {
   std::string message;
   std::string host_id;
 };
-class Slb {
+class ALIYUN_API_SLB_2014_05_15_DLL_EXPORT_IMPORT Slb {
 public:
   static Slb* CreateSlbClient(std::string endpoint, std::string appid, std::string secret);
+  ~Slb();
 private:
-  Slb(std::string host, std::string appid, std::string secret) : 
-  appid_(appid),
-  secret_(secret),
-  version_("2014-05-15"),
-  use_tls_(true),
-  support_tls_(true),
-  host_(host) {}
+  Slb(std::string host, std::string appid, std::string secret);
 public:
   void SetUseTls(bool use_tls = true) {  if(support_tls_) use_tls_ = use_tls;  }
   bool GetUseTls() {  return use_tls_;  }
   bool GetSupportTls() {  return support_tls_;  }
-  void SetRegionId(std::string region_id) {  this->region_id_ = region_id; }
+  void SetProxyHost(std::string proxy_host) {
+    if(this->proxy_host_) {
+      free(this->proxy_host_);
+    }
+    this->proxy_host_ = strdup(proxy_host.c_str());
+  }
+  std::string GetProxyHost() {  return this->proxy_host_;  }
+  void SetRegionId(std::string region_id) {
+    if(this->region_id_) {
+      free(this->region_id_);
+    }
+    this->region_id_ = strdup(region_id.c_str());
+  }
   std::string GetRegionId() {  return this->region_id_;  }
   int AddBackendServers(const SlbAddBackendServersRequestType& req,
           SlbAddBackendServersResponseType* resp,
@@ -221,13 +239,14 @@ public:
           SlbErrorInfo* error_info);
 
 private:
-  const std::string appid_;
-  const std::string secret_;
-  const std::string version_;
-  const std::string host_;
-  const bool support_tls_;
+  char* appid_;
+  char* secret_;
+  char* version_;
+  char* host_;
+  char* proxy_host_;
+  bool support_tls_;
   bool use_tls_;
-  std::string region_id_;
+  char* region_id_;
 };  //end class
 } // end namespace
 #endif

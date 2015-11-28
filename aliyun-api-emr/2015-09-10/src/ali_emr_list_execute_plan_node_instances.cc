@@ -59,13 +59,16 @@ int Emr::ListExecutePlanNodeInstances(const EmrListExecutePlanNodeInstancesReque
                          appid_,
                          secret_,
                          secheme + "://" + host_);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","ListExecutePlanNodeInstances");
   if(!req.execute_plan_work_node_id.empty()) {
     req_rpc->AddRequestQuery("ExecutePlanWorkNodeId", req.execute_plan_work_node_id);
   }
-  if(!this->region_id_.empty()) {
+  if(this->region_id_ && this->region_id_[0]) {
     req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {

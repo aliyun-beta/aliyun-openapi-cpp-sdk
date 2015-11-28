@@ -37,10 +37,12 @@ out:
 }
 
 int http_post_query_test() {
+ // ALI_LOG("http_post_query_test start");
   int ret = 0;
   int status_code;
   std::string response_body;
-  AliHttpRequest* req = new AliHttpRequest("http://127.0.0.1:22334");
+  AliHttpRequest* req = new AliHttpRequest("http://www.baidu.com");
+  req->SetHttpProxy("127.0.0.1:22334");
   HttpTestListener* listener = new HttpTestListener(22334);
   listener->AddResponseHeader("Content-Length", "5");
   listener->SetResponseBody("hello");
@@ -74,24 +76,12 @@ out:
   return ret;
 }
 
-int https_get_test() {
-  int ret = 0;
-  int status_code;
-  std::string response_body;
-  AliHttpRequest* req = new AliHttpRequest("https://www.baidu.com");
-  req->AddRequestHeader("User-Agent", "AliHttpRequest");
-  req->CommitRequest();
-  response_body = req->WaitResponseHeaderComplete();
-  req->ReadResponseBody(response_body);
-  printf("read:%s\n", response_body.c_str());
-  return 0;
-}
-
 int http_get_test() {
   int ret = 0;
   int status_code;
   std::string response_body;
-  AliHttpRequest* req = new AliHttpRequest("http://127.0.0.1:22334?id=1122");
+  AliHttpRequest* req = new AliHttpRequest("http://www.baidu.com?id=1122");
+  req->SetHttpProxy("127.0.0.1:22334");
   HttpTestListener* listener = new HttpTestListener(22334);
   listener->AddResponseHeader("Content-Length", "5");
   listener->SetResponseBody("hello");
@@ -128,7 +118,8 @@ int rpc_request_test() {
   std::string sign_query_str;
   std::string response_str;
   std::string sign;
-  AliRpcRequest* req = new AliRpcRequest("2015-11-03", "test_appid", "test_secret", "http://127.0.0.1:22334");
+  AliRpcRequest* req = new AliRpcRequest("2015-11-03", "test_appid", "test_secret", "http://www.baidu.com");
+  req->SetHttpProxy("127.0.0.1:22334");
   HttpTestListener* listener = new HttpTestListener(22334);
   listener->SetResponseBody("{}");
   listener->Start();
@@ -173,7 +164,8 @@ int roa_request_test() {
   std::string sign_query_str;
   std::string response_str;
   std::string sign;
-  AliRoaRequest* req = new AliRoaRequest("2015-11-03", "test_appid", "test_secret", "http://127.0.0.1:22334/jobs");
+  AliRoaRequest* req = new AliRoaRequest("2015-11-03", "test_appid", "test_secret", "http://www.baidu.com/jobs");
+  req->SetHttpProxy("127.0.0.1:22334");
   HttpTestListener* listener = new HttpTestListener(22334);
   listener->SetResponseBody("{}");
   listener->Start();
@@ -313,6 +305,5 @@ int main() {
     return -1;
   }
 
-  https_get_test();
 }
 

@@ -83,6 +83,9 @@ int Emr::ListClusters(const EmrListClustersRequestType& req,
                          appid_,
                          secret_,
                          secheme + "://" + host_);
+  if((!this->use_tls_) && this->proxy_host_ && this->proxy_host_[0]) {
+    req_rpc->SetHttpProxy( this->proxy_host_);
+  }
   Json::Value val;
   Json::Reader reader;
   req_rpc->AddRequestQuery("Action","ListClusters");
@@ -104,7 +107,7 @@ int Emr::ListClusters(const EmrListClustersRequestType& req,
   if(!req.page_size.empty()) {
     req_rpc->AddRequestQuery("PageSize", req.page_size);
   }
-  if(!this->region_id_.empty()) {
+  if(this->region_id_ && this->region_id_[0]) {
     req_rpc->AddRequestQuery("RegionId", this->region_id_);
   }
   if(req_rpc->CommitRequest() != 0) {

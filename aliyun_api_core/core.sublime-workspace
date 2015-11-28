@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"p",
+				"proxy_host_	std::string"
+			],
+			[
+				"size",
+				"size_t"
+			],
+			[
+				"pro",
+				"proxy_host_"
+			],
+			[
+				"host",
+				"Host"
+			],
+			[
 				"c",
 				"c_str() const	const char *"
 			],
@@ -222,10 +238,6 @@
 			[
 				"u",
 				"use_spdy	bool"
-			],
-			[
-				"p",
-				"proto	backend_proto_t"
 			],
 			[
 				"ai",
@@ -502,30 +514,70 @@
 			[
 				"pos",
 				"pos_end	char*"
-			],
-			[
-				"resp_reaser",
-				"resp_reader_get_value(resp_reader_t *reader, const char *header)	const char *"
-			],
-			[
-				"con",
-				"conn_time	int"
-			],
-			[
-				"routing_proxy",
-				"routing_proxy_update_downstream_rtt(const char *ip, const char **domains, int *rtt, int num)	void"
 			]
 		]
 	},
-	"build_system": "",
-	"build_system_choices":
+	"buffers":
 	[
+		{
+			"file": "http/ali_http_request.h",
+			"settings":
+			{
+				"buffer_size": 1614,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "http/ali_http_request.cc",
+			"settings":
+			{
+				"buffer_size": 10780,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "#include <map>\n#include <string>\n#include <pthread.h>\nstruct http_parser;\nclass HttpTestListener {\npublic:\n  HttpTestListener(int port);\n  ~HttpTestListener();\n  std::string GetRequestUrl();\n  std::string GetRequestMethod();\n  std::string GetRequestPath();\n  std::map<std::string,std::string>& GetAllRequestQuery();\n  std::map<std::string,std::string>& GetAllRequestHeader();\n  std::string GetRequestQuery(std::string query_name);\n  std::string GetRequestHeader(std::string field);\n  std::string GetRequestBody();\n  void SetResponseStatus(int status);\n  void AddResponseHeader(std::string field, std::string value);\n  void SetResponseBody(std::string body);\n  int Start();\n  void WaitComplete();\nprivate:\n  bool is_request_complete_;\n  pthread_t thread_;\n  int fd_;\n  int local_port_;\n  int response_status_code_;\n  std::string request_url_;\n  std::string request_body_;\n  std::string response_body_;\n  std::string request_method_;\n  std::map<std::string,std::string> map_request_query_;\n  std::map<std::string,std::string> map_request_header_;\n  std::map<std::string,std::string> map_response_header_;\n  std::string last_request_field_;\n  std::string last_request_value_;\n  bool is_last_value_;\n  http_parser* parser_;\n  friend void ResponseHandleParserEvent(HttpTestListener* listener, int type, char* buf, int len);\n  friend void * ResponseHandleRun(void*);\n};",
+			"file": "test/http_test_listener.h",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 1363,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "test/test.cc",
+			"settings":
+			{
+				"buffer_size": 8539,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "#include \"http_test_listener.h\"\n#include \"ali_sys_network.h\"\n#include \"http_parser.h\"\n#include \"ali_string_utils.h\"\n#include <string.h>\n#include <stdlib.h>\n#include <stdio.h>\n#include <pthread.h>\n#include <vector>\nenum {\n  PARSER_EVENT_MSG_BEGIN,\n  PARSER_EVENT_STATUS,\n  PARSER_EVENT_URL,\n  PARSER_EVENT_FIELD,\n  PARSER_EVENT_VALUE,\n  PARSER_EVENT_HEADER_COMPLETE,\n  PARSER_EVENT_BODY,\n  PARSER_EVENT_MSG_COMPLETE\n};\n\nstatic const char* get_status_string(int status_code, int upgrade)\n{\n  switch(status_code) {\n  case 100: return \"100 Continue\";\n  case 101: return \"101 Switching Protocols\";\n  case 200: return (upgrade?\"200 Connection established\":\"200 OK\");\n  case 201: return \"201 Created\";\n  case 202: return \"202 Accepted\";\n  case 203: return \"203 Non-Authoritative Information\";\n  case 204: return \"204 No Content\";\n  case 205: return \"205 Reset Content\";\n  case 206: return \"206 Partial Content\";\n  case 300: return \"300 Multiple Choices\";\n  case 301: return \"301 Moved Permanently\";\n  case 302: return \"302 Found\";\n  case 303: return \"303 See Other\";\n  case 304: return \"304 Not Modified\";\n  case 305: return \"305 Use Proxy\";\n  case 306: return \"306 (Unused)\";\n  case 307: return \"307 Temporary Redirect\";\n  case 400: return \"400 Bad Request\";\n  case 401: return \"401 Unauthorized\";\n  case 402: return \"402 Payment Required\";\n  case 403: return \"403 Forbidden\";\n  case 404: return \"404 Not Found\";\n  case 405: return \"405 Method Not Allowed\";\n  case 406: return \"406 Not Acceptable\";\n  case 407: return \"407 Proxy Authentication Required\";\n  case 408: return \"408 Request Timeout\";\n  case 409: return \"409 Conflict\";\n  case 410: return \"410 Gone\";\n  case 411: return \"411 Length Required\";\n  case 412: return \"412 Precondition Failed\";\n  case 413: return \"413 Request Entity Too Large\";\n  case 414: return \"414 Request-URI Too Long\";\n  case 415: return \"415 Unsupported Media Type\";\n  case 416: return \"416 Requested Range Not Satisfiable\";\n  case 417: return \"417 Expectation Failed\";\n  case 500: return \"500 Internal Server Error\";\n  case 501: return \"501 Not Implemented\";\n  case 502: return \"502 Bad Gateway\";\n  case 503: return \"503 Service Unavailable\";\n  case 504: return \"504 Gateway Timeout\";\n  case 505: return \"505 HTTP Version Not Supported\";\n  default: return \"\";\n  }\n}\n\nvoid ResponseHandleParserEvent(HttpTestListener* req, int type, char* buf, int len) {\n  switch(type) {\n  case PARSER_EVENT_URL: {\n    req->request_url_.assign(buf, len);\n    http_parser_url url;\n    http_parser_parse_url_(buf, len, 0, &url);\n    if(url.field_set & 1 << (UF_QUERY)) {\n      std::string query;\n      query.assign(&buf[url.field_data[UF_QUERY].off], url.field_data[UF_QUERY].len);\n      std::vector<std::string> vec_query_pair;\n      strsplit(query, vec_query_pair, \"&\");\n      for(int i = 0; i < vec_query_pair.size(); i++) {\n        std::string str_pair = vec_query_pair[i];\n        int pos = str_pair.find(\"=\");\n        req->map_request_query_[str_pair.substr(0, pos)] = str_pair.substr(pos + 1, str_pair.size() - pos - 1);\n      }\n    }\n    \n    break;\n  }\n  case PARSER_EVENT_FIELD: {\n    if(req->is_last_value_) {\n      req->map_request_header_[req->last_request_field_] = req->last_request_value_;\n      req->last_request_field_ = \"\";\n      req->last_request_value_ = \"\";\n    }\n     req->last_request_field_.append(buf, len);\n     req->is_last_value_ = false;\n  }\n    break;\n\n  case PARSER_EVENT_VALUE: {\n    req->is_last_value_ = true;\n    req->last_request_value_.append(buf, len);\n    break;\n  }\n\n  case PARSER_EVENT_HEADER_COMPLETE: {\n    if(req->last_request_field_.size() > 0) {\n      req->map_request_header_[req->last_request_field_] = req->last_request_value_;\n      req->last_request_field_ = \"\";\n      req->last_request_value_ = \"\";\n    }\n\n    req->request_method_ = http_method_str_((http_method)req->parser_->method);\n    break;\n  }\n  case PARSER_EVENT_BODY: {\n    req->request_body_.append(buf, len);\n    break;\n  }\n\n  case PARSER_EVENT_MSG_COMPLETE: {\n    req->is_request_complete_ = true;\n    break;\n  }\n}\n\n}\n\nint relay_message_begincb(http_parser *parser) {\n    HttpTestListener* req = (HttpTestListener*)parser->data;\n    ResponseHandleParserEvent(req, PARSER_EVENT_MSG_BEGIN, NULL, 0);\n   return 0;\n}\n\nstatic int relay_status_completecb(http_parser *parser) {\n    HttpTestListener* req = (HttpTestListener*)parser->data;\n    ResponseHandleParserEvent(req, PARSER_EVENT_STATUS, NULL, 0);\n   return 0;\n}\n\nstatic int relay_url_complete(http_parser* parser, const char *data, size_t len)\n{\n  HttpTestListener* req = (HttpTestListener*)parser->data;\n\n  ResponseHandleParserEvent(req, PARSER_EVENT_URL, (char*)data, len);\n  return 0;\n}\n\nstatic int relay_header_fieldcb(http_parser *parser, const char *data, size_t len) \n{\n  HttpTestListener* req = (HttpTestListener*)parser->data;\n  ResponseHandleParserEvent(req, PARSER_EVENT_FIELD, (char*)data, len);\n  return 0;\n}\n\nstatic int relay_header_valuecb(http_parser *parser, const char *data, size_t len)\n{ \n  HttpTestListener* req = (HttpTestListener*)parser->data;\n  ResponseHandleParserEvent(req, PARSER_EVENT_VALUE, (char*)data, len);\n  return 0;\n}\n\nstatic int relay_headers_completecb(http_parser *parser)\n{\n  HttpTestListener* req = (HttpTestListener*)parser->data;\n  ResponseHandleParserEvent(req, PARSER_EVENT_HEADER_COMPLETE, NULL, 0);\n  return 0;\n}\n\nstatic int relay_bodycb(http_parser *parser, const char *data, size_t len) {\n  HttpTestListener* req = (HttpTestListener*)parser->data;\n  ResponseHandleParserEvent(req, PARSER_EVENT_BODY, (char*)data, len);\n  return 0;\n}\n\nstatic int relay_message_completecb(http_parser *parser)\n{\n  HttpTestListener* req = (HttpTestListener*)parser->data;\n  ResponseHandleParserEvent(req, PARSER_EVENT_MSG_COMPLETE, NULL, 0);\n  return 0;\n}\n\nstatic http_parser_settings htp_hooks = {\n  relay_message_begincb,                     //http_cb      on_message_begin\n  relay_url_complete,       //http_data_cb on_url;\n  relay_status_completecb,  //http_cb on_status_complete \n  relay_header_fieldcb,     //http_data_cb on_header_field;\n  relay_header_valuecb,     //http_data_cb on_header_value;\n  relay_headers_completecb, //http_cb      on_headers_complete;\n  relay_bodycb,             //http_data_cb on_body;*/\n  relay_message_completecb  //http_cb      on_message_complete;\n};\n\n void * ResponseHandleRun(void* args) {\n  HttpTestListener* client = (HttpTestListener*)args;\n  char buf[4096] = {};\n  HttpTestListener* handler = (HttpTestListener*)args;\n  int fd_client = 0;\n  socklen_t len_client = sizeof(sockaddr_in);  \n  sockaddr_in addr_client = {};\n  fd_client = accept(handler->fd_, (sockaddr*)&addr_client, &len_client);\n  http_parser_init_(handler->parser_, HTTP_REQUEST);\n  handler->parser_->data = client;\n  for(;;) {\n    int len = recv(fd_client, buf, sizeof(buf), 0);\n    if(len <= 0) {\n      break;\n    }\n    http_parser_execute_(client->parser_, &htp_hooks, buf, len);\n\n    if(handler->parser_->http_errno != 0 || handler->is_request_complete_) {\n      break;\n    }\n  }\n\n  if(handler->is_request_complete_) {\n    char write_buf[4096];\n    snprintf(write_buf, sizeof(write_buf), \"HTTP/1.1 %s\\r\\n\", get_status_string(handler->response_status_code_, 0));\n    write(fd_client, write_buf, strlen(write_buf));\n    for(std::map<std::string, std::string>::iterator it = handler->map_response_header_.begin();\n        it !=  handler->map_response_header_.end(); it++) {\n      snprintf(write_buf, sizeof(write_buf), \"%s: %s\\r\\n\", it->first.c_str(), it->second.c_str());\n      write(fd_client, write_buf, strlen(write_buf));\n    }\n    write(fd_client, \"\\r\\n\", 2);\n\n    if(client->response_body_.size() > 0) {\n      write(fd_client, client->response_body_.c_str(), client->response_body_.size());\n    }\n\n  }\nout:\n  close(handler->fd_);\n  close(fd_client);\n  return NULL;\n}\nHttpTestListener::HttpTestListener(int port) {\n  response_status_code_ = 200;\n  is_request_complete_ = false;\n  is_last_value_ = false;\n  this->local_port_ = port;\n  this->parser_ = (http_parser*)calloc(1, sizeof(http_parser));\n}\n\nHttpTestListener::~HttpTestListener() {\n  free(this->parser_);\n}\n\nstd::string HttpTestListener::GetRequestUrl() {\n  return this->request_url_;\n}\nstd::string HttpTestListener::GetRequestMethod() {\n  return this->request_method_;\n}\n\nstd::string HttpTestListener::GetRequestBody() {\n  return this->request_body_;\n}\n\nstd::string HttpTestListener::GetRequestPath() {\n\n}\nstd::map<std::string,std::string>& HttpTestListener::GetAllRequestQuery() {\n  return this->map_request_query_;\n}\nstd::map<std::string,std::string>& HttpTestListener::GetAllRequestHeader() {\n  return this->map_request_header_;\n}\n\nstd::string HttpTestListener::GetRequestQuery(std::string query_name) {\n  std::map<std::string, std::string>::iterator it = this->map_request_query_.find(query_name);\n  if(it == this->map_request_query_.end()) {\n    return \"\";\n  } else {\n    return it->second;\n  }\n}\nstd::string HttpTestListener::GetRequestHeader(std::string field) {\n  std::map<std::string, std::string>::iterator it = this->map_request_header_.find(field);\n  if(it == this->map_request_header_.end()) {\n    return \"\";\n  } else {\n    return it->second;\n  }\n}\nvoid HttpTestListener::SetResponseStatus(int status) {\n  this->response_status_code_ = status;\n}\nvoid HttpTestListener::AddResponseHeader(std::string field, std::string value) {\n  this->map_response_header_[field] = value;\n}\nvoid HttpTestListener::SetResponseBody(std::string body) {\n  this->response_body_ = body;\n}\nint HttpTestListener::Start() {\n  sockaddr_in addr = {};\n  fd_ = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);\n  addr.sin_addr.s_addr = inet_addr(\"127.0.0.1\");\n  addr.sin_port = htons(local_port_);\n  addr.sin_family = AF_INET;\n  int opt=1;\n  setsockopt(fd_,SOL_SOCKET,SO_REUSEADDR,&opt,sizeof(opt));\n  if(bind(fd_, (struct sockaddr *)&addr, sizeof(sockaddr_in)) != 0) {\n    return -1;\n  }\n  if(listen(fd_, 5) != 0) {\n    return -1;\n  }\n\n  pthread_create(&thread_, NULL, ResponseHandleRun, this);\n\n  return 0;\n}\nvoid HttpTestListener::WaitComplete() {\n  pthread_join(thread_, NULL);\n}\n\n ",
+			"file": "test/http_test_listener.cc",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 10039,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 4628,
+				"line_ending": "Windows"
+			}
+		}
 	],
-	"build_varint": "",
+	"build_system": "",
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -552,8 +604,13 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/F/aliyun_generater/aliyun_api_core/lib"
+	],
 	"file_history":
 	[
+		"/G/aliyun_test_export2/CMakeLists.txt",
 		"/F/aliyun_generater_json/aliyun_generater_json/aliyun_api_core/ali_roa_request.cpp",
 		"/F/aliyun_generater_json/aliyun_generater_json/aliyun_api_core/ali_rpc_request.cc",
 		"/F/aliyun_generater_json/aliyun_generater_json/aliyun_api_core/test/test.cc",
@@ -680,8 +737,7 @@
 		"/F/libs.txt",
 		"/F/mobile/rd/SDK/NDK/trunk/libwspx/jni/libmtun/tcp/tcp_connection.h",
 		"/C/Users/Administrator/Desktop/wspx_debug.log",
-		"/C/Users/Administrator/Desktop/Config.pb.h",
-		"/F/mobile/rd/SDK/NDK/trunk/libwspx/jni/libmtun/spdy/spdy_wrapper.cc"
+		"/C/Users/Administrator/Desktop/Config.pb.h"
 	],
 	"find":
 	{
@@ -747,6 +803,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"ecs",
+			"response_body_",
+			"fd_",
 			"product_qingdao",
 			"cn-qingdao",
 			"product_shenzhen",
@@ -871,10 +930,7 @@
 			"detect result",
 			"current state=",
 			"scale_measure_free_connection",
-			"resp_reader_fini",
-			"current state=",
-			"error",
-			"event"
+			"resp_reader_fini"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -918,9 +974,208 @@
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "http/ali_http_request.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1614,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								754,
+								796
+							]
+						],
+						"settings":
+						{
+							"encoding_helper_encoding": "cp936",
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "http/ali_http_request.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10780,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4398,
+								4405
+							]
+						],
+						"settings":
+						{
+							"encoding_helper_encoding": "cp936",
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1764.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "test/http_test_listener.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1363,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"encoding_helper_encoding": "UTF-8",
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "test/test.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3624,
+								3624
+							]
+						],
+						"settings":
+						{
+							"encoding_helper_encoding": "UTF-8",
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3680.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "test/http_test_listener.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10039,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7578,
+								7578
+							]
+						],
+						"settings":
+						{
+							"encoding_helper_encoding": "UTF-8",
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4524.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4628,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4327,
+								4327
+							]
+						],
+						"settings":
+						{
+							"encoding_helper_encoding": "cp936",
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1620.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
 	"incremental_find":
 	{
 		"height": 26.0
@@ -956,7 +1211,7 @@
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "",
+	"project": "core.sublime-project",
 	"replace":
 	{
 		"height": 62.0
@@ -965,7 +1220,6 @@
 	"select_file":
 	{
 		"height": 0.0,
-		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -1486,7 +1740,6 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "tr",
 		"selected_items":
 		[
 			[
@@ -1499,7 +1752,6 @@
 	"select_symbol":
 	{
 		"height": 0.0,
-		"last_filter": "",
 		"selected_items":
 		[
 		],

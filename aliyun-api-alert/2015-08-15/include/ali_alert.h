@@ -1,6 +1,8 @@
 #ifndef ALI_ALERTH
 #define ALI_ALERTH
 #include <string>
+#include <string.h>
+#include <stdlib.h>
 #include "ali_alert_batch_query_project_types.h"
 #include "ali_alert_create_alert_types.h"
 #include "ali_alert_create_contact_types.h"
@@ -53,6 +55,15 @@
 #include "ali_alert_update_level_channel_types.h"
 #include "ali_alert_update_log_hub_metric_types.h"
 #include "ali_alert_update_project_types.h"
+#ifdef WIN32
+ #ifdef aliyun_api_alert_2015_08_15_EXPORTS
+ #define ALIYUN_API_ALERT_2015_08_15_DLL_EXPORT_IMPORT __declspec(dllexport)
+ #else
+ #define ALIYUN_API_ALERT_2015_08_15_DLL_EXPORT_IMPORT 
+ #endif
+#else
+#define ALIYUN_API_ALERT_2015_08_15_DLL_EXPORT_IMPORT
+#endif
 namespace aliyun {
 struct AlertErrorInfo {
   std::string request_id;
@@ -60,21 +71,23 @@ struct AlertErrorInfo {
   std::string message;
   std::string host_id;
 };
-class Alert {
+class ALIYUN_API_ALERT_2015_08_15_DLL_EXPORT_IMPORT Alert {
 public:
   static Alert* CreateAlertClient(std::string endpoint, std::string appid, std::string secret);
+  ~Alert();
 private:
-  Alert(std::string host, std::string appid, std::string secret) : 
-  appid_(appid),
-  secret_(secret),
-  version_("2015-08-15"),
-  use_tls_(false),
-  support_tls_(false),
-  host_(host) {}
+  Alert(std::string host, std::string appid, std::string secret);
 public:
   void SetUseTls(bool use_tls = true) {  if(support_tls_) use_tls_ = use_tls;  }
   bool GetUseTls() {  return use_tls_;  }
   bool GetSupportTls() {  return support_tls_;  }
+  void SetProxyHost(std::string proxy_host) {
+    if(this->proxy_host_) {
+      free(this->proxy_host_);
+    }
+    this->proxy_host_ = strdup(proxy_host.c_str());
+  }
+  std::string GetProxyHost() {  return this->proxy_host_;  }
   int BatchQueryProject(const AlertBatchQueryProjectRequestType& req,
           AlertBatchQueryProjectResponseType* resp,
           AlertErrorInfo* error_info);
@@ -284,11 +297,12 @@ public:
           AlertErrorInfo* error_info);
 
 private:
-  const std::string appid_;
-  const std::string secret_;
-  const std::string version_;
-  const std::string host_;
-  const bool support_tls_;
+  char* appid_;
+  char* secret_;
+  char* version_;
+  char* host_;
+  char* proxy_host_;
+  bool support_tls_;
   bool use_tls_;
 };  //end class
 } // end namespace
