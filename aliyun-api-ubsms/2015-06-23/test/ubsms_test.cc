@@ -18,7 +18,7 @@ static const char* test_describe_business_status_response = "{"
 "      }"
 "    ]"
 "  },"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_describe_business_status() {
   UbsmsDescribeBusinessStatusRequestType req;
@@ -38,7 +38,7 @@ static int test_describe_business_status() {
   delete ubsms;
 }
 static const char* test_notify_user_business_command_response = "{"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_notify_user_business_command() {
   UbsmsNotifyUserBusinessCommandRequestType req;
@@ -63,7 +63,7 @@ static int test_notify_user_business_command() {
   delete ubsms;
 }
 static const char* test_set_user_business_status_response = "{"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_set_user_business_status() {
   UbsmsSetUserBusinessStatusRequestType req;
@@ -85,7 +85,7 @@ static int test_set_user_business_status() {
   delete ubsms;
 }
 static const char* test_set_user_business_statuses_response = "{"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_set_user_business_statuses() {
   UbsmsSetUserBusinessStatusesRequestType req;

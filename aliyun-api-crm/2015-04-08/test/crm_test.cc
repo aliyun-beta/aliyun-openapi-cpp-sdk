@@ -24,7 +24,7 @@ static int test_add_label() {
   delete crm;
 }
 static const char* test_check_label_response = "{"
-"  \"Result\": 0"
+"  \"Result\": true"
 "}";
 static int test_check_label() {
   CrmCheckLabelRequestType req;
@@ -74,7 +74,7 @@ static const char* test_query_customer_label_response = "{"
 "      }"
 "    ]"
 "  },"
-"  \"Success\": 0,"
+"  \"Success\": true,"
 "  \"Code\": \"Code\","
 "  \"Message\": \"Message\""
 "}";

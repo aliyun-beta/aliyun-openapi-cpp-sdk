@@ -479,8 +479,8 @@ static const char* test_describe_user_info_response = "{"
 "    \"EcsBought\": 0,"
 "    \"KVSBought\": 0"
 "  },"
-"  \"IsAuthentication\": 0,"
-"  \"IsFinance\": 0,"
+"  \"IsAuthentication\": true,"
+"  \"IsFinance\": true,"
 "  \"BalanceAmount\": 0"
 "}";
 static int test_describe_user_info() {

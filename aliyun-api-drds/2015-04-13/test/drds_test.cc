@@ -42,7 +42,7 @@ static int test_cancel_dd_ltask() {
   delete drds;
 }
 static const char* test_create_drds_db_response = "{"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_create_drds_db() {
   DrdsCreateDrdsDBRequestType req;
@@ -73,7 +73,7 @@ static const char* test_create_drds_instance_response = "{"
 "    },"
 "    \"OrderId\": 0"
 "  },"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_create_drds_instance() {
   DrdsCreateDrdsInstanceRequestType req;
@@ -144,7 +144,7 @@ static int test_create_table() {
   delete drds;
 }
 static const char* test_delete_drds_db_response = "{"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_delete_drds_db() {
   DrdsDeleteDrdsDBRequestType req;
@@ -167,7 +167,7 @@ static const char* test_describe_create_drds_instance_status_response = "{"
 "  \"Data\": {"
 "    \"Status\": \"Status\""
 "  },"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_describe_create_drds_instance_status() {
   DrdsDescribeCreateDrdsInstanceStatusRequestType req;
@@ -225,7 +225,7 @@ static const char* test_describe_drds_db_response = "{"
 "    \"Msg\": \"Msg\","
 "    \"Mode\": \"Mode\""
 "  },"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_describe_drds_db() {
   DrdsDescribeDrdsDBRequestType req;
@@ -252,7 +252,7 @@ static const char* test_describe_drds_db_ip_white_list_response = "{"
 "      ]"
 "    }"
 "  },"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_describe_drds_db_ip_white_list() {
   DrdsDescribeDrdsDBIpWhiteListRequestType req;
@@ -283,7 +283,7 @@ static const char* test_describe_drds_dbs_response = "{"
 "      }"
 "    ]"
 "  },"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_describe_drds_dbs() {
   DrdsDescribeDrdsDBsRequestType req;
@@ -322,7 +322,7 @@ static const char* test_describe_drds_instance_response = "{"
 "    \"CreateTime\": 0,"
 "    \"Version\": 0"
 "  },"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_describe_drds_instance() {
   DrdsDescribeDrdsInstanceRequestType req;
@@ -365,7 +365,7 @@ static const char* test_describe_drds_instances_response = "{"
 "      }"
 "    ]"
 "  },"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_describe_drds_instances() {
   DrdsDescribeDrdsInstancesRequestType req;
@@ -462,7 +462,7 @@ static int test_list_un_complete_tasks() {
   delete drds;
 }
 static const char* test_modify_drds_db_passwd_response = "{"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_modify_drds_db_passwd() {
   DrdsModifyDrdsDBPasswdRequestType req;
@@ -483,7 +483,7 @@ static int test_modify_drds_db_passwd() {
   delete drds;
 }
 static const char* test_modify_drds_instance_description_response = "{"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_modify_drds_instance_description() {
   DrdsModifyDrdsInstanceDescriptionRequestType req;
@@ -503,7 +503,7 @@ static int test_modify_drds_instance_description() {
   delete drds;
 }
 static const char* test_modify_drds_ip_white_list_response = "{"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_modify_drds_ip_white_list() {
   DrdsModifyDrdsIpWhiteListRequestType req;
@@ -525,7 +525,7 @@ static int test_modify_drds_ip_white_list() {
   delete drds;
 }
 static const char* test_remove_drds_instance_response = "{"
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_remove_drds_instance() {
   DrdsRemoveDrdsInstanceRequestType req;

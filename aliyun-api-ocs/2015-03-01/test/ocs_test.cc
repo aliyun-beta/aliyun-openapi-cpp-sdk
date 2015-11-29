@@ -546,7 +546,7 @@ static int test_replace_authentic_ip() {
   delete ocs;
 }
 static const char* test_verify_password_response = "{"
-"  \"Result\": 0"
+"  \"Result\": true"
 "}";
 static int test_verify_password() {
   OcsVerifyPasswordRequestType req;

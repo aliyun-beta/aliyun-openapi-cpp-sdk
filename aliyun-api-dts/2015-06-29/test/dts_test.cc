@@ -2,7 +2,7 @@
 #include "http_test_listener.h"
 using namespace aliyun;
 static const char* test_drc_guid_route_api_response = "{"
-"  \"success\": 0,"
+"  \"success\": true,"
 "  \"data\": \"data\""
 "}";
 static int test_drc_guid_route_api() {

@@ -4,7 +4,7 @@ using namespace aliyun;
 static const char* test_create_oss_instance_response = "{"
 "  \"Code\": \"Code\","
 "  \"Message\": \"Message\","
-"  \"Success\": 0,"
+"  \"Success\": true,"
 "  \"aliUid\": 0,"
 "  \"instanceId\": \"instanceId\","
 "  \"instacneStatus\": \"instacneStatus\","
@@ -41,8 +41,8 @@ static const char* test_get_bucket_policy_response = "{"
 "      ]"
 "    }"
 "  },"
-"  \"DisallowEmptyRefer\": 0,"
-"  \"EnableDualCluster\": 0,"
+"  \"DisallowEmptyRefer\": true,"
+"  \"EnableDualCluster\": true,"
 "  \"ErrorFile\": \"ErrorFile\","
 "  \"IndexFile\": \"IndexFile\","
 "  \"Location\": \"Location\","
@@ -72,7 +72,7 @@ static int test_get_bucket_policy() {
 static const char* test_put_bucket_limit_response = "{"
 "  \"Code\": \"Code\","
 "  \"Message\": \"Message\","
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_put_bucket_limit() {
   OssAdminPutBucketLimitRequestType req;
@@ -96,7 +96,7 @@ static int test_put_bucket_limit() {
 static const char* test_put_bucket_policy_response = "{"
 "  \"Code\": \"Code\","
 "  \"Message\": \"Message\","
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_put_bucket_policy() {
   OssAdminPutBucketPolicyRequestType req;
@@ -129,7 +129,7 @@ static int test_put_bucket_policy() {
 static const char* test_put_bucket_status_response = "{"
 "  \"Code\": \"Code\","
 "  \"Message\": \"Message\","
-"  \"Success\": 0"
+"  \"Success\": true"
 "}";
 static int test_put_bucket_status() {
   OssAdminPutBucketStatusRequestType req;
