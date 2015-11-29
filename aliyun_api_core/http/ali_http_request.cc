@@ -238,7 +238,6 @@ int AliHttpRequest::AppendBody(std::string& body) {
 int AliHttpRequest::CommitRequestWithBody(const std::string& body) {
   // todo:check body size
   int ret = 0;
-  bool do_write = false;
 
   if(this->method_ == "POST") {
     this->AddRequestHeader("Content-Length", get_format_string("%d", body.size()));
@@ -246,7 +245,7 @@ int AliHttpRequest::CommitRequestWithBody(const std::string& body) {
   
   ret = this->CommitRequest();
 
-  if(do_write && body.size()) {
+  if(body.size()) {
     this->connection_->Send((char*)body.c_str(), body.size());
   }
   
