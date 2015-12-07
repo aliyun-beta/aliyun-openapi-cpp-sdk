@@ -1,6 +1,6 @@
 #include "ali_encode_utils.h"
 #include "ali_urlencode.h"
-#include "http_test_listener.h"
+#include "../http_test_listener.h"
 #include "ali_http_request.h"
 #include "../ali_roa_request.h"
 #include "../ali_rpc_request.h"
@@ -90,6 +90,12 @@ int http_get_test() {
   req->AddRequestHeader("User-Agent", "AliHttpRequest");
   req->CommitRequest();
   status_code = req->WaitResponseHeaderComplete();
+
+  if(status_code < 0) {
+    delete req;
+    ret = -1;
+    goto out;
+  }
   req->ReadResponseBody(response_body);
   delete req;
   listener->WaitComplete();

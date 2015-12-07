@@ -3,7 +3,7 @@
 #include "ali_api_core.h"
 namespace aliyun{
  OtsFinance* OtsFinance::CreateOtsFinanceClient(std::string endpoint, std::string appid, std::string secret) {
-    std::string host_name = AliGetEndpointHost(endpoint, "OtsFinance");
+    std::string host_name = AliGetEndpointHost(endpoint, "Ots");
     if(host_name.empty()) {
       return NULL;
     }

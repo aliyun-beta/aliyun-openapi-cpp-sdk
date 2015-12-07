@@ -3,7 +3,7 @@
 #include "ali_api_core.h"
 namespace aliyun{
  Aceops* Aceops::CreateAceopsClient(std::string endpoint, std::string appid, std::string secret) {
-    std::string host_name = AliGetEndpointHost(endpoint, "Aceops");
+    std::string host_name = AliGetEndpointHost(endpoint, "Ace");
     if(host_name.empty()) {
       return NULL;
     }

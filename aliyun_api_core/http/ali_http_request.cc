@@ -265,6 +265,10 @@ int AliHttpRequest::WaitResponseHeaderComplete() {
       break;
     }
     http_parser_execute_(parser_, &htp_hooks, Read_buf, last_Read);
+
+    if(parser_->http_errno != 0) {
+      return -1;
+    }
   } while(!is_response_header_complete);
   
   if(last_Read < 0) {

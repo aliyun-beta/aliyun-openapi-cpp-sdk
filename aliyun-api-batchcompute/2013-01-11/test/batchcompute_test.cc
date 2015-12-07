@@ -5,7 +5,7 @@ static const char* test_delete_image_response = "{}";
 static int test_delete_image() {
   BatchComputeDeleteImageRequestType req;
   BatchComputeDeleteImageResponseType resp;
-  BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-hangzhou", "my_appid", "my_secret");
+  BatchCompute* batchcompute = BatchCompute::CreateBatchComputeClient("cn-shenzhen", "my_appid", "my_secret");
   if(!batchcompute) return 0;
   batchcompute->SetProxyHost("127.0.0.1:12234");
   batchcompute->SetUseTls(false);
