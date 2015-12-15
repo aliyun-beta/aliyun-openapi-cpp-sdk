@@ -1,6 +1,6 @@
 # Aliyun-Open-Sdk for C++
 
-[![Build Status](https://drone.io/github.com/zcy421593/aliyun-openapi-cpp-sdk/status.png)](https://drone.io/github.com/zcy421593/aliyun-openapi-cpp-sdk/latest)
+[![Build Status](https://drone.io/github.com/aliyun-beta/aliyun-openapi-cpp-sdk/status.png)](https://drone.io/github.com/aliyun-beta/aliyun-openapi-cpp-sdk/latest)
 ### Introduction
 This is a c++ implement for aliyun open sdk.
 The meta data of functions is here: https://github.com/aliyun/openapi-meta.
